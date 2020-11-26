@@ -22,4 +22,12 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
     }
+
+    public class Potter
+    {
+        public decimal Calculate(List<int> countOfDifferentBooks)
+        {
+            return 0;
+        }
+    }
 }
