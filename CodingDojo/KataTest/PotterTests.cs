@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using KataPotter;
 using NUnit.Framework;
@@ -28,40 +29,15 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-        [Test]
-        public void Calculate_EmptyListWithCountOfDifferentBooks_Return0()
+        [TestCase(0, 0.00)]
+        [TestCase(1, 8.00)]
+        [TestCase(2, 16.00)]
+        [TestCase(3, 24.00)]
+        [TestCase(4, 32.00)]
+        [TestCase(10, 80.00)]
+        public void Calculate_ListWithCountOfSameBook_ReturnFullPrice(int countOfSameBooks, decimal fullPrice)
         {
-            this.ActAndAssert(0, 0m);
-        }
-        
-        [Test]
-        public void Calculate_ListWithCountOfOneBook_Return8()
-        {
-            this.ActAndAssert(1, 8m);
-        }
-        
-        [Test]
-        public void Calculate_ListWithCountOfTwoSameBook_Return16()
-        {
-            this.ActAndAssert(2, 16m);
-        }
-        
-        [Test]
-        public void Calculate_ListWithCountOfThreeSameBook_Return24()
-        {
-            this.ActAndAssert(3,24m);
-        }
-        
-        [Test]
-        public void Calculate_ListWithCountOfFourSameBook_Return32()
-        {
-            this.ActAndAssert(4, 32m);
-        }
-        
-        [Test]
-        public void Calculate_ListWithCountOfTenSameBook_Return80()
-        {
-            this.ActAndAssert(10, 80m);
+            this.ActAndAssert(countOfSameBooks, fullPrice);
         }
 
         [Test]
