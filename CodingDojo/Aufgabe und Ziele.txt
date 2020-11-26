@@ -6,9 +6,9 @@ Aufgabe
 - 2 Teams bilden â 3 Personen
 - Alle Entwickler schreiben auf was Ihnen bei den Kollegen auffällt was man besser machen kann.
 - TDD Zyklus
-	- Red, Commit
+	- Red, Commit, Push (Local => Server)
 	- Green, Commit
-	- Refactor, Commit, Push (Local => Server)
+	- Refactor, Commit
 
 1. Aufgabe Entwickler 1
 	- Termin im Teams machen (Team Mitglieder und mich einladen) für die Dauer des Dojo in den Termin wechseln
