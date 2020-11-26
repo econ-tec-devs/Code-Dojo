@@ -35,5 +35,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
+        [Test]
+        public void Calculate_ListWithCountOfTwoSameBook_Return16()
+        {
+            countOfDifferentBooks.Add(2);
+            var expected = 16m;
+            
+            decimal actual = target.Calculate(countOfDifferentBooks);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
