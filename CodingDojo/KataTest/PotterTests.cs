@@ -28,6 +28,7 @@ namespace KataTest
         {
             var target = new Potter();
             var countOfDifferentBooks = new List<int>();
+            countOfDifferentBooks.Add(1);
             var expected = 8m;
             
             decimal actual = target.Calculate(countOfDifferentBooks);
