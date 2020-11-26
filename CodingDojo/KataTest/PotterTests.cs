@@ -15,36 +15,29 @@ namespace KataTest
             countOfDifferentBooks = new List<int>();
         }
 
+        public void ActAndAssert(decimal expected, int countOfSameBooks)
+        {
+            countOfDifferentBooks.Add(countOfSameBooks);
+            var actual = target.Calculate(countOfDifferentBooks);
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
         [Test]
         public void Calculate_EmptyListWithCountOfDifferentBooks_Return0()
         {
-            var expected = 0m;
-            
-            decimal actual = target.Calculate(countOfDifferentBooks);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            this.ActAndAssert(0m, 0);
         }
         
         [Test]
         public void Calculate_ListWithCountOfOneBook_Return8()
         {
-            countOfDifferentBooks.Add(1);
-            var expected = 8m;
-            
-            decimal actual = target.Calculate(countOfDifferentBooks);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            this.ActAndAssert(8m, 1);
         }
         
         [Test]
         public void Calculate_ListWithCountOfTwoSameBook_Return16()
         {
-            countOfDifferentBooks.Add(2);
-            var expected = 16m;
-            
-            decimal actual = target.Calculate(countOfDifferentBooks);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            this.ActAndAssert(16m, 2);
         }
     }
 }

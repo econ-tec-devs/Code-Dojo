@@ -1,22 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace KataPotter
 {
     public class Potter
     {
+        private decimal bookPrice = 8;
+
         public decimal Calculate(List<int> countOfDifferentBooks)
         {
-            if (countOfDifferentBooks.SingleOrDefault() == 2)
-            {
-                return 16m;
-            }
-
-            if (countOfDifferentBooks.Count == 1)
-            {
-                return 8m;
-            }
-            return 0;
+            return countOfDifferentBooks.SingleOrDefault() * bookPrice;
         }
     }
 }
