@@ -6,16 +6,18 @@ namespace KataTest
 {
     public class PotterTests
     {
+        private Potter target;
+        private List<int> countOfDifferentBooks;
         [SetUp]
         public void Setup()
         {
+            target = new Potter();
+            countOfDifferentBooks = new List<int>();
         }
 
         [Test]
         public void Calculate_EmptyListWithCountOfDifferentBooks_Return0()
         {
-            var target = new Potter();
-            var countOfDifferentBooks = new List<int>();
             var expected = 0m;
             
             decimal actual = target.Calculate(countOfDifferentBooks);
@@ -26,8 +28,6 @@ namespace KataTest
         [Test]
         public void Calculate_ListWithCountOfOneBook_Return8()
         {
-            var target = new Potter();
-            var countOfDifferentBooks = new List<int>();
             countOfDifferentBooks.Add(1);
             var expected = 8m;
             
