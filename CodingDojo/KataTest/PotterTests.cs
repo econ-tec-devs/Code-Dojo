@@ -15,9 +15,15 @@ namespace KataTest
             countOfDifferentBooks = new List<int>();
         }
 
-        public void ActAndAssert(decimal expected, int countOfSameBooks)
+        public void ActAndAssert(int countOfSameBooks, decimal expected)
         {
             countOfDifferentBooks.Add(countOfSameBooks);
+            var actual = target.Calculate(countOfDifferentBooks);
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        public void ActAndAssert(List<int> countOfDifferentBooks, decimal expected)
+        {
             var actual = target.Calculate(countOfDifferentBooks);
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -25,19 +31,45 @@ namespace KataTest
         [Test]
         public void Calculate_EmptyListWithCountOfDifferentBooks_Return0()
         {
-            this.ActAndAssert(0m, 0);
+            this.ActAndAssert(0, 0m);
         }
         
         [Test]
         public void Calculate_ListWithCountOfOneBook_Return8()
         {
-            this.ActAndAssert(8m, 1);
+            this.ActAndAssert(1, 8m);
         }
         
         [Test]
         public void Calculate_ListWithCountOfTwoSameBook_Return16()
         {
-            this.ActAndAssert(16m, 2);
+            this.ActAndAssert(2, 16m);
+        }
+        
+        [Test]
+        public void Calculate_ListWithCountOfThreeSameBook_Return24()
+        {
+            this.ActAndAssert(3,24m);
+        }
+        
+        [Test]
+        public void Calculate_ListWithCountOfFourSameBook_Return32()
+        {
+            this.ActAndAssert(4, 32m);
+        }
+        
+        [Test]
+        public void Calculate_ListWithCountOfTenSameBook_Return80()
+        {
+            this.ActAndAssert(10, 80m);
+        }
+
+        [Test]
+        public void Calculate_ListWithZeroFirstBookAndTwoSecondBook_Return16()
+        {
+            countOfDifferentBooks.Add(0);
+            countOfDifferentBooks.Add(2);
+            this.ActAndAssert(countOfDifferentBooks, 16m);
         }
     }
 }
