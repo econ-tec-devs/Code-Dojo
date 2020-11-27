@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace KataPotter
 {
@@ -12,10 +11,10 @@ namespace KataPotter
         {
             if (countOfDifferentBooks.Count ==2)
             {
-                return countOfDifferentBooks.Last() * bookPrice;
+                return countOfDifferentBooks.Last() * SingleBookPrice;
             }
             
-            return countOfDifferentBooks.SingleOrDefault() * bookPrice;
+            return countOfDifferentBooks.SingleOrDefault() * SingleBookPrice;
         }
     }
 }

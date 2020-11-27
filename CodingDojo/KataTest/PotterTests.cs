@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using KataPotter;
 using NUnit.Framework;
@@ -9,6 +8,7 @@ namespace KataTest
     {
         private Potter target;
         private List<int> countOfDifferentBooks;
+
         [SetUp]
         public void Setup()
         {
