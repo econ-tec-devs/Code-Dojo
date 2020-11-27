@@ -49,11 +49,11 @@ namespace KataTest
         }
 
         [Test]
-        public void Calculate_ListWithZeroFirstBookAndThreeSecondBook_Return24()
+        public void Calculate_ListWithZeroFirstBookAndFiveSecondBook_Return40()
         {
             countOfDifferentBooks.Add(0);
-            countOfDifferentBooks.Add(3);
-            this.ActAndAssert(countOfDifferentBooks, 24m);
+            countOfDifferentBooks.Add(5);
+            this.ActAndAssert(countOfDifferentBooks, 40m);
         }
     }
 }
