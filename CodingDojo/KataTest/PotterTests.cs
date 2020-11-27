@@ -7,19 +7,19 @@ namespace KataTest
     public class PotterTests
     {
         private Potter target;
-        private List<int> countOfDifferentBooks;
+        private List<int> countOfDistinctBooks;
 
         [SetUp]
         public void Setup()
         {
             target = new Potter();
-            countOfDifferentBooks = new List<int>();
+            countOfDistinctBooks = new List<int>();
         }
 
         public void ActAndAssert(int countOfSameBooks, decimal expected)
         {
-            countOfDifferentBooks.Add(countOfSameBooks);
-            var actual = target.Calculate(countOfDifferentBooks);
+            countOfDistinctBooks.Add(countOfSameBooks);
+            var actual = target.Calculate(countOfDistinctBooks);
             Assert.That(actual, Is.EqualTo(expected));
         }
 
@@ -43,17 +43,17 @@ namespace KataTest
         [Test]
         public void Calculate_ListWithZeroFirstBookAndTwoSecondBook_Return16()
         {
-            countOfDifferentBooks.Add(0);
-            countOfDifferentBooks.Add(2);
-            this.ActAndAssert(countOfDifferentBooks, 16m);
+            countOfDistinctBooks.Add(0);
+            countOfDistinctBooks.Add(2);
+            this.ActAndAssert(countOfDistinctBooks, 16m);
         }
 
         [Test]
         public void Calculate_ListWithZeroFirstBookAndFiveSecondBook_Return40()
         {
-            countOfDifferentBooks.Add(0);
-            countOfDifferentBooks.Add(5);
-            this.ActAndAssert(countOfDifferentBooks, 40m);
+            countOfDistinctBooks.Add(0);
+            countOfDistinctBooks.Add(5);
+            this.ActAndAssert(countOfDistinctBooks, 40m);
         }
     }
 }
