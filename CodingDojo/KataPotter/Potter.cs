@@ -6,7 +6,7 @@ namespace KataPotter
 {
     public class Potter
     {
-        private decimal bookPrice = 8;
+        private const decimal SingleBookPrice = 8;
 
         public decimal Calculate(List<int> countOfDifferentBooks)
         {
@@ -14,7 +14,7 @@ namespace KataPotter
             {
                 return countOfDifferentBooks.Last() * bookPrice;
             }
-
+            
             return countOfDifferentBooks.SingleOrDefault() * bookPrice;
         }
     }
