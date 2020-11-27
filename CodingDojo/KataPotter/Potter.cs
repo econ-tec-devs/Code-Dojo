@@ -10,6 +10,11 @@ namespace KataPotter
 
         public decimal Calculate(List<int> countOfDifferentBooks)
         {
+            if (countOfDifferentBooks.Count ==2)
+            {
+                return countOfDifferentBooks.Last() * bookPrice;
+            }
+
             return countOfDifferentBooks.SingleOrDefault() * bookPrice;
         }
     }
