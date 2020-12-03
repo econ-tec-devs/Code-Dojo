@@ -16,7 +16,7 @@ namespace KataTest
 
             if (countOfSameBooks.Count == 2 && countOfSameBooks[0] == 0)
             {
-                return 8;
+                return priceOneBook * countOfSameBooks[1];
             }
 
             if (countOfSameBooks.Count == 2)
