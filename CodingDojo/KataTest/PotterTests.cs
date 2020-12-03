@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------
-// <copyright file="UnitTest1.cs" company="econ-tec GmbH">
+// <copyright file="PotterTests.cs" company="econ-tec GmbH">
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -10,9 +10,8 @@ namespace KataTest
 
     public class PotterTests
     {
-        private Potter target;
-
         private decimal priceOneBook = 8m;
+        private Potter target;
 
         [SetUp]
         public void Setup()
@@ -70,6 +69,15 @@ namespace KataTest
         {
             var countOfSameBooks = new List<int>() { 5 };
             var expected = priceOneBook * 5;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithOneAndAnotherNullBooks_Return8()
+        {
+            var countOfSameBooks = new List<int>() { 0, 1 };
+            var expected = priceOneBook * 1;
 
             ActAndAssert(countOfSameBooks, expected);
         }
