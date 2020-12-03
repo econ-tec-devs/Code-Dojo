@@ -15,7 +15,7 @@ namespace KataTest
         [SetUp]
         public void Setup()
         {
-            target = new Potter();
+            this.target = new Potter();
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace KataTest
             var countOfSameBooks = new List<int>();
             var expected = 0m;
 
-            var actual = target.Calculate(countOfSameBooks);
+            var actual = this.target.Calculate(countOfSameBooks);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -35,7 +35,18 @@ namespace KataTest
             var countOfSameBooks = new List<int>() { 1 };
             var expected = 8m;
 
-            var actual = target.Calculate(countOfSameBooks);
+            var actual = this.target.Calculate(countOfSameBooks);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Calculate_ListWithTwoSameBook_Return16()
+        {
+            var countOfSameBooks = new List<int>() { 2 };
+            var expected = 16m;
+
+            var actual = this.target.Calculate(countOfSameBooks);
 
             Assert.That(actual, Is.EqualTo(expected));
         }

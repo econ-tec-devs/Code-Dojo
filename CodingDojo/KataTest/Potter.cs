@@ -11,6 +11,11 @@ namespace KataTest
     {
         public decimal Calculate(List<int> countOfSameBooks)
         {
+            if (countOfSameBooks.Count != 0)
+            {
+                return 8;
+            }
+
             return 0;
         }
     }
