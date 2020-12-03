@@ -28,5 +28,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Calculate_ListWithOneSameBook_Return8()
+        {
+            var countOfSameBooks = new List<int>() { 1 };
+            var expected = 8m;
+
+            var actual = target.Calculate(countOfSameBooks);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
