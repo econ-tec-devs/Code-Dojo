@@ -39,10 +39,46 @@ namespace KataTest
         }
 
         [Test]
-        public void Calculate_ListWithTwoSameBook_Return16()
+        public void Calculate_ListWithTwoSameBooks_Return16()
         {
             var countOfSameBooks = new List<int>() { 2 };
             var expected = priceOneBook * 2;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithThreeSameBooks_Return24()
+        {
+            var countOfSameBooks = new List<int>() { 3 };
+            var expected = priceOneBook * 3;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithFourSameBooks_Return32()
+        {
+            var countOfSameBooks = new List<int>() { 4 };
+            var expected = priceOneBook * 4;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithTwoSameBooks_Return40()
+        {
+            var countOfSameBooks = new List<int>() { 5 };
+            var expected = priceOneBook * 5;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithTwoDifferentBooks_Return15_20()
+        {
+            var countOfSameBooks = new List<int>() { 1, 1 };
+            var expected = 15.2m;
 
             ActAndAssert(countOfSameBooks, expected);
         }
