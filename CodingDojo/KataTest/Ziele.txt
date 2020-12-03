@@ -1,0 +1,8 @@
+﻿Ziele:
+
+- Kata Potter im Dojo zu schaffen
+- Baby Steps
+- KISS
+- DRY
+- Frühzeitig zur refaktorisieren, aber vorsicht vor Optimierung ...
+- ...

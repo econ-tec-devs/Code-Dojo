@@ -10,9 +10,15 @@ namespace KataTest
         }
 
         [Test]
-        public void Test1()
+        public void Calculate_EmptyListWithCountOfSameBooks_Return0()
         {
-            Assert.Pass();
+            var target = new Potter();
+            var countOfSameBooks = new List<int>();
+            var expected = 0m;
+
+            decimal actual = target.Calculate(countOfSameBooks);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
