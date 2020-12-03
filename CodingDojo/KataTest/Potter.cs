@@ -13,7 +13,15 @@ namespace KataTest
         {
             if (countOfSameBooks.Count != 0)
             {
-                return 8;
+                if (countOfSameBooks[0] == 2)
+                {
+                    return 16;
+                }
+
+                if (countOfSameBooks.Count != 0)
+                {
+                    return 8;
+                }
             }
 
             return 0;
