@@ -6,3 +6,13 @@
 - DRY
 - Frühzeitig zur refaktorisieren, aber vorsicht vor Optimierung ...
 - ...
+
+
+Aufgabe
+- 2 Teams bilden
+- 1 Branches machen je Team
+  - KataPotter Team1
+  - KataPotter Team2
+- Team 1 bleibt im "Code Dojo" Meeting
+- Team 2 wechselt ins "Code Dojo Team 2" Meeting
+- ggf. Noch Mitglieder einladen
