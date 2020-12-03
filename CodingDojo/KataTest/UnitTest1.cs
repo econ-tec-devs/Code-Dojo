@@ -1,8 +1,14 @@
-using NUnit.Framework;
-
+// -----------------------------------------------------------------------
+// <copyright file="UnitTest1.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataTest
 {
-    public class Tests
+    using System.Collections.Generic;
+    using NUnit.Framework;
+
+    public class PotterTests
     {
         [SetUp]
         public void Setup()
@@ -16,9 +22,17 @@ namespace KataTest
             var countOfSameBooks = new List<int>();
             var expected = 0m;
 
-            decimal actual = target.Calculate(countOfSameBooks);
+            var actual = target.Calculate(countOfSameBooks);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+    }
+
+    public class Potter
+    {
+        public decimal Calculate(List<int> countOfSameBooks)
+        {
+            return 0;
         }
     }
 }
