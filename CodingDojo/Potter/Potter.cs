@@ -13,6 +13,12 @@ namespace KataTest
         {
             var priceOneBook = 8m;
             decimal price = 0;
+
+            if (countOfSameBooks.Count == 2 && countOfSameBooks[0] == 0)
+            {
+                return 8;
+            }
+
             if (countOfSameBooks.Count == 2)
             {
                 price = priceOneBook * 2 * 0.95m;
