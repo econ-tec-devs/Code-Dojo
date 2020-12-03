@@ -10,7 +10,7 @@ namespace KataTest
 
     public class PotterTests
     {
-        private decimal priceOneBook = 8m;
+        private readonly decimal priceOneBook = 8m;
         private Potter target;
 
         [SetUp]
@@ -25,61 +25,70 @@ namespace KataTest
             var countOfSameBooks = new List<int>();
             var expected = 0m;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithOneSameBook_Return8()
         {
             var countOfSameBooks = new List<int>() { 1 };
-            var expected = priceOneBook;
+            var expected = this.priceOneBook;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithTwoSameBooks_Return16()
         {
             var countOfSameBooks = new List<int>() { 2 };
-            var expected = priceOneBook * 2;
+            var expected = this.priceOneBook * 2;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithThreeSameBooks_Return24()
         {
             var countOfSameBooks = new List<int>() { 3 };
-            var expected = priceOneBook * 3;
+            var expected = this.priceOneBook * 3;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithFourSameBooks_Return32()
         {
             var countOfSameBooks = new List<int>() { 4 };
-            var expected = priceOneBook * 4;
+            var expected = this.priceOneBook * 4;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithTwoSameBooks_Return40()
         {
             var countOfSameBooks = new List<int>() { 5 };
-            var expected = priceOneBook * 5;
+            var expected = this.priceOneBook * 5;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
         public void Calculate_ListWithOneAndAnotherNullBooks_Return8()
         {
             var countOfSameBooks = new List<int>() { 0, 1 };
-            var expected = priceOneBook * 1;
+            var expected = this.priceOneBook * 1;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithTwoAndAnotherNullBooks_Return16()
+        {
+            var countOfSameBooks = new List<int>() { 0, 2 };
+            var expected = this.priceOneBook * 2;
+
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         [Test]
@@ -88,7 +97,7 @@ namespace KataTest
             var countOfSameBooks = new List<int>() { 1, 1 };
             var expected = 15.2m;
 
-            ActAndAssert(countOfSameBooks, expected);
+            this.ActAndAssert(countOfSameBooks, expected);
         }
 
         private void ActAndAssert(List<int> countOfSameBooks, decimal expected)
