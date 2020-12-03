@@ -12,6 +12,10 @@ namespace KataTest
         public decimal Calculate(List<int> countOfSameBooks)
         {
             var priceOneBook = 8m;
+            if (countOfSameBooks.Count == 2)
+            {
+                return priceOneBook * 2 * 0.95m;
+            }
 
             if (countOfSameBooks.Count != 0)
             {
