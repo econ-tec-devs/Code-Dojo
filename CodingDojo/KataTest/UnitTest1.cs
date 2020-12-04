@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace KataTest
@@ -19,6 +20,14 @@ namespace KataTest
             decimal actual = target.Calculate(countOfSameBooks);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+    }
+
+    public class Potter
+    {
+        public decimal Calculate(List<int> books)
+        {
+            return 0m;
         }
     }
 }
