@@ -79,6 +79,15 @@ namespace KataTest
             ActAndAssert(countOfSameBooks, expected);
         }
 
+        [Test]
+        public void Calculate_ListOneBookAndNoBook_Return8()
+        {
+            var countOfSameBooks = new List<int>() { 1, 0 };
+            var expected = 8m;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
         #endregion
 
         private void ActAndAssert(List<int> countOfSameBooks, decimal expected)
