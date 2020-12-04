@@ -14,12 +14,7 @@ namespace Kata
 
             if (filteredBooks.Count > 1)
             {
-                if (filteredBooks.First() == 2)
-                {
-                    return _singleBookPrice * filteredBooks.Count * _discount[filteredBooks.Count] * filteredBooks.First();
-                }
-
-                return _singleBookPrice * filteredBooks.Count * _discount[filteredBooks.Count];
+                return _singleBookPrice * filteredBooks.Count * _discount[filteredBooks.Count] * filteredBooks.First();
             }
             
             if (filteredBooks.Any())
