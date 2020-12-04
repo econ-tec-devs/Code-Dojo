@@ -44,10 +44,19 @@ namespace KataTest
         }
 
         [Test]
-        public void Calculate_ListWithTwoBook_Return24()
+        public void Calculate_ListWithThreeBook_Return24()
         {
             var countOfSameBooks = new List<int>() { 3 };
             var expected = 24m;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+
+        [Test]
+        public void Calculate_ListWithFourBook_Return32()
+        {
+            var countOfSameBooks = new List<int>() { 4 };
+            var expected = 32m;
 
             ActAndAssert(countOfSameBooks, expected);
         }
