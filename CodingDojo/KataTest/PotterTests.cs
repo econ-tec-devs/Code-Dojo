@@ -99,6 +99,19 @@ namespace KataTest
 
         #endregion
 
+        #region Different Books
+
+        [Test]
+        public void Calculate_TwoDifferntBooks_Return1520Cent()
+        {
+            var countOfSameBooks = new List<int>() { 1, 1 };
+            var expected = 15.2m;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
+        
+        #endregion
+
         private void ActAndAssert(List<int> countOfSameBooks, decimal expected)
         {
             decimal actual = _target.Calculate(countOfSameBooks);
