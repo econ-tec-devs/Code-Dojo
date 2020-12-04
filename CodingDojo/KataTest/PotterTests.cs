@@ -22,5 +22,17 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Calculate_ListWithOneBook_Return8()
+        {
+            var target = new Potter();
+            var countOfSameBooks = new List<int>() { 1 };
+            var expected = 8m;
+
+            decimal actual = target.Calculate(countOfSameBooks);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
