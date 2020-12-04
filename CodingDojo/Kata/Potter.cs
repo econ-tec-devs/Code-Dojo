@@ -6,6 +6,7 @@ namespace Kata
     public class Potter
     {
         private decimal _singleBookPrice = 8m;
+        private decimal _discountTwoBooks = 0.95m;
 
         public decimal Calculate(List<int> books)
         {
@@ -13,7 +14,7 @@ namespace Kata
 
             if (filteredBooks.Count == 2)
             {
-                return _singleBookPrice * filteredBooks.Count * 0.95m;
+                return _singleBookPrice * filteredBooks.Count * _discountTwoBooks;
             }
             
             if (filteredBooks.Any())

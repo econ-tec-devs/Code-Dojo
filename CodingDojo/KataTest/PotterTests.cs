@@ -109,6 +109,15 @@ namespace KataTest
 
             ActAndAssert(countOfSameBooks, expected);
         }
+
+        [Test]
+        public void Calculate_ThreeDifferntBooks_Return2160Cent()
+        {
+            var countOfSameBooks = new List<int>() { 1, 1, 1 };
+            var expected = 21.6m;
+
+            ActAndAssert(countOfSameBooks, expected);
+        }
         
         #endregion
 
