@@ -5,8 +5,8 @@ namespace Kata
 {
     public class Potter
     {
-        private decimal _singleBookPrice = 8m;
-        private decimal[] _discount = {0m, 1m, 0.95m, 0.9m, 0.8m, 0.75m};
+        private readonly decimal _singleBookPrice = 8m;
+        private readonly decimal[] _discount = {0m, 1m, 0.95m, 0.9m, 0.8m, 0.75m};
 
         public decimal Calculate(List<int> books)
         {
