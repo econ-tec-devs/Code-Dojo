@@ -177,6 +177,15 @@ namespace KataTest
             ActAndAssert(countOfSameBooks, expected);
         }
 
+        //[Test]
+        //public void Calculate_BundleOf3AndBundleOf5_Return5120Cent()
+        //{
+        //    var countOfSameBooks = new List<int>() { 2,2,2,1,1 };
+        //    var expected = 51.2m;
+
+        //    ActAndAssert(countOfSameBooks, expected);
+        //}
+
 
         #endregion
 

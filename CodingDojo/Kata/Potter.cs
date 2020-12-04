@@ -10,19 +10,31 @@ namespace Kata
 
         public decimal Calculate(List<int> books)
         {
+            var price = 0m;
             var filteredBooks = books.Where(x => x > 0).ToList();
 
-            if (filteredBooks.Count > 1)
+            while (filteredBooks.Any())
             {
-                return _singleBookPrice * filteredBooks.Count * _discount[filteredBooks.Count] * filteredBooks.First();
+                price += _singleBookPrice * filteredBooks.Count * _discount[filteredBooks.Count];
+                filteredBooks = RemoveBundle(filteredBooks, filteredBooks.Count);
             }
             
-            if (filteredBooks.Any())
+            return price;
+        }
+
+        private List<int> RemoveBundle(List<int> filteredBooks, int filteredBooksCount)
+        {
+            for (int index = 0; index < filteredBooksCount; index++)
             {
-                return _singleBookPrice * filteredBooks.First();
+                filteredBooks[index]--;
             }
 
-            return 0m;
+            return filteredBooks.Where(x => x > 0 ).ToList();
+        }
+
+        private static bool IsBundle(List<int> filteredBooks)
+        {
+            return filteredBooks.Count > 1;
         }
     }
 }
