@@ -7,7 +7,7 @@ namespace Kata
     {
         private decimal _singleBookPrice = 8m;
 
-        private decimal[] _discount = {0m, 1m, 0.95m, 0.9m, 0.8m};
+        private decimal[] _discount = {0m, 1m, 0.95m, 0.9m, 0.8m, 0.75m};
 
         private decimal _discountTwoBooks   = 0.95m;
         private decimal _discountThreeBooks = 0.9m;
