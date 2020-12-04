@@ -11,6 +11,11 @@ namespace Kata
         {
             var filteredBooks = books.Where(x => x > 0).ToList();
 
+            if (filteredBooks.Count == 2)
+            {
+                return _singleBookPrice * filteredBooks.Count * 0.95m;
+            }
+            
             if (filteredBooks.Any())
             {
                 return _singleBookPrice * filteredBooks.First();
