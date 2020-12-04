@@ -11,12 +11,7 @@ namespace Kata
         {
             if (books.Any())
             {
-                if (books.First() == 2)
-                {
-                    return _singleBookPrice * 2;
-                }
-
-                return _singleBookPrice;
+                return _singleBookPrice * books.First();
             }
 
             return 0m;
