@@ -9,14 +9,11 @@ namespace Kata
 
         public decimal Calculate(List<int> books)
         {
-            if (books.Any())
-            {
-                if (books.Count == 2)
-                {
-                    return _singleBookPrice * books.Last();
-                }
+            var filteredBooks = books.Where(x => x > 0).ToList();
 
-                return _singleBookPrice * books.First();
+            if (filteredBooks.Any())
+            {
+                return _singleBookPrice * filteredBooks.First();
             }
 
             return 0m;
