@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using KataSushi;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
-    public class Tests
+    public class SushiTests
     {
         [SetUp]
         public void Setup()
@@ -18,18 +19,11 @@ namespace KataTest
 
             var expected = 0;
 
+
             var actual = Sushi.CalculatePrice(dishes);
 
 
             Assert.That(actual,Is.EqualTo(expected));
-        }
-    }
-
-    public class Sushi
-    {
-        public static decimal CalculatePrice(Dictionary<string, int> dishes)
-        {
-            return 0;
         }
     }
 }
