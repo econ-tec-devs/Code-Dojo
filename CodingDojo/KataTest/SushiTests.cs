@@ -25,9 +25,7 @@ namespace KataTest
             var plates = new List<string> { };
             var expected = 0;
 
-            var actual = Sushi.GetPrice(plates);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(plates, expected);
         }
 
         [Test]
