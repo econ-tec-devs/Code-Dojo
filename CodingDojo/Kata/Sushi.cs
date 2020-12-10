@@ -16,7 +16,14 @@ namespace KataTest
                 return 0;
             }
 
+            var priceOneGreyPlate = 1.95m;
             var priceOneBluePlate = 0.95m;
+
+            if (plates.Contains("red"))
+            {
+                return priceOneGreyPlate * plates.Count;
+            }
+
             return priceOneBluePlate * plates.Count;
         }
     }
