@@ -10,9 +10,9 @@ namespace KataTest
 {
     public class Sushi
     {
-        public static int GetPrice(List<string> plates)
+        public static decimal GetPrice(List<string> plates)
         {
-            return 0;
+            return 0m;
         }
     }
 }
