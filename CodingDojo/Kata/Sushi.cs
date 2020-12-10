@@ -3,20 +3,24 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-
 namespace KataTest
 {
+    using System.Collections.Generic;
+
     public class Sushi
     {
-
         public static decimal GetPrice(List<string> plates)
         {
-            if (plates?.Count >=1)
+            if (plates?.Count == 2)
+            {
+                return 0.95m * 2;
+            }
+
+            if (plates?.Count >= 1)
             {
                 return 0.95m;
             }
+
             return 0m;
         }
     }
