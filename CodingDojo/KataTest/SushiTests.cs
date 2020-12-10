@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using KataSushi;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
