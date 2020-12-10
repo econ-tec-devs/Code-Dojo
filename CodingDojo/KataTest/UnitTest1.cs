@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
@@ -21,6 +22,14 @@ namespace KataTest
 
 
             Assert.That(actual,Is.EqualTo(expected));
+        }
+    }
+
+    public class Sushi
+    {
+        public static decimal CalculatePrice(Dictionary<string, int> dishes)
+        {
+            return 0;
         }
     }
 }
