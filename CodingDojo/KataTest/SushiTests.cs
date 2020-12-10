@@ -6,38 +6,35 @@ namespace KataTest
 {
     public class SushiTests
     {
+        private Dictionary<string, int> dishes;
+
         [SetUp]
         public void Setup()
         {
+            dishes = new Dictionary<string, int>();
         }
 
         [Test]
         public void CalculatePrice_NoDish_ReturnFullPrice()
         {
-            var dishes = new Dictionary<string, int>();
-
             var expected = 0;
-
-
-            var actual = Sushi.CalculatePrice(dishes);
-
-
-            Assert.That(actual,Is.EqualTo(expected));
+            
+            ActAndAssert(dishes, expected);
         } 
         
         [Test]
         public void CalculatePrice_OneBlueDish_Return095()
         {
-            var dishes = new Dictionary<string, int>();
-            dishes.Add("blue", 1);
-
+            this.dishes.Add("blue", 1);
             var expected = 0.95m;
+            
+            ActAndAssert(dishes, expected);
+        }
 
-
+        private void ActAndAssert(Dictionary<string, int> dictionary, decimal expected)
+        {
             var actual = Sushi.CalculatePrice(dishes);
-
-
-            Assert.That(actual,Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
