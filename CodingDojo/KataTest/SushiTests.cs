@@ -30,6 +30,15 @@ namespace KataTest
             
             ActAndAssert(dishes, expected);
         }
+        
+        [Test]
+        public void CalculatePrice_TwoBlueDish_Return190()
+        {
+            this.dishes.Add("blue", 2);
+            var expected = 1.90m;
+            
+            ActAndAssert(dishes, expected);
+        }
 
         private void ActAndAssert(Dictionary<string, int> dictionary, decimal expected)
         {
