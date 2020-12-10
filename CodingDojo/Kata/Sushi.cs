@@ -10,8 +10,13 @@ namespace KataTest
 {
     public class Sushi
     {
+
         public static decimal GetPrice(List<string> plates)
         {
+            if (plates?.Count >=1)
+            {
+                return 0.95m;
+            }
             return 0m;
         }
     }
