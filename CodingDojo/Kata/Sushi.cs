@@ -13,12 +13,12 @@ namespace KataTest
         {
             if (plates?.Count == 2)
             {
-                return 0.95m * 2;
+                return 0.95m * plates.Count;
             }
 
-            if (plates?.Count >= 1)
+            if (plates?.Count == 1)
             {
-                return 0.95m;
+                return 0.95m * plates.Count;
             }
 
             return 0m;
