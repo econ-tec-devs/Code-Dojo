@@ -11,7 +11,7 @@ namespace KataTest
     public class SushiTests
     {
         [Test]
-        public void GetPrice_InputPlates_Return0()
+        public void GetPrice_InputNullPlate_Return0()
         {
             List<string> plates = null;
             var expected = 0m;
