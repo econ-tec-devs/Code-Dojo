@@ -57,6 +57,33 @@ namespace KataTest
             ActAndAssert(plates, expected);
         }
 
+        [Test]
+        public void GetPrice_InputFourBluePlate_Return380()
+        {
+            var plates = new List<string> { "blue", "blue", "blue", "blue" };
+            var expected = 0.95m * 4;
+
+            ActAndAssert(plates, expected);
+        }
+
+        [Test]
+        public void GetPrice_InputFiveBluePlate_Return475()
+        {
+            var plates = new List<string> { "blue", "blue", "blue", "blue", "blue" };
+            var expected = 0.95m * 5;
+
+            ActAndAssert(plates, expected);
+        }
+
+        [Test]
+        public void GetPrice_InputOneRedPlate_Return195()
+        {
+            var plates = new List<string> { "red" };
+            var expected = 1.95m * 1;
+
+            ActAndAssert(plates, expected);
+        }
+
         private static void ActAndAssert(List<string> plates, decimal expected)
         {
             var actual = Sushi.GetPrice(plates);
