@@ -76,10 +76,19 @@ namespace KataTest
         }
 
         [Test]
-        public void GetPrice_InputOneRedPlate_Return195()
+        public void GetPrice_InputThreeRedPlate_Return585()
         {
-            var plates = new List<string> { "red" };
-            var expected = 1.95m * 1;
+            var plates = new List<string> { "red", "red", "red" };
+            var expected = 1.95m * 3;
+
+            ActAndAssert(plates, expected);
+        }
+
+        [Test]
+        public void GetPrice_InputThreeYellowPlate_Return885()
+        {
+            var plates = new List<string> { "Yellow", "Yellow", "Yellow" };
+            var expected = 2.95m * 3;
 
             ActAndAssert(plates, expected);
         }
