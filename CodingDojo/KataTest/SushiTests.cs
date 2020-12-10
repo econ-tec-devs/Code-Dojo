@@ -46,7 +46,18 @@ namespace KataTest
         public void GetPrice_InputTwoBluePlate_Return190()
         {
             var plates = new List<string> { "blue", "blue" };
-            var expected = 0.95m *2;
+            var expected = 0.95m * 2;
+
+            var actual = Sushi.GetPrice(plates);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void GetPrice_InputThreeBluePlate_Return285()
+        {
+            var plates = new List<string> { "blue", "blue", "blue" };
+            var expected = 0.95m * 3;
 
             var actual = Sushi.GetPrice(plates);
 
