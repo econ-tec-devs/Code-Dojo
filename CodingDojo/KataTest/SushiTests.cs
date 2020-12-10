@@ -13,11 +13,10 @@ namespace KataTest
         [Test]
         public void GetPrice_InputPlates_Return0()
         {
+            List<string> plates = null;
             var expected = 0m;
 
-            var actual = Sushi.GetPrice(null);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(plates, expected);
         }
 
         [Test]
@@ -37,9 +36,7 @@ namespace KataTest
             var plates = new List<string> { "blue" };
             var expected = 0.95m;
 
-            var actual = Sushi.GetPrice(plates);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(plates, expected);
         }
 
         [Test]
@@ -48,9 +45,7 @@ namespace KataTest
             var plates = new List<string> { "blue", "blue" };
             var expected = 0.95m * 2;
 
-            var actual = Sushi.GetPrice(plates);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(plates, expected);
         }
 
         [Test]
@@ -59,6 +54,11 @@ namespace KataTest
             var plates = new List<string> { "blue", "blue", "blue" };
             var expected = 0.95m * 3;
 
+            ActAndAssert(plates, expected);
+        }
+
+        private static void ActAndAssert(List<string> plates, decimal expected)
+        {
             var actual = Sushi.GetPrice(plates);
 
             Assert.That(actual, Is.EqualTo(expected));

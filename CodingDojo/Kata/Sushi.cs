@@ -11,22 +11,13 @@ namespace KataTest
     {
         public static decimal GetPrice(List<string> plates)
         {
-            if (plates?.Count == 3)
+            if (plates == null)
             {
-                return 0.95m * plates.Count;
+                return 0;
             }
 
-            if (plates?.Count == 2)
-            {
-                return 0.95m * plates.Count;
-            }
-
-            if (plates?.Count == 1)
-            {
-                return 0.95m * plates.Count;
-            }
-
-            return 0m;
+            var priceOneBluePlate = 0.95m;
+            return priceOneBluePlate * plates.Count;
         }
     }
 }
