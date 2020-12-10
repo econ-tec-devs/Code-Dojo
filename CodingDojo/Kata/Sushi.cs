@@ -11,6 +11,11 @@ namespace KataTest
     {
         public static decimal GetPrice(List<string> plates)
         {
+            if (plates?.Count == 3)
+            {
+                return 0.95m * plates.Count;
+            }
+
             if (plates?.Count == 2)
             {
                 return 0.95m * plates.Count;
