@@ -50,11 +50,43 @@ namespace KataTest
         }
         
         [Test]
-        public void CalculatePrice_OneRedDish_Return()
+        public void CalculatePrice_OneRedDish_Return195()
         {
             this.dishes.Add("red", 1);
             var expected = 1.95m;
             
+            ActAndAssert(dishes, expected);
+        }
+
+        [Test]
+        public void CalculatePrice_TwoRedDish_Return390()
+        {
+            this.dishes.Add("red", 2);
+            var expected = 1.95m * 2;
+
+            ActAndAssert(dishes, expected);
+        }
+
+        [Test]
+        public void CalculatePrice_OneBlueDishAndOneRedDish_Return290()
+        {
+            this.dishes.Add("blue", 1);
+            this.dishes.Add("red", 1);
+            var expected = 0.95m + 1.95m;
+
+            ActAndAssert(dishes, expected);
+        }
+
+        [Test]
+        public void CalculatePrice_OneOfEachDish_Return1475()
+        {
+            this.dishes.Add("blue", 1);
+            this.dishes.Add("red", 1);
+            this.dishes.Add("yellow", 1);
+            this.dishes.Add("green", 1);
+            this.dishes.Add("grey", 1);
+            var expected = 0.95m + 1.95m + 2.95m +3.95m + 4.95m;
+
             ActAndAssert(dishes, expected);
         }
 
