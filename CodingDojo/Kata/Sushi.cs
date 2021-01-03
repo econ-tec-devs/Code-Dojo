@@ -27,35 +27,47 @@ namespace KataTest
 
             if (plates.Contains("red"))
             {
-                var red = plates.Where(x => x == "red").ToList();
-                price += priceOneRedPlate * red.Count;
+                return GetCalculatePrice(plates, priceOneRedPlate, "red");
             }
 
             if (plates.Contains("gray"))
             {
-                var gray = plates.Where(x => x == "gray").ToList();
-                price += priceOneGreyPlate * gray.Count;
-
-                //return priceOneGreyPlate * gray.Count;
+                //var gray = plates.Where(x => x == "gray").ToList();
+                //price += priceOneGreyPlate * gray.Count;
+                return GetCalculatePrice(plates, priceOneGreyPlate, "gray");
             }
 
             if (plates.Contains("yellow"))
             {
-                var yellow = plates.Where(x => x == "yellow").ToList();
-                price += priceOneYellowPlate * yellow.Count;
+                return GetCalculatePrice(plates, priceOneYellowPlate, "yellow");
 
-                //return priceOneYellowPlate * yellow.Count;
+                //var yellow = plates.Where(x => x == "yellow").ToList();
+                //price += priceOneYellowPlate * yellow.Count;
             }
 
             if (plates.Contains("blue"))
             {
-                var blue = plates.Where(x => x == "blue").ToList();
-                price += priceOneBluePlate * blue.Count;
+                return GetCalculatePrice(plates, priceOneBluePlate, "blue");
 
-                //return priceOneBluePlate * blue.Count;
+                //var blue = plates.Where(x => x == "blue").ToList();
+                //price += priceOneBluePlate * blue.Count;
             }
 
-            //return priceOneBluePlate * plates.Count;
+            if (plates.Contains("green"))
+            {
+                return GetCalculatePrice(plates, priceOneGreenPlate, "green");
+
+                //var blue = plates.Where(x => x == "blue").ToList();
+                //price += priceOneBluePlate * blue.Count;
+            }
+
+            return price;
+        }
+
+        private static decimal GetCalculatePrice(List<string> plates, decimal priceOneRedPlate, string color)
+        {
+            var red = plates.Where(x => x == color).ToList();
+            price += priceOneRedPlate * red.Count;
             return price;
         }
     }
