@@ -87,7 +87,7 @@ namespace KataTest
         [Test]
         public void GetPrice_InputThreeYellowPlate_Return885()
         {
-            var plates = new List<string> { "Yellow", "Yellow", "Yellow" };
+            var plates = new List<string> { "yellow", "yellow", "yellow" };
             var expected = 2.95m * 3;
 
             ActAndAssert(plates, expected);
