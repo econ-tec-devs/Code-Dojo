@@ -10,9 +10,13 @@ namespace KataTest
         }
 
         [Test]
-        public void Test1()
+        public void CalculatePrice_InputZeroDish_ReturnPrice()
         {
-            Assert.Pass();
+            var actual = Sushi.CalculatePrice();
+
+            var expected = 0m;
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
