@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
-    public class Tests
+    public class SushiTests
     {
         [SetUp]
         public void Setup()
@@ -12,7 +11,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Calculate_NoDish_ReturnNothing()
+        public void CalculateFullPrice_NoDish_ReturnNothing()
         {
             Dictionary<string, int> dishes = new Dictionary<string, int>();
             var expected = 0;
@@ -20,14 +19,6 @@ namespace KataTest
             var actual = Sushi.CalculateFullPrice(dishes);
 
             Assert.That(actual, Is.EqualTo(expected));
-        }
-    }
-
-    public class Sushi
-    {
-        public static decimal CalculateFullPrice(Dictionary<string, int> dishes)
-        {
-            return 0m;
         }
     }
 }
