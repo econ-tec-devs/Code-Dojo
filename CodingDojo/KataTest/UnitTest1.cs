@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace KataTest
@@ -10,9 +11,14 @@ namespace KataTest
         }
 
         [Test]
-        public void Test1()
+        public void Calculate_NoDish_ReturnNothing()
         {
-            Assert.Pass();
+            Dictionary<string, int> dishes = new Dictionary<string, int>();
+            var expected = 0;
+            
+            var actual = Sushi.CalculateFullPrice(dishes);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
