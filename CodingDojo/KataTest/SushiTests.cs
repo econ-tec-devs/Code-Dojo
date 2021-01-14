@@ -32,5 +32,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
+        [Test]
+        public void CalculateFullPrice_TwoBlueDish_Return190()
+        {
+            dishes.Add("blue", 2);
+            var expected = 1.90m;
+            
+            var actual = Sushi.CalculateFullPrice(dishes);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
