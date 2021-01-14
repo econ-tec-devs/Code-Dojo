@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using KataSushii;
+
 namespace KataTest
 {
     using System.Collections.Generic;
@@ -20,9 +23,7 @@ namespace KataTest
         {
             var expected = 0m;
 
-            var actual = Sushi.CalculatePrice(new List<string>());
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(new List<string>(), expected);
         }
 
         [Test]
@@ -31,6 +32,20 @@ namespace KataTest
             var plates = new List<string>() { "blue" };
             var expected = 0.95m;
 
+            ActAndAssert(plates, expected);
+        }
+        
+        [Test]
+        public void CalculatePrice_InputTwoBluePlate_Return190()
+        {
+            var plates = new List<string> {"blue", "blue"};
+            var expected = 1.90m;
+
+            ActAndAssert(plates, expected);
+        }
+
+        private static void ActAndAssert(List<string> plates, decimal expected)
+        {
             var actual = Sushi.CalculatePrice(plates);
 
             Assert.That(actual, Is.EqualTo(expected));
