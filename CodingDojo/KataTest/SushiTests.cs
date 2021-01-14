@@ -5,15 +5,16 @@ namespace KataTest
 {
     public class SushiTests
     {
+        private Dictionary<string, int> dishes;
         [SetUp]
         public void Setup()
         {
+            dishes = new Dictionary<string, int>();
         }
 
         [Test]
         public void CalculateFullPrice_NoDish_ReturnNothing()
         {
-            Dictionary<string, int> dishes = new Dictionary<string, int>();
             var expected = 0;
             
             var actual = Sushi.CalculateFullPrice(dishes);
@@ -24,7 +25,7 @@ namespace KataTest
         [Test]
         public void CalculateFullPrice_OneBlueDish_Return095()
         {
-            Dictionary<string, int> dishes = new Dictionary<string, int>() { {"blue", 1} };
+            dishes.Add("blue", 1);
             var expected = 0.95m;
             
             var actual = Sushi.CalculateFullPrice(dishes);
