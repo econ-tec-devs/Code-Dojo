@@ -18,6 +18,7 @@ Ziele:
 - DRY
 - Zeitnah refaktorisieren
 - TimeBox: 4min
-- Kein Maus
+- Kein Maus => Shortcuts
 - Fensterlayout: Test Explorer, Test Code, Prod Code (gleichzeitig)
 - Prod Projekt
+- 
