@@ -2,25 +2,21 @@
 
 Dev 1:
 
-- Branch: "develop_Sushi_TeamX_20201210"
+- Branch: "develop_Sushi_TeamX_20210114"
+- Schreibt den 1. Test: rot
 
 Dev 2:
 
-- Schreibt den 1. Test
-
-Dev 3:
-
-- Test Grün
-- Refacktoren
+- Code lauffähig machen: grün
+- Refaktorisieren: grün
 - Neuen Test: rot
 
 Dev x:
-goto 3
+goto 2
 
 Ziele:
 - DRY
-- Zeitnah refactoren
-- min 2 rote test
+- Zeitnah refaktorisieren
 - TimeBox: 4min
 - Kein Maus
 - Fensterlayout: Test Explorer, Test Code, Prod Code (gleichzeitig)
