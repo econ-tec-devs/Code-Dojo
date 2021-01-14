@@ -3,29 +3,36 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-using System.Linq;
-
 namespace KataSushii
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Sushi
     {
         private static decimal priceBlue = 0.95m;
+        private static decimal priceRed = 1.95m;
 
         public static decimal CalculatePrice(Dictionary<string, int> plates)
         {
+            var price = 0m;
             if (plates.Any())
             {
                 foreach (var pair in plates)
                 {
                     if (pair.Key == "blue")
                     {
-                        return pair.Value * priceBlue;
+                        price += pair.Value * priceBlue;
+                    }
+
+                    if (pair.Key == "red")
+                    {
+                        price += pair.Value * priceRed;
                     }
                 }
             }
-            return 0m;
+
+            return price;
         }
     }
 }
