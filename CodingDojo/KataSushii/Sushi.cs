@@ -11,12 +11,19 @@ namespace KataSushii
 {
     public class Sushi
     {
-        public static decimal CalculatePrice(List<string> plates)
+        private static decimal priceBlue = 0.95m;
+
+        public static decimal CalculatePrice(Dictionary<string, int> plates)
         {
             if (plates.Any())
             {
-                return 0.95m;
-
+                foreach (var pair in plates)
+                {
+                    if (pair.Key == "blue")
+                    {
+                        return pair.Value * priceBlue;
+                    }
+                }
             }
             return 0m;
         }
