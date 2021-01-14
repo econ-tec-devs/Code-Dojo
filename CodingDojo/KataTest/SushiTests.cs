@@ -3,12 +3,10 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using KataSushii;
-
 namespace KataTest
 {
     using System.Collections.Generic;
+    using KataSushii;
     using NUnit.Framework;
 
     public class Tests
@@ -37,7 +35,7 @@ namespace KataTest
 
             ActAndAssert(plates, expected);
         }
-        
+
         [Test]
         public void CalculatePrice_InputTwoBluePlate_Return190()
         {
@@ -72,6 +70,17 @@ namespace KataTest
             plates.Add("blue", 1);
             plates.Add("red", 1);
             var expected = 2.90m;
+
+            ActAndAssert(plates, expected);
+        }
+
+        [Test]
+        public void CalculatePrice_Input1BlueRedYellowPlates_Return585()
+        {
+            plates.Add("blue", 1);
+            plates.Add("red", 1);
+            plates.Add("yellow", 1);
+            var expected = 5.85m;
 
             ActAndAssert(plates, expected);
         }
