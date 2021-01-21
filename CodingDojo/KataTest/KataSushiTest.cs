@@ -5,15 +5,17 @@ namespace KataTest
 {
     public class KataSushiTest
     {
+        private List<DishColor> basket ;
+
         [SetUp]
         public void Setup()
         {
+            basket = new List<DishColor>();
         }
 
         [Test]
         public void Calculate_EmptyBasket_Return0()
-        {
-            var basket = new List<DishColor>();
+        { 
             var expected = 0m;
 
             decimal actual = Sushi.Calculate(basket);
@@ -24,7 +26,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneBlue_Return095()
         {
-            var basket = new List<DishColor>() {DishColor.Blue};
+            basket.Add(DishColor.Blue);
             var expected = 0.95m;
 
             decimal actual = Sushi.Calculate(basket);
