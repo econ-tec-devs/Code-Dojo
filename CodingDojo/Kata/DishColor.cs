@@ -2,6 +2,7 @@ namespace Kata
 {
     public enum DishColor
     {
-        Blue
+        Blue,
+        Red
     }
 }
