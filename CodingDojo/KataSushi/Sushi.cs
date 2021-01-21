@@ -22,7 +22,8 @@ namespace KataTest
                     return 2.95m;
                 case DishColor.Green:
                     return 3.95m;
-
+                case DishColor.Gray:
+                    return 4.95m;
                 default:
                     return 0m;
             }
