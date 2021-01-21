@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace KataTest
@@ -10,9 +11,23 @@ namespace KataTest
         }
 
         [Test]
-        public void Test1()
+        public void Calculate_EmptyBasket_Return0()
         {
-            Assert.Pass();
+            var basket = new List<DishColor>();
+            var expected = 0m;
+
+            decimal actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
+    }
+
+    public enum DishColor
+    {
+        Blue,
+        Red,
+        Yellow,
+        Green,
+        Gray
     }
 }
