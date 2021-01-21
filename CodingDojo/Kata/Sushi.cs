@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Kata
@@ -12,7 +13,6 @@ namespace Kata
             {DishColor.Green, 3.95m},
             {DishColor.Grey, 4.95m},
         };
-
 
         public static decimal Calculate(List<DishColor> basket)
         {

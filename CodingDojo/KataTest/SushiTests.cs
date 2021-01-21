@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Kata;
 using NUnit.Framework;
@@ -112,6 +113,20 @@ namespace KataTest
             };
 
             ActAndAssert(basket, expected);
+        }
+
+        [Test]
+        public void Calculate_OneBlueDishOnMonday_ReturnSum095()
+        {
+            var expected = 0.95m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Blue
+            };
+            
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 18, 13, 00, 00));
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
