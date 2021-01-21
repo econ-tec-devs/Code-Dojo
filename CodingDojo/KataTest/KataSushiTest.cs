@@ -63,5 +63,14 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
+
+        [Test]
+        public void Calculate_OneGray_Return495()
+        {
+            basket.Add(DishColor.Gray);
+            var expected = 4.95m;
+
+            ActAndAssert(expected);
+        }
     }
 }
