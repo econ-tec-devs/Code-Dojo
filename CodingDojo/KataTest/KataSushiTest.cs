@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace KataTest
 {
-    public class Tests
+    public class KataSushiTest
     {
         [SetUp]
         public void Setup()
@@ -20,22 +20,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-    }
 
-    public class Sushi
-    {
-        public static decimal Calculate(List<DishColor> basket)
+        [Test]
+        public void Calculate_OneBlue_Return095()
         {
-            return 0m;
-        }
-    }
+            var basket = new List<DishColor>() {DishColor.Blue};
+            var expected = 0.95m;
 
-    public enum DishColor
-    {
-        Blue,
-        Red,
-        Yellow,
-        Green,
-        Gray
+            decimal actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
