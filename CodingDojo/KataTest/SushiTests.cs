@@ -74,6 +74,46 @@ namespace KataTest
             ActAndAssert(basket, expected);
         }
 
+        [Test]
+        public void Calculate_ThreeRedPlates_Return585()
+        {
+            var expected = 5.85m;
+            var basket = new List<DishColor> { DishColor.Red, DishColor.Red, DishColor.Red };
+
+            ActAndAssert(basket, expected);
+        }
+
+        [Test]
+        public void Calculate_FiveGreyPlates_Return2475()
+        {
+            var expected = 24.75m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Grey, 
+                DishColor.Grey, 
+                DishColor.Grey, 
+                DishColor.Grey, 
+                DishColor.Grey
+            };
+
+            ActAndAssert(basket, expected);
+        }
+
+        [Test]
+        public void Calculate_OneOfEachColor_ReturnSum2475()
+        {
+            var expected = 0.95m + 1.95m + 2.95m + 3.95m + 4.95m;
+            var basket = new List<DishColor> { 
+                DishColor.Blue, 
+                DishColor.Red,
+                DishColor.Yellow, 
+                DishColor.Green, 
+                DishColor.Grey
+            };
+
+            ActAndAssert(basket, expected);
+        }
+
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
         {
             var actual = Sushi.Calculate(basket);
