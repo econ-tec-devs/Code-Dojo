@@ -55,5 +55,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Calculate_OneGreen_Return395()
+        {
+            basket.Add(DishColor.Green);
+            var expected = 3.95m;
+
+            decimal actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
