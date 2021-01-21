@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace KataTest
@@ -10,9 +11,14 @@ namespace KataTest
         }
 
         [Test]
-        public void Test1()
+        public void Calculate_InputZeroPlate_Return0()
         {
-            Assert.Pass();
+            var expected = 0m;
+            var basket = new List<DishColor>();
+
+            var actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
