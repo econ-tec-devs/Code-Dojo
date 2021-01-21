@@ -21,4 +21,16 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
     }
+
+    public class Sushi
+    {
+        public static decimal Calculate(List<DishColor> basket)
+        {
+            return 0m;
+        }
+    }
+
+    public class DishColor
+    {
+    }
 }
