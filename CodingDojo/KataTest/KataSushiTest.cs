@@ -15,10 +15,15 @@ namespace KataTest
 
         [Test]
         public void Calculate_EmptyBasket_Return0()
-        { 
+        {
             var expected = 0m;
 
-            decimal actual = Sushi.Calculate(basket);
+            ActAndAssert(expected);
+        }
+
+        private void ActAndAssert(decimal expected)
+        {
+            var actual = Sushi.Calculate(basket);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -29,20 +34,16 @@ namespace KataTest
             basket.Add(DishColor.Blue);
             var expected = 0.95m;
 
-            decimal actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(expected);
         }
-        
+
         [Test]
         public void Calculate_OneRed_Return195()
         {
             basket.Add(DishColor.Red);
             var expected = 1.95m;
 
-            decimal actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(expected);
         }
 
         [Test]
@@ -51,9 +52,7 @@ namespace KataTest
             basket.Add(DishColor.Yellow);
             var expected = 2.95m;
 
-            decimal actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(expected);
         }
 
         [Test]
@@ -62,9 +61,7 @@ namespace KataTest
             basket.Add(DishColor.Green);
             var expected = 3.95m;
 
-            decimal actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(expected);
         }
     }
 }
