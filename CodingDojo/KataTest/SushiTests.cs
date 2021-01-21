@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Kata;
 using NUnit.Framework;
 
 namespace KataTest
 {
-    public class Tests
+    public class SushiTests
     {
         [SetUp]
         public void Setup()
@@ -20,17 +21,5 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-    }
-
-    public class Sushi
-    {
-        public static decimal Calculate(List<DishColor> basket)
-        {
-            return 0m;
-        }
-    }
-
-    public class DishColor
-    {
     }
 }
