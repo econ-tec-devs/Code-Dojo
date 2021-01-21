@@ -4,6 +4,7 @@ namespace Kata
     {
         Blue,
         Red,
-        Yellow
+        Yellow,
+        Green
     }
 }
