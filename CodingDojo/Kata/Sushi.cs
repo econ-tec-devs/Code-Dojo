@@ -17,12 +17,17 @@ namespace Kata
 
         public static decimal Calculate(List<DishColor> basket)
         {
+            var sum = 0m;
+
             if (basket.Any())
             {
-                return pricelist[basket.First()];
+                foreach (var item in basket)
+                {
+                    sum += pricelist[item];
+                }
             }
 
-            return 0m;
+            return sum;
         }
     }
 }
