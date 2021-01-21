@@ -21,5 +21,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Calculate_OneBluePlate_Return095()
+        {
+            var expected = 0.95m;
+            var basket = new List<DishColor> { DishColor.Blue };
+
+            var actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
