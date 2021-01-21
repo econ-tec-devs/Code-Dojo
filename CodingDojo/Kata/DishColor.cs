@@ -1,6 +1,7 @@
 namespace Kata
 {
-    public class DishColor
+    public enum DishColor
     {
+        Blue
     }
 }
