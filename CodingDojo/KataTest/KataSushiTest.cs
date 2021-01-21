@@ -72,5 +72,15 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
+ 
+        [Test]
+        public void Calculate_TwoBlue_Return190()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Blue);
+            var expected = 1.90m;
+
+            ActAndAssert(expected);
+        }
     }
 }
