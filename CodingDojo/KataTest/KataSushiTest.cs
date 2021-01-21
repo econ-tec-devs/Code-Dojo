@@ -48,7 +48,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneYellow_Return295()
         {
-            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
             var expected = 2.95m;
 
             decimal actual = Sushi.Calculate(basket);

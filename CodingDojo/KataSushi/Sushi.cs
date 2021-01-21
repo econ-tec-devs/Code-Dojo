@@ -12,17 +12,17 @@ namespace KataTest
                 return 0m;
             }
 
-            if (basket[0] == DishColor.Blue)
+            switch (basket[0])
             {
-                return 0.95m;
+                case DishColor.Blue:
+                    return 0.95m;
+                case DishColor.Red:
+                    return 1.95m;
+                case DishColor.Yellow:
+                    return 2.95m;
+                default:
+                    return 0m;
             }
-
-            if (basket[0] == DishColor.Red)
-            {
-                return 1.95m;
-            }
-
-            return 0m;
         }
     }
 }
