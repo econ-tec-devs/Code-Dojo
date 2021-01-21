@@ -18,7 +18,12 @@ namespace KataTest
                 return 0m;
             }
 
-            switch (basket[0])
+            return basket.Sum(dish => GetPricePerDish(dish));
+        }
+
+        private static decimal GetPricePerDish(DishColor dish)
+        {
+            switch (dish)
             {
                 case DishColor.Blue:
                     return priceOneBlueDish;
