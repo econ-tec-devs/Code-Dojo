@@ -5,6 +5,7 @@ namespace Kata
         Blue,
         Red,
         Yellow,
-        Green
+        Green,
+        Grey
     }
 }

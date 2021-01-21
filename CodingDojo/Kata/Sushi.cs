@@ -11,6 +11,7 @@ namespace Kata
             {DishColor.Red, 1.95m},
             {DishColor.Yellow, 2.95m},
             {DishColor.Green, 3.95m},
+            {DishColor.Grey, 4.95m},
         };
 
 
