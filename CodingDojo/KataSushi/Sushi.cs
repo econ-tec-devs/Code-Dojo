@@ -5,6 +5,7 @@ namespace KataTest
 {
     public class Sushi
     {
+        private static decimal priceNoDishes = 0m;
         private static decimal priceOneBlueDish = 0.95m;
         private static decimal priceOneRedDish = 1.95m;
         private static decimal priceOneYellowDish = 2.95m;
@@ -15,7 +16,7 @@ namespace KataTest
         {
             if (!basket.Any())
             {
-                return 0m;
+                return priceNoDishes;
             }
 
             return basket.Sum(dish => GetPricePerDish(dish));
@@ -36,7 +37,7 @@ namespace KataTest
                 case DishColor.Gray:
                     return priceOneGrayDish;
                 default:
-                    return 0m;
+                    return priceNoDishes;
             }
         }
     }
