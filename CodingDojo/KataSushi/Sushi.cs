@@ -5,6 +5,12 @@ namespace KataTest
 {
     public class Sushi
     {
+        private static decimal priceOneBlueDish = 0.95m;
+        private static decimal priceOneRedDish = 1.95m;
+        private static decimal priceOneYellowDish = 2.95m;
+        private static decimal priceOneGreenDish = 3.95m;
+        private static decimal priceOneGrayDish = 4.95m;
+
         public static decimal Calculate(List<DishColor> basket)
         {
             if (!basket.Any())
@@ -15,15 +21,15 @@ namespace KataTest
             switch (basket[0])
             {
                 case DishColor.Blue:
-                    return 0.95m;
+                    return priceOneBlueDish;
                 case DishColor.Red:
-                    return 1.95m;
+                    return priceOneRedDish;
                 case DishColor.Yellow:
-                    return 2.95m;
+                    return priceOneYellowDish;
                 case DishColor.Green:
-                    return 3.95m;
+                    return priceOneGreenDish;
                 case DishColor.Gray:
-                    return 4.95m;
+                    return priceOneGrayDish;
                 default:
                     return 0m;
             }
