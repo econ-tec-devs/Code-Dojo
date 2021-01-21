@@ -17,7 +17,7 @@ namespace KataTest
             var expected = 0m;
             var basket = new List<DishColor>();
 
-            ActAndAssert(basket,expected);
+            ActAndAssert(basket, expected);
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace KataTest
 
             ActAndAssert(basket, expected);
         }
-        
+
         [Test]
         public void Calculate_OneRedPlate_Return195()
         {
@@ -37,7 +37,7 @@ namespace KataTest
 
             ActAndAssert(basket, expected);
         }
-        
+
         [Test]
         public void Calculate_OneYellowPlate_Return295()
         {
@@ -55,12 +55,21 @@ namespace KataTest
 
             ActAndAssert(basket, expected);
         }
-        
+
         [Test]
         public void Calculate_OneGreyPlate_Return495()
         {
             var expected = 4.95m;
             var basket = new List<DishColor> { DishColor.Grey };
+
+            ActAndAssert(basket, expected);
+        }
+
+        [Test]
+        public void Calculate_TwoBluePlates_Return190()
+        {
+            var expected = 1.90m;
+            var basket = new List<DishColor> { DishColor.Blue, DishColor.Blue };
 
             ActAndAssert(basket, expected);
         }
