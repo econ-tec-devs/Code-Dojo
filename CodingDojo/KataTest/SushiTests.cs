@@ -17,9 +17,7 @@ namespace KataTest
             var expected = 0m;
             var basket = new List<DishColor>();
 
-            var actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(basket,expected);
         }
 
         [Test]
@@ -28,6 +26,11 @@ namespace KataTest
             var expected = 0.95m;
             var basket = new List<DishColor> { DishColor.Blue };
 
+            ActAndAssert(basket, expected);
+        }
+
+        private static void ActAndAssert(List<DishColor> basket, decimal expected)
+        {
             var actual = Sushi.Calculate(basket);
 
             Assert.That(actual, Is.EqualTo(expected));
