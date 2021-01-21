@@ -20,6 +20,9 @@ namespace KataTest
                     return 1.95m;
                 case DishColor.Yellow:
                     return 2.95m;
+                case DishColor.Green:
+                    return 3.95m;
+
                 default:
                     return 0m;
             }
