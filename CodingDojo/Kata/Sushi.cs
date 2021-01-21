@@ -19,12 +19,9 @@ namespace Kata
         {
             var sum = 0m;
 
-            if (basket.Any())
+            foreach (var item in basket)
             {
-                foreach (var item in basket)
-                {
-                    sum += pricelist[item];
-                }
+                sum += pricelist[item];
             }
 
             return sum;
