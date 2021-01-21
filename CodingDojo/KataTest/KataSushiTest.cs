@@ -82,5 +82,55 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
+
+        [Test]
+        public void Calculate_TwoRed_Return390()
+        {
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Red);
+            var expected = 1.95m * basket.Count;
+
+            ActAndAssert(expected);
+        }
+
+        [Test]
+        public void Calculate_TwoYellow_Return590()
+        {
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Yellow);
+            var expected = 2.95m * basket.Count;
+
+            ActAndAssert(expected);
+        }
+
+        [Test]
+        public void Calculate_TwoGreen_Return790()
+        {
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Green);
+            var expected = 3.95m * basket.Count;
+
+            ActAndAssert(expected);
+        }
+
+        [Test]
+        public void Calculate_TwoGray_Return990()
+        {
+            basket.Add(DishColor.Gray);
+            basket.Add(DishColor.Gray);
+            var expected = 4.95m * basket.Count;
+
+            ActAndAssert(expected);
+        }
+
+        [Test]
+        public void Calculate_OneBlueOneRed_Return290()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            var expected = 2.90m;
+
+            ActAndAssert(expected);
+        }
     }
 }
