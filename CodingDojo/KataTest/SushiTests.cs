@@ -55,6 +55,15 @@ namespace KataTest
 
             ActAndAssert(basket, expected);
         }
+        
+        [Test]
+        public void Calculate_OneGreyPlate_Return495()
+        {
+            var expected = 4.95m;
+            var basket = new List<DishColor> { DishColor.Grey };
+
+            ActAndAssert(basket, expected);
+        }
 
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
         {
