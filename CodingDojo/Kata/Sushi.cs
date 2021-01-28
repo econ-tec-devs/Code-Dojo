@@ -33,5 +33,20 @@ namespace Kata
 
             return sum;
         }
+
+   public static decimal Calculate(List<DishColor> basket)
+        {
+            var sum = 0m;
+            
+            {
+                foreach (var item in basket)
+                {
+                    sum += pricelist[item];
+                }
+
+            }
+
+            return sum;
+        }
     }
 }

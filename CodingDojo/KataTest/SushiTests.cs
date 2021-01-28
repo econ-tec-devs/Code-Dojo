@@ -220,5 +220,11 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+ private static void ActAndAssert(List<DishColor> basket, decimal expected)
+        {
+            var actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
