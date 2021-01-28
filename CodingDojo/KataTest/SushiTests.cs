@@ -199,7 +199,6 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-
         [Test]
         public void Calculate_OneBlueDishOnSunday1400_ReturnSum1990()
         {
@@ -213,14 +212,27 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
+        [Test]
+        public void Calculate_OneBlueDishOnSunday1500_ReturnSum1990()
+        {
+            var expected = 19.90m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Blue
+            };
 
-        private static void ActAndAssert(List<DishColor> basket, decimal expected, DateTime timeOfPayment = new DateTime())
+            ActAndAssert(basket, expected, new DateTime(2021, 1, 17, 15, 00, 00));
+        }
+
+        [Test]
+        private static void ActAndAssert(List<DishColor> basket, decimal expected, DateTime timeOfPayment)
         {
             var actual = Sushi.Calculate(basket, timeOfPayment);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
- private static void ActAndAssert(List<DishColor> basket, decimal expected)
+       private static void ActAndAssert(List<DishColor> basket, decimal expected)
         {
             var actual = Sushi.Calculate(basket);
 
