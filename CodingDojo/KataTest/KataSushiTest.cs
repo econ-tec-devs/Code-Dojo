@@ -153,12 +153,29 @@ namespace KataTest
             basket.Add(DishColor.Yellow);
             basket.Add(DishColor.Green);
             basket.Add(DishColor.Gray);
-            var expected = new PriceInfo() { standard = 14.75m, brunch = 14.75m, difference = 0m };
+            var expected = new PriceInfo() { regularPrice = 14.75m, priceToPay = 14.75m, difference = 0m };
 
             var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 25, 13, 00, 00));
 
-            Assert.That(actual.standard, Is.EqualTo(expected.standard));
-            Assert.That(actual.brunch, Is.EqualTo(expected.brunch));
+            Assert.That(actual.regularPrice, Is.EqualTo(expected.regularPrice));
+            Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
+            Assert.That(actual.difference, Is.EqualTo(expected.difference));
+        }
+
+        [Test]
+        public void Calculate_OneOfEveryTuesday_ReturnPriceInfoTuesday()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            var expected = new PriceInfo() { regularPrice = 14.75m, priceToPay = 14.75m, difference = 0m };
+
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 26, 13, 00, 00));
+
+            Assert.That(actual.regularPrice, Is.EqualTo(expected.regularPrice));
+            Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
             Assert.That(actual.difference, Is.EqualTo(expected.difference));
         }
 

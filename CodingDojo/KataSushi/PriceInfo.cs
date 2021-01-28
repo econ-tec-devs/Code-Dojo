@@ -7,8 +7,8 @@ namespace KataTest
 {
     public class PriceInfo
     {
-        public decimal brunch;
         public decimal difference;
-        public decimal standard;
+        public decimal priceToPay;
+        public decimal regularPrice;
     }
 }

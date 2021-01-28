@@ -35,16 +35,10 @@ namespace KataTest
             var priceInfo = new PriceInfo();
             if (date.DayOfWeek == DayOfWeek.Monday)
             {
-                priceInfo.standard = Calculate(basket);
-                priceInfo.brunch = priceInfo.standard;
-                priceInfo.difference = priceInfo.standard - priceInfo.brunch;
+                priceInfo.regularPrice = Calculate(basket);
+                priceInfo.priceToPay = priceInfo.regularPrice;
+                priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
             }
-
-            //decimal sum = 0;
-            //foreach (var dish in basket)
-            //{
-            //    sum += priceList[dish];
-            //}
 
             return priceInfo;
         }
