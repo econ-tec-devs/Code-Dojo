@@ -197,6 +197,23 @@ namespace KataTest
         }
 
         [Test]
+        public void Calculate_OneOfEverySunday_ReturnPriceInfoSundayAfterBrunch()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            var expected = new PriceInfo() { regularPrice = 14.75m, priceToPay = 14.75m, difference = 0m };
+
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 31, 15, 00, 00));
+
+            Assert.That(actual.regularPrice, Is.EqualTo(expected.regularPrice));
+            Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
+            Assert.That(actual.difference, Is.EqualTo(expected.difference));
+        }
+
+        [Test]
         public void Calculate_TwoOfEverySunday_ReturnPriceInfoSundayInBrunch()
         {
             basket.Add(DishColor.Blue);
