@@ -225,6 +225,28 @@ namespace KataTest
             ActAndAssert(basket, expected, new DateTime(2021, 1, 17, 15, 00, 00));
         }
 
+        [Test]
+        public void Calculate_SeveralDishOnSunday1400_ReturnSum1990()
+        {
+            var expected = new Tuple<decimal, decimal, decimal>(29.50m, 19.90m, 9.60m);
+            var basket = new List<DishColor>
+            {
+                DishColor.Grey,
+                DishColor.Grey,
+                DishColor.Green,
+                DishColor.Green,
+                DishColor.Yellow,
+                DishColor.Yellow,
+                DishColor.Red,
+                DishColor.Red,
+                DishColor.Blue,
+                DishColor.Blue
+            };
+
+            ActAndAssert(basket, expected, new DateTime(2021, 1, 17, 14, 00, 00));
+        }
+
+
         private static void ActAndAssert(List<DishColor> basket, Tuple<decimal,decimal,decimal> expected, DateTime timeOfPayment)
         {
             var actual = Sushi.Calculate(basket, timeOfPayment);
