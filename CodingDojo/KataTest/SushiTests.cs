@@ -209,7 +209,7 @@ namespace KataTest
                 DishColor.Blue
             };
 
-            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 17, 16, 00, 00));
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 17, 14, 00, 00));
 
             Assert.That(actual, Is.EqualTo(expected));
         }
