@@ -1,34 +1,13 @@
 ﻿Kata Sushi
 ==========
 
-Dev 1:
+Team 2
+======
+ - Christian
+ - Dominik
+ - Matthias
 
-- Erstellt den Branch: "develop_Sushi_TeamX_20210121" vom "develop_KataSushi".
-- Neuen Branch pushen.
-- Alle anderen holen sich den Branch vom Server
-
-Dev 2:
-
-- Schreibt den 1. Test: rot
-
-Dev 3:
-
-- Code lauffähig machen: grün
-- Refaktorisieren: grün
-- Neuen Test: rot
-
-Dev x:
-goto 3
-
-
-Vorgaben:
-- Reihenfolge
-	- Test für jeweils eine Farbe und genau einen Teller schreiben => Alle Farben und alle Preise implementieren
-	- Test für einzelne Farbe und mehrere Teller
-	- Test für verschiedene Farben und mehrere Teller
-- Farben als Enum
-- Teller einzeln in Warenkorb
-- Warenkorb als Liste
+Weiter mit Story 2 ...
 
 Ziele:
 - DRY
