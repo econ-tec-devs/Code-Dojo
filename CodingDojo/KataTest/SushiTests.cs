@@ -118,7 +118,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneBlueDishOnMonday_ReturnSum095()
         {
-            var expected = 0.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(0.95m, 0.95m, 0m);
             var basket = new List<DishColor>
             {
                 DishColor.Blue
@@ -132,7 +132,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneRedDishOnMonday_ReturnSum195()
         {
-            var expected = 1.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(1.95m, 1.95m, 0m);
             var basket = new List<DishColor>
             {
                 DishColor.Red
@@ -146,7 +146,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneYellowDishOnMonday_ReturnSum295()
         {
-            var expected = 2.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(2.95m, 2.95m, 0m);
             var basket = new List<DishColor>
             {
                 DishColor.Yellow
@@ -160,7 +160,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneGreenDishOnMonday_ReturnSum395()
         {
-            var expected = 3.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(3.95m, 3.95m, 0m);
             var basket = new List<DishColor>
             {
                 DishColor.Green
@@ -174,7 +174,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneGreyDishOnMonday_ReturnSum495()
         {
-            var expected = 4.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(4.95m, 4.95m, 0m);
             var basket = new List<DishColor>
             {
                 DishColor.Grey
@@ -188,7 +188,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneBlueDishOnSunday1600_ReturnSum095()
         {
-            var expected = 0.95m;
+            var expected = new Tuple<decimal, decimal, decimal>(0.95m, 0.95m, 0m); ;
             var basket = new List<DishColor>
             {
                 DishColor.Blue
@@ -202,7 +202,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneBlueDishOnSunday1400_ReturnSum1990()
         {
-            var expected = 19.90m;
+            var expected = new Tuple<decimal, decimal, decimal>(0.95m, 19.90m, -18.95m);
             var basket = new List<DishColor>
             {
                 DishColor.Blue
@@ -216,7 +216,7 @@ namespace KataTest
         [Test]
         public void Calculate_OneBlueDishOnSunday1500_ReturnSum1990()
         {
-            var expected = 19.90m;
+            var expected = new Tuple<decimal, decimal, decimal>(0.95m, 19.90m, -18.95m);
             var basket = new List<DishColor>
             {
                 DishColor.Blue
@@ -225,8 +225,7 @@ namespace KataTest
             ActAndAssert(basket, expected, new DateTime(2021, 1, 17, 15, 00, 00));
         }
 
-        [Test]
-        private static void ActAndAssert(List<DishColor> basket, decimal expected, DateTime timeOfPayment)
+        private static void ActAndAssert(List<DishColor> basket, Tuple<decimal,decimal,decimal> expected, DateTime timeOfPayment)
         {
             var actual = Sushi.Calculate(basket, timeOfPayment);
 

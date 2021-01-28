@@ -14,24 +14,20 @@ namespace Kata
             {DishColor.Grey, 4.95m},
         };
 
-        public static decimal Calculate(List<DishColor> basket, DateTime timeOfPayment)
+        public static Tuple<decimal, decimal, decimal> Calculate(List<DishColor> basket, DateTime timeOfPayment)
         {
-            var sum = 0m;
+            var brunchPrice = 19.90m;
+            var sum = Calculate(basket);
+            decimal toPay = sum;
 
-            if (timeOfPayment == new DateTime(2021, 1, 17, 14, 00, 00))
+            if (timeOfPayment.DayOfWeek == DayOfWeek.Sunday && timeOfPayment.Hour <= 15 && timeOfPayment.Hour >= 11)
             {
-                sum = 19.90m;
-            }
-            else
-            {
-                foreach (var item in basket)
-                {
-                    sum += pricelist[item];
-                }
-
+                toPay = brunchPrice;
             }
 
-            return sum;
+            decimal saved = sum - toPay;
+
+            return new Tuple<decimal, decimal, decimal>(sum, toPay, saved);
         }
 
    public static decimal Calculate(List<DishColor> basket)
