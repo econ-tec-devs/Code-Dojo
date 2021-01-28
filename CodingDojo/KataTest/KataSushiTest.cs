@@ -1,12 +1,17 @@
-using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-
+// -----------------------------------------------------------------------
+// <copyright file="KataSushiTest.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataTest
 {
+    using System;
+    using System.Collections.Generic;
+    using NUnit.Framework;
+
     public class KataSushiTest
     {
-        private List<DishColor> basket ;
+        private List<DishColor> basket;
 
         [SetUp]
         public void Setup()
@@ -20,13 +25,6 @@ namespace KataTest
             var expected = 0m;
 
             ActAndAssert(expected);
-        }
-
-        private void ActAndAssert(decimal expected)
-        {
-            var actual = Sushi.Calculate(basket);
-
-            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test]
@@ -73,7 +71,7 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
- 
+
         [Test]
         public void Calculate_TwoBlue_Return190()
         {
@@ -133,7 +131,7 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
-        
+
         [Test]
         public void Calculate_OneOfEvery_Return1475()
         {
@@ -146,7 +144,7 @@ namespace KataTest
 
             ActAndAssert(expected);
         }
-        
+
         [Test]
         public void Calculate_OneOfEveryOnMonday_ReturnPriceInfoMonday()
         {
@@ -155,11 +153,20 @@ namespace KataTest
             basket.Add(DishColor.Yellow);
             basket.Add(DishColor.Green);
             basket.Add(DishColor.Gray);
-            PriceInfo expected = new { 14.75m, 14.75m, 0m };
+            var expected = new PriceInfo() { standard = 14.75m, brunch = 14.75m, difference = 0m };
 
-            PriceInfo actual = Sushi.Calculate(basket, new DateTime(2021,1, 25,13,00 ,00));
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 25, 13, 00, 00));
 
-            Assert.That(actual, Equals.To(expected));
+            Assert.That(actual.standard, Is.EqualTo(expected.standard));
+            Assert.That(actual.brunch, Is.EqualTo(expected.brunch));
+            Assert.That(actual.difference, Is.EqualTo(expected.difference));
+        }
+
+        private void ActAndAssert(decimal expected)
+        {
+            var actual = Sushi.Calculate(basket);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
