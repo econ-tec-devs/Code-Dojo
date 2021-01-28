@@ -33,17 +33,13 @@ namespace KataTest
         public static PriceInfo Calculate(List<DishColor> basket, DateTime date)
         {
             var priceInfo = new PriceInfo();
-            if (date.DayOfWeek == DayOfWeek.Monday)
+            switch (date.DayOfWeek)
             {
-                priceInfo.regularPrice = Calculate(basket);
-                priceInfo.priceToPay = priceInfo.regularPrice;
-                priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
-            }
-            if (date.DayOfWeek == DayOfWeek.Tuesday)
-            {
-                priceInfo.regularPrice = Calculate(basket);
-                priceInfo.priceToPay = priceInfo.regularPrice;
-                priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
+                default:
+                    priceInfo.regularPrice = Calculate(basket);
+                    priceInfo.priceToPay = priceInfo.regularPrice;
+                    priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
+                    break;
             }
 
             return priceInfo;
