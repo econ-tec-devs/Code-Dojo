@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
@@ -131,6 +132,34 @@ namespace KataTest
             var expected = 2.90m;
 
             ActAndAssert(expected);
+        }
+        
+        [Test]
+        public void Calculate_OneOfEvery_Return1475()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            var expected = 14.75m;
+
+            ActAndAssert(expected);
+        }
+        
+        [Test]
+        public void Calculate_OneOfEveryOnMonday_ReturnPriceInfoMonday()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            PriceInfo expected = new { 14.75m, 14.75m, 0m };
+
+            PriceInfo actual = Sushi.Calculate(basket, new DateTime(2021,1, 25,13,00 ,00));
+
+            Assert.That(actual, Equals.To(expected));
         }
     }
 }
