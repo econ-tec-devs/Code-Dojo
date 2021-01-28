@@ -14,7 +14,7 @@ namespace Kata
             {DishColor.Grey, 4.95m},
         };
 
-        public static decimal Calculate(List<DishColor> basket)
+        public static decimal Calculate(List<DishColor> basket, DateTime timeOfPayment)
         {
             var sum = 0m;
 

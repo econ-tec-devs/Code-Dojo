@@ -129,9 +129,65 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-        private static void ActAndAssert(List<DishColor> basket, decimal expected)
+        [Test]
+        public void Calculate_OneRedDishOnMonday_ReturnSum195()
         {
-            var actual = Sushi.Calculate(basket);
+            var expected = 1.95m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Red
+            };
+            
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 18, 13, 00, 00));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Calculate_OneYellowDishOnMonday_ReturnSum295()
+        {
+            var expected = 2.95m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Yellow
+            };
+            
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 18, 13, 00, 00));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Calculate_OneGreenDishOnMonday_ReturnSum395()
+        {
+            var expected = 3.95m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Green
+            };
+            
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 18, 13, 00, 00));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Calculate_OneGreyDishOnMonday_ReturnSum495()
+        {
+            var expected = 4.95m;
+            var basket = new List<DishColor>
+            {
+                DishColor.Grey
+            };
+            
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 18, 13, 00, 00));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        private static void ActAndAssert(List<DishColor> basket, decimal expected, DateTime timeOfPayment = new DateTime())
+        {
+            var actual = Sushi.Calculate(basket, timeOfPayment);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
