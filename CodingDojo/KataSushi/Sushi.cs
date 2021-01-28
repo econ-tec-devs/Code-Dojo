@@ -39,6 +39,12 @@ namespace KataTest
                 priceInfo.priceToPay = priceInfo.regularPrice;
                 priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
             }
+            if (date.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                priceInfo.regularPrice = Calculate(basket);
+                priceInfo.priceToPay = priceInfo.regularPrice;
+                priceInfo.difference = priceInfo.regularPrice - priceInfo.priceToPay;
+            }
 
             return priceInfo;
         }
