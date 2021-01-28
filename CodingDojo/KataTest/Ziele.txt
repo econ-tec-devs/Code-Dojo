@@ -1,27 +1,21 @@
 ﻿Kata Sushi
+==========
 
-Dev 1:
+Team 1
+======
+ - Christian
+ - Dominik
+ - Matthias
 
-- Branch: "develop_Sushi_TeamX_20201210"
-
-Dev 2:
-
-- Schreibt den 1. Test
-
-Dev 3:
-
-- Test Grün
-- Refacktoren
-- Neuen Test: rot
-
-Dev x:
-goto 3
+Weiter mit Story 2 ...
 
 Ziele:
 - DRY
-- Zeitnah refactoren
-- min 2 rote test
+- Zeitnah refaktorisieren
 - TimeBox: 4min
-- Kein Maus
+- Keine Magic Numbers
+- Kein Maus => Shortcuts
 - Fensterlayout: Test Explorer, Test Code, Prod Code (gleichzeitig)
 - Prod Projekt
+
+- to be continued ...
