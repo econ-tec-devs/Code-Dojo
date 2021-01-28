@@ -178,6 +178,45 @@ namespace KataTest
             Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
             Assert.That(actual.difference, Is.EqualTo(expected.difference));
         }
+        
+        [Test]
+        public void Calculate_OneOfEverySunday_ReturnPriceInfoSundayBeforeBrunch()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            var expected = new PriceInfo() { regularPrice = 14.75m, priceToPay = 14.75m, difference = 0m };
+
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 31, 10, 59, 59));
+
+            Assert.That(actual.regularPrice, Is.EqualTo(expected.regularPrice));
+            Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
+            Assert.That(actual.difference, Is.EqualTo(expected.difference));
+        }
+
+        [Test]
+        public void Calculate_TwoOfEverySunday_ReturnPriceInfoSundayInBrunch()
+        {
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Blue);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Red);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Yellow);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Green);
+            basket.Add(DishColor.Gray);
+            basket.Add(DishColor.Gray);
+            var expected = new PriceInfo() { regularPrice = 29.50m, priceToPay = 19.90m, difference = 9.60m };
+
+            var actual = Sushi.Calculate(basket, new DateTime(2021, 1, 31, 14, 00, 00));
+
+            Assert.That(actual.regularPrice, Is.EqualTo(expected.regularPrice));
+            Assert.That(actual.priceToPay, Is.EqualTo(expected.priceToPay));
+            Assert.That(actual.difference, Is.EqualTo(expected.difference));
+        }
 
         private void ActAndAssert(decimal expected)
         {
