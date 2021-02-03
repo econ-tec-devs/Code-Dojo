@@ -31,6 +31,16 @@ namespace Kata
 
         public static PriceInfo Calculate(List<DishColor> basket, DateTime sundayBrunchtime)
         {
+            if (sundayBrunchtime.DayOfWeek != DayOfWeek.Sunday)
+            {
+                return new PriceInfo()
+                {
+                    Value = Calculate(basket),
+                    ToPay = Calculate(basket),
+                    Discount = 0
+                };
+            }
+
             return new PriceInfo()
             {
                 Value = Calculate(basket),
