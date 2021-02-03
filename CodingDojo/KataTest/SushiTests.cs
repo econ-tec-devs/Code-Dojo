@@ -165,6 +165,31 @@ namespace KataTest
             ActAndAssert(basket, wednesday, expected);
         }
 
+        [Test]
+        public void Calculate_TwoOfEachColorSundayOutOfBrunchTime_ReturnExpectedWithoutDiscount()
+        {
+            DateTime sundayOutOfBrunchtime = new DateTime(2021, 01, 31, 15, 00, 01);
+            PriceInfo expected = new PriceInfo()
+            {
+                Value = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
+                ToPay = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
+            };
+            var basket = new List<DishColor> { 
+                DishColor.Blue, 
+                DishColor.Blue, 
+                DishColor.Red,
+                DishColor.Red,
+                DishColor.Yellow, 
+                DishColor.Yellow, 
+                DishColor.Green, 
+                DishColor.Green, 
+                DishColor.Grey,
+                DishColor.Grey
+            };
+
+            ActAndAssert(basket, sundayOutOfBrunchtime, expected);
+        }
+
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
         {
             var actual = Sushi.Calculate(basket);
