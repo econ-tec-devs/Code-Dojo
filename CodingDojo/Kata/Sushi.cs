@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Kata
@@ -13,6 +14,8 @@ namespace Kata
             {DishColor.Grey, 4.95m},
         };
 
+        private static decimal SundayBrunchPrice = 19.9m;
+
 
         public static decimal Calculate(List<DishColor> basket)
         {
@@ -25,5 +28,16 @@ namespace Kata
 
             return sum;
         }
+
+        public static PriceInfo Calculate(List<DishColor> basket, DateTime sundayBrunchtime)
+        {
+            return new PriceInfo()
+            {
+                Value = Calculate(basket),
+                ToPay = SundayBrunchPrice,
+                Discount = Calculate(basket) - SundayBrunchPrice
+            };
+        }
     }
+
 }
