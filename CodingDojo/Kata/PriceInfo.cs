@@ -4,6 +4,6 @@ namespace Kata
     {
         public decimal Value { get; set; }
         public decimal ToPay { get; set; }
-        public decimal Discount { get; set; }
+        public decimal Discount => (Value - ToPay);
     }
 }

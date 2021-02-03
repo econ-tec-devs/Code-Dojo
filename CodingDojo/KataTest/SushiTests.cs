@@ -123,7 +123,6 @@ namespace KataTest
             {
                 Value = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
                 ToPay = 19.90m,
-                Discount = 9.60m
             };
             var basket = new List<DishColor> { 
                 DishColor.Blue, 
@@ -138,11 +137,7 @@ namespace KataTest
                 DishColor.Grey
             };
 
-            PriceInfo actual = Sushi.Calculate(basket, sundayBrunchtime);
-
-            Assert.That(actual.Value, Is.EqualTo(expected.Value));
-            Assert.That(actual.ToPay, Is.EqualTo(expected.ToPay));
-            Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
+            ActAndAssert(basket, sundayBrunchtime, expected);
         }
 
         [Test]
@@ -153,7 +148,6 @@ namespace KataTest
             {
                 Value = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
                 ToPay = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
-                Discount = 0m
             };
             var basket = new List<DishColor> { 
                 DishColor.Blue, 
@@ -168,11 +162,7 @@ namespace KataTest
                 DishColor.Grey
             };
 
-            PriceInfo actual = Sushi.Calculate(basket, wednesday);
-
-            Assert.That(actual.Value, Is.EqualTo(expected.Value));
-            Assert.That(actual.ToPay, Is.EqualTo(expected.ToPay));
-            Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
+            ActAndAssert(basket, wednesday, expected);
         }
 
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
@@ -180,6 +170,15 @@ namespace KataTest
             var actual = Sushi.Calculate(basket);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        private static void ActAndAssert(List<DishColor> basket, DateTime sundayBrunchtime, PriceInfo expected)
+        {
+            PriceInfo actual = Sushi.Calculate(basket, sundayBrunchtime);
+
+            Assert.That(actual.Value, Is.EqualTo(expected.Value));
+            Assert.That(actual.ToPay, Is.EqualTo(expected.ToPay));
+            Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
         }
     }
 }

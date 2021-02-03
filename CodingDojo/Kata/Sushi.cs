@@ -29,23 +29,14 @@ namespace Kata
             return sum;
         }
 
-        public static PriceInfo Calculate(List<DishColor> basket, DateTime sundayBrunchtime)
+        public static PriceInfo Calculate(List<DishColor> basket, DateTime momentOfPayment)
         {
-            if (sundayBrunchtime.DayOfWeek != DayOfWeek.Sunday)
-            {
-                return new PriceInfo()
-                {
-                    Value = Calculate(basket),
-                    ToPay = Calculate(basket),
-                    Discount = 0
-                };
-            }
-
+            var value = Calculate(basket);
+            var toPay = (momentOfPayment.DayOfWeek == DayOfWeek.Sunday) ? SundayBrunchPrice : value;
             return new PriceInfo()
             {
-                Value = Calculate(basket),
-                ToPay = SundayBrunchPrice,
-                Discount = Calculate(basket) - SundayBrunchPrice
+                Value = value,
+                ToPay = toPay
             };
         }
     }
