@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Kata;
 using NUnit.Framework;
@@ -112,6 +113,36 @@ namespace KataTest
             };
 
             ActAndAssert(basket, expected);
+        }
+
+        [Test]
+        public void Calculate_TwoOfEachColorAtBrunchTime_ReturnExpected()
+        {
+            DateTime sundayBrunchtime = new DateTime(2021, 01, 31, 12, 00, 00);
+            PriceInfo expected = new PriceInfo()
+            {
+                Value = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
+                ToPay = 19.90m,
+                Discount = 9.60m
+            };
+            var basket = new List<DishColor> { 
+                DishColor.Blue, 
+                DishColor.Blue, 
+                DishColor.Red,
+                DishColor.Red,
+                DishColor.Yellow, 
+                DishColor.Yellow, 
+                DishColor.Green, 
+                DishColor.Green, 
+                DishColor.Grey,
+                DishColor.Grey
+            };
+
+            PriceInfo actual = Sushi.Calculate(basket, sundayBrunchtime);
+
+            Assert.That(actual.Value, Is.EqualTo(expected.Value));
+            Assert.That(actual.ToPay, Is.EqualTo(expected.ToPay));
+            Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
         }
 
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
