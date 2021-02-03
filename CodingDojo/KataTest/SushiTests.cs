@@ -145,6 +145,36 @@ namespace KataTest
             Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
         }
 
+        [Test]
+        public void Calculate_TwoOfEachColorNotSundayBrunchTime_ReturnExpectedWithoutDiscount()
+        {
+            DateTime wednesday = new DateTime(2021, 02, 3, 12, 00, 00);
+            PriceInfo expected = new PriceInfo()
+            {
+                Value = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
+                ToPay = (0.95m + 1.95m + 2.95m + 3.95m + 4.95m) * 2,
+                Discount = 0m
+            };
+            var basket = new List<DishColor> { 
+                DishColor.Blue, 
+                DishColor.Blue, 
+                DishColor.Red,
+                DishColor.Red,
+                DishColor.Yellow, 
+                DishColor.Yellow, 
+                DishColor.Green, 
+                DishColor.Green, 
+                DishColor.Grey,
+                DishColor.Grey
+            };
+
+            PriceInfo actual = Sushi.Calculate(basket, wednesday);
+
+            Assert.That(actual.Value, Is.EqualTo(expected.Value));
+            Assert.That(actual.ToPay, Is.EqualTo(expected.ToPay));
+            Assert.That(actual.Discount, Is.EqualTo(expected.Discount));
+        }
+
         private static void ActAndAssert(List<DishColor> basket, decimal expected)
         {
             var actual = Sushi.Calculate(basket);
