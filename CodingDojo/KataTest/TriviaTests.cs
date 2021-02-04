@@ -23,7 +23,6 @@ namespace KataTest
                 Console.SetOut(sw);
                 GameRunner.Main2(new string[0]);
                 Console.SetOut(oldOut);
-                sw.Close();
             }
 
             Assert.That(true, Is.True);
