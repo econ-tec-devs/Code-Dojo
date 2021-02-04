@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Trivia;
 
 namespace KataTest
 {
@@ -12,6 +13,7 @@ namespace KataTest
         [Test]
         public void MethodeToTest_Scenario_Expected()
         {
+            GameRunner.Main(1337);
             Assert.That(true, Is.False);
         }
     }
