@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Aufgabe und Ziele.txt = Aufgabe und Ziele.txt
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trivia", "..\..\..\Temp\Trivia\Trivia\Trivia.csproj", "{FA28FFE9-C6C1-4360-9B72-4F07F626ADB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trivia", "Trivia\Trivia.csproj", "{FA28FFE9-C6C1-4360-9B72-4F07F626ADB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
