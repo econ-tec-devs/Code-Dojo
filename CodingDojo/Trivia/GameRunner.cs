@@ -35,31 +35,27 @@ namespace Trivia
         [Obsolete("For tests only")]
         public static void Main(int seed)
         {
-            using (var sw = new StreamWriter(new FileStream("C:\\Users\\Public\\Documents\\GoldenMaster.txt", FileMode.Create)))
+            var aGame = new Game();
+
+            aGame.Add("Chet");
+            aGame.Add("Pat");
+            aGame.Add("Sue");
+
+            var rand = new Random(seed);
+
+            do
             {
-                Console.SetOut(sw);
-                var aGame = new Game();
+                aGame.Roll(rand.Next(5) + 1);
 
-                aGame.Add("Chet");
-                aGame.Add("Pat");
-                aGame.Add("Sue");
-
-                var rand = new Random(seed);
-
-                do
+                if (rand.Next(9) == 7)
                 {
-                    aGame.Roll(rand.Next(5) + 1);
-
-                    if (rand.Next(9) == 7)
-                    {
-                        _notAWinner = aGame.WrongAnswer();
-                    }
-                    else
-                    {
-                        _notAWinner = aGame.WasCorrectlyAnswered();
-                    }
-                } while (_notAWinner);
-            }
+                    _notAWinner = aGame.WrongAnswer();
+                }
+                else
+                {
+                    _notAWinner = aGame.WasCorrectlyAnswered();
+                }
+            } while (_notAWinner);
         }
     }
 }

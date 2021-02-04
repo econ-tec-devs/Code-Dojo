@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.IO;
+using NUnit.Framework;
 using Trivia;
 
 namespace KataTest
@@ -13,8 +15,12 @@ namespace KataTest
         [Test]
         public void MethodeToTest_Scenario_Expected()
         {
-            GameRunner.Main(1337);
-            Assert.That(true, Is.False);
+            using (var sw = new StreamWriter(new FileStream("C:\\Users\\Public\\Documents\\GoldenMaster.txt", FileMode.Create)))
+            {
+                Console.SetOut(sw);
+                GameRunner.Main(1337);
+                Assert.That(true, Is.False);
+            }
         }
     }
 }
