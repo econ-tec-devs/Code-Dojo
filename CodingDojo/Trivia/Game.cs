@@ -25,31 +25,30 @@ namespace Trivia
         {
             for (var i = 0; i < 50; i++)
             {
-                _popQuestions.AddLast(CreatePopQuestion(i));
-                _scienceQuestions.AddLast(CreateScienceQuestion(i));
-                _sportsQuestions.AddLast(CreateSportsQuestion(i));
-                _rockQuestions.AddLast(CreateRockQuestion(i));
+                CreateQuestion(i, "Pop Question ");
+                CreateQuestion(i, "Science Question ");
+                CreateQuestion(i, "Sports Question ");
+                CreateQuestion(i, "Rock Question ");
             }
         }
 
-        private string CreateSportsQuestion(int index)
+        private void CreateQuestion(int index, string QuestionArea)
         {
-            return "Sports Question " + index;
-        }
-
-        private string CreateScienceQuestion(int index)
-        {
-            return "Science Question " + index;
-        }
-
-        private string CreatePopQuestion(int index)
-        {
-            return "Pop Question " + index;
-        }
-
-        public string CreateRockQuestion(int index)
-        {
-            return "Rock Question " + index;
+            switch(QuestionArea)
+            {
+                case "Pop Question ":
+                    _popQuestions.AddLast($"{QuestionArea}" + index);
+                    break;
+                case "Rock Question ":
+                    _rockQuestions.AddLast($"{QuestionArea}" + index);
+                    break;
+                case "Science Question ":
+                    _scienceQuestions.AddLast($"{QuestionArea}" + index);
+                    break;
+                case "Sports Question ":
+                    _sportsQuestions.AddLast($"{QuestionArea}" + index);
+                    break;
+            }
         }
 
         public bool IsPlayable()
