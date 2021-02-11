@@ -31,7 +31,7 @@ namespace KataTest
         //}
 
         [Test]
-        public void GammeRunner_CreateFileWithCurrentGame_EqualToGoldenMaster()
+        public void GameRunner_CreateFileWithCurrentGame_EqualToGoldenMaster()
         {
             var oldOut = Console.Out;
             var currentFile = @"..\..\..\CurrentOutput.txt";
