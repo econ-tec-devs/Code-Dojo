@@ -33,11 +33,6 @@ namespace Trivia
             this.InitializeGame();
         }
 
-        public string CreateRockQuestion(int index)
-        {
-            return "Rock Question " + index;
-        }
-
         public bool IsPlayable()
         {
             return (this.HowManyPlayers() >= this.minPlayer);
@@ -176,13 +171,18 @@ namespace Trivia
 
         private void InitializeGame()
         {
-            for (var i = 0; i < this.maxQuestionsPerCategory; i++)
+            for (var index = 0; index < this.maxQuestionsPerCategory; index++)
             {
-                this._popQuestions.AddLast("Pop Question " + i);
-                this._scienceQuestions.AddLast(("Science Question " + i));
-                this._sportsQuestions.AddLast(("Sports Question " + i));
-                this._rockQuestions.AddLast(this.CreateRockQuestion(i));
+                this._popQuestions.AddLast(this.CreateQuestion(Category.Pop, index));
+                this._scienceQuestions.AddLast(this.CreateQuestion(Category.Science, index));
+                this._sportsQuestions.AddLast(this.CreateQuestion(Category.Sports, index));
+                this._rockQuestions.AddLast(this.CreateQuestion(Category.Rock, index));
             }
+        }
+
+        private string CreateQuestion(Category category, int index)
+        {
+            return $"{category} Question {index}";
         }
 
         private void AskQuestion()
