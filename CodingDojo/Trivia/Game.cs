@@ -12,12 +12,8 @@ namespace Trivia
     public class Game
     {
         private static readonly int maxPlayer = 6;
-        private readonly bool[] _inPenaltyBox = new bool[maxPlayer];
-
         private readonly List<Player> _players = new List<Player>();
-
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
-
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
@@ -41,7 +37,7 @@ namespace Trivia
         {
             this._players.Add(new Player { Name = playerName });
 
-            this._inPenaltyBox[this.HowManyPlayers()] = false;
+            //this._inPenaltyBox[this.HowManyPlayers()] = false;
 
             Console.WriteLine($"{playerName} was added");
             Console.WriteLine($"They are player number {this._players.Count}");
@@ -58,7 +54,7 @@ namespace Trivia
             Console.WriteLine($"{this._players[this._currentPlayer].Name} is the current player");
             Console.WriteLine($"They have rolled a {roll}");
 
-            if (this._inPenaltyBox[this._currentPlayer])
+            if (this._players[this._currentPlayer].IsInPenaltyBox)
             {
                 if (roll % 2 != 0)
                 {
@@ -83,7 +79,7 @@ namespace Trivia
 
         public bool WasCorrectlyAnswered()
         {
-            if (this._inPenaltyBox[this._currentPlayer])
+            if (this._players[this._currentPlayer].IsInPenaltyBox)
             {
                 if (this._isGettingOutOfPenaltyBox)
                 {
@@ -111,7 +107,7 @@ namespace Trivia
         {
             Console.WriteLine("Question was incorrectly answered");
             Console.WriteLine($"{this._players[this._currentPlayer].Name} was sent to the penalty box");
-            this._inPenaltyBox[this._currentPlayer] = true;
+            this._players[this._currentPlayer].IsInPenaltyBox = true;
             this.NextPlayer();
             return true;
         }
@@ -225,6 +221,8 @@ namespace Trivia
         public int Place { get; set; } = 0;
 
         public int Purse { get; set; } = 0;
+
+        public bool IsInPenaltyBox { get; set; } = false;
     }
 
     internal enum Category
