@@ -18,7 +18,7 @@ namespace KataTest
         [SetUp]
         public void Setup()
         {
-            path = "GoldenMaster.txt";
+            path = "../../../../GoldenMaster.txt";
         }
 
         //[Test]
