@@ -12,15 +12,14 @@ namespace Trivia
     public class Game
     {
         private static readonly int MaxPlayer = 6;
-        private readonly List<Player> _players = new List<Player>();
+        private readonly LinkedList<Player> _players = new LinkedList<Player>();
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
         private readonly int maxQuestionsPerCategory = 50;
         private readonly int minPlayer = 2;
-
-        private int _currentPlayer;
+        private Player _currentPlayer;
         private bool _isGettingOutOfPenaltyBox;
 
         public Game()
@@ -35,7 +34,8 @@ namespace Trivia
 
         public bool Add(string playerName)
         {
-            this._players.Add(new Player { Name = playerName });
+            this._players.AddLast(new Player { Name = playerName });
+            this._currentPlayer = this._players.First();
             Console.WriteLine($"{playerName} was added");
             Console.WriteLine($"They are player number {this._players.Count}");
             return true;
@@ -48,22 +48,22 @@ namespace Trivia
 
         public void Roll(int roll)
         {
-            Console.WriteLine($"{this._players[this._currentPlayer].Name} is the current player");
+            Console.WriteLine($"{this._currentPlayer.Name} is the current player");
             Console.WriteLine($"They have rolled a {roll}");
 
-            if (this._players[this._currentPlayer].IsInPenaltyBox)
+            if (this._currentPlayer.IsInPenaltyBox)
             {
                 if (IsEven(roll))
                 {
                     this._isGettingOutOfPenaltyBox = true;
 
-                    Console.WriteLine($"{this._players[this._currentPlayer].Name} is getting out of the penalty box");
+                    Console.WriteLine($"{this._currentPlayer.Name} is getting out of the penalty box");
                     this.MoveCurrentPlayer(roll);
                     this.AskQuestion();
                 }
                 else
                 {
-                    Console.WriteLine($"{this._players[this._currentPlayer].Name} is not getting out of the penalty box");
+                    Console.WriteLine($"{this._currentPlayer.Name} is not getting out of the penalty box");
                     this._isGettingOutOfPenaltyBox = false;
                 }
             }
@@ -76,7 +76,7 @@ namespace Trivia
 
         public bool WasCorrectlyAnswered()
         {
-            if (this._players[this._currentPlayer].IsInPenaltyBox)
+            if (this._currentPlayer.IsInPenaltyBox)
             {
                 if (this._isGettingOutOfPenaltyBox)
                 {
@@ -103,8 +103,8 @@ namespace Trivia
         public bool WrongAnswer()
         {
             Console.WriteLine("Question was incorrectly answered");
-            Console.WriteLine($"{this._players[this._currentPlayer].Name} was sent to the penalty box");
-            this._players[this._currentPlayer].IsInPenaltyBox = true;
+            Console.WriteLine($"{this._currentPlayer.Name} was sent to the penalty box");
+            this._currentPlayer.IsInPenaltyBox = true;
             this.NextPlayer();
             return true;
         }
@@ -117,29 +117,28 @@ namespace Trivia
         private void CorrectAnswer(string correct)
         {
             Console.WriteLine($"Answer was {correct}!!!!");
-            this._players[this._currentPlayer].Purse++;
-            Console.WriteLine($"{this._players[this._currentPlayer].Name} now has {this._players[this._currentPlayer].Purse} Gold Coins.");
+            this._currentPlayer.Purse++;
+            Console.WriteLine($"{this._currentPlayer.Name} now has {this._currentPlayer.Purse} Gold Coins.");
         }
 
         private void MoveCurrentPlayer(int roll)
         {
-            this._players[this._currentPlayer].Place += roll;
-            if (this._players[this._currentPlayer].Place > 11)
+            this._currentPlayer.Place += roll;
+            if (this._currentPlayer.Place > 11)
             {
-                this._players[this._currentPlayer].Place -= 12;
+                this._currentPlayer.Place -= 12;
             }
 
-            Console.WriteLine($"{this._players[this._currentPlayer].Name}'s new location is {this._players[this._currentPlayer].Place}");
+            Console.WriteLine($"{this._currentPlayer.Name}'s new location is {this._currentPlayer.Place}");
             Console.WriteLine($"The category is {this.CurrentCategory()}");
         }
 
         private void NextPlayer()
         {
-            this._currentPlayer++;
-            if (this._currentPlayer == this._players.Count)
-            {
-                this._currentPlayer = 0;
-            }
+            var currentPlayer = this._players.First();
+            this._players.RemoveFirst();
+            this._players.AddLast(currentPlayer);
+            this._currentPlayer = this._players.First();
         }
 
         private void InitializeGame()
@@ -187,7 +186,7 @@ namespace Trivia
 
         private Category CurrentCategory()
         {
-            switch (this._players[this._currentPlayer].Place)
+            switch (this._currentPlayer.Place)
             {
                 case 0:
                 case 4:
@@ -208,7 +207,7 @@ namespace Trivia
 
         private bool DidPlayerWin()
         {
-            return this._players[this._currentPlayer].Purse != 6;
+            return this._currentPlayer.Purse != 6;
         }
     }
 
@@ -216,11 +215,11 @@ namespace Trivia
     {
         public string Name { get; set; }
 
-        public int Place { get; set; } = 0;
+        public int Place { get; set; }
 
-        public int Purse { get; set; } = 0;
+        public int Purse { get; set; }
 
-        public bool IsInPenaltyBox { get; set; } = false;
+        public bool IsInPenaltyBox { get; set; }
     }
 
     internal enum Category
