@@ -14,7 +14,6 @@ namespace Trivia
         private static readonly int maxPlayer = 6;
         private readonly bool[] _inPenaltyBox = new bool[maxPlayer];
 
-        private readonly int[] _places = new int[maxPlayer];
         private readonly List<Player> _players = new List<Player>();
 
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
@@ -40,8 +39,8 @@ namespace Trivia
 
         public bool Add(string playerName)
         {
-            this._players.Add(new Player() { Name = playerName });
-            this._places[this.HowManyPlayers()] = 0;
+            this._players.Add(new Player { Name = playerName });
+
             this._purses[this.HowManyPlayers()] = 0;
             this._inPenaltyBox[this.HowManyPlayers()] = false;
 
@@ -128,13 +127,14 @@ namespace Trivia
 
         private void MoveCurrentPlayer(int roll)
         {
-            this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
-            if (this._places[this._currentPlayer] > 11)
+            this._players[this._currentPlayer].Place += roll;
+
+            if (this._players[this._currentPlayer].Place > 11)
             {
-                this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
+                this._players[this._currentPlayer].Place -= 12;
             }
 
-            Console.WriteLine($"{this._players[this._currentPlayer].Name}'s new location is {this._places[this._currentPlayer]}");
+            Console.WriteLine($"{this._players[this._currentPlayer].Name}'s new location is {this._players[this._currentPlayer].Place}");
             Console.WriteLine($"The category is {this.CurrentCategory()}");
         }
 
@@ -192,7 +192,7 @@ namespace Trivia
 
         private Category CurrentCategory()
         {
-            switch (this._places[this._currentPlayer])
+            switch (this._players[this._currentPlayer].Place)
             {
                 case 0:
                 case 4:
@@ -220,6 +220,8 @@ namespace Trivia
     internal class Player
     {
         public string Name { get; set; }
+
+        public int Place { get; set; } = 0;
     }
 
     internal enum Category
