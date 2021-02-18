@@ -182,79 +182,50 @@ namespace Trivia
 
         private void AskQuestion()
         {
-            if (CurrentCategory() == Category.Pop.ToString())
+            if (CurrentCategory() == Category.Pop)
             {
                 Console.WriteLine(_popQuestions.First());
                 _popQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Science.ToString())
+            if (CurrentCategory() == Category.Science)
             {
                 Console.WriteLine(_scienceQuestions.First());
                 _scienceQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Sports.ToString())
+            if (CurrentCategory() == Category.Sports)
             {
                 Console.WriteLine(_sportsQuestions.First());
                 _sportsQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Rock.ToString())
+            if (CurrentCategory() == Category.Rock)
             {
                 Console.WriteLine(_rockQuestions.First());
                 _rockQuestions.RemoveFirst();
             }
         }
 
-        private string CurrentCategory()
+        private Category CurrentCategory()
         {
-            if (_places[_currentPlayer] == 0)
+            switch (this._places[this._currentPlayer])
             {
-                return "Pop";
+                case 0:
+                case 4:
+                case 8:
+                    return Category.Pop;
+                case 1:
+                case 5:
+                case 9:
+                    return Category.Science;
+                case 2:
+                case 6:
+                case 10:
+                    return Category.Sports;
+                default:
+                    return Category.Rock;
             }
-
-            if (_places[_currentPlayer] == 4)
-            {
-                return "Pop";
-            }
-
-            if (_places[_currentPlayer] == 8)
-            {
-                return "Pop";
-            }
-
-            if (_places[_currentPlayer] == 1)
-            {
-                return "Science";
-            }
-
-            if (_places[_currentPlayer] == 5)
-            {
-                return "Science";
-            }
-
-            if (_places[_currentPlayer] == 9)
-            {
-                return "Science";
-            }
-
-            if (_places[_currentPlayer] == 2)
-            {
-                return "Sports";
-            }
-
-            if (_places[_currentPlayer] == 6)
-            {
-                return "Sports";
-            }
-
-            if (_places[_currentPlayer] == 10)
-            {
-                return "Sports";
-            }
-
-            return "Rock";
         }
 
         private bool DidPlayerWin()
