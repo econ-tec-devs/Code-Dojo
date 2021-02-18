@@ -23,10 +23,10 @@ namespace Trivia
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
         private readonly int maxQuestionsPerCategory = 50;
+        private readonly int minPlayer = 2;
 
         private int _currentPlayer;
         private bool _isGettingOutOfPenaltyBox;
-        private int minPlayer = 2;
 
         public Game()
         {
