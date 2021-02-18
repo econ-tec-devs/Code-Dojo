@@ -230,7 +230,7 @@ namespace Trivia
 
         private bool DidPlayerWin()
         {
-            return !(this._purses[this._currentPlayer] == 6);
+            return this._purses[this._currentPlayer] != 6;
         }
     }
 
