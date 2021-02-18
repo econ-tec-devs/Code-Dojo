@@ -18,7 +18,6 @@ namespace Trivia
 
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
 
-        //private readonly int[] _purses = new int[maxPlayer];
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
@@ -42,7 +41,6 @@ namespace Trivia
         {
             this._players.Add(new Player { Name = playerName });
 
-            //this._purses[this.HowManyPlayers()] = 0;
             this._inPenaltyBox[this.HowManyPlayers()] = false;
 
             Console.WriteLine($"{playerName} was added");
