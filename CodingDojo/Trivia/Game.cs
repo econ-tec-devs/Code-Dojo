@@ -108,22 +108,13 @@ namespace Trivia
                     Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
 
                     var winner = this.DidPlayerWin();
-                    this._currentPlayer++;
-                    if (this._currentPlayer == this._players.Count)
-                    {
-                        this._currentPlayer = 0;
-                    }
+                    this.NextPlayer();
 
                     return winner;
                 }
                 else
                 {
-                    this._currentPlayer++;
-                    if (this._currentPlayer == this._players.Count)
-                    {
-                        this._currentPlayer = 0;
-                    }
-
+                    this.NextPlayer();
                     return true;
                 }
             }
@@ -134,11 +125,7 @@ namespace Trivia
                 Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
 
                 var winner = this.DidPlayerWin();
-                this._currentPlayer++;
-                if (this._currentPlayer == this._players.Count)
-                {
-                    this._currentPlayer = 0;
-                }
+                this.NextPlayer();
 
                 return winner;
             }
@@ -157,6 +144,15 @@ namespace Trivia
             }
 
             return true;
+        }
+
+        private void NextPlayer()
+        {
+            this._currentPlayer++;
+            if (this._currentPlayer == this._players.Count)
+            {
+                this._currentPlayer = 0;
+            }
         }
 
         private void InitializeGame()
