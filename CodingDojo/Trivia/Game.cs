@@ -182,25 +182,25 @@ namespace Trivia
 
         private void AskQuestion()
         {
-            if (CurrentCategory() == "Pop")
+            if (CurrentCategory() == Category.Pop.ToString())
             {
                 Console.WriteLine(_popQuestions.First());
                 _popQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == "Science")
+            if (CurrentCategory() == Category.Science.ToString())
             {
                 Console.WriteLine(_scienceQuestions.First());
                 _scienceQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == "Sports")
+            if (CurrentCategory() == Category.Sports.ToString())
             {
                 Console.WriteLine(_sportsQuestions.First());
                 _sportsQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == "Rock")
+            if (CurrentCategory() == Category.Rock.ToString())
             {
                 Console.WriteLine(_rockQuestions.First());
                 _rockQuestions.RemoveFirst();
@@ -261,5 +261,13 @@ namespace Trivia
         {
             return !(_purses[_currentPlayer] == 6);
         }
+    }
+
+    internal enum Category
+    {
+        Pop,
+        Science,
+        Sports,
+        Rock
     }
 }
