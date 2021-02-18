@@ -17,7 +17,8 @@ namespace Trivia
         private readonly List<Player> _players = new List<Player>();
 
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
-        private readonly int[] _purses = new int[maxPlayer];
+
+        //private readonly int[] _purses = new int[maxPlayer];
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
@@ -41,7 +42,7 @@ namespace Trivia
         {
             this._players.Add(new Player { Name = playerName });
 
-            this._purses[this.HowManyPlayers()] = 0;
+            //this._purses[this.HowManyPlayers()] = 0;
             this._inPenaltyBox[this.HowManyPlayers()] = false;
 
             Console.WriteLine($"{playerName} was added");
@@ -121,8 +122,10 @@ namespace Trivia
         {
             Console.WriteLine($"Answer was {correct}!!!!");
 
-            this._purses[this._currentPlayer]++;
-            Console.WriteLine($"{this._players[this._currentPlayer].Name} now has {this._purses[this._currentPlayer]} Gold Coins.");
+            this._players[this._currentPlayer].Purse++;
+
+            //this._purses[this._currentPlayer]++;
+            Console.WriteLine($"{this._players[this._currentPlayer].Name} now has {this._players[this._currentPlayer].Purse} Gold Coins.");
         }
 
         private void MoveCurrentPlayer(int roll)
@@ -213,7 +216,7 @@ namespace Trivia
 
         private bool DidPlayerWin()
         {
-            return this._purses[this._currentPlayer] != 6;
+            return this._players[this._currentPlayer].Purse != 6;
         }
     }
 
@@ -222,6 +225,8 @@ namespace Trivia
         public string Name { get; set; }
 
         public int Place { get; set; } = 0;
+
+        public int Purse { get; set; } = 0;
     }
 
     internal enum Category
