@@ -32,10 +32,10 @@ namespace Trivia
         {
             for (var i = 0; i < this.maxQuestionsPerCategory; i++)
             {
-                _popQuestions.AddLast("Pop Question " + i);
-                _scienceQuestions.AddLast(("Science Question " + i));
-                _sportsQuestions.AddLast(("Sports Question " + i));
-                _rockQuestions.AddLast(CreateRockQuestion(i));
+                this._popQuestions.AddLast("Pop Question " + i);
+                this._scienceQuestions.AddLast(("Science Question " + i));
+                this._sportsQuestions.AddLast(("Sports Question " + i));
+                this._rockQuestions.AddLast(this.CreateRockQuestion(i));
             }
         }
 
@@ -46,88 +46,88 @@ namespace Trivia
 
         public bool IsPlayable()
         {
-            return (HowManyPlayers() >= this.minPlayer);
+            return (this.HowManyPlayers() >= this.minPlayer);
         }
 
         public bool Add(string playerName)
         {
-            _players.Add(playerName);
-            _places[HowManyPlayers()] = 0;
-            _purses[HowManyPlayers()] = 0;
-            _inPenaltyBox[HowManyPlayers()] = false;
+            this._players.Add(playerName);
+            this._places[this.HowManyPlayers()] = 0;
+            this._purses[this.HowManyPlayers()] = 0;
+            this._inPenaltyBox[this.HowManyPlayers()] = false;
 
             Console.WriteLine(playerName + " was added");
-            Console.WriteLine("They are player number " + _players.Count);
+            Console.WriteLine("They are player number " + this._players.Count);
             return true;
         }
 
         public int HowManyPlayers()
         {
-            return _players.Count;
+            return this._players.Count;
         }
 
         public void Roll(int roll)
         {
-            Console.WriteLine(_players[_currentPlayer] + " is the current player");
+            Console.WriteLine(this._players[this._currentPlayer] + " is the current player");
             Console.WriteLine("They have rolled a " + roll);
 
-            if (_inPenaltyBox[_currentPlayer])
+            if (this._inPenaltyBox[this._currentPlayer])
             {
                 if (roll % 2 != 0)
                 {
-                    _isGettingOutOfPenaltyBox = true;
+                    this._isGettingOutOfPenaltyBox = true;
 
-                    Console.WriteLine(_players[_currentPlayer] + " is getting out of the penalty box");
-                    _places[_currentPlayer] = _places[_currentPlayer] + roll;
-                    if (_places[_currentPlayer] > 11)
+                    Console.WriteLine(this._players[this._currentPlayer] + " is getting out of the penalty box");
+                    this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
+                    if (this._places[this._currentPlayer] > 11)
                     {
                         this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
                     }
 
-                    Console.WriteLine(_players[_currentPlayer]
+                    Console.WriteLine(this._players[this._currentPlayer]
                                       + "'s new location is "
-                                      + _places[_currentPlayer]);
-                    Console.WriteLine("The category is " + CurrentCategory());
-                    AskQuestion();
+                                      + this._places[this._currentPlayer]);
+                    Console.WriteLine("The category is " + this.CurrentCategory());
+                    this.AskQuestion();
                 }
                 else
                 {
-                    Console.WriteLine(_players[_currentPlayer] + " is not getting out of the penalty box");
-                    _isGettingOutOfPenaltyBox = false;
+                    Console.WriteLine(this._players[this._currentPlayer] + " is not getting out of the penalty box");
+                    this._isGettingOutOfPenaltyBox = false;
                 }
             }
             else
             {
-                _places[_currentPlayer] = _places[_currentPlayer] + roll;
-                if (_places[_currentPlayer] > 11)
+                this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
+                if (this._places[this._currentPlayer] > 11)
                 {
                     this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
                 }
 
-                Console.WriteLine(_players[_currentPlayer]
+                Console.WriteLine(this._players[this._currentPlayer]
                                   + "'s new location is "
-                                  + _places[_currentPlayer]);
-                Console.WriteLine("The category is " + CurrentCategory());
-                AskQuestion();
+                                  + this._places[this._currentPlayer]);
+                Console.WriteLine("The category is " + this.CurrentCategory());
+                this.AskQuestion();
             }
         }
 
         public bool WasCorrectlyAnswered()
         {
-            if (_inPenaltyBox[_currentPlayer])
+            if (this._inPenaltyBox[this._currentPlayer])
             {
-                if (_isGettingOutOfPenaltyBox)
+                if (this._isGettingOutOfPenaltyBox)
                 {
                     Console.WriteLine("Answer was correct!!!!");
-                    _purses[_currentPlayer]++;
-                    Console.WriteLine(_players[_currentPlayer]
+                    this._purses[this._currentPlayer]++;
+                    Console.WriteLine(this._players[this._currentPlayer]
                                       + " now has "
-                                      + _purses[_currentPlayer]
+                                      + this._purses[this._currentPlayer]
                                       + " Gold Coins.");
 
-                    var winner = DidPlayerWin();
-                    _currentPlayer++;
-                    if (_currentPlayer == _players.Count)
+                    var winner = this.DidPlayerWin();
+                    this._currentPlayer++;
+                    if (this._currentPlayer == this._players.Count)
                     {
                         this._currentPlayer = 0;
                     }
@@ -136,8 +136,8 @@ namespace Trivia
                 }
                 else
                 {
-                    _currentPlayer++;
-                    if (_currentPlayer == _players.Count)
+                    this._currentPlayer++;
+                    if (this._currentPlayer == this._players.Count)
                     {
                         this._currentPlayer = 0;
                     }
@@ -148,15 +148,15 @@ namespace Trivia
             else
             {
                 Console.WriteLine("Answer was corrent!!!!");
-                _purses[_currentPlayer]++;
-                Console.WriteLine(_players[_currentPlayer]
+                this._purses[this._currentPlayer]++;
+                Console.WriteLine(this._players[this._currentPlayer]
                                   + " now has "
-                                  + _purses[_currentPlayer]
+                                  + this._purses[this._currentPlayer]
                                   + " Gold Coins.");
 
-                var winner = DidPlayerWin();
-                _currentPlayer++;
-                if (_currentPlayer == _players.Count)
+                var winner = this.DidPlayerWin();
+                this._currentPlayer++;
+                if (this._currentPlayer == this._players.Count)
                 {
                     this._currentPlayer = 0;
                 }
@@ -168,11 +168,11 @@ namespace Trivia
         public bool WrongAnswer()
         {
             Console.WriteLine("Question was incorrectly answered");
-            Console.WriteLine(_players[_currentPlayer] + " was sent to the penalty box");
-            _inPenaltyBox[_currentPlayer] = true;
+            Console.WriteLine(this._players[this._currentPlayer] + " was sent to the penalty box");
+            this._inPenaltyBox[this._currentPlayer] = true;
 
-            _currentPlayer++;
-            if (_currentPlayer == _players.Count)
+            this._currentPlayer++;
+            if (this._currentPlayer == this._players.Count)
             {
                 this._currentPlayer = 0;
             }
@@ -182,28 +182,28 @@ namespace Trivia
 
         private void AskQuestion()
         {
-            if (CurrentCategory() == Category.Pop)
+            if (this.CurrentCategory() == Category.Pop)
             {
-                Console.WriteLine(_popQuestions.First());
-                _popQuestions.RemoveFirst();
+                Console.WriteLine(this._popQuestions.First());
+                this._popQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Science)
+            if (this.CurrentCategory() == Category.Science)
             {
-                Console.WriteLine(_scienceQuestions.First());
-                _scienceQuestions.RemoveFirst();
+                Console.WriteLine(this._scienceQuestions.First());
+                this._scienceQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Sports)
+            if (this.CurrentCategory() == Category.Sports)
             {
-                Console.WriteLine(_sportsQuestions.First());
-                _sportsQuestions.RemoveFirst();
+                Console.WriteLine(this._sportsQuestions.First());
+                this._sportsQuestions.RemoveFirst();
             }
 
-            if (CurrentCategory() == Category.Rock)
+            if (this.CurrentCategory() == Category.Rock)
             {
-                Console.WriteLine(_rockQuestions.First());
-                _rockQuestions.RemoveFirst();
+                Console.WriteLine(this._rockQuestions.First());
+                this._rockQuestions.RemoveFirst();
             }
         }
 
@@ -230,7 +230,7 @@ namespace Trivia
 
         private bool DidPlayerWin()
         {
-            return !(_purses[_currentPlayer] == 6);
+            return !(this._purses[this._currentPlayer] == 6);
         }
     }
 
