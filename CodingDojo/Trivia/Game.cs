@@ -30,13 +30,7 @@ namespace Trivia
 
         public Game()
         {
-            for (var i = 0; i < this.maxQuestionsPerCategory; i++)
-            {
-                this._popQuestions.AddLast("Pop Question " + i);
-                this._scienceQuestions.AddLast(("Science Question " + i));
-                this._sportsQuestions.AddLast(("Sports Question " + i));
-                this._rockQuestions.AddLast(this.CreateRockQuestion(i));
-            }
+            this.InitializeGame();
         }
 
         public string CreateRockQuestion(int index)
@@ -178,6 +172,17 @@ namespace Trivia
             }
 
             return true;
+        }
+
+        private void InitializeGame()
+        {
+            for (var i = 0; i < this.maxQuestionsPerCategory; i++)
+            {
+                this._popQuestions.AddLast("Pop Question " + i);
+                this._scienceQuestions.AddLast(("Science Question " + i));
+                this._sportsQuestions.AddLast(("Sports Question " + i));
+                this._rockQuestions.AddLast(this.CreateRockQuestion(i));
+            }
         }
 
         private void AskQuestion()
