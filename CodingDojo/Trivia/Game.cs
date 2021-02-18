@@ -182,29 +182,29 @@ namespace Trivia
 
         private void AskQuestion()
         {
-            if (this.CurrentCategory() == Category.Pop)
+            switch (this.CurrentCategory())
             {
-                Console.WriteLine(this._popQuestions.First());
-                this._popQuestions.RemoveFirst();
+                case Category.Pop:
+                    this.DrawFirstQuestion(this._popQuestions);
+                    break;
+                case Category.Science:
+                    this.DrawFirstQuestion(this._scienceQuestions);
+                    break;
+                case Category.Sports:
+                    this.DrawFirstQuestion(this._sportsQuestions);
+                    break;
+                case Category.Rock:
+                    this.DrawFirstQuestion(this._rockQuestions);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
+        }
 
-            if (this.CurrentCategory() == Category.Science)
-            {
-                Console.WriteLine(this._scienceQuestions.First());
-                this._scienceQuestions.RemoveFirst();
-            }
-
-            if (this.CurrentCategory() == Category.Sports)
-            {
-                Console.WriteLine(this._sportsQuestions.First());
-                this._sportsQuestions.RemoveFirst();
-            }
-
-            if (this.CurrentCategory() == Category.Rock)
-            {
-                Console.WriteLine(this._rockQuestions.First());
-                this._rockQuestions.RemoveFirst();
-            }
+        private void DrawFirstQuestion(LinkedList<string> questions)
+        {
+            Console.WriteLine(questions.First());
+            questions.RemoveFirst();
         }
 
         private Category CurrentCategory()
