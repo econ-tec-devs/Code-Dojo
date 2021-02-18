@@ -45,8 +45,8 @@ namespace Trivia
             this._purses[this.HowManyPlayers()] = 0;
             this._inPenaltyBox[this.HowManyPlayers()] = false;
 
-            Console.WriteLine(playerName + " was added");
-            Console.WriteLine("They are player number " + this._players.Count);
+            Console.WriteLine($"{playerName} was added");
+            Console.WriteLine($"They are player number {this._players.Count}");
             return true;
         }
 
@@ -57,8 +57,8 @@ namespace Trivia
 
         public void Roll(int roll)
         {
-            Console.WriteLine(this._players[this._currentPlayer] + " is the current player");
-            Console.WriteLine("They have rolled a " + roll);
+            Console.WriteLine($"{this._players[this._currentPlayer]} is the current player");
+            Console.WriteLine($"They have rolled a {roll}");
 
             if (this._inPenaltyBox[this._currentPlayer])
             {
@@ -66,22 +66,20 @@ namespace Trivia
                 {
                     this._isGettingOutOfPenaltyBox = true;
 
-                    Console.WriteLine(this._players[this._currentPlayer] + " is getting out of the penalty box");
+                    Console.WriteLine($"{this._players[this._currentPlayer]} is getting out of the penalty box");
                     this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
                     if (this._places[this._currentPlayer] > 11)
                     {
                         this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
                     }
 
-                    Console.WriteLine(this._players[this._currentPlayer]
-                                      + "'s new location is "
-                                      + this._places[this._currentPlayer]);
-                    Console.WriteLine("The category is " + this.CurrentCategory());
+                    Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
+                    Console.WriteLine($"The category is {this.CurrentCategory()}");
                     this.AskQuestion();
                 }
                 else
                 {
-                    Console.WriteLine(this._players[this._currentPlayer] + " is not getting out of the penalty box");
+                    Console.WriteLine($"{this._players[this._currentPlayer]} is not getting out of the penalty box");
                     this._isGettingOutOfPenaltyBox = false;
                 }
             }
@@ -93,10 +91,8 @@ namespace Trivia
                     this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
                 }
 
-                Console.WriteLine(this._players[this._currentPlayer]
-                                  + "'s new location is "
-                                  + this._places[this._currentPlayer]);
-                Console.WriteLine("The category is " + this.CurrentCategory());
+                Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
+                Console.WriteLine($"The category is {this.CurrentCategory()}");
                 this.AskQuestion();
             }
         }
@@ -109,10 +105,7 @@ namespace Trivia
                 {
                     Console.WriteLine("Answer was correct!!!!");
                     this._purses[this._currentPlayer]++;
-                    Console.WriteLine(this._players[this._currentPlayer]
-                                      + " now has "
-                                      + this._purses[this._currentPlayer]
-                                      + " Gold Coins.");
+                    Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
 
                     var winner = this.DidPlayerWin();
                     this._currentPlayer++;
@@ -138,10 +131,7 @@ namespace Trivia
             {
                 Console.WriteLine("Answer was corrent!!!!");
                 this._purses[this._currentPlayer]++;
-                Console.WriteLine(this._players[this._currentPlayer]
-                                  + " now has "
-                                  + this._purses[this._currentPlayer]
-                                  + " Gold Coins.");
+                Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
 
                 var winner = this.DidPlayerWin();
                 this._currentPlayer++;
@@ -157,7 +147,7 @@ namespace Trivia
         public bool WrongAnswer()
         {
             Console.WriteLine("Question was incorrectly answered");
-            Console.WriteLine(this._players[this._currentPlayer] + " was sent to the penalty box");
+            Console.WriteLine($"{this._players[this._currentPlayer]} was sent to the penalty box");
             this._inPenaltyBox[this._currentPlayer] = true;
 
             this._currentPlayer++;
