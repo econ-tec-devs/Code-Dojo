@@ -11,14 +11,16 @@ namespace Trivia
 
     public class Game
     {
-        private static readonly int MaxPlayer = 6;
+        private readonly int _fieldsOnBoard = 12;
+        private readonly int _maxQuestionsPerCategory = 50;
+        private readonly int _minPlayer = 2;
         private readonly LinkedList<Player> _players = new LinkedList<Player>();
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
-        private readonly int maxQuestionsPerCategory = 50;
-        private readonly int minPlayer = 2;
+        private readonly int MaxPlayer = 6;
+        private readonly int NeededCoinsToWin = 6;
         private Player _currentPlayer;
         private bool _isGettingOutOfPenaltyBox;
 
@@ -29,11 +31,16 @@ namespace Trivia
 
         public bool IsPlayable()
         {
-            return (this.HowManyPlayers() >= this.minPlayer);
+            return (this.HowManyPlayers() >= this._minPlayer);
         }
 
         public bool Add(string playerName)
         {
+            if (this._players.Count >= this.MaxPlayer)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
             this._players.AddLast(new Player { Name = playerName });
             this._currentPlayer = this._players.First();
             Console.WriteLine($"{playerName} was added");
@@ -53,7 +60,7 @@ namespace Trivia
 
             if (this._currentPlayer.IsInPenaltyBox)
             {
-                if (IsEven(roll))
+                if (this.IsGettingOutOfPenalityBox(roll))
                 {
                     this._isGettingOutOfPenaltyBox = true;
 
@@ -109,7 +116,7 @@ namespace Trivia
             return true;
         }
 
-        private bool IsEven(int roll)
+        private bool IsGettingOutOfPenalityBox(int roll)
         {
             return roll % 2 != 0;
         }
@@ -124,10 +131,7 @@ namespace Trivia
         private void MoveCurrentPlayer(int roll)
         {
             this._currentPlayer.Place += roll;
-            if (this._currentPlayer.Place > 11)
-            {
-                this._currentPlayer.Place -= 12;
-            }
+            this._currentPlayer.Place %= this._fieldsOnBoard;
 
             Console.WriteLine($"{this._currentPlayer.Name}'s new location is {this._currentPlayer.Place}");
             Console.WriteLine($"The category is {this.CurrentCategory()}");
@@ -143,7 +147,7 @@ namespace Trivia
 
         private void InitializeGame()
         {
-            for (var index = 0; index < this.maxQuestionsPerCategory; index++)
+            for (var index = 0; index < this._maxQuestionsPerCategory; index++)
             {
                 this._popQuestions.AddLast(this.CreateQuestion(Category.Pop, index));
                 this._scienceQuestions.AddLast(this.CreateQuestion(Category.Science, index));
@@ -207,7 +211,7 @@ namespace Trivia
 
         private bool DidPlayerWin()
         {
-            return this._currentPlayer.Purse != 6;
+            return this._currentPlayer.Purse != this.NeededCoinsToWin;
         }
     }
 }
