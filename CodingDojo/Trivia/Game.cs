@@ -11,23 +11,26 @@ namespace Trivia
 
     public class Game
     {
-        private readonly bool[] _inPenaltyBox = new bool[6];
+        private static readonly int maxPlayer = 6;
+        private readonly bool[] _inPenaltyBox = new bool[maxPlayer];
 
-        private readonly int[] _places = new int[6];
+        private readonly int[] _places = new int[maxPlayer];
         private readonly List<string> _players = new List<string>();
 
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
-        private readonly int[] _purses = new int[6];
+        private readonly int[] _purses = new int[maxPlayer];
         private readonly LinkedList<string> _rockQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _scienceQuestions = new LinkedList<string>();
         private readonly LinkedList<string> _sportsQuestions = new LinkedList<string>();
+        private readonly int maxQuestionsPerCategory = 50;
 
         private int _currentPlayer;
         private bool _isGettingOutOfPenaltyBox;
+        private int minPlayer = 2;
 
         public Game()
         {
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < this.maxQuestionsPerCategory; i++)
             {
                 _popQuestions.AddLast("Pop Question " + i);
                 _scienceQuestions.AddLast(("Science Question " + i));
@@ -43,7 +46,7 @@ namespace Trivia
 
         public bool IsPlayable()
         {
-            return (HowManyPlayers() >= 2);
+            return (HowManyPlayers() >= this.minPlayer);
         }
 
         public bool Add(string playerName)
