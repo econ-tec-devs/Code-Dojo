@@ -67,14 +67,7 @@ namespace Trivia
                     this._isGettingOutOfPenaltyBox = true;
 
                     Console.WriteLine($"{this._players[this._currentPlayer]} is getting out of the penalty box");
-                    this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
-                    if (this._places[this._currentPlayer] > 11)
-                    {
-                        this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
-                    }
-
-                    Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
-                    Console.WriteLine($"The category is {this.CurrentCategory()}");
+                    this.MoveCurrentPlayer(roll);
                     this.AskQuestion();
                 }
                 else
@@ -85,14 +78,7 @@ namespace Trivia
             }
             else
             {
-                this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
-                if (this._places[this._currentPlayer] > 11)
-                {
-                    this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
-                }
-
-                Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
-                Console.WriteLine($"The category is {this.CurrentCategory()}");
+                this.MoveCurrentPlayer(roll);
                 this.AskQuestion();
             }
         }
@@ -103,13 +89,9 @@ namespace Trivia
             {
                 if (this._isGettingOutOfPenaltyBox)
                 {
-                    Console.WriteLine("Answer was correct!!!!");
-                    this._purses[this._currentPlayer]++;
-                    Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
-
+                    this.CorrectAnswer("correct");
                     var winner = this.DidPlayerWin();
                     this.NextPlayer();
-
                     return winner;
                 }
                 else
@@ -120,13 +102,9 @@ namespace Trivia
             }
             else
             {
-                Console.WriteLine("Answer was corrent!!!!");
-                this._purses[this._currentPlayer]++;
-                Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
-
+                this.CorrectAnswer("corrent");
                 var winner = this.DidPlayerWin();
                 this.NextPlayer();
-
                 return winner;
             }
         }
@@ -136,14 +114,28 @@ namespace Trivia
             Console.WriteLine("Question was incorrectly answered");
             Console.WriteLine($"{this._players[this._currentPlayer]} was sent to the penalty box");
             this._inPenaltyBox[this._currentPlayer] = true;
+            this.NextPlayer();
+            return true;
+        }
 
-            this._currentPlayer++;
-            if (this._currentPlayer == this._players.Count)
+        private void CorrectAnswer(string correct)
+        {
+            Console.WriteLine($"Answer was {correct}!!!!");
+
+            this._purses[this._currentPlayer]++;
+            Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
+        }
+
+        private void MoveCurrentPlayer(int roll)
+        {
+            this._places[this._currentPlayer] = this._places[this._currentPlayer] + roll;
+            if (this._places[this._currentPlayer] > 11)
             {
-                this._currentPlayer = 0;
+                this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
             }
 
-            return true;
+            Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
+            Console.WriteLine($"The category is {this.CurrentCategory()}");
         }
 
         private void NextPlayer()
