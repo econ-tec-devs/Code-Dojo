@@ -15,7 +15,7 @@ namespace Trivia
         private readonly bool[] _inPenaltyBox = new bool[maxPlayer];
 
         private readonly int[] _places = new int[maxPlayer];
-        private readonly List<string> _players = new List<string>();
+        private readonly List<Player> _players = new List<Player>();
 
         private readonly LinkedList<string> _popQuestions = new LinkedList<string>();
         private readonly int[] _purses = new int[maxPlayer];
@@ -40,7 +40,7 @@ namespace Trivia
 
         public bool Add(string playerName)
         {
-            this._players.Add(playerName);
+            this._players.Add(new Player() { Name = playerName });
             this._places[this.HowManyPlayers()] = 0;
             this._purses[this.HowManyPlayers()] = 0;
             this._inPenaltyBox[this.HowManyPlayers()] = false;
@@ -57,7 +57,7 @@ namespace Trivia
 
         public void Roll(int roll)
         {
-            Console.WriteLine($"{this._players[this._currentPlayer]} is the current player");
+            Console.WriteLine($"{this._players[this._currentPlayer].Name} is the current player");
             Console.WriteLine($"They have rolled a {roll}");
 
             if (this._inPenaltyBox[this._currentPlayer])
@@ -66,13 +66,13 @@ namespace Trivia
                 {
                     this._isGettingOutOfPenaltyBox = true;
 
-                    Console.WriteLine($"{this._players[this._currentPlayer]} is getting out of the penalty box");
+                    Console.WriteLine($"{this._players[this._currentPlayer].Name} is getting out of the penalty box");
                     this.MoveCurrentPlayer(roll);
                     this.AskQuestion();
                 }
                 else
                 {
-                    Console.WriteLine($"{this._players[this._currentPlayer]} is not getting out of the penalty box");
+                    Console.WriteLine($"{this._players[this._currentPlayer].Name} is not getting out of the penalty box");
                     this._isGettingOutOfPenaltyBox = false;
                 }
             }
@@ -112,7 +112,7 @@ namespace Trivia
         public bool WrongAnswer()
         {
             Console.WriteLine("Question was incorrectly answered");
-            Console.WriteLine($"{this._players[this._currentPlayer]} was sent to the penalty box");
+            Console.WriteLine($"{this._players[this._currentPlayer].Name} was sent to the penalty box");
             this._inPenaltyBox[this._currentPlayer] = true;
             this.NextPlayer();
             return true;
@@ -123,7 +123,7 @@ namespace Trivia
             Console.WriteLine($"Answer was {correct}!!!!");
 
             this._purses[this._currentPlayer]++;
-            Console.WriteLine($"{this._players[this._currentPlayer]} now has {this._purses[this._currentPlayer]} Gold Coins.");
+            Console.WriteLine($"{this._players[this._currentPlayer].Name} now has {this._purses[this._currentPlayer]} Gold Coins.");
         }
 
         private void MoveCurrentPlayer(int roll)
@@ -134,7 +134,7 @@ namespace Trivia
                 this._places[this._currentPlayer] = this._places[this._currentPlayer] - 12;
             }
 
-            Console.WriteLine($"{this._players[this._currentPlayer]}'s new location is {this._places[this._currentPlayer]}");
+            Console.WriteLine($"{this._players[this._currentPlayer].Name}'s new location is {this._places[this._currentPlayer]}");
             Console.WriteLine($"The category is {this.CurrentCategory()}");
         }
 
@@ -215,6 +215,11 @@ namespace Trivia
         {
             return this._purses[this._currentPlayer] != 6;
         }
+    }
+
+    internal class Player
+    {
+        public string Name { get; set; }
     }
 
     internal enum Category
