@@ -210,23 +210,4 @@ namespace Trivia
             return this._currentPlayer.Purse != 6;
         }
     }
-
-    internal class Player
-    {
-        public string Name { get; set; }
-
-        public int Place { get; set; }
-
-        public int Purse { get; set; }
-
-        public bool IsInPenaltyBox { get; set; }
-    }
-
-    internal enum Category
-    {
-        Pop,
-        Science,
-        Sports,
-        Rock
-    }
 }
