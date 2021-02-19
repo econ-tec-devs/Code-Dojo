@@ -85,26 +85,10 @@ namespace Trivia
         {
             if (this._currentPlayer.IsInPenaltyBox)
             {
-                if (this._isGettingOutOfPenaltyBox)
-                {
-                    this.CorrectAnswer("correct");
-                    var winner = this.DidPlayerWin();
-                    this.NextPlayer();
-                    return winner;
-                }
-                else
-                {
-                    this.NextPlayer();
-                    return true;
-                }
+                return this.CorrectAnswerWhenInPenalityBox();
             }
-            else
-            {
-                this.CorrectAnswer("corrent");
-                var winner = this.DidPlayerWin();
-                this.NextPlayer();
-                return winner;
-            }
+
+            return this.CorrectAnswerButNotInPenalityBox();
         }
 
         public bool WrongAnswer()
@@ -114,6 +98,30 @@ namespace Trivia
             this._currentPlayer.IsInPenaltyBox = true;
             this.NextPlayer();
             return true;
+        }
+
+        private bool CorrectAnswerWhenInPenalityBox()
+        {
+            if (this._isGettingOutOfPenaltyBox)
+            {
+                this.CorrectAnswer("correct");
+                var winner = this.DidPlayerWin();
+                this.NextPlayer();
+                return winner;
+            }
+            else
+            {
+                this.NextPlayer();
+                return true;
+            }
+        }
+
+        private bool CorrectAnswerButNotInPenalityBox()
+        {
+            this.CorrectAnswer("corrent");
+            var winner = this.DidPlayerWin();
+            this.NextPlayer();
+            return winner;
         }
 
         private bool IsGettingOutOfPenalityBox(int roll)
