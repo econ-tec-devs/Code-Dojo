@@ -62,22 +62,16 @@ namespace Trivia
             {
                 if (this.IsGettingOutOfPenalityBox(roll))
                 {
-                    this._isGettingOutOfPenaltyBox = true;
-
-                    Console.WriteLine($"{this._currentPlayer.Name} is getting out of the penalty box");
-                    this.MoveCurrentPlayer(roll);
-                    this.AskQuestion();
+                    this.GetOutOfPenalityBox(roll);
                 }
                 else
                 {
-                    Console.WriteLine($"{this._currentPlayer.Name} is not getting out of the penalty box");
-                    this._isGettingOutOfPenaltyBox = false;
+                    this.StayInPenalityBox();
                 }
             }
             else
             {
-                this.MoveCurrentPlayer(roll);
-                this.AskQuestion();
+                this.MovePlayerAndAskQuestion(roll);
             }
         }
 
@@ -98,6 +92,25 @@ namespace Trivia
             this._currentPlayer.IsInPenaltyBox = true;
             this.NextPlayer();
             return true;
+        }
+
+        private void MovePlayerAndAskQuestion(int roll)
+        {
+            this.MoveCurrentPlayer(roll);
+            this.AskQuestion();
+        }
+
+        private void StayInPenalityBox()
+        {
+            Console.WriteLine($"{this._currentPlayer.Name} is not getting out of the penalty box");
+            this._isGettingOutOfPenaltyBox = false;
+        }
+
+        private void GetOutOfPenalityBox(int roll)
+        {
+            Console.WriteLine($"{this._currentPlayer.Name} is getting out of the penalty box");
+            this._isGettingOutOfPenaltyBox = true;
+            this.MovePlayerAndAskQuestion(roll);
         }
 
         private bool CorrectAnswerWhenInPenalityBox()
