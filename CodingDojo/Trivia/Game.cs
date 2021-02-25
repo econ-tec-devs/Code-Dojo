@@ -21,5 +21,10 @@ namespace Trivia
         {
             return _players.Count();
         }
+
+        public bool isPlayable()
+        {
+            return _players.Count > 1;
+        }
     }
 }
