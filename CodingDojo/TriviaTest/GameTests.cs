@@ -47,13 +47,13 @@ namespace TriviaTest
 
         #region Helper Methods
 
-        //private void AddHansWurstsWithNumber(int numberOfPlayer)
-        //{
-        //    for (var player = 1; player <= numberOfPlayer; player++)
-        //    {
-        //        _target.add(String.Format("Hans Wurst {0}", player));
-        //    }
-        //}
+        private void AddHansWurstsWithNumber(int numberOfPlayer)
+        {
+            for (var player = 1; player <= numberOfPlayer; player++)
+            {
+                _target.add(String.Format("Hans Wurst {0}", player));
+            }
+        }
 
         #endregion
     }
