@@ -1,21 +1,21 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace TriviaTest
+﻿namespace TriviaTest
 {
+    using System;
+    using System.IO;
+    using System.Text;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public partial class GameTests
     {
+        private string _newLine = Environment.NewLine;
+        private StringBuilder _output = new StringBuilder();
         private Game _target;
-        private StringBuilder   _output     = new StringBuilder();
-        private string          _newLine    = Environment.NewLine;
 
         [TestInitialize]
         public void SetUp()
         {
-            TextWriter textWriter = new StringWriter(_output );
+            TextWriter textWriter = new StringWriter(_output);
             Console.SetOut(textWriter);
 
             _target = new Game();
@@ -38,7 +38,7 @@ namespace TriviaTest
         {
             Assert.AreEqual("Rock Question 99", _target.createRockQuestion(99));
         }
-        
+
         #region Helper Methods
 
         private void AddHansWurstsWithNumber(int numberOfPlayer)
@@ -50,6 +50,5 @@ namespace TriviaTest
         }
 
         #endregion
-     }
+    }
 }
-    
