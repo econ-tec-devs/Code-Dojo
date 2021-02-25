@@ -11,7 +11,7 @@ namespace Trivia
     {
         public string createRockQuestion(int index)
         {
-            throw new NotImplementedException();
+            return $"Rock Question {index}";
         }
     }
 }
