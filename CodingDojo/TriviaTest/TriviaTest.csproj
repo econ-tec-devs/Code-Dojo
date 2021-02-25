@@ -49,14 +49,14 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameWasCorrectlyAnsweredTests.cs" />
-    <Compile Include="GameWrongAnswerTests.cs" />
-    <Compile Include="GameRollTests.cs" />
-    <Compile Include="GameIsPlayableTests.cs" />
-    <Compile Include="GameHowManyPlayerTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameAddTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trivia\Trivia.csproj">
+      <Project>{1763F446-4A5B-44D9-AB78-DA56E4AF2664}</Project>
+      <Name>Trivia</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

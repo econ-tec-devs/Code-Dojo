@@ -1,4 +1,6 @@
-﻿namespace TriviaTest
+﻿using Trivia;
+
+namespace TriviaTest
 {
     using System;
     using System.IO;
