@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaTest", "TriviaTest\Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivia", "Trivia\Trivia.csproj", "{1763F446-4A5B-44D9-AB78-DA56E4AF2664}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaConsole", "TriviaConsole\TriviaConsole.csproj", "{33BC24E7-1247-4415-A54C-75D486901776}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{1763F446-4A5B-44D9-AB78-DA56E4AF2664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1763F446-4A5B-44D9-AB78-DA56E4AF2664}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1763F446-4A5B-44D9-AB78-DA56E4AF2664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33BC24E7-1247-4415-A54C-75D486901776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33BC24E7-1247-4415-A54C-75D486901776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33BC24E7-1247-4415-A54C-75D486901776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33BC24E7-1247-4415-A54C-75D486901776}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

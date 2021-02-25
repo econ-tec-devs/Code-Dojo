@@ -1,4 +1,4 @@
-﻿using Trivia;
+﻿using TriviaConsole;
 
 namespace TriviaTest
 {

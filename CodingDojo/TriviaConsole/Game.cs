@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace Trivia
+namespace TriviaConsole
 {
     public class Game
     {
@@ -15,6 +16,7 @@ namespace Trivia
         public void add(string playerName)
         {
             _players.Add(playerName);
+            Console.Write($"{playerName} was added{Environment.NewLine}They are player number {_players.Count}{Environment.NewLine}");
         }
 
         public int howManyPlayers()

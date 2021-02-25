@@ -49,12 +49,17 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameAddTests.cs" />
     <Compile Include="GameHowManyPlayerTests.cs" />
     <Compile Include="GameIsPlayableTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TriviaConsole\TriviaConsole.csproj">
+      <Project>{33BC24E7-1247-4415-A54C-75D486901776}</Project>
+      <Name>TriviaConsole</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Trivia\Trivia.csproj">
       <Project>{1763F446-4A5B-44D9-AB78-DA56E4AF2664}</Project>
       <Name>Trivia</Name>
