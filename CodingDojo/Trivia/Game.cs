@@ -3,13 +3,14 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace Trivia
 {
+    using System;
+
     public class Game
     {
+        private int playersCount;
+
         public string createRockQuestion(int index)
         {
             return $"Rock Question {index}";
@@ -17,7 +18,8 @@ namespace Trivia
 
         public void add(string name)
         {
-            Console.WriteLine("Hans Wurst 1 was added" + Environment.NewLine + "They are player number 1");
+            this.playersCount++;
+            Console.WriteLine($"{name} was added" + Environment.NewLine + $"They are player number {this.playersCount}");
         }
     }
 }
