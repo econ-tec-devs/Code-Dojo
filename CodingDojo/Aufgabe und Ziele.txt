@@ -6,7 +6,7 @@ Aufgabe
 - 2 Teams bilden â 3 Personen
 - Alle Tests grün machen
 - Strategie entwickeln wie am Besten an das Problem herangegangen werden kann
-- 1 Entwickler = 1 Test, dann der nächste.
+- 1 Entwickler = 1 Test. Commit & Push. Dann der nächste.
 - Clean Code Prinzipien bei Umsetzung beachten
 
 
