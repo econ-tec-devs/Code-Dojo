@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Trivia
 {
     public class Game
     {
+        private List<string> _players = new List<string>();
+
         public string createRockQuestion(int i)
         {
             return $"Rock Question {i}";
         }
 
-        public void add(string format)
+        public void add(string playerName)
         {
-            throw new NotImplementedException();
+            _players.Add(playerName);
+        }
+
+        public int howManyPlayers()
+        {
+            return _players.Count();
         }
     }
 }
