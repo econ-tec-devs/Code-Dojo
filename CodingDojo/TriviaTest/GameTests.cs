@@ -1,9 +1,15 @@
-﻿namespace TriviaTest
+﻿// -----------------------------------------------------------------------
+// <copyright file="GameTests.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+namespace TriviaTest
 {
     using System;
     using System.IO;
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Trivia;
 
     [TestClass]
     public partial class GameTests
@@ -41,13 +47,13 @@
 
         #region Helper Methods
 
-        private void AddHansWurstsWithNumber(int numberOfPlayer)
-        {
-            for (var player = 1; player <= numberOfPlayer; player++)
-            {
-                _target.add(String.Format("Hans Wurst {0}", player));
-            }
-        }
+        //private void AddHansWurstsWithNumber(int numberOfPlayer)
+        //{
+        //    for (var player = 1; player <= numberOfPlayer; player++)
+        //    {
+        //        _target.add(String.Format("Hans Wurst {0}", player));
+        //    }
+        //}
 
         #endregion
     }
