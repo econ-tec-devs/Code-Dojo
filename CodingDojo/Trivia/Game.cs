@@ -19,6 +19,10 @@ namespace Trivia
         public void add(string name)
         {
             this.playersCount++;
+            if (playersCount == 6)
+            {
+                throw new IndexOutOfRangeException();
+            }
             Console.WriteLine($"{name} was added" + Environment.NewLine + $"They are player number {this.playersCount}");
         }
     }
