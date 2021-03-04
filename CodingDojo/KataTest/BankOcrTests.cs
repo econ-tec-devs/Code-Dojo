@@ -6,6 +6,8 @@
 
 using System.Collections.Generic;
 using KataBankOcr;
+using KataBankOcr.Interfaces;
+using NSubstitute;
 
 namespace KataTest
 {
@@ -24,12 +26,19 @@ namespace KataTest
         [Test]
         public void Scan_EmptyFile_ReturnsEmptyListOfAccountNumbers()
         {
-            var filename = "accountNumbers.txt";
+            var filename = @"../../accountNumbers.txt";
             var expected = new List<AccountNumber>();
 
             var actual = _target.Scan(filename);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Ctor_InjectReader_ReaderWasInjected()
+        {
+            IReader reader = Substitute.For<IReader>();
+            BankOcr target = new BankOcr(reader);
         }
     }
 }
