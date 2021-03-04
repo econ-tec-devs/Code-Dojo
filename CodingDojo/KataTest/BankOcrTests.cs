@@ -13,5 +13,13 @@ namespace KataTest
         public void Setup()
         {
         }
+
+        [Test]
+        public void Ctor_None_NewInstanceNoException()
+        {
+            var target = new BankOcr();
+
+            Assert.That(target, Is.TypeOf<BankOcr>());
+        }
     }
 }
