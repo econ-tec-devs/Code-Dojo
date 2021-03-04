@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CodingDojo - Kata Bank Ocr - Part 1 - 1 Page.pdf.pdf = CodingDojo - Kata Bank Ocr - Part 1 - 1 Page.pdf.pdf
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataBankOcr", "KataBankOcr\KataBankOcr.csproj", "{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
