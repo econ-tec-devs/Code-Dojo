@@ -21,6 +21,18 @@ namespace KataTest
 
             Assert.That(target, Is.TypeOf<BankOcr>());
         }
+
+        [Test]
+        public void ScanFile_InputFileName_ReturnAccountNumbers()
+        {
+            var target = new BankOcr();
+            var fileName = "emptyfile.txt";
+            var expected = 0;
+
+            List<AccountNumber> actual = target.ScanFile(fileName);
+
+            Assert.That(actual.Count, Is.EqualTo(expected));
+        }
     }
 
     public class BankOcr
