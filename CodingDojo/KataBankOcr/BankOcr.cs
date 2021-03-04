@@ -5,7 +5,7 @@ namespace KataBankOcr
 {
     public class BankOcr
     {
-        public BankOcr(IReader reader, ILineSplitter lineSplitter)
+        public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
         }
 
