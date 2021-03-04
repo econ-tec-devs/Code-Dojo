@@ -40,5 +40,13 @@ namespace KataTest
             IReader reader = Substitute.For<IReader>();
             BankOcr target = new BankOcr(reader);
         }
+
+        [Test]
+        public void Ctor_InjectLineSplitter_LineSplitterWasInjected()
+        {
+            ILineSplitter lineSplitter = Substitute.For<ILineSplitter>();
+            BankOcr target = new BankOcr(lineSplitter);
+        }
+
     }
 }
