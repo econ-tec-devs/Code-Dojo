@@ -12,50 +12,23 @@ namespace KataTest
     public class BankOcrTests
     {
         private BankOcr _target;
+        private IEntryParser entryParser;
+        private ILineSplitter lineSplitter;
+        private IReader reader;
 
         [SetUp]
         public void Setup()
         {
-            _target = new BankOcr();
+            reader = Substitute.For<IReader>();
+            lineSplitter = Substitute.For<ILineSplitter>();
+            entryParser = Substitute.For<IEntryParser>();
+            _target = new BankOcr(this.reader, this.lineSplitter, this.entryParser);
         }
 
         [Test]
         public void Ctor_None_NewInstanceNoException()
         {
             Assert.That(_target, Is.TypeOf<BankOcr>());
-        }
-
-        [Test]
-        public void Ctor_InjectReader_NoError()
-        {
-            var reader = Substitute.For<IReader>();
-
-            var target = new BankOcr(reader);
-
-            Assert.That(target, Is.TypeOf<BankOcr>());
-        }
-
-        [Test]
-        public void Ctor_InjectReaderAndLineSplitter_NoError()
-        {
-            var reader = Substitute.For<IReader>();
-            var lineSplitter = Substitute.For<ILineSplitter>();
-
-            var target = new BankOcr(reader, lineSplitter);
-
-            Assert.That(target, Is.TypeOf<BankOcr>());
-        }
-
-        [Test]
-        public void Ctor_InjectReaderLineSplitterAndEntryParser_NoError()
-        {
-            var reader = Substitute.For<IReader>();
-            var lineSplitter = Substitute.For<ILineSplitter>();
-            var entryParser = Substitute.For<IEntryParser>();
-
-            var target = new BankOcr(reader, lineSplitter, entryParser);
-
-            Assert.That(target, Is.TypeOf<BankOcr>());
         }
 
         [Test]
