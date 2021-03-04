@@ -3,13 +3,10 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-using Kata;
-using NSubstitute;
-
 namespace KataTest
 {
+    using Kata;
+    using NSubstitute;
     using NUnit.Framework;
 
     public class BankOcrTests
@@ -31,9 +28,20 @@ namespace KataTest
         [Test]
         public void Ctor_InjectReader_NoError()
         {
-            IReader reader = Substitute.For<IReader>();
+            var reader = Substitute.For<IReader>();
 
             var target = new BankOcr(reader);
+
+            Assert.That(target, Is.TypeOf<BankOcr>());
+        }
+
+        [Test]
+        public void Ctor_InjectReaderAndLineSplitter_NoError()
+        {
+            var reader = Substitute.For<IReader>();
+            var lineSplitter = Substitute.For<ILineSplitter>();
+
+            var target = new BankOcr(reader, lineSplitter);
 
             Assert.That(target, Is.TypeOf<BankOcr>());
         }
@@ -44,7 +52,7 @@ namespace KataTest
             var fileName = "emptyfile.txt";
             var expected = 0;
 
-            List<AccountNumber> actual = _target.ScanFile(fileName);
+            var actual = _target.ScanFile(fileName);
 
             Assert.That(actual.Count, Is.EqualTo(expected));
         }
