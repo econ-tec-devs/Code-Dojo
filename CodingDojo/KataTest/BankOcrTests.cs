@@ -47,6 +47,18 @@ namespace KataTest
         }
 
         [Test]
+        public void Ctor_InjectReaderLineSplitterAndEntryParser_NoError()
+        {
+            var reader = Substitute.For<IReader>();
+            var lineSplitter = Substitute.For<ILineSplitter>();
+            var entryParser = Substitute.For<IEntryParser>();
+
+            var target = new BankOcr(reader, lineSplitter, entryParser);
+
+            Assert.That(target, Is.TypeOf<BankOcr>());
+        }
+
+        [Test]
         public void ScanFile_InputFileName_ReturnAccountNumbers()
         {
             var fileName = "emptyfile.txt";

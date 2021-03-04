@@ -17,9 +17,17 @@ namespace Kata
         {
         }
 
+        public BankOcr(IReader reader, ILineSplitter lineSplitter)
+        {
+        }
+
         public List<AccountNumber> ScanFile(string fileName)
         {
             return new List<AccountNumber>();
         }
+    }
+
+    public interface ILineSplitter
+    {
     }
 }
