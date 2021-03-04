@@ -16,11 +16,15 @@ namespace KataTest
     public class BankOcrTests
     {
         private BankOcr _target;
+        private IReader _reader;
+        private ILineSplitter _lineSplitter;
 
         [SetUp]
         public void Setup()
         {
-            _target = new BankOcr();
+            _reader = Substitute.For<IReader>();
+            _lineSplitter = Substitute.For<ILineSplitter>();
+            _target = new BankOcr(null, null);
         }
 
         [Test]
@@ -37,16 +41,19 @@ namespace KataTest
         [Test]
         public void Ctor_InjectReader_ReaderWasInjected()
         {
-            IReader reader = Substitute.For<IReader>();
-            BankOcr target = new BankOcr(reader);
+            BankOcr target = new BankOcr(_reader, null);
         }
 
         [Test]
         public void Ctor_InjectLineSplitter_LineSplitterWasInjected()
         {
-            ILineSplitter lineSplitter = Substitute.For<ILineSplitter>();
-            BankOcr target = new BankOcr(lineSplitter);
+            BankOcr target = new BankOcr(null, _lineSplitter);
         }
 
+        [Test]
+        public void Ctor_InjectEntryParser_EntryParserWasInjected()
+        {
+            BankOcr target = new BankOcr(null, null, _entryParser);
+        }
     }
 }
