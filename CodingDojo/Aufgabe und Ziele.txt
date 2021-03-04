@@ -3,7 +3,12 @@ Coding Dojo 2021
 Kata Bank OCR
 
 Aufgabe
-- TBD
+- Den gegebenen Flow Design Entwurf mit Top-Down Entwicklung umzusetzen.
+- Logik Komponenten werden gemockt
+- Models werden erstellt
 
 Ziele:
-- TBD 
+- Den Einsatz von NSubstitute zu üben
+
+Doku:
+https://nsubstitute.github.io/help.html
