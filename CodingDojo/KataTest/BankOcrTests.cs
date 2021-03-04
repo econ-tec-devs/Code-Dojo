@@ -22,4 +22,8 @@ namespace KataTest
             Assert.That(target, Is.TypeOf<BankOcr>());
         }
     }
+
+    public class BankOcr
+    {
+    }
 }
