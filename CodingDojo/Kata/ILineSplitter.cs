@@ -5,7 +5,10 @@
 // -----------------------------------------------------------------------
 namespace Kata
 {
+    using System.Collections.Generic;
+
     public interface ILineSplitter
     {
+        void Split(List<string> lines);
     }
 }
