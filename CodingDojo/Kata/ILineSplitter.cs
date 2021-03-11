@@ -9,6 +9,6 @@ namespace Kata
 
     public interface ILineSplitter
     {
-        void Split(List<string> lines);
+        List<Entry> Split(List<string> lines);
     }
 }

@@ -10,18 +10,21 @@ namespace Kata
     public class BankOcr
     {
         private readonly ILineSplitter lineSplitter;
-        private IReader reader;
+        private readonly IReader reader;
+        private readonly IEntryParser entryParser;
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
             this.reader = reader;
             this.lineSplitter = lineSplitter;
+            this.entryParser = entryParser;
         }
 
         public List<AccountNumber> ScanFile(string fileName)
         {
             var lines = this.reader.Read(fileName);
-            this.lineSplitter.Split(lines);
+            var entries = this.lineSplitter.Split(lines);
+            this.entryParser.Parse(entries);
             return new List<AccountNumber>();
         }
     }
