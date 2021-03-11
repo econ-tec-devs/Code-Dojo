@@ -19,6 +19,7 @@ namespace KataTest
         private IReader _reader;
         private ILineSplitter _lineSplitter;
         private IEntryParser _entryParser;
+        private string _filename = @"../../accountNumbers.txt";
 
         [SetUp]
         public void Setup()
@@ -30,7 +31,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Ctor_InjectReader_ReaderWasInjected()
+        public void Ctor_InjectAllDependencies_AllDependenciesWereInjected()
         {
             BankOcr target = new BankOcr(_reader, _lineSplitter, _entryParser);
         }
@@ -38,12 +39,19 @@ namespace KataTest
         [Test]
         public void Scan_EmptyFile_ReturnsEmptyListOfAccountNumbers()
         {
-            var filename = @"../../accountNumbers.txt";
             var expected = new List<AccountNumber>();
 
-            var actual = _target.Scan(filename);
+            var actual = _target.Scan(_filename);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Scan_EmptyFile_MethodReadWasCalled()
+        {
+            _target.Scan("xyz");
+
+            _reader.ReceivedWithAnyArgs(1).Read("xyz");
         }
     }
 }
