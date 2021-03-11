@@ -6,6 +6,6 @@
 
     public interface IReader
     {
-
+        void Read(string xyz);
     }
 }

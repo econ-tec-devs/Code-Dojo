@@ -49,9 +49,9 @@ namespace KataTest
         [Test]
         public void Scan_EmptyFile_MethodReadWasCalled()
         {
-            _target.Scan("xyz");
+            _target.Scan(_filename);
 
-            _reader.ReceivedWithAnyArgs(1).Read("xyz");
+            _reader.Received(1).Read(_filename);
         }
     }
 }
