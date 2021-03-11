@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 namespace KataTest
 {
+    using System.Collections.Generic;
     using Kata;
     using NSubstitute;
     using NUnit.Framework;
@@ -56,10 +57,12 @@ namespace KataTest
         public void ScanFile_CallLineSplitter_SplitWasCalledWithLines()
         {
             var fileName = "emptyfile.txt";
+            var lines = new List<string>();
+            this.reader.Read(fileName).Returns(lines);
 
             _target.ScanFile(fileName);
 
-            this.lineSplitter.Received(1).Split(fileName);
+            this.lineSplitter.Received(1).Split(lines);
         }
     }
 }
