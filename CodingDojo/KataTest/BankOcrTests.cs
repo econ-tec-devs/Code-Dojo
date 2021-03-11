@@ -41,5 +41,15 @@ namespace KataTest
 
             Assert.That(actual.Count, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void ScanFile_CallFileReader_ReadWasCalledWithFilename()
+        {
+            var fileName = "emptyfile.txt";
+
+            _target.ScanFile(fileName);
+        
+            reader.Received(1).Read(fileName);
+        }
     }
 }
