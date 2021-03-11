@@ -53,5 +53,14 @@ namespace KataTest
 
             _reader.Received(1).Read(_filename);
         }
+        
+        [Test]
+        public void Scan_EmptyFile_MethodReadReturnEmptyList()
+        {
+            _target.Scan(_filename);
+
+            var expected = new List<Line>();
+            _reader.Received(1).Read(_filename).Returns(expected);
+        }
     }
 }
