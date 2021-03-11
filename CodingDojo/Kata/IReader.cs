@@ -5,7 +5,10 @@
 // -----------------------------------------------------------------------
 namespace Kata
 {
+    using System.Collections.Generic;
+
     public interface IReader
     {
+        List<string> Read(string fileName);
     }
 }

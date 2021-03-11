@@ -48,8 +48,18 @@ namespace KataTest
             var fileName = "emptyfile.txt";
 
             _target.ScanFile(fileName);
-        
+
             reader.Received(1).Read(fileName);
+        }
+
+        [Test]
+        public void ScanFile_CallLineSplitter_SplitWasCalledWithLines()
+        {
+            var fileName = "emptyfile.txt";
+
+            _target.ScanFile(fileName);
+
+            this.lineSplitter.Received(1).Split(fileName);
         }
     }
 }
