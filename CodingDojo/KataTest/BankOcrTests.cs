@@ -64,5 +64,19 @@ namespace KataTest
 
             this.lineSplitter.Received(1).Split(lines);
         }
+        
+        [Test]
+        public void ScanFile_CallEntryParser_ParseWasCalledWithEntries()
+        {
+            var fileName = "emptyfile.txt";
+            var entries = new List<Entry>();
+            var lines = new List<string>();
+            this.reader.Read(fileName).Returns(lines);
+            this.lineSplitter.Split(lines).Returns(entries);
+
+            _target.ScanFile(fileName);
+
+            this.entryParser.Received(1).Parse(entries);
+        }
     }
 }
