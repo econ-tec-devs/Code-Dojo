@@ -47,7 +47,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Scan_EmptyFile_MethodReadWasCalled()
+        public void Scan_EmptyFile_ReadWasCalled()
         {
             _target.Scan(_filename);
 
@@ -55,12 +55,25 @@ namespace KataTest
         }
         
         [Test]
-        public void Scan_EmptyFile_MethodReadReturnEmptyList()
+        public void Scan_ReaderReturnsLines_SplitWasCalledWithLines()
         {
+            var lines = new List<Line>();
+            _reader.Read(_filename).Returns(lines);
+
             _target.Scan(_filename);
 
-            var expected = new List<Line>();
-            _reader.Received(1).Read(_filename).Returns(expected);
+            _lineSplitter.Received(1).Split(lines);
+        }
+
+        [Test]
+        public void Scan_LineSplitterReturnsEntries_ParseWasCalledWithEntries()
+        {
+            var entries = new List<Entry>();
+            _lineSplitter.Split(new List<Line>()).Returns(entries);
+
+            _target.Scan(_filename);
+
+            _entryParser.Received(1).Parse(entries);
         }
     }
 }

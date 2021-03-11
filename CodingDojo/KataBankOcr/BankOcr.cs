@@ -7,17 +7,19 @@ namespace KataBankOcr
     public class BankOcr
     {
         private readonly IReader _reader;
+        private readonly ILineSplitter _lineSplitter;
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
-            if (lineSplitter == null) throw new ArgumentNullException(nameof(lineSplitter));
             if (entryParser == null) throw new ArgumentNullException(nameof(entryParser));
             _reader = reader ?? throw new ArgumentNullException(nameof(reader));
+            _lineSplitter = lineSplitter ?? throw new ArgumentNullException(nameof(lineSplitter));
         }
 
         public List<AccountNumber> Scan(string filename)
         {
-            _reader.Read(filename);
+            var lines = _reader.Read(filename);
+            _lineSplitter.Split(lines);
             return new List<AccountNumber>();
         }
     }
