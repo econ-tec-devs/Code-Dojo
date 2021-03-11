@@ -21,8 +21,7 @@ namespace KataBankOcr
         {
             var lines = _reader.Read(filename);
             var entries = _lineSplitter.Split(lines);
-            _entryParser.Parse(entries);
-            return new List<AccountNumber>();
+            return _entryParser.Parse(entries);
         }
     }
 }
