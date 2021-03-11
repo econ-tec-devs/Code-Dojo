@@ -69,11 +69,28 @@ namespace KataTest
         public void Scan_LineSplitterReturnsEntries_ParseWasCalledWithEntries()
         {
             var entries = new List<Entry>();
-            _lineSplitter.Split(new List<Line>()).Returns(entries);
+            List<Line> lines= new List<Line>();
+            _reader.Read(_filename).Returns(lines);
+            _lineSplitter.Split(lines).Returns(entries);
 
             _target.Scan(_filename);
 
             _entryParser.Received(1).Parse(entries);
+        }
+
+        [Test]
+        public void Scan_ParserCalledWithEntries_ReturnsListOfAccountNumbers()
+        {
+            var entries = new List<Entry>();
+            List<Line> lines = new List<Line>();
+            _reader.Read(_filename).Returns(lines);
+            _lineSplitter.Split(lines).Returns(entries);
+            List<AccountNumber> accountNumbers= new List<AccountNumber>();
+            _entryParser.Parse(entries).Returns(accountNumbers);
+
+            var actual = _target.Scan(_filename);
+
+            Assert.That(actual, Is.EqualTo(accountNumbers));
         }
     }
 }

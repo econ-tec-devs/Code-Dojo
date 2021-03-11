@@ -4,6 +4,6 @@ namespace KataBankOcr.Interfaces
 {
     public interface ILineSplitter
     {
-        void Split(List<Line> lines);
+        List<Entry> Split(List<Line> lines);
     }
 }

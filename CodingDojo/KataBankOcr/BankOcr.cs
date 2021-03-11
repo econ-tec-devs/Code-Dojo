@@ -8,18 +8,20 @@ namespace KataBankOcr
     {
         private readonly IReader _reader;
         private readonly ILineSplitter _lineSplitter;
+        private readonly IEntryParser _entryParser;
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
-            if (entryParser == null) throw new ArgumentNullException(nameof(entryParser));
             _reader = reader ?? throw new ArgumentNullException(nameof(reader));
             _lineSplitter = lineSplitter ?? throw new ArgumentNullException(nameof(lineSplitter));
+            _entryParser = entryParser ?? throw new ArgumentNullException(nameof(entryParser));
         }
 
         public List<AccountNumber> Scan(string filename)
         {
             var lines = _reader.Read(filename);
-            _lineSplitter.Split(lines);
+            var entries = _lineSplitter.Split(lines);
+            _entryParser.Parse(entries);
             return new List<AccountNumber>();
         }
     }
