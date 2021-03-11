@@ -10,10 +10,9 @@ namespace KataBankOcr
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
-            if (reader == null) throw new ArgumentNullException(nameof(reader));
             if (lineSplitter == null) throw new ArgumentNullException(nameof(lineSplitter));
             if (entryParser == null) throw new ArgumentNullException(nameof(entryParser));
-            _reader = reader;
+            _reader = reader ?? throw new ArgumentNullException(nameof(reader));
         }
 
         public List<AccountNumber> Scan(string filename)

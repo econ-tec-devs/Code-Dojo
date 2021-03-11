@@ -19,7 +19,7 @@ namespace KataTest
         private IReader _reader;
         private ILineSplitter _lineSplitter;
         private IEntryParser _entryParser;
-        private string _filename = @"../../accountNumbers.txt";
+        private readonly string _filename = @"../../accountNumbers.txt";
 
         [SetUp]
         public void Setup()
@@ -33,7 +33,7 @@ namespace KataTest
         [Test]
         public void Ctor_InjectAllDependencies_AllDependenciesWereInjected()
         {
-            BankOcr target = new BankOcr(_reader, _lineSplitter, _entryParser);
+            new BankOcr(_reader, _lineSplitter, _entryParser);
         }
 
         [Test]
