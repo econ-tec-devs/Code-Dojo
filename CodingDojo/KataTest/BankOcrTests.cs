@@ -64,7 +64,7 @@ namespace KataTest
 
             this.lineSplitter.Received(1).Split(lines);
         }
-        
+
         [Test]
         public void ScanFile_CallEntryParser_ParseWasCalledWithEntries()
         {
@@ -77,6 +77,20 @@ namespace KataTest
             _target.ScanFile(fileName);
 
             this.entryParser.Received(1).Parse(entries);
+        }
+        [Test]
+        public void ScanFile_CallEntryParser_ReturnsAccountnumbers()
+        {
+            var fileName = "emptyfile.txt";
+            var entries = new List<Entry>();
+            var lines = new List<string>();
+            var accountNumbers = new List<AccountNumber>();
+            this.reader.Read(fileName).Returns(lines);
+            this.lineSplitter.Split(lines).Returns(entries);
+            this.entryParser.Parse(entries).Returns(accountNumbers);
+
+            var actual = _target.ScanFile(fileName);
+            Assert.That(actual, Is.EqualTo(accountNumbers));
         }
     }
 }
