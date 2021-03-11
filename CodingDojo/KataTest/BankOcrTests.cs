@@ -26,7 +26,13 @@ namespace KataTest
             _reader = Substitute.For<IReader>();
             _lineSplitter = Substitute.For<ILineSplitter>();
             _entryParser = Substitute.For<IEntryParser>();
-            _target = new BankOcr(null, null, null);
+            _target = new BankOcr(_reader, _lineSplitter, _entryParser);
+        }
+
+        [Test]
+        public void Ctor_InjectReader_ReaderWasInjected()
+        {
+            BankOcr target = new BankOcr(_reader, _lineSplitter, _entryParser);
         }
 
         [Test]
@@ -38,24 +44,6 @@ namespace KataTest
             var actual = _target.Scan(filename);
 
             Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void Ctor_InjectReader_ReaderWasInjected()
-        {
-            BankOcr target = new BankOcr(_reader, null, null);
-        }
-
-        [Test]
-        public void Ctor_InjectLineSplitter_LineSplitterWasInjected()
-        {
-            BankOcr target = new BankOcr(null, _lineSplitter, null);
-        }
-
-        [Test]
-        public void Ctor_InjectEntryParser_EntryParserWasInjected()
-        {
-            BankOcr target = new BankOcr(null, null, _entryParser);
         }
     }
 }
