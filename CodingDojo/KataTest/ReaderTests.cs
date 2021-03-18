@@ -24,5 +24,13 @@ namespace KataTest
 
             Assert.Throws<ArgumentNullException>(() => _target.Read(filename));
         }
+
+        [Test]
+        public void Read_EmptyArgument_ThrowsArgumentException()
+        {
+            string filename = string.Empty;
+
+            Assert.Throws<ArgumentException>(() => _target.Read(filename));
+        }
     }
 }

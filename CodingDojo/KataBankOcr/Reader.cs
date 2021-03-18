@@ -1,4 +1,6 @@
-﻿using KataBankOcr.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using KataBankOcr.Interfaces;
 
 namespace KataBankOcr
 {
