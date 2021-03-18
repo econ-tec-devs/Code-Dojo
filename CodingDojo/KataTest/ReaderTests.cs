@@ -10,22 +10,27 @@ namespace KataTest
 
     public class ReaderTests
     {
+        private IReader target;
+
+        [SetUp]
+        public void Setup()
+        {
+            this.target = new Reader();
+        }
+
         [Test]
         public void Ctor_NewInstance_NoException()
         {
-            IReader target = new Reader();
-
-            Assert.That(target, Is.TypeOf<Reader>());
+            Assert.That(this.target, Is.TypeOf<Reader>());
         }
 
         [Test]
         public void Read_EmptyFile_ReturnEmptyLines()
         {
-            IReader target = new Reader();
             var fileName = "emptyFile.txt";
             var expected = 0;
 
-            var actual = target.Read(fileName);
+            var actual = this.target.Read(fileName);
 
             Assert.That(actual.Count, Is.EqualTo(expected));
         }
@@ -33,11 +38,10 @@ namespace KataTest
         [Test]
         public void Read_FileWithTenLines_ReturnTenLines()
         {
-            IReader target = new Reader();
-            var fileName = "fileWithTenLines.txt";
+            var fullPath = "fileWithTenLines.txt";
             var expected = 10;
 
-            var actual = target.Read(fileName);
+            var actual = this.target.Read(fullPath);
 
             Assert.That(actual.Count, Is.EqualTo(expected));
         }

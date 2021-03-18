@@ -5,15 +5,16 @@
 // -----------------------------------------------------------------------
 namespace KataTest
 {
-    using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
     using Kata;
 
     public class Reader : IReader
     {
-        public List<string> Read(string fileName)
+        public List<string> Read(string fullPath)
         {
-            return new List<string>();
+            return File.ReadAllLines(fullPath).ToList();
         }
     }
 }

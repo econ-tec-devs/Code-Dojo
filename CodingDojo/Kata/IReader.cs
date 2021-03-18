@@ -9,6 +9,6 @@ namespace Kata
 
     public interface IReader
     {
-        List<string> Read(string fileName);
+        List<string> Read(string fullPath);
     }
 }
