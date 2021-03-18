@@ -3,13 +3,12 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-
 namespace Kata
 {
+    using System.Collections.Generic;
+
     public interface IEntryParser
     {
-        void Parse(List<Entry> entries);
+        List<AccountNumber> Parse(List<Entry> entries);
     }
 }

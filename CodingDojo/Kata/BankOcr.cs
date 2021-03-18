@@ -9,9 +9,9 @@ namespace Kata
 
     public class BankOcr
     {
+        private readonly IEntryParser entryParser;
         private readonly ILineSplitter lineSplitter;
         private readonly IReader reader;
-        private readonly IEntryParser entryParser;
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
@@ -24,8 +24,7 @@ namespace Kata
         {
             var lines = this.reader.Read(fileName);
             var entries = this.lineSplitter.Split(lines);
-            this.entryParser.Parse(entries);
-            return new List<AccountNumber>();
+            return this.entryParser.Parse(entries);
         }
     }
 }
