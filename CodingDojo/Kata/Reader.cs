@@ -13,7 +13,7 @@ namespace KataTest
     {
         public List<string> Read(string fileName)
         {
-            throw new NotImplementedException();
+            return new List<string>();
         }
     }
 }
