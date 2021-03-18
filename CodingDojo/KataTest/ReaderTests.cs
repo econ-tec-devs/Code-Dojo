@@ -30,7 +30,7 @@ namespace KataTest
         [Test]
         public void Read_EmptyArgument_ThrowsArgumentException()
         {
-            string filename = string.Empty;
+            var filename = string.Empty;
 
             Assert.Throws<ArgumentException>(() => _target.Read(filename));
         }
@@ -38,13 +38,13 @@ namespace KataTest
         [Test]
         public void Read_File_ReturnListOfLine()
         {
-            string filename = @"..\..\filewithfourlines.txt";
-            var expected = new List<Line>(4);
+            var filename = "filewithfourlines.txt";
+            var expected = 4;
 
             var actual = _target.Read(filename);
 
             Assert.That(actual, Is.TypeOf<List<Line>>());
-            Assert.That(actual.Count, Is.EqualTo(expected.Count));
+            Assert.That(actual.Count, Is.EqualTo(expected));
         }
     }
 }

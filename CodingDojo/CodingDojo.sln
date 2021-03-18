@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CodingDojo - Kata Bank Ocr - Part 1 - 1 Page.pdf.pdf = CodingDojo - Kata Bank Ocr - Part 1 - 1 Page.pdf.pdf
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataBankOcr", "KataBankOcr\KataBankOcr.csproj", "{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataBankOcr", "KataBankOcr\KataBankOcr.csproj", "{C4AEAFBC-44E9-4E9C-9E8D-F75AFC39271B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

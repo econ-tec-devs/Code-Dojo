@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using KataBankOcr.Interfaces;
 
@@ -11,7 +12,9 @@ namespace KataBankOcr
         {
             if (filename == string.Empty) throw new ArgumentException(nameof(filename));
 
-            throw new ArgumentNullException();
+            if (filename == null) throw new ArgumentNullException();
+
+            return File.ReadAllLines(filename).Select(line => new Line() {Text = line}).ToList();
         }
     }
 }
