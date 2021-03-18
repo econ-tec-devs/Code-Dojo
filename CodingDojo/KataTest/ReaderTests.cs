@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using KataBankOcr;
+﻿using KataBankOcr;
 using KataBankOcr.Interfaces;
 using NUnit.Framework;
 
@@ -24,14 +23,6 @@ namespace KataTest
             string filename = null;
 
             Assert.Throws<ArgumentNullException>(() => _target.Read(filename));
-        }
-    }
-
-    public class Reader : IReader
-    {
-        public List<Line> Read(string filename)
-        {
-            throw new ArgumentNullException();
         }
     }
 }
