@@ -29,5 +29,17 @@ namespace KataTest
 
             Assert.That(actual.Count, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Read_FileWithTenLines_ReturnTenLines()
+        {
+            IReader target = new Reader();
+            var fileName = "fileWithTenLines.txt";
+            var expected = 10;
+
+            var actual = target.Read(fileName);
+
+            Assert.That(actual.Count, Is.EqualTo(expected));
+        }
     }
 }
