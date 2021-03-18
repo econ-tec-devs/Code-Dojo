@@ -2,7 +2,6 @@
 using KataBankOcr;
 using KataBankOcr.Interfaces;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
