@@ -1,21 +1,19 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ReaderTests.cs" company="econ-tec GmbH">
+// <copyright file="Reader.cs" company="econ-tec GmbH">
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 namespace KataTest
 {
+    using System;
+    using System.Collections.Generic;
     using Kata;
-    using NUnit.Framework;
 
-    public class ReaderTests
+    public class Reader : IReader
     {
-        [Test]
-        public void Ctor_None_NewInstanceNoException()
+        public List<string> Read(string fileName)
         {
-            IReader target = new Reader();
-
-            Assert.That(target, Is.TypeOf<Reader>());
+            throw new NotImplementedException();
         }
     }
 }
