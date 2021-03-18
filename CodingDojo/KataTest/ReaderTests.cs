@@ -1,6 +1,8 @@
-﻿using KataBankOcr;
+﻿using System.Collections.Generic;
+using KataBankOcr;
 using KataBankOcr.Interfaces;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace KataTest
 {
@@ -31,6 +33,18 @@ namespace KataTest
             string filename = string.Empty;
 
             Assert.Throws<ArgumentException>(() => _target.Read(filename));
+        }
+        
+        [Test]
+        public void Read_File_ReturnListOfLine()
+        {
+            string filename = @"..\..\filewithfourlines.txt";
+            var expected = new List<Line>(4);
+
+            var actual = _target.Read(filename);
+
+            Assert.That(actual, Is.TypeOf<List<Line>>());
+            Assert.That(actual.Count, Is.EqualTo(expected.Count));
         }
     }
 }
