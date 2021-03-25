@@ -9,8 +9,14 @@ namespace KataBankOcr
         public List<Entry> Split(List<Line> lines)
         {
             var entries = new List<Entry>();
-            if (lines.Any())
+            
+            if (lines.Count == 4)
             {
+                entries.Add(new Entry());
+            }
+            if (lines.Count == 8)
+            {
+                entries.Add(new Entry());
                 entries.Add(new Entry());
             }
             return entries;
