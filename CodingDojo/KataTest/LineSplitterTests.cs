@@ -82,17 +82,39 @@ namespace KataTest
                 new Line() { Text = "Test3" },
                 new Line() { Text = "Test4" }
             };
-            var expected1 = "Test1";
-            var expected2 = "Test2";
-            var expected3 = "Test3";
-            var expected4 = "Test4";
 
             var actual = _target.Split(lines);
 
-            Assert.That(actual.First().Lines[0].Text, Is.EqualTo(expected1));
-            Assert.That(actual.First().Lines[1].Text, Is.EqualTo(expected2));
-            Assert.That(actual.First().Lines[2].Text, Is.EqualTo(expected3));
-            Assert.That(actual.First().Lines[3].Text, Is.EqualTo(expected4));
+            Assert.That(actual.First().Lines, Is.EqualTo(lines));
+        }
+
+        [Test]
+        public void Split_ValidListOfEightLinesWithContent_ReturnsListWithTwoContentEntry()
+        {
+            var linesFirst = new List<Line>()
+            {
+                new Line() { Text = "Test1" },
+                new Line() { Text = "Test2" },
+                new Line() { Text = "Test3" },
+                new Line() { Text = "Test4" }
+            };
+
+            var linesSecond = new List<Line>()
+            {
+                new Line() { Text = "Test5" },
+                new Line() { Text = "Test6" },
+                new Line() { Text = "Test7" },
+                new Line() { Text = "Test8" }
+            };
+
+            var all = new List<Line>();
+            all.AddRange(linesFirst);
+            all.AddRange(linesSecond);
+
+            var actual = _target.Split(all);
+
+            Assert.That(actual.First().Lines, Is.EqualTo(linesFirst));
+            Assert.That(actual.Last().Lines, Is.EqualTo(linesSecond));
         }
     }
 }
