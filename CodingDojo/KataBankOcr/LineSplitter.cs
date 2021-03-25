@@ -10,14 +10,11 @@ namespace KataBankOcr
         {
             var entries = new List<Entry>();
             
-            if (lines.Count == 4)
+            var addVar = lines.Count / 4;
+            for (int i = 0; i <addVar; i++)
             {
-                entries.Add(new Entry());
-            }
-            if (lines.Count == 8)
-            {
-                entries.Add(new Entry());
-                entries.Add(new Entry());
+                var entry = new Entry();
+                entries.Add(entry);
             }
             return entries;
         }
