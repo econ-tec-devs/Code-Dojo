@@ -18,7 +18,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Split_ValidListOfLine_ReturnsListOfEntry()
+        public void Split_ValidListOfFourLine_ReturnsListWithOneEntry()
         {
             var lines = new List<Line>()
             {
@@ -43,6 +43,28 @@ namespace KataTest
             var actual = _target.Split(lines);
             
             Assert.That(actual.Any(), Is.False);
+        }
+
+        [Test]
+        public void Split_ValidListOfEightLine_ReturnsListWithTwoEntries()
+        {
+            var lines = new List<Line>()
+            {
+                new Line(),
+                new Line(),
+                new Line(),
+                new Line(),
+                new Line(),
+                new Line(),
+                new Line(),
+                new Line()
+            };
+            var expected = 2;
+
+            var actual = _target.Split(lines);
+
+            Assert.That(actual, Is.TypeOf<List<Entry>>());
+            Assert.That(actual.Count, Is.EqualTo(expected));
         }
     }
 }

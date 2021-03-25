@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using KataBankOcr.Interfaces;
 
 namespace KataBankOcr
@@ -7,7 +8,12 @@ namespace KataBankOcr
     {
         public List<Entry> Split(List<Line> lines)
         {
-            return new List<Entry>(){new Entry()};
+            var entries = new List<Entry>();
+            if (lines.Any())
+            {
+                entries.Add(new Entry());
+            }
+            return entries;
         }
     }
 }
