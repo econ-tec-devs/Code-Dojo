@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System.Linq;
+
 namespace KataBankOcr
 {
     using System.Collections.Generic;
@@ -10,15 +13,16 @@ namespace KataBankOcr
 
     public class LineSplitter : ILineSplitter
     {
+        private int LinesPerEntry = 4;
+
         public List<Entry> Split(List<Line> lines)
         {
             var entries = new List<Entry>();
 
-            var addVar = lines.Count / 4;
-            for (var i = 0; i < addVar; i++)
+            var entryCount = lines.Count / LinesPerEntry;
+            for (var currentEntry = 0; currentEntry < entryCount; currentEntry++)
             {
-                var entry = new Entry() { Lines = lines };
-                entries.Add(entry);
+                entries.Add(new Entry { Lines = lines.Skip(currentEntry*LinesPerEntry).Take(LinesPerEntry).ToList() });
             }
 
             return entries;
