@@ -27,7 +27,7 @@ namespace KataTest
         [Test]
         public void Ctor_DigitParser_NoError()
         {
-            IEntryParser target = new EntryParser(_digitParser);
+            IEntryParser target = new EntryParser(_digitParser, null);
         }
 
         [Test]

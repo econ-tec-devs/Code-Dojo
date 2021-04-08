@@ -6,10 +6,12 @@ namespace KataBankOcr
     public class EntryParser : IEntryParser
     {
         private readonly IDigitParser _digitParser;
+        private readonly IAccountNumberBuilder _accountNumberBuilder;
 
-        public EntryParser(IDigitParser digitParser)
+        public EntryParser(IDigitParser digitParser, IAccountNumberBuilder accountNumberBuilder)
         {
             _digitParser = digitParser;
+            _accountNumberBuilder = accountNumberBuilder;
         }
 
         public List<AccountNumber> Parse(List<Entry> entries)
