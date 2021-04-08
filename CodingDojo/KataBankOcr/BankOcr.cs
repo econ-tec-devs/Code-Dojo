@@ -1,14 +1,19 @@
-using System;
-using System.Collections.Generic;
-using KataBankOcr.Interfaces;
-
+// -----------------------------------------------------------------------
+// <copyright file="BankOcr.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataBankOcr
 {
+    using System;
+    using System.Collections.Generic;
+    using KataBankOcr.Interfaces;
+
     public class BankOcr
     {
-        private readonly IReader _reader;
-        private readonly ILineSplitter _lineSplitter;
         private readonly IEntryParser _entryParser;
+        private readonly ILineSplitter _lineSplitter;
+        private readonly IReader _reader;
 
         public BankOcr(IReader reader, ILineSplitter lineSplitter, IEntryParser entryParser)
         {
