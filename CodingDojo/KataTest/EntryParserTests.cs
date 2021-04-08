@@ -21,13 +21,28 @@ namespace KataTest
         }
         
         [Test]
-        public void Parse_ListOfEntries_EmptyListOfRawDigits()
+        public void Parse_ListOfEntries_EmptyListOfAccountNumbers()
         {
             var entries = new List<Entry>();
 
             var actual = _target.Parse(entries);
 
             Assert.That(actual, Is.Empty);
+        }
+
+        [Test]
+        public void Parse_ListOfEntriesWith1Entry_ListWithOneAccountNumber()
+        {
+            var entry = new Entry();
+            var entries = new List<Entry>
+            {
+                entry
+            };
+
+            var actual = _target.Parse(entries);
+
+            Assert.That(actual, Is.Not.Empty);
+            Assert.That(actual.Count, Is.EqualTo(1));
         }
     }
 }
