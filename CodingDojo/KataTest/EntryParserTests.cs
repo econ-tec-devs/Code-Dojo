@@ -3,6 +3,10 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using KataBankOcr;
+using KataBankOcr.Interfaces;
+
 namespace KataTest
 {
     using NSubstitute;
@@ -11,17 +15,25 @@ namespace KataTest
     public class EntryParserTests
     {
         private IDigitParser _digitParser;
+        private IAccountNumberBuilder _accountNumberBuilder;
 
         [SetUp]
         public void SetUp()
         {
             _digitParser = Substitute.For<IDigitParser>();
+            _accountNumberBuilder = Substitute.For<IAccountNumberBuilder>();
         }
 
         [Test]
         public void Ctor_DigitParser_NoError()
         {
-            new EntryParser(_digitParser);
+            IEntryParser target = new EntryParser(_digitParser);
+        }
+
+        [Test]
+        public void Ctor_AccountNumberBuilder_NoError()
+        {
+            IEntryParser target = new EntryParser(_digitParser, _accountNumberBuilder);
         }
 
         //[Test]
