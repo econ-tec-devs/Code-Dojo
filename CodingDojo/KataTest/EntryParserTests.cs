@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using KataBankOcr;
 using KataBankOcr.Interfaces;
 using NSubstitute;
@@ -10,23 +9,23 @@ namespace KataTest
     [TestFixture]
     class EntryParserTests
     {
-        [Test]
-        public void Ctor_InjectDigitParser_ReturnsNoError()
-        {
-            var digitParser = Substitute.For<IDigitParser>();
-            IEntryParser target = new EntryParser(digitParser);
+        private IDigitParser _digitParser;
+        private IEntryParser _target;
 
-            Assert.That(target, Is.Not.Null);
+        [SetUp]
+        public void Setup()
+        {
+            _digitParser = Substitute.For<IDigitParser>();
+            _target = new EntryParser(_digitParser);
+            Assert.That(_target, Is.Not.Null);
         }
         
         [Test]
         public void Parse_ListOfEntries_EmptyListOfRawDigits()
         {
-            var digitParser = Substitute.For<IDigitParser>();
-            IEntryParser target = new EntryParser(digitParser);
-            
-            List<Entry> entries = new List<Entry>();
-            var actual = target.Parse(entries);
+            var entries = new List<Entry>();
+
+            var actual = _target.Parse(entries);
 
             Assert.That(actual, Is.Empty);
         }
