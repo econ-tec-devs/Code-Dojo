@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
-using KataBankOcr.Interfaces;
-
+﻿// -----------------------------------------------------------------------
+// <copyright file="EntryParser.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataBankOcr
 {
+    using System.Collections.Generic;
+    using KataBankOcr.Interfaces;
+
     public class EntryParser : IEntryParser
     {
-        private readonly IDigitParser _digitParser;
         private readonly IAccountNumberBuilder _accountNumberBuilder;
+        private readonly IDigitParser _digitParser;
 
         public EntryParser(IDigitParser digitParser, IAccountNumberBuilder accountNumberBuilder)
         {
@@ -16,7 +21,7 @@ namespace KataBankOcr
 
         public List<AccountNumber> Parse(List<Entry> entries)
         {
-            throw new System.NotImplementedException();
+            return new List<AccountNumber>();
         }
     }
 }

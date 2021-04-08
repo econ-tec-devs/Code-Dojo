@@ -3,20 +3,18 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-using KataBankOcr;
-using KataBankOcr.Interfaces;
-
 namespace KataTest
 {
+    using System.Collections.Generic;
+    using KataBankOcr;
+    using KataBankOcr.Interfaces;
     using NSubstitute;
     using NUnit.Framework;
 
     public class EntryParserTests
     {
-        private IDigitParser _digitParser;
         private IAccountNumberBuilder _accountNumberBuilder;
+        private IDigitParser _digitParser;
         private IEntryParser _target;
 
         [SetUp]
@@ -24,8 +22,9 @@ namespace KataTest
         {
             _digitParser = Substitute.For<IDigitParser>();
             _accountNumberBuilder = Substitute.For<IAccountNumberBuilder>();
+            _target = new EntryParser(_digitParser, _accountNumberBuilder);
         }
-        
+
         [Test]
         public void Ctor_InjectAllDependencies_AllDependenciesWereInjected()
         {
@@ -41,5 +40,32 @@ namespace KataTest
 
             Assert.That(actual, Is.Empty);
         }
+
+        [Test]
+        public void Parse_ListWithTwoEntries_ListWithTwoAccountNumbers()
+        {
+            var entries = new List<Entry>();
+            var lines = new List<Line>() { new Line(), new Line(), new Line(), new Line() };
+            var entry = new Entry() { Lines = lines };
+            entries.Add(entry);
+            entries.Add(entry);
+
+            var expected = 2;
+
+            var actual = _target.Parse(entries);
+
+            Assert.That(actual.Count, Is.EqualTo(expected));
+        }
+
+        //[Test]
+        //public void Parse_OneEmptyEntry_EmptyAccountNumber()
+        //{
+        //    var lines = new List<Line>() { new Line(), new Line(), new Line(), new Line() };
+        //    var entry = new Entry() { Lines = lines };
+
+        //    var actual = _target.Parse(entry);
+
+        //    Assert.That(actual, Is.Empty);
+        //}
     }
 }
