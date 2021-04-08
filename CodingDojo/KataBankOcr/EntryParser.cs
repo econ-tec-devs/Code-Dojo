@@ -14,7 +14,7 @@ namespace KataTest
 
         public List<AccountNumber> Parse(List<Entry> entries)
         {
-            throw new NotImplementedException();
+            return new List<AccountNumber>();
         }
     }
 }
