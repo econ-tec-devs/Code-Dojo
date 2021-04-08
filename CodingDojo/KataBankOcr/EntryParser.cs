@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using KataBankOcr;
 using KataBankOcr.Interfaces;
 
@@ -14,7 +15,13 @@ namespace KataTest
 
         public List<AccountNumber> Parse(List<Entry> entries)
         {
-            return new List<AccountNumber>();
+            var accountNumbers = new List<AccountNumber>();
+            if (entries.Any())
+            {
+                accountNumbers.Add(new AccountNumber());
+            }
+
+            return accountNumbers;
         }
     }
 }
