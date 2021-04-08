@@ -13,6 +13,7 @@ namespace KataTest
 
     public class EntryParserTests
     {
+        private readonly int _twoAccountNumbers = 2;
         private IAccountNumberBuilder _accountNumberBuilder;
         private IDigitParser _digitParser;
         private IEntryParser _target;
@@ -45,12 +46,12 @@ namespace KataTest
         public void Parse_ListWithTwoEntries_ListWithTwoAccountNumbers()
         {
             var entries = new List<Entry>();
-            var lines = new List<Line>() { new Line(), new Line(), new Line(), new Line() };
-            var entry = new Entry() { Lines = lines };
+            var lines = new List<Line> { new Line(), new Line(), new Line(), new Line() };
+            var entry = new Entry { Lines = lines };
             entries.Add(entry);
             entries.Add(entry);
 
-            var expected = 2;
+            var expected = _twoAccountNumbers;
 
             var actual = _target.Parse(entries);
 
