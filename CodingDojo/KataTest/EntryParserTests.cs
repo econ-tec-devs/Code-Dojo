@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using KataBankOcr;
 using KataBankOcr.Interfaces;
 
@@ -16,6 +17,7 @@ namespace KataTest
     {
         private IDigitParser _digitParser;
         private IAccountNumberBuilder _accountNumberBuilder;
+        private IEntryParser _target;
 
         [SetUp]
         public void SetUp()
@@ -23,27 +25,21 @@ namespace KataTest
             _digitParser = Substitute.For<IDigitParser>();
             _accountNumberBuilder = Substitute.For<IAccountNumberBuilder>();
         }
-
+        
         [Test]
-        public void Ctor_DigitParser_NoError()
-        {
-            IEntryParser target = new EntryParser(_digitParser, null);
-        }
-
-        [Test]
-        public void Ctor_AccountNumberBuilder_NoError()
+        public void Ctor_InjectAllDependencies_AllDependenciesWereInjected()
         {
             IEntryParser target = new EntryParser(_digitParser, _accountNumberBuilder);
         }
 
-        //[Test]
-        //public void Parse_EmptyListOfEntries_EmptyListOfAccountNumber()
-        //{
-        //    var emptyList = new List<Entry>();
+        [Test]
+        public void Parse_EmptyListOfEntries_EmptyListOfAccountNumber()
+        {
+            var emptyList = new List<Entry>();
 
-        //    var actual = _entryParser.Parse(emptyList);
+            var actual = _target.Parse(emptyList);
 
-        //    Assert.That(actual, Is.Empty);
-        //}
+            Assert.That(actual, Is.Empty);
+        }
     }
 }
