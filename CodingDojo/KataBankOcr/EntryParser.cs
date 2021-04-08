@@ -21,7 +21,13 @@ namespace KataBankOcr
 
         public List<AccountNumber> Parse(List<Entry> entries)
         {
-            return new List<AccountNumber>();
+            var accountNumbers = new List<AccountNumber>();
+            foreach (var entry in entries)
+            {
+                accountNumbers.Add(new AccountNumber());
+            }
+
+            return accountNumbers;
         }
     }
 }
