@@ -27,10 +27,10 @@ namespace KataTest
         {
             var lines = new List<Line>()
             {
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line()
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line("")
             };
             var expected = 1;
 
@@ -55,14 +55,14 @@ namespace KataTest
         {
             var lines = new List<Line>()
             {
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line(),
-                new Line()
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line(""),
+                new Line("")
             };
             var expected = 2;
 
@@ -77,10 +77,10 @@ namespace KataTest
         {
             var lines = new List<Line>()
             {
-                new Line() { Text = "Test1" },
-                new Line() { Text = "Test2" },
-                new Line() { Text = "Test3" },
-                new Line() { Text = "Test4" }
+                new Line("") { Text = "Test1" },
+                new Line("") { Text = "Test2" },
+                new Line("") { Text = "Test3" },
+                new Line("") { Text = "Test4" }
             };
 
             var actual = _target.Split(lines);
@@ -93,18 +93,18 @@ namespace KataTest
         {
             var linesFirst = new List<Line>()
             {
-                new Line() { Text = "Test1" },
-                new Line() { Text = "Test2" },
-                new Line() { Text = "Test3" },
-                new Line() { Text = "Test4" }
+                new Line("") { Text = "Test1" },
+                new Line("") { Text = "Test2" },
+                new Line("") { Text = "Test3" },
+                new Line("") { Text = "Test4" }
             };
 
             var linesSecond = new List<Line>()
             {
-                new Line() { Text = "Test5" },
-                new Line() { Text = "Test6" },
-                new Line() { Text = "Test7" },
-                new Line() { Text = "Test8" }
+                new Line("") { Text = "Test5" },
+                new Line("") { Text = "Test6" },
+                new Line("") { Text = "Test7" },
+                new Line("") { Text = "Test8" }
             };
 
             var all = new List<Line>();

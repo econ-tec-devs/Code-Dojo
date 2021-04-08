@@ -59,5 +59,23 @@ namespace KataTest
             Assert.That(actual, Is.Not.Empty);
             Assert.That(actual.Count, Is.EqualTo(2));
         }
+
+        [Test]
+        public void Parse_OneEntry_ListWithRawDigits()
+        {
+            var entry = new Entry()
+            {
+                Lines = new List<Line>()
+                {
+                    new Line(string.Empty)
+                }
+            };
+
+
+            List<RawDigit> actual = _target.Parse(entry);
+
+            Assert.That(actual, Is.Not.Empty);
+            Assert.That(actual.Count, Is.EqualTo(2));
+        }
     }
 }

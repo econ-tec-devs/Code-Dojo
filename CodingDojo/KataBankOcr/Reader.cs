@@ -14,7 +14,7 @@ namespace KataBankOcr
 
             if (filename == null) throw new ArgumentNullException();
 
-            return File.ReadAllLines(filename).Select(line => new Line() {Text = line}).ToList();
+            return File.ReadAllLines(filename).Select(line => new Line("") {Text = line}).ToList();
         }
     }
 }
