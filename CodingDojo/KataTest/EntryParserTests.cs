@@ -92,8 +92,10 @@ namespace KataTest
                     new Line(string.Empty)
                 }
             };
-            
-            List<RawDigit> actual = _target.Parse(entry);
+            var entries = new List<Entry>() { entry };
+
+            List<AccountNumber> actual = _target.Parse(entries);
+            _digitParser.Received(1).Parse(entry);
 
             Assert.That(actual, Is.Not.Empty);
         }
