@@ -10,7 +10,7 @@ namespace KataTest
     {
         public EntryParser(IDigitParser digitParser)
         {
-            
+
         }
 
         public List<AccountNumber> Parse(List<Entry> entries)

@@ -61,7 +61,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Parse_OneEntry_ListWithRawDigits()
+        public void Parse_OneEntry_ListWithAccountNumbers()
         {
             var entry = new Entry()
             {
@@ -70,12 +70,32 @@ namespace KataTest
                     new Line(string.Empty)
                 }
             };
+            
+            var entries = new List<Entry>(){entry};
 
 
+            List<AccountNumber> actual = _target.Parse(entries);
+
+            Assert.That(actual, Is.Not.Empty);
+        }
+        
+        [Test]
+        public void Parse_OneEntry_ListOfRawDigits()
+        {
+            var entry = new Entry()
+            {
+                Lines = new List<Line>()
+                {
+                    new Line(string.Empty),
+                    new Line(string.Empty),
+                    new Line(string.Empty),
+                    new Line(string.Empty)
+                }
+            };
+            
             List<RawDigit> actual = _target.Parse(entry);
 
             Assert.That(actual, Is.Not.Empty);
-            Assert.That(actual.Count, Is.EqualTo(2));
         }
     }
 }
