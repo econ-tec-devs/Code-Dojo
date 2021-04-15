@@ -29,5 +29,10 @@ namespace KataBankOcr
 
             return accountNumbers;
         }
+
+        public List<RawDigit> ParseEntry(Entry emptyEntry)
+        {
+            return new List<RawDigit>();
+        }
     }
 }

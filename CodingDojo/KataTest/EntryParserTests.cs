@@ -64,7 +64,7 @@ namespace KataTest
             var lines = new List<Line> { new Line(), new Line(), new Line(), new Line() };
             var emptyEntry = new Entry { Lines = lines };
 
-            List<RawDigit> actual = _target.Parse(emptyEntry);
+            var actual = _target.ParseEntry(emptyEntry);
 
             Assert.That(actual, Is.Empty);
         }
