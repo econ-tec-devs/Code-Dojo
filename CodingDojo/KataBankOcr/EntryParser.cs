@@ -6,6 +6,7 @@
 namespace KataBankOcr
 {
     using System.Collections.Generic;
+    using System.Linq;
     using KataBankOcr.Interfaces;
 
     public class EntryParser : IEntryParser
@@ -24,15 +25,32 @@ namespace KataBankOcr
             var accountNumbers = new List<AccountNumber>();
             foreach (var entry in entries)
             {
+                var rawDigits = ParseEntry(entry);
                 accountNumbers.Add(new AccountNumber());
             }
 
             return accountNumbers;
         }
 
-        public List<RawDigit> ParseEntry(Entry emptyEntry)
+        public List<RawDigit> ParseEntry(Entry entry)
         {
-            return new List<RawDigit>();
+            if (entry == null)
+            {
+                return new List<RawDigit>();
+            }
+
+            var rawDigits = new List<RawDigit>();
+            var rawDigit = new RawDigit();
+            for (var i = 0; i <= 9; i++)
+            {
+                rawDigit.LineOne = entry.Lines.First().Text.Remove(3).Trim();
+                rawDigit.LineTwo = entry.Lines[1].Text.Remove(3).Trim();
+                rawDigit.LineThree = entry.Lines[2].Text.Remove(3).Trim();
+
+                rawDigits.Add(rawDigit);
+            }
+
+            return rawDigits;
         }
     }
 }

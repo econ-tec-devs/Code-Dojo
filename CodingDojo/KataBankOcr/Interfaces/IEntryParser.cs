@@ -11,6 +11,6 @@ namespace KataBankOcr.Interfaces
     {
         List<AccountNumber> Parse(List<Entry> entries);
 
-        List<RawDigit> ParseEntry(Entry emptyEntry);
+        List<RawDigit> ParseEntry(Entry entry);
     }
 }
