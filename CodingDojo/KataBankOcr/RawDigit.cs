@@ -7,6 +7,10 @@ namespace KataBankOcr
 {
     public class RawDigit
     {
-        public string Digit { get; set; }
+        public string LineOne { get; set; }
+
+        public string LineTwo { get; set; }
+
+        public string LineThree { get; set; }
     }
 }

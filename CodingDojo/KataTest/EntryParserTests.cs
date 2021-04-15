@@ -59,7 +59,7 @@ namespace KataTest
         }
 
         [Test]
-        public void Parse_EmptyEntry_EmptyListOfRawDigit()
+        public void ParseEntry_EmptyEntry_EmptyListOfRawDigit()
         {
             var lines = new List<Line> { new Line(), new Line(), new Line(), new Line() };
             var emptyEntry = new Entry { Lines = lines };
@@ -67,6 +67,28 @@ namespace KataTest
             var actual = _target.ParseEntry(emptyEntry);
 
             Assert.That(actual, Is.Empty);
+        }
+
+        [Test]
+        public void ParseEntry_EntryWithValue_ListOfRawDigitWithValue()
+        {
+            var zeroDigit = new RawDigit { LineOne = "_", LineTwo = "| |", LineThree = "|_|" };
+            var lines = new List<Line> { new Line { Text = "_  _  _  _  _  _  _  _  _" }, new Line { Text = "| || || || || || || || || |" }, new Line { Text = "|_||_||_||_||_||_||_||_||_|" }, new Line() };
+            var emptyEntry = new Entry { Lines = lines };
+            var expected = new List<RawDigit>();
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+            expected.Add(zeroDigit);
+
+            var actual = _target.ParseEntry(emptyEntry);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
