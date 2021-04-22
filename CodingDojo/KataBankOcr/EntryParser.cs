@@ -29,5 +29,10 @@ namespace KataBankOcr
 
             return accountNumbers;
         }
+
+        public AccountNumber Parse(Entry entries)
+        {
+            return new AccountNumber() {Value = string.Empty};
+        }
     }
 }

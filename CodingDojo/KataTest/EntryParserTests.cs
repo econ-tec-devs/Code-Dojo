@@ -66,18 +66,7 @@ namespace KataTest
 
             AccountNumber actual = _target.Parse(entry);
 
-            Assert.That(actual, Is.Empty);
+            Assert.That(actual.Value, Is.EqualTo(string.Empty) );
         }
-
-        //[Test]
-        //public void Parse_OneEmptyEntry_EmptyAccountNumber()
-        //{
-        //    var lines = new List<Line>() { new Line(), new Line(), new Line(), new Line() };
-        //    var entry = new Entry() { Lines = lines };
-
-        //    var actual = _target.Parse(entry);
-
-        //    Assert.That(actual, Is.Empty);
-        //}
     }
 }

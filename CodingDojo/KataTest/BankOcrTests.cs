@@ -40,7 +40,8 @@ namespace KataTest
         public void Scan_EmptyFile_ReturnsEmptyListOfAccountNumbers()
         {
             var expected = new List<AccountNumber>();
-            _entryParser.Parse(null).ReturnsForAnyArgs(expected);
+            List<Entry> nullList = null;
+            _entryParser.Parse(nullList).ReturnsForAnyArgs(expected);
 
             var actual = _target.Scan(_filename);
 
