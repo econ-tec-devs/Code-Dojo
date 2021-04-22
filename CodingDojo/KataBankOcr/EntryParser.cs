@@ -17,5 +17,10 @@ namespace KataTest
         {
             return entries.Select(entry => new AccountNumber()).ToList();
         }
+
+        public AccountNumber Parse(Entry entry)
+        {
+            return new AccountNumber();
+        }
     }
 }
