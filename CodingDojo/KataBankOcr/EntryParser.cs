@@ -15,7 +15,7 @@ namespace KataTest
 
         public List<AccountNumber> Parse(List<Entry> entries)
         {
-            return entries.Select(entry => new AccountNumber()).ToList();
+            return entries.Select(Parse).ToList();
         }
 
         public AccountNumber Parse(Entry entry)
