@@ -71,14 +71,13 @@ namespace KataTest
         }
         
         [Test]
-        public void Parse_OneEntry_CheckThatTheDigitParserWasCalled()
+        public void Parse_OneEntry_DigitParserWasCalled()
         {
             var entry = new Entry();
 
-            AccountNumber actual = _target.Parse(entry);
+            var actual = _target.Parse(entry);
 
             _digitParser.Received(1).Parse(entry);
-
             Assert.That(actual, Is.Not.Null);
         }
     }
