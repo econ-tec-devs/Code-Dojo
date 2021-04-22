@@ -61,12 +61,22 @@ namespace KataTest
         [Test]
         public void Parse_EmptyEntry_EmptyAccountNumber()
         {
-            var lines = new List<Line> { new Line(), new Line(), new Line(), new Line() };
-            var entry = new Entry { Lines = lines };
+            var entry = new Entry();
 
             AccountNumber actual = _target.Parse(entry);
 
             Assert.That(actual.Value, Is.EqualTo(string.Empty) );
+        }
+
+        [Test]
+        public void Parse_EmptyEntry_digitWasCalledOneTime()
+        {
+            var entry = new Entry();
+            var rawDigit = new RawDigit();
+
+            _target.Parse(entry);
+
+            _digitParser.Received(1).Parse(rawDigit);
         }
     }
 }
