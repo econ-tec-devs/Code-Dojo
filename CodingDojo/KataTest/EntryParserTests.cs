@@ -63,15 +63,21 @@ namespace KataTest
         [Test]
         public void Parse_OneEntry_ReturnsOneAccountNumber()
         {
-            var entry = new Entry()
-            {
-                Lines = new List<Line>()
-                {
-                    new Line(string.Empty)
-                }
-            };
+            var entry = new Entry();
 
             AccountNumber actual = _target.Parse(entry);
+
+            Assert.That(actual, Is.Not.Null);
+        }
+        
+        [Test]
+        public void Parse_OneEntry_CheckThatTheDigitParserWasCalled()
+        {
+            var entry = new Entry();
+
+            AccountNumber actual = _target.Parse(entry);
+
+            _digitParser.Received(1).Parse(entry);
 
             Assert.That(actual, Is.Not.Null);
         }
