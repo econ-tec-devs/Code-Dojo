@@ -80,5 +80,17 @@ namespace KataTest
             _digitParser.Received(1).Parse(entry);
             Assert.That(actual, Is.Not.Null);
         }
+        
+        [Test]
+        public void Parse_OneEntry_DigitParserWasCalledWithRawDigit()
+        {
+            var entry = new Entry();
+            RawDigit rawDigit = null;
+
+            var actual = _target.Parse(entry);
+
+            _digitParser.Received(1).Parse(rawDigit);
+            Assert.That(actual, Is.Not.Null);
+        }
     }
 }
