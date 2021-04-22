@@ -25,12 +25,12 @@ namespace KataTest
         [Test]
         public void Split_ValidListOfFourLine_ReturnsListWithOneEntry()
         {
-            var lines = new List<Line>()
+            var lines = new List<Digit>()
             {
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line("")
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit("")
             };
             var expected = 1;
 
@@ -43,7 +43,7 @@ namespace KataTest
         [Test]
         public void Split_EmptyListOfLine_ReturnsEmptyListOfEntry()
         {
-            var lines = new List<Line>();
+            var lines = new List<Digit>();
 
             var actual = _target.Split(lines);
 
@@ -53,16 +53,16 @@ namespace KataTest
         [Test]
         public void Split_ValidListOfEightLine_ReturnsListWithTwoEntries()
         {
-            var lines = new List<Line>()
+            var lines = new List<Digit>()
             {
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line(""),
-                new Line("")
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit(""),
+                new Digit("")
             };
             var expected = 2;
 
@@ -75,12 +75,12 @@ namespace KataTest
         [Test]
         public void Split_ValidListOfFourLinesWithContent_ReturnsListWithContentEntry()
         {
-            var lines = new List<Line>()
+            var lines = new List<Digit>()
             {
-                new Line("") { Text = "Test1" },
-                new Line("") { Text = "Test2" },
-                new Line("") { Text = "Test3" },
-                new Line("") { Text = "Test4" }
+                new Digit("") { Text = "Test1" },
+                new Digit("") { Text = "Test2" },
+                new Digit("") { Text = "Test3" },
+                new Digit("") { Text = "Test4" }
             };
 
             var actual = _target.Split(lines);
@@ -91,23 +91,23 @@ namespace KataTest
         [Test]
         public void Split_ValidListOfEightLinesWithContent_ReturnsListWithTwoContentEntry()
         {
-            var linesFirst = new List<Line>()
+            var linesFirst = new List<Digit>()
             {
-                new Line("") { Text = "Test1" },
-                new Line("") { Text = "Test2" },
-                new Line("") { Text = "Test3" },
-                new Line("") { Text = "Test4" }
+                new Digit("") { Text = "Test1" },
+                new Digit("") { Text = "Test2" },
+                new Digit("") { Text = "Test3" },
+                new Digit("") { Text = "Test4" }
             };
 
-            var linesSecond = new List<Line>()
+            var linesSecond = new List<Digit>()
             {
-                new Line("") { Text = "Test5" },
-                new Line("") { Text = "Test6" },
-                new Line("") { Text = "Test7" },
-                new Line("") { Text = "Test8" }
+                new Digit("") { Text = "Test5" },
+                new Digit("") { Text = "Test6" },
+                new Digit("") { Text = "Test7" },
+                new Digit("") { Text = "Test8" }
             };
 
-            var all = new List<Line>();
+            var all = new List<Digit>();
             all.AddRange(linesFirst);
             all.AddRange(linesSecond);
 

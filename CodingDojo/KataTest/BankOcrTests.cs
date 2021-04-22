@@ -58,7 +58,7 @@ namespace KataTest
         [Test]
         public void Scan_ReaderReturnsLines_SplitWasCalledWithLines()
         {
-            var lines = new List<Line>();
+            var lines = new List<Digit>();
             _reader.Read(_filename).Returns(lines);
 
             _target.Scan(_filename);
@@ -70,7 +70,7 @@ namespace KataTest
         public void Scan_LineSplitterReturnsEntries_ParseWasCalledWithEntries()
         {
             var entries = new List<Entry>();
-            List<Line> lines= new List<Line>();
+            List<Digit> lines= new List<Digit>();
             _reader.Read(_filename).Returns(lines);
             _lineSplitter.Split(lines).Returns(entries);
 
@@ -83,7 +83,7 @@ namespace KataTest
         public void Scan_ParserCalledWithEntries_ReturnsListOfAccountNumbers()
         {
             var entries = new List<Entry>();
-            List<Line> lines = new List<Line>();
+            List<Digit> lines = new List<Digit>();
             _reader.Read(_filename).Returns(lines);
             _lineSplitter.Split(lines).Returns(entries);
             List<AccountNumber> accountNumbers= new List<AccountNumber>();

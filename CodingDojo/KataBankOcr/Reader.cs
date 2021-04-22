@@ -8,13 +8,13 @@ namespace KataBankOcr
 {
     public class Reader : IReader
     {
-        public List<Line> Read(string filename)
+        public List<Digit> Read(string filename)
         {
             if (filename == string.Empty) throw new ArgumentException(nameof(filename));
 
             if (filename == null) throw new ArgumentNullException();
 
-            return File.ReadAllLines(filename).Select(line => new Line("") {Text = line}).ToList();
+            return File.ReadAllLines(filename).Select(line => new Digit("") {Text = line}).ToList();
         }
     }
 }

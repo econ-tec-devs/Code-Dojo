@@ -42,7 +42,7 @@ namespace KataTest
 
             var actual = _target.Read(filename);
 
-            Assert.That(actual, Is.TypeOf<List<Line>>());
+            Assert.That(actual, Is.TypeOf<List<Digit>>());
             Assert.That(actual.Count, Is.EqualTo(expected));
         }
     }

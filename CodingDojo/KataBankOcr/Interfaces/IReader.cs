@@ -4,6 +4,6 @@
 
     public interface IReader
     {
-        List<Line> Read(string filename);
+        List<Digit> Read(string filename);
     }
 }

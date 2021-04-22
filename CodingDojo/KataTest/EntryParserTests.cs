@@ -65,9 +65,9 @@ namespace KataTest
         {
             var entry = new Entry()
             {
-                Lines = new List<Line>()
+                Lines = new List<Digit>()
                 {
-                    new Line(string.Empty)
+                    new Digit(string.Empty)
                 }
             };
             
@@ -84,12 +84,12 @@ namespace KataTest
         {
             var entry = new Entry()
             {
-                Lines = new List<Line>()
+                Lines = new List<Digit>()
                 {
-                    new Line(string.Empty),
-                    new Line(string.Empty),
-                    new Line(string.Empty),
-                    new Line(string.Empty)
+                    new Digit(string.Empty),
+                    new Digit(string.Empty),
+                    new Digit(string.Empty),
+                    new Digit(string.Empty)
                 }
             };
             var entries = new List<Entry>() { entry };

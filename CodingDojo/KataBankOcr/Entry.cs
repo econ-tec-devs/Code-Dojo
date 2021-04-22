@@ -9,6 +9,6 @@ namespace KataBankOcr
 
     public class Entry
     {
-        public List<Line> Lines { get; set; }
+        public List<Digit> Lines { get; set; }
     }
 }

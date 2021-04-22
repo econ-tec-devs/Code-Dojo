@@ -15,7 +15,7 @@ namespace KataBankOcr
     {
         private int LinesPerEntry = 4;
 
-        public List<Entry> Split(List<Line> lines)
+        public List<Entry> Split(List<Digit> lines)
         {
             var entries = new List<Entry>();
 
