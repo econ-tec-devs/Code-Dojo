@@ -32,7 +32,7 @@ namespace KataBankOcr
 
         public AccountNumber Parse(Entry entries)
         {
-            return new AccountNumber() {Value = string.Empty};
+            return new AccountNumber { Value = string.Empty };
         }
     }
 }
