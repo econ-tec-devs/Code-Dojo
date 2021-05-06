@@ -9,12 +9,21 @@ namespace Paging7
     {
         public string ShowPaging(int currentPage, int maxPage)
         {
-            if (maxPage == 1)
+            var result = string.Empty;
+           
+            for (int i = 1; i <= maxPage; i++)
             {
-                return $"({currentPage})";
+                if (i== currentPage)
+                {
+                    result += $" ({i})";
+                }
+                else
+                {
+                    result += $" {i}";
+                }
             }
 
-            return $"({currentPage}) {maxPage}";
+            return result.Trim();
         }
     }
 }
