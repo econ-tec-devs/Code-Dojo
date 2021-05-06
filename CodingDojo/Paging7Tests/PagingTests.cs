@@ -15,9 +15,11 @@ namespace Paging7Test
         }
 
         [Test]
-        public void Test1()
+        public void Ctor_NoDependency_NoError()
         {
-            Assert.Pass();
+            Paging target = new Paging();
+
+            Assert.That(target, Is.TypeOf<Paging>());
         }
     }
 }
