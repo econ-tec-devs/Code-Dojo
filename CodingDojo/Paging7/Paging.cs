@@ -13,6 +13,12 @@ namespace Paging7
             {
                 return "(1)";
             }
+
+            if (pages == 2)
+            {
+                return "(1) 2";
+            }
+
             return string.Empty;
         }
     }
