@@ -9,7 +9,7 @@ namespace Paging7
     {
         public string ShowPaging(int i)
         {
-            throw new System.NotImplementedException();
+            return "(1)";
         }
     }
 }
