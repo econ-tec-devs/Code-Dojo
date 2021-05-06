@@ -7,5 +7,9 @@ namespace Paging7
 {
     public class Paging
     {
+        public string ShowPaging(int i)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

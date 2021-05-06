@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using Paging7;
+
 namespace Paging7Test
 {
     using NUnit.Framework;
@@ -17,9 +20,20 @@ namespace Paging7Test
         [Test]
         public void Ctor_NoDependency_NoError()
         {
-            Paging target = new Paging();
+            var target = new Paging();
 
             Assert.That(target, Is.TypeOf<Paging>());
+        }
+
+        [Test]
+        public void ShowPaging_OnePage_OneCurrentPage()
+        {
+            var target = new Paging();
+            var expected = "(1)";
+
+            string actual = target.ShowPaging(1);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
