@@ -7,9 +7,14 @@ namespace Paging7
 {
     public class Paging
     {
-        public string ShowPaging(int currentPage)
+        public string ShowPaging(int currentPage, int maxPage)
         {
-            return "("+currentPage+")";
+            if (maxPage == 1)
+            {
+                return $"({currentPage})";
+            }
+
+            return $"({currentPage}) {maxPage}";
         }
     }
 }

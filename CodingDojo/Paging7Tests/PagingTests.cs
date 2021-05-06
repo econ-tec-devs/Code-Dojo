@@ -3,13 +3,10 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-using Paging7;
-
 namespace Paging7Test
 {
     using NUnit.Framework;
+    using Paging7;
 
     public class PagingTests
     {
@@ -32,18 +29,29 @@ namespace Paging7Test
         {
             var expected = "(1)";
 
-            string actual = _target.ShowPaging(1);
+            var actual = _target.ShowPaging(1, 1);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-        
+
         [Test]
-        public void ShowPaging_TwoPage_OnePageOfTwo()
+        public void ShowPaging_TwoPages_OnePageOfTwo()
         {
             var expected = "(1) 2";
-            int maxPage = 2;
+            var maxPage = 2;
 
-            string actual = _target.ShowPaging(1, maxPage);
+            var actual = _target.ShowPaging(1, maxPage);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void ShowPaging_ThreePages_OnePageOfThree()
+        {
+            var expected = "(1) 2 3";
+            var maxPage = 3;
+
+            var actual = _target.ShowPaging(1, maxPage);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
