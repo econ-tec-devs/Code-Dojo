@@ -14,14 +14,14 @@ namespace Paging7
             {
                 if (currentPage == i)
                 {
-                    paging += $"({currentPage})";
+                    paging += $" ({currentPage})";
                 }
                 else
                 {
                     paging += $" {i}";
                 }
             }
-            return paging;
+            return paging.Trim();
         }
     }
 }
