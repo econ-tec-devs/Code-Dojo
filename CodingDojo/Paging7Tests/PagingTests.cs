@@ -3,7 +3,7 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace Paging7Tests
+namespace Paging7Test
 {
     using NUnit.Framework;
 
