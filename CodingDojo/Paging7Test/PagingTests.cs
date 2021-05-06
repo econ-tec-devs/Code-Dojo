@@ -11,14 +11,14 @@ namespace Paging7Test
     [TestFixture]
     public class PagingTests
     {
-        [TestCase(0,0,"")]
-        [TestCase(1,1,"(1)")]
-        [TestCase(2,1,"(1) 2")]
+        [TestCase(0, 0, "")]
+        [TestCase(1, 1, "(1)")]
+        [TestCase(2, 1, "(1) 2")]
         public void GetPaging_InputParameter_ReturnsExpected(int pages, int currentPage, string expected)
         {
             var target = new Paging();
 
-            string actual = target.GetPaging(pages, currentPage);
+            var actual = target.GetPaging(pages, currentPage);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
