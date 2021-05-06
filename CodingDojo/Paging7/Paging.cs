@@ -9,6 +9,10 @@ namespace Paging7
     {
         public string GetPaging(int pages, int currentPage)
         {
+            if (pages == 1)
+            {
+                return "(1)";
+            }
             return string.Empty;
         }
     }
