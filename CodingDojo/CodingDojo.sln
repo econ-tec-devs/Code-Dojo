@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paging7", "Paging7\Paging7.csproj", "{AED64723-BFEE-4031-87AC-7DC27B2C5211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paging7Test", "Paging7Test\Paging7Test.csproj", "{810CCA78-A825-4E33-916A-B5C4D23845FF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED64723-BFEE-4031-87AC-7DC27B2C5211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED64723-BFEE-4031-87AC-7DC27B2C5211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED64723-BFEE-4031-87AC-7DC27B2C5211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED64723-BFEE-4031-87AC-7DC27B2C5211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810CCA78-A825-4E33-916A-B5C4D23845FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810CCA78-A825-4E33-916A-B5C4D23845FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810CCA78-A825-4E33-916A-B5C4D23845FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810CCA78-A825-4E33-916A-B5C4D23845FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
