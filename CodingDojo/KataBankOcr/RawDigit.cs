@@ -1,12 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IDigitParser.cs" company="econ-tec GmbH">
+// <copyright file="RawDigit.cs" company="econ-tec GmbH">
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace KataBankOcr.Interfaces
+namespace KataBankOcr
 {
-    public interface IDigitParser
+    public class RawDigit
     {
-        void Parse(RawDigit rawDigit);
     }
 }

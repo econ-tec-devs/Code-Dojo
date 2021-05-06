@@ -30,8 +30,10 @@ namespace KataBankOcr
             return accountNumbers;
         }
 
-        public AccountNumber Parse(Entry entries)
+        public AccountNumber Parse(Entry entry)
         {
+            var rawDigit = new RawDigit();
+            _digitParser.Parse(rawDigit);
             return new AccountNumber { Value = string.Empty };
         }
     }

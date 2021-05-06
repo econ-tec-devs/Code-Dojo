@@ -63,20 +63,19 @@ namespace KataTest
         {
             var entry = new Entry();
 
-            AccountNumber actual = _target.Parse(entry);
+            var actual = _target.Parse(entry);
 
-            Assert.That(actual.Value, Is.EqualTo(string.Empty) );
+            Assert.That(actual.Value, Is.EqualTo(string.Empty));
         }
 
         [Test]
         public void Parse_EmptyEntry_digitWasCalledOneTime()
         {
             var entry = new Entry();
-            var rawDigit = new RawDigit();
 
             _target.Parse(entry);
 
-            _digitParser.Received(1).Parse(rawDigit);
+            _digitParser.Received(1).Parse(Arg.Any<RawDigit>());
         }
     }
 }
