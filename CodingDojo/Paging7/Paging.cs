@@ -9,22 +9,28 @@ namespace Paging7
     {
         public string GetPaging(int pages, int currentPage)
         {
-            if (pages == 1)
+            // if (pages == 1)
+            // {
+            //     return "(1)";
+            // }
+            //
+            // if (pages == 2)
+            // {
+            //     return "(1) 2";
+            // }
+            var paging = string.Empty;
+            for (int i = 1; i <= pages; i++)
             {
-                return "(1)";
+                if (currentPage == i)
+                {
+                    paging += $"({currentPage})";
+                }
+                else
+                {
+                    paging += $" {i}";
+                }
             }
-
-            if (pages == 2)
-            {
-                return "(1) 2";
-            }
-
-            if (pages == 3)
-            {
-                return "(1) 2 3";
-            }
-
-            return string.Empty;
+            return paging;
         }
     }
 }
