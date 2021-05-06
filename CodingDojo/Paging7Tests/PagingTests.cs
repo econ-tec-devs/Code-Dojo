@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using Paging7;
 
 namespace Paging7Test
@@ -12,26 +13,37 @@ namespace Paging7Test
 
     public class PagingTests
     {
+        private Paging _target;
+
         [SetUp]
         public void Setup()
         {
+            _target = new Paging();
         }
 
         [Test]
         public void Ctor_NoDependency_NoError()
         {
-            var target = new Paging();
-
-            Assert.That(target, Is.TypeOf<Paging>());
+            Assert.That(_target, Is.TypeOf<Paging>());
         }
 
         [Test]
         public void ShowPaging_OnePage_OneCurrentPage()
         {
-            var target = new Paging();
             var expected = "(1)";
 
-            string actual = target.ShowPaging(1);
+            string actual = _target.ShowPaging(1);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void ShowPaging_TwoPage_OnePageOfTwo()
+        {
+            var expected = "(1) 2";
+            int maxPage = 2;
+
+            string actual = _target.ShowPaging(1, maxPage);
 
             Assert.That(actual, Is.EqualTo(expected));
         }

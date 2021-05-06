@@ -7,9 +7,9 @@ namespace Paging7
 {
     public class Paging
     {
-        public string ShowPaging(int i)
+        public string ShowPaging(int currentPage)
         {
-            return "(1)";
+            return "("+currentPage+")";
         }
     }
 }
