@@ -11,26 +11,11 @@ namespace Paging7Test
     [TestFixture]
     public class PagingTests
     {
-        [Test]
-        public void GetPaging_NoPages_ReturnsEmptyPaging()
+        [TestCase(0,0,"")]
+        [TestCase(1,1,"(1)")]
+        public void GetPaging_TwoPages_ReturnsPagingWithCurrentPageOne(int pages, int currentPage, string expected)
         {
             var target = new Paging();
-            var pages = 0;
-            var currentPage = 0;
-            var expected = string.Empty;
-
-            string actual = target.GetPaging(pages, currentPage);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void GetPaging_OnePage_ReturnsPagingWithCurrentPageOne()
-        {
-            var target = new Paging();
-            var pages = 1;
-            var currentPage = 1;
-            var expected = "(1)";
 
             string actual = target.GetPaging(pages, currentPage);
 
