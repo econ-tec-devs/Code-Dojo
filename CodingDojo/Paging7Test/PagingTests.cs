@@ -13,7 +13,8 @@ namespace Paging7Test
     {
         [TestCase(0,0,"")]
         [TestCase(1,1,"(1)")]
-        public void GetPaging_TwoPages_ReturnsPagingWithCurrentPageOne(int pages, int currentPage, string expected)
+        [TestCase(2,1,"(1) 2")]
+        public void GetPaging_InputParameter_ReturnsExpected(int pages, int currentPage, string expected)
         {
             var target = new Paging();
 
