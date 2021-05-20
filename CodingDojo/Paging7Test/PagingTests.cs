@@ -43,5 +43,18 @@ namespace Paging7Test
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void GetPaging_TwoPages_ReturnsPaging()
+        {
+            var paging = new Paging();
+            var pageCount = 2;
+            var currentPage = 1;
+            var expected = "(1) 2";
+
+            string actual = paging.GetPaging(pageCount, currentPage);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
