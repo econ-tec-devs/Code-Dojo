@@ -9,6 +9,10 @@ namespace Paging7
     {
         public string GetPages(int maxPages)
         {
+            if (maxPages == 1)
+            {
+                return "1";
+            }
             return string.Empty;
         }
     }
