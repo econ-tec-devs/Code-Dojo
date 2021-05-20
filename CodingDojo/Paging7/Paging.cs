@@ -12,9 +12,9 @@ namespace Paging7
             string paging = string.Empty;
             for (int i = 1; i <= pageCount; i++)
             {
-                if (i == 1)
+                if (i == currentPage)
                 {
-                    paging += $"({i})";
+                    paging += $" ({i})";
                 }
                 else
                 {
@@ -22,7 +22,7 @@ namespace Paging7
                 }
             }
 
-            return paging;
+            return paging.Trim();
         }
     }
 }
