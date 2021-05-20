@@ -30,7 +30,7 @@ namespace Paging7Test
         {
             var target = new Paging();
 
-            var actual = target.GetPages(maxPages);
+            var actual = target.GetPages(maxPages,0);
 
             Assert.That(actual, Is.EqualTo(expected));
         }

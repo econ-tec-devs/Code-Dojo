@@ -7,13 +7,21 @@ namespace Paging7
 {
     public class Paging
     {
-        public string GetPages(int maxPages)
+        public string GetPages(int maxPages, int activePage=0)
         {
             var result = string.Empty;
-
+            
             for (var currentPage = 1; currentPage <= maxPages; currentPage++)
             {
-                result += currentPage + " ";
+                if (currentPage == activePage)
+                {
+                    result += $"({currentPage}) ";
+                }
+                else
+                {
+                    result += currentPage + " ";
+                }
+                
             }
 
             return result.Trim();
