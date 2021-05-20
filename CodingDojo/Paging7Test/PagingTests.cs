@@ -19,6 +19,7 @@ namespace Paging7Test
         [TestCase(0, 0, "")]
         [TestCase(1, 1, "(1)")]
         [TestCase(2, 1, "(1) 2")]
+        [TestCase(3, 1, "(1) 2 3")]
         public void GetPaging_InputParameters_ReturnsExpected(int pageCount, int currentPage, string expected)
         {
             var paging = new Paging();
