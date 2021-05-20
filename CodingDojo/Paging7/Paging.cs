@@ -20,7 +20,18 @@ namespace Paging7
 
         public string GetPagingOverSeven(int pageCount, int currentPage)
         {
-            return "1 ... 4 (5) 6 ... 9";
+            var result = string.Empty;
+
+            if (pageCount <= 9)
+            {
+                result = "1 ... 4 (5) 6 ... 9";
+            }
+            else
+            {
+                result = "1 ... 41 (42) 43 ... 100";
+            }
+
+            return result;
         }
     }
 }
