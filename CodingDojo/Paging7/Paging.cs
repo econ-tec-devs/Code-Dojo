@@ -9,10 +9,10 @@ namespace Paging7
     {
         public string GetPaging(int pageCount, int currentPage)
         {
-            string paging = string.Empty;
-            for (int i = 1; i <= pageCount; i++)
+            var paging = string.Empty;
+            for (int page = 1; page <= pageCount; page++)
             {
-                paging += i == currentPage ? $" ({i})" : $" {i}";
+                paging += page == currentPage ? $" ({page})" : $" {page}";
             }
 
             return paging.Trim();
