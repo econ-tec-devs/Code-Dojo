@@ -9,15 +9,14 @@ namespace Paging7
     {
         public string GetPages(int maxPages)
         {
-            if (maxPages == 1)
+            var result = string.Empty;
+
+            for (var currentPage = 1; currentPage <= maxPages; currentPage++)
             {
-                return "1";
+                result += currentPage + " ";
             }
-            if (maxPages == 2)
-            {
-                return "1 2";
-            }
-            return string.Empty;
+
+            return result.Trim();
         }
     }
 }
