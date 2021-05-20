@@ -41,6 +41,17 @@ namespace Paging7Test
             var actual = target.GetPages(1);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }  
+        
+        [Test]
+        public void GetPages_MaxPages2_ReturnsStringWith12()
+        {
+            var target = new Paging();
+            var expected = "1 2";
+
+            var actual = target.GetPages(2);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
