@@ -28,4 +28,12 @@ namespace Paging7Test
             Assert.That(actual, Is.EqualTo(expected));
         }
     }
+
+    public class Paging
+    {
+        public string GetPaging(int pageCount, int currentPage)
+        {
+            return string.Empty;
+        }
+    }
 }
