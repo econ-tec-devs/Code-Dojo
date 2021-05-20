@@ -9,14 +9,14 @@ namespace Paging7
     {
         public string GetPaging(int pageCount, int currentPage)
         {
+            if (pageCount == 1)
+            {
+                return "(1)";
+            }
+
             if (pageCount == 2)
             {
                 return "(1) 2";
-            }
-
-            if (currentPage == 1)
-            {
-                return "(1)";
             }
 
             return string.Empty;
