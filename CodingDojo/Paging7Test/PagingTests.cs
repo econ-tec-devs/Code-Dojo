@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using Paging7;
+
 namespace Paging7Test
 {
     using NUnit.Framework;
@@ -26,14 +29,6 @@ namespace Paging7Test
             string actual = paging.GetPaging(pageCount, currentPage);
 
             Assert.That(actual, Is.EqualTo(expected));
-        }
-    }
-
-    public class Paging
-    {
-        public string GetPaging(int pageCount, int currentPage)
-        {
-            return string.Empty;
         }
     }
 }
