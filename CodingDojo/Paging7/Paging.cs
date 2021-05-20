@@ -17,5 +17,10 @@ namespace Paging7
 
             return paging.Trim();
         }
+
+        public string GetPagingOverSeven(int pageCount, int currentPage)
+        {
+            return "1 ... 4 (5) 6 ... 9";
+        }
     }
 }
