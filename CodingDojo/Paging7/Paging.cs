@@ -12,14 +12,7 @@ namespace Paging7
             string paging = string.Empty;
             for (int i = 1; i <= pageCount; i++)
             {
-                if (i == currentPage)
-                {
-                    paging += $" ({i})";
-                }
-                else
-                {
-                    paging += $" {i}";
-                }
+                paging += i == currentPage ? $" ({i})" : $" {i}";
             }
 
             return paging.Trim();
