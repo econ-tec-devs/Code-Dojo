@@ -21,35 +21,14 @@ namespace Paging7Test
             var paging = new Paging();
         }
 
-        [Test]
-        public void GetPages_MaxPages0_ReturnsEmptyString()
+        [TestCase(0, "")] 
+        [TestCase(1, "1")] 
+        [TestCase(2, "1 2")] 
+        public void GetPages_WithInputParameter_ReturnsExpected(int maxPages, string expected)
         {
             var target = new Paging();
-            var expected = string.Empty;
-
-            var actual = target.GetPages(0);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void GetPages_MaxPages1_ReturnsStringWith1()
-        {
-            var target = new Paging();
-            var expected = "1";
-
-            var actual = target.GetPages(1);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }  
-        
-        [Test]
-        public void GetPages_MaxPages2_ReturnsStringWith12()
-        {
-            var target = new Paging();
-            var expected = "1 2";
-
-            var actual = target.GetPages(2);
+            
+            var actual = target.GetPages(maxPages);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
