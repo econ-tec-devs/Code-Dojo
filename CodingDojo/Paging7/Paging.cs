@@ -9,16 +9,6 @@ namespace Paging7
     {
         public string GetPaging(int pageCount, int currentPage)
         {
-            // if (pageCount == 1)
-            // {
-            //     return "(1)";
-            // }
-            //
-            // if (pageCount == 2)
-            // {
-            //     return "(1) 2";
-            // }
-
             var paging = string.Empty;
             for (int i = 1; i <= pageCount; i++)
             {
