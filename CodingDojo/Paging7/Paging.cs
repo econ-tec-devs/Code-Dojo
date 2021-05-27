@@ -12,8 +12,9 @@ namespace Paging7
             var result = string.Empty;
             if (maxPages > 7)
             {
-                return "1 ... 41 (42) 43 ... 100";
+                return $"1 ... {activePage - 1} ({activePage}) {activePage + 1} ... {maxPages}";
             }
+
             for (var index = 1; index <= maxPages; index++)
             {
                 if (index == activePage)
