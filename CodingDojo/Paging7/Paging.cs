@@ -24,6 +24,16 @@ namespace Paging7
                 return GetPagingCurrentPageInFirstPart(pageCount, currentPage);
             }
 
+            return GetPagingInFirstPart(pageCount, currentPage);
+        }
+
+        public string GetPagingOverSeven(int pageCount, int currentPage)
+        {
+            return $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
+        }
+
+        private string GetPagingInFirstPart(int pageCount, int currentPage)
+        {
             var paging = string.Empty;
             for (var page = 1; page <= pageCount; page++)
             {
@@ -33,11 +43,6 @@ namespace Paging7
             return paging.Trim();
         }
 
-        public string GetPagingOverSeven(int pageCount, int currentPage)
-        {
-            return $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
-        }
-
         private string GetPagingCurrentPageInlastPart(int pageCount, int currentPage)
         {
             return "1 ... 5 6 7 (8) 9";
@@ -45,16 +50,7 @@ namespace Paging7
 
         private string GetPagingCurrentPageInFirstPart(int pageCount, int currentPage)
         {
-            switch (currentPage)
-            {
-                case 2:
-                    return "1 (2) 3 4 5 ... 9";
-                case 3:
-                    return "1 2 (3) 4 5 ... 9";
-                case 4:
-                    return "1 2 3 (4) 5 ... 9";
-                default: return null;
-            }
+            return $"{GetPagingInFirstPart(5, currentPage)} ... {pageCount}";
         }
     }
 }
