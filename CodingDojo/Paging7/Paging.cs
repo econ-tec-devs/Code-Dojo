@@ -10,7 +10,10 @@ namespace Paging7
         public string GetPages(int maxPages, int activePage = 0)
         {
             var result = string.Empty;
-
+            if (maxPages > 7)
+            {
+                return "1 ... 41 (42) 43 ... 100";
+            }
             for (var index = 1; index <= maxPages; index++)
             {
                 if (index == activePage)
