@@ -51,6 +51,7 @@ namespace Paging7Test
 
         [TestCase(9, 8, "1 ... 5 6 7 (8) 9")]
         [TestCase(9, 7, "1 ... 5 6 (7) 8 9")]
+        [TestCase(9, 6, "1 ... 5 (6) 7 8 9")]
         public void GetPaging_CurrentPageInLastPart_ReturnsExpected(int pageCount, int currentPage, string expected)
         {
             ActAndAssert(pageCount, currentPage, expected);

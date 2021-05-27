@@ -45,7 +45,15 @@ namespace Paging7
 
         private string GetPagingCurrentPageInlastPart(int pageCount, int currentPage)
         {
-            return "1 ... 5 6 7 (8) 9";
+            if (currentPage == 8)
+            {
+                return "1 ... 5 6 7 (8) 9";
+            }
+            else
+            {
+                return "1 ... 5 6 (7) 8 9";
+            }
+            
         }
 
         private string GetPagingCurrentPageInFirstPart(int pageCount, int currentPage)
