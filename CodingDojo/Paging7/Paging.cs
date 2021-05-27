@@ -10,28 +10,49 @@ namespace Paging7
         public string GetPages(int maxPages, int activePage = 0)
         {
             var result = string.Empty;
-            if (maxPages > 7)
+            if (MoreThan7Pages(maxPages))
             {
-                if (activePage == 2)
-                {
-                    return $"1 ({activePage}) {activePage+1} {activePage+2} {activePage+3} ... {maxPages}";
-                }
-                return $"1 ... {activePage - 1} ({activePage}) {activePage + 1} ... {maxPages}";
+                return GetPaginationForMoreThanSeven(maxPages, activePage);
             }
 
-            for (var index = 1; index <= maxPages; index++)
-            {
-                if (index == activePage)
-                {
-                    result += $"({index}) ";
-                }
-                else
-                {
-                    result += index + " ";
-                }
-            }
+            result += PagesFromOneToPageNumber(activePage, maxPages);
 
             return result.Trim();
         }
+
+        private static string GetPaginationForMoreThanSeven(int maxPages, int activePage)
+        {
+            var result = string.Empty;
+
+            if (IsInFirstPart(activePage))
+            {
+                result += PagesFromOneToPageNumber(activePage, 5);
+
+                result += $"... {maxPages}";
+                return result;
+            }
+
+            return $"1 ... {activePage - 1} ({activePage}) {activePage + 1} ... {maxPages}";
+        }
+
+        private static string PagesFromOneToPageNumber(int activePage, int pageNumber)
+        {
+            var result = string.Empty;
+            for (var index = 1; index <= pageNumber; index++)
+            {
+                result += GetFormattedPage(activePage, index);
+            }
+
+            return result;
+        }
+
+        private static string GetFormattedPage(int activePage, int index)
+        {
+            return index == activePage ? $"({index}) " : $"{index} ";
+        }
+
+        private static bool MoreThan7Pages(int maxPages) => maxPages > 7;
+
+        private static bool IsInFirstPart(int activePage) => activePage <= 4;
     }
 }
