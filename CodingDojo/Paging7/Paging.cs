@@ -15,7 +15,7 @@ namespace Paging7
                 return GetPaginationForMoreThanSeven(maxPages, activePage);
             }
 
-            result += PagesFromOneToPageNumber(activePage, maxPages);
+            result += PagesFromOneToPageNumber(activePage, maxPages,1);
 
             return result.Trim();
         }
@@ -26,19 +26,28 @@ namespace Paging7
 
             if (IsInFirstPart(activePage))
             {
-                result += PagesFromOneToPageNumber(activePage, 5);
+                result += PagesFromOneToPageNumber(activePage, 5,1);
 
                 result += $"... {maxPages}";
                 return result;
             }
 
+            if (IsInLastPart(activePage) && activePage > 5)
+            {
+                result = "1 ... ";
+                result += PagesFromOneToPageNumber(activePage,8,5);
+                result += $"{maxPages}";
+                return result;
+            }
+
             return $"1 ... {activePage - 1} ({activePage}) {activePage + 1} ... {maxPages}";
+
         }
 
-        private static string PagesFromOneToPageNumber(int activePage, int pageNumber)
+        private static string PagesFromOneToPageNumber(int activePage, int pageNumber, int from)
         {
             var result = string.Empty;
-            for (var index = 1; index <= pageNumber; index++)
+            for (var index = from; index <= pageNumber; index++)
             {
                 result += GetFormattedPage(activePage, index);
             }
@@ -54,5 +63,7 @@ namespace Paging7
         private static bool MoreThan7Pages(int maxPages) => maxPages > 7;
 
         private static bool IsInFirstPart(int activePage) => activePage <= 4;
+
+        private static bool IsInLastPart(int activePage) => activePage <= 8;
     }
 }
