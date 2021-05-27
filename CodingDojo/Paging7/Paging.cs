@@ -27,15 +27,16 @@ namespace Paging7
 
         private string GetPagingCurrentPageInFirstPart(int pageCount, int currentPage)
         {
-            if (currentPage == 2)
+            switch (currentPage)
             {
-                return "1 (2) 3 4 5 ... 9";
+                case 2:
+                    return "1 (2) 3 4 5 ... 9";
+                case 3:
+                    return "1 2 (3) 4 5 ... 9";
+                case 4:
+                    return "1 2 3 (4) 5 ... 9";
+                default: return null;
             }
-            else
-            {
-                return "1 2 3 (4) 5 ... 9";
-            }
-
         }
 
         public string GetPagingOverSeven(int pageCount, int currentPage)
