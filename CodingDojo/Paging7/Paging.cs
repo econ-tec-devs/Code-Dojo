@@ -10,9 +10,17 @@ namespace Paging7
         public string GetPaging(int pageCount, int currentPage)
         {
             var paging = string.Empty;
+            if (pageCount > 7)
+            {
+                return GetPagingOverSeven(pageCount, currentPage);
+            }
             for (int page = 1; page <= pageCount; page++)
             {
-                paging += page == currentPage ? $" ({page})" : $" {page}";
+                //if (pageCount > 7)
+                //{
+                    paging += page == currentPage ? $" ({page})" : $" {page}";
+                //}
+                
             }
 
             return paging.Trim();

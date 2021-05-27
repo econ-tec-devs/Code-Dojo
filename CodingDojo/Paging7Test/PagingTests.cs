@@ -34,14 +34,14 @@ namespace Paging7Test
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-
         [TestCase(9, 5, "1 ... 4 (5) 6 ... 9")]
         [TestCase(100, 42, "1 ... 41 (42) 43 ... 100")]
+        [TestCase(70, 30, "1 ... 29 (30) 31 ... 70")]
         public void GetPagingOverSeven_InputParameters_ReturnsExpected(int pageCount, int currentPage, string expected)
         {
             var paging = new Paging();
 
-            var actual = paging.GetPagingOverSeven(pageCount, currentPage);
+            var actual = paging.GetPaging(pageCount, currentPage);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
