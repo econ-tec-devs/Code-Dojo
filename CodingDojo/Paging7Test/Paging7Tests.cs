@@ -46,6 +46,7 @@ namespace Paging7Test
         }
 
         [TestCase(100, 42, "1 ... 41 (42) 43 ... 100")]
+        [TestCase(9, 5, "1 ... 4 (5) 6 ... 9")]
         public void GetPages_WithInputParameterOver7_ReturnsExpected(int maxPages, int activePage, string expected)
         {
             var target = new Paging();
@@ -54,5 +55,6 @@ namespace Paging7Test
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
     }
 }
