@@ -14,13 +14,9 @@ namespace Paging7
             {
                 return GetPagingOverSeven(pageCount, currentPage);
             }
-            for (int page = 1; page <= pageCount; page++)
+            for (var page = 1; page <= pageCount; page++)
             {
-                //if (pageCount > 7)
-                //{
-                    paging += page == currentPage ? $" ({page})" : $" {page}";
-                //}
-                
+                paging += page == currentPage ? $" ({page})" : $" {page}";
             }
 
             return paging.Trim();
@@ -28,20 +24,7 @@ namespace Paging7
 
         public string GetPagingOverSeven(int pageCount, int currentPage)
         {
-            var result = string.Empty;
-
-            // if (pageCount <= 9)
-            // {
-            //     result = "1 ... 4 (5) 6 ... 9";
-            // }
-            // else
-            // {
-            //     result = "1 ... 41 (42) 43 ... 100";
-            // }
-
-            result = $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
-
-            return result;
+            return $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
         }
     }
 }
