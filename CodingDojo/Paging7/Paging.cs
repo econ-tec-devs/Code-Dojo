@@ -11,9 +11,17 @@ namespace Paging7
         {
             if (pageCount > 7)
             {
-                return currentPage > 4
-                    ? GetPagingOverSeven(pageCount, currentPage)
-                    : GetPagingCurrentPageInFirstPart(pageCount, currentPage);
+                if (currentPage > 4)
+                {
+                    if (currentPage > pageCount - 4)
+                    {
+                        return GetPagingCurrentPageInlastPart(pageCount, currentPage);
+                    }
+
+                    return GetPagingOverSeven(pageCount, currentPage);
+                }
+
+                return GetPagingCurrentPageInFirstPart(pageCount, currentPage);
             }
 
             var paging = string.Empty;
@@ -23,6 +31,16 @@ namespace Paging7
             }
 
             return paging.Trim();
+        }
+
+        public string GetPagingOverSeven(int pageCount, int currentPage)
+        {
+            return $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
+        }
+
+        private string GetPagingCurrentPageInlastPart(int pageCount, int currentPage)
+        {
+            return "1 ... 5 6 7 (8) 9";
         }
 
         private string GetPagingCurrentPageInFirstPart(int pageCount, int currentPage)
@@ -37,11 +55,6 @@ namespace Paging7
                     return "1 2 3 (4) 5 ... 9";
                 default: return null;
             }
-        }
-
-        public string GetPagingOverSeven(int pageCount, int currentPage)
-        {
-            return $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
         }
     }
 }
