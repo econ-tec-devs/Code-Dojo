@@ -37,7 +37,19 @@ namespace Paging7Test
         [TestCase(9, 5, "1 ... 4 (5) 6 ... 9")]
         [TestCase(100, 42, "1 ... 41 (42) 43 ... 100")]
         [TestCase(70, 30, "1 ... 29 (30) 31 ... 70")]
+        [TestCase(150, 139, "1 ... 138 (139) 140 ... 150")]
+        [TestCase(300, 250, "1 ... 249 (250) 251 ... 300")]
         public void GetPagingOverSeven_InputParameters_ReturnsExpected(int pageCount, int currentPage, string expected)
+        {
+            var paging = new Paging();
+
+            var actual = paging.GetPaging(pageCount, currentPage);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [TestCase(9, 2, "1 (2) 3 4 5 ... 9")]
+        public void GetPaging_CurrentPageInFirstPart_ReturnsExpected(int pageCount, int currentPage, string expected)
         {
             var paging = new Paging();
 
