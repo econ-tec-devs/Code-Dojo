@@ -30,13 +30,23 @@ namespace Paging7Test
         {
             var target = new Paging();
 
-            var actual = target.GetPages(maxPages,0);
+            var actual = target.GetPages(maxPages);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
 
         [TestCase(7, 1, "(1) 2 3 4 5 6 7")]
         public void GetPages_WithInputParameter_ReturnsExpected(int maxPages, int activePage, string expected)
+        {
+            var target = new Paging();
+
+            var actual = target.GetPages(maxPages, activePage);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [TestCase(100, 42, "1 ... 41 (42) 43 ... 100")]
+        public void GetPages_WithInputParameterOver7_ReturnsExpected(int maxPages, int activePage, string expected)
         {
             var target = new Paging();
 
