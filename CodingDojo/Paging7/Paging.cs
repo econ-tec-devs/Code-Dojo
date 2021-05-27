@@ -12,8 +12,11 @@ namespace Paging7
             var paging = string.Empty;
             if (pageCount > 7)
             {
-                return GetPagingOverSeven(pageCount, currentPage);
+                return currentPage > 4
+                    ? GetPagingOverSeven(pageCount, currentPage)
+                    : "1 (2) 3 4 5 ... 9";
             }
+
             for (var page = 1; page <= pageCount; page++)
             {
                 paging += page == currentPage ? $" ({page})" : $" {page}";
