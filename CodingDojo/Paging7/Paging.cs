@@ -30,14 +30,16 @@ namespace Paging7
         {
             var result = string.Empty;
 
-            if (pageCount <= 9)
-            {
-                result = "1 ... 4 (5) 6 ... 9";
-            }
-            else
-            {
-                result = "1 ... 41 (42) 43 ... 100";
-            }
+            // if (pageCount <= 9)
+            // {
+            //     result = "1 ... 4 (5) 6 ... 9";
+            // }
+            // else
+            // {
+            //     result = "1 ... 41 (42) 43 ... 100";
+            // }
+
+            result = $"1 ... {--currentPage} ({++currentPage}) {++currentPage} ... {pageCount}";
 
             return result;
         }
