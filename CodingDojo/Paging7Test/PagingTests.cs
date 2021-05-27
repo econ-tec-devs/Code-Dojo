@@ -49,6 +49,12 @@ namespace Paging7Test
             ActAndAssert(pageCount, currentPage, expected);
         }
 
+        [TestCase(9, 8, "1 ... 5 6 7 (8) 9")]
+        public void GetPaging_CurrentPageInLastPart_ReturnsExpected(int pageCount, int currentPage, string expected)
+        {
+            ActAndAssert(pageCount, currentPage, expected);
+        }
+
         private void ActAndAssert(int pageCount, int currentPage, string expected)
         {
             var paging = new Paging();
