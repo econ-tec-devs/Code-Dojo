@@ -14,7 +14,7 @@ namespace Paging7
             {
                 if (activePage == 2)
                 {
-                    return "1 (2) 3 4 5 ... 9";
+                    return $"1 ({activePage}) {activePage+1} {activePage+2} {activePage+3} ... {maxPages}";
                 }
                 return $"1 ... {activePage - 1} ({activePage}) {activePage + 1} ... {maxPages}";
             }

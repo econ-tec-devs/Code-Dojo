@@ -57,6 +57,7 @@ namespace Paging7Test
         }
 
         [TestCase(9, 2, "1 (2) 3 4 5 ... 9")]
+        [TestCase(9, 4, "1 2 3 (4) 5 ... 9")]
         public void GetPages_WithInputParameterInTheFirstPart_ReturnsExpected(int maxPages, int activePage, string expected)
         {
             var target = new Paging();
