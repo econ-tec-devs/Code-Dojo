@@ -42,7 +42,7 @@ namespace Paging7Test
         }
 
         [TestCase(9, 2, "1 (2) 3 4 5 ... 9")]
-        [TestCase(9, 4, "1 2 3 (4) 5 … 9")]
+        [TestCase(9, 4, "1 2 3 (4) 5 ... 9")]
         public void GetPaging_CurrentPageInFirstPart_ReturnsExpected(int pageCount, int currentPage, string expected)
         {
             ActAndAssert(pageCount, currentPage, expected);

@@ -13,7 +13,7 @@ namespace Paging7
             {
                 return currentPage > 4
                     ? GetPagingOverSeven(pageCount, currentPage)
-                    : "1 (2) 3 4 5 ... 9";
+                    : GetPagingCurrentPageInFirstPart(pageCount, currentPage);
             }
 
             var paging = string.Empty;
@@ -23,6 +23,19 @@ namespace Paging7
             }
 
             return paging.Trim();
+        }
+
+        private string GetPagingCurrentPageInFirstPart(int pageCount, int currentPage)
+        {
+            if (currentPage == 2)
+            {
+                return "1 (2) 3 4 5 ... 9";
+            }
+            else
+            {
+                return "1 2 3 (4) 5 ... 9";
+            }
+
         }
 
         public string GetPagingOverSeven(int pageCount, int currentPage)
