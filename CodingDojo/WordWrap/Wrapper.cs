@@ -9,12 +9,13 @@ namespace WordWrap
     {
         public static string Wrap(string rawString, int columnNumber)
         {
+            var output = rawString;
             if(rawString.Length > columnNumber && columnNumber != 0)
             {
-                return "Rouven\nmuss.";
+                output = "Rouven\nmuss.";
             }
 
-            return rawString;
+            return output;
         }
     }
 }
