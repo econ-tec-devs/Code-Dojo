@@ -10,30 +10,10 @@ namespace WordWrapTest
 
     public class WrapperTests
     {
-        [SetUp]
-        public void Setup()
+        [TestCase("", 0, "")]
+        [TestCase("Rouven muss wieder an das Telefon.", 0, "Rouven muss wieder an das Telefon.")]
+        public void Wrap_Inputs_ReturnsExpected(string rawString, int columnNumber, string expected)
         {
-        }
-
-        [Test]
-        public void Wrap_EmptyArguments_ReturnsEmptyString()
-        {
-            var rawString = string.Empty;
-            var columnNumber = 0;
-            var expected = string.Empty;
-
-            var actual = Wrapper.Wrap(rawString, columnNumber);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void Wrap_RawStringWithColumnNumber0_ReturnsOriginalString()
-        {
-            var rawString = "Rouven muss wieder an das Telefon.";
-            var columnNumber = 0;
-            var expected = "Rouven muss wieder an das Telefon.";
-
             var actual = Wrapper.Wrap(rawString, columnNumber);
 
             Assert.That(actual, Is.EqualTo(expected));
