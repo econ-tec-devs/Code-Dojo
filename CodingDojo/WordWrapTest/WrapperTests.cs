@@ -27,5 +27,17 @@ namespace WordWrapTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Wrap_RawStringWithColumnNumber0_ReturnsOriginalString()
+        {
+            var rawString = "Rouven muss wieder an das Telefon.";
+            var columnNumber = 0;
+            var expected = "Rouven muss wieder an das Telefon.";
+
+            string actual = Wrapper.Wrap(rawString, columnNumber);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
