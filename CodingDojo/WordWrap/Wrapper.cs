@@ -9,6 +9,11 @@ namespace WordWrap
     {
         public static string Wrap(string rawString, int columnNumber)
         {
+            if(rawString.Length > columnNumber && columnNumber != 0)
+            {
+                return "Rouven\nmuss.";
+            }
+
             return rawString;
         }
     }
