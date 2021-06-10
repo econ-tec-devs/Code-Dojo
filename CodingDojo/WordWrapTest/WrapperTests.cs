@@ -3,10 +3,12 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using NUnit.Framework;
+using WordWrap;
+
 namespace WordWrapTest
 {
-    using NUnit.Framework;
-
     public class WrapperTests
     {
         [SetUp]

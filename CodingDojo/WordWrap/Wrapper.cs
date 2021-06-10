@@ -1,4 +1,4 @@
-namespace WordWrapTest
+namespace WordWrap
 {
     public class Wrapper
     {
