@@ -3,12 +3,11 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using NUnit.Framework;
-using WordWrap;
-
 namespace WordWrapTest
 {
+    using NUnit.Framework;
+    using WordWrap;
+
     public class WrapperTests
     {
         [SetUp]
@@ -23,7 +22,7 @@ namespace WordWrapTest
             var columnNumber = 0;
             var expected = string.Empty;
 
-            string actual = Wrapper.Wrap(rawString, columnNumber);
+            var actual = Wrapper.Wrap(rawString, columnNumber);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -35,7 +34,7 @@ namespace WordWrapTest
             var columnNumber = 0;
             var expected = "Rouven muss wieder an das Telefon.";
 
-            string actual = Wrapper.Wrap(rawString, columnNumber);
+            var actual = Wrapper.Wrap(rawString, columnNumber);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
