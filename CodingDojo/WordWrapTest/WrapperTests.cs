@@ -12,6 +12,7 @@ namespace WordWrapTest
     {
         [TestCase("", 0, "")]
         [TestCase("Rouven muss wieder an das Telefon.", 0, "Rouven muss wieder an das Telefon.")]
+        [TestCase("Rouven muss wieder an das Telefon.", 18, "Rouven muss wieder\nan das Telefon.")]
         public void Wrap_Inputs_ReturnsExpected(string rawString, int columnNumber, string expected)
         {
             var actual = Wrapper.Wrap(rawString, columnNumber);
