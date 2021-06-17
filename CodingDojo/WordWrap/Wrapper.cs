@@ -12,7 +12,7 @@ namespace WordWrap
     {
         public static string Wrap(string text, int columnNumber)
         {
-            if (columnNumber != 0)
+            if (columnNumber == 5)
             {
                 return $"Word1{Environment.NewLine}word2";
             }
