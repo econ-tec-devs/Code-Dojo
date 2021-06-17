@@ -18,25 +18,11 @@ namespace WordWrapTest
         /// 4. two words, columnNumber after second word => input = output
         /// 5. three words, columnNumber after first word => returns text with two lineBreaks
         /// </summary>
-        [Test]
-        public void Wrap_ColumnNumberZero_ReturnsInputAsOutput()
+        [TestCase("Word1 word2", 0, "Word1 word2")]
+        [TestCase("Word1 word2", 5, "Word1\r\nword2")]
+        [TestCase("Word1 word2", 0, "Word1 word2")]
+        public void Wrap_ColumnNumberZero_ReturnsInputAsOutput(string text, int columnNumber, string expected)
         {
-            var text = "Word1 word2";
-            var columnNumber = 0;
-            var expected = "Word1 word2";
-
-            var actual = Wrapper.Wrap(text, columnNumber);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void Wrap_ColumnNumber5_ReturnsExpected()
-        {
-            var text = "Word1 word2";
-            var columnNumber = 5;
-            var expected = $"Word1{Environment.NewLine}word2";
-
             var actual = Wrapper.Wrap(text, columnNumber);
 
             Assert.That(actual, Is.EqualTo(expected));
