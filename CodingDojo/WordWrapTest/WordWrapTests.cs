@@ -20,7 +20,9 @@ namespace WordWrapTest
         [TestCase("Word1 word2", 0, "Word1 word2")]
         [TestCase("Word1 word2", 5, "Word1\r\nword2")]
         [TestCase("Word1 word2", 8, "Word1\r\nword2")]
-        [TestCase("Word1 word2", 10, "Word1 word2")]
+        [TestCase("Word1 word2", 12, "Word1 word2")]
+        [TestCase("Word1 word2 word3", 5, "Word1\r\nword2\r\nword3")]
+        [TestCase("Wo wo word2 word3", 5, "Wo wo\r\nword2\r\nword3")]
         public void Wrap_Input_ReturnsExpected(string text, int columnNumber, string expected)
         {
             var actual = Wrapper.Wrap(text, columnNumber);
