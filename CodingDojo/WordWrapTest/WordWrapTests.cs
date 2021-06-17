@@ -6,6 +6,7 @@
 namespace WordWrapTest
 {
     using NUnit.Framework;
+    using WordWrap;
 
     public class WordWrapTests
     {
