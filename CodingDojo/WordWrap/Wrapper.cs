@@ -11,17 +11,25 @@ namespace WordWrap
     {
         public static string Wrap(string text, int columnNumber)
         {
-            if (columnNumber == 8)
+            var wrappedText = text;
+            if (columnNumber < text.Length && columnNumber != 0)
             {
-                return $"Word1{Environment.NewLine}word2";
+                var words = text.Split(" ");
+                wrappedText = string.Empty;
+                foreach (var word in words)
+                {
+                    if (wrappedText == string.Empty)
+                    {
+                        wrappedText = word;
+                    }
+                    else
+                    {
+                        wrappedText += $"{Environment.NewLine}{word}";
+                    }
+                }
             }
 
-            if (columnNumber == 5)
-            {
-                return $"Word1{Environment.NewLine}word2";
-            }
-
-            return text;
+            return wrappedText;
         }
     }
 }

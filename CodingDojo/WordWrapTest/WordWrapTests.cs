@@ -5,7 +5,6 @@
 // -----------------------------------------------------------------------
 namespace WordWrapTest
 {
-    using System;
     using NUnit.Framework;
     using WordWrap;
 
