@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System;
+
 namespace KataGildeRoseTest
 {
     using KataGildedRose;
@@ -22,6 +25,13 @@ namespace KataGildeRoseTest
         public void PublicItems_DoesExist_AssertsTrue()
         {
             Assert.That(_target.PublicItems, Is.Null);
+        }
+        
+        [Test]
+        public void UpdateQuality_ItemsNoSet_AssertsTru()
+        {
+            Assert.Throws<NullReferenceException>(() => _target.UpdateQuality()); 
+            ;
         }
     }
 }
