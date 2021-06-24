@@ -3,11 +3,10 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace KataGildeRoseTest
 {
+    using System;
+    using System.Collections.Generic;
     using KataGildedRose;
     using NUnit.Framework;
 
@@ -26,12 +25,18 @@ namespace KataGildeRoseTest
         {
             Assert.That(_target.PublicItems, Is.Null);
         }
-        
+
         [Test]
-        public void UpdateQuality_ItemsNoSet_ThrowsException()
+        public void UpdateQuality_ItemsNotSet_ThrowsException()
         {
-            Assert.Throws<NullReferenceException>(() => _target.UpdateQuality()); 
-            ;
+            Assert.Throws<NullReferenceException>(() => _target.UpdateQuality());
+        }
+
+        [Test]
+        public void UpdateQuality_SetItem_NoException()
+        {
+            _target.PublicItems = new List<Item>();
+            _target.UpdateQuality();
         }
     }
 }
