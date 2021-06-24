@@ -12,3 +12,21 @@ Ziele:
 - Testabdeckung herstellen
 - Refaktoriseren
 - Neue Funtionalität einbauen
+
+Vorgehen:
+- Prop für Items Field einführen, damit wir das Ergebnis der updateQuality Methode zu prüfen
+- Tests schreiben, welche die Beschreibung der Aufgabe prüfen (möglicherweiße passt dieser nicht zum Code)
+- Wenn Tests rot werden => Annahme anpassen
+- Anschließend Test an die Wahrheit anpassen
+
+Was wird wie refaktorisiert:
+- Erst Tests schreiben wie oben beschrieben
+- Code in 2 Klassen auslagern
+	- Item
+	- InventorySystem (beinhaltet Methode UpdateQuality)
+	- InventorySystem aus Main aufrufen
+- R# Refaktorisierungen durchführen
+- Renamings
+- MagicNumbers auflösen => Konstanten einführen
+- DRY anwenden
+- Versuchen UpdateQuality in kleinere private Methoden aufzusplitten
