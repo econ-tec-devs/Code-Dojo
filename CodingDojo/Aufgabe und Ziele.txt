@@ -1,42 +1,14 @@
-Coding Dojo 26.11.2020
+Coding Dojo 24.05.2021
 
-Kata Potter
+Kata Gilded Rose
 
 Aufgabe
 - 2 Teams bilden â 3 Personen
-- Alle Entwickler schreiben auf was Ihnen bei den Kollegen auffällt was man besser machen kann.
-- TDD Zyklus
-	- Red, Commit, Push (Local => Server)
-	- Green, Commit
-	- Refactor, Commit
-
-1. Aufgabe Entwickler 1
-	- Termin im Teams machen (Team Mitglieder und mich einladen) für die Dauer des Dojo in den Termin wechseln
-	- Branche erstellen basierend auf "develop" Branch
-	- "KataPotter-Team#" # => Nummer des Teams
-	- Branch auf den Server pushen
-- Alle Entwickler holen sich den Branch ihres Teams
-
-2. Aufgabe Entwickler 2
-	- Bestehenden Test grün machen (Commit)
-	- Refaktoren (Produktionscode auslagern in eigenes Projekt) (Commit)
-	- Neuen Test schreiben (Commit, Push)
-- Alle Entwickler holen sich den Branch ihres Teams
-
-3. Aufgabe Entwickler x
-	- Sync
-	- Bestehenden Test grün machen (Commit)
-	- Refaktoren (DRY) (Commit)
-	- Neuen Test schreiben (Commit, Push)
-- Alle Entwickler holen sich den Branch ihres Teams
-
-Goto 3.
-
+- Neue Funktionalität integrieren und sicher stellen, dass alte Funktionalität erhalten bleibt.
 
 Ziele:
 
-- 4 Minuten Zeitlimit für TDD Zyklus (ohne Ein- und Auschecken)
-- KISS
-- DRY 
-- Baby-Steps
-- 
+- 3 Minuten Zeitlimit um einen Test zu schreiben (ohne Ein- und Auschecken)
+- Testabdeckung herstellen
+- Refaktoriseren
+- Neue Funtionalität einbauen
