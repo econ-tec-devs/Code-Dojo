@@ -28,7 +28,7 @@ namespace KataGildeRoseTest
         }
         
         [Test]
-        public void UpdateQuality_ItemsNoSet_AssertsTru()
+        public void UpdateQuality_ItemsNoSet_ThrowsException()
         {
             Assert.Throws<NullReferenceException>(() => _target.UpdateQuality()); 
             ;
