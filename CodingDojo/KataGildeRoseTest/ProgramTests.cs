@@ -38,5 +38,17 @@ namespace KataGildeRoseTest
             _target.PublicItems = new List<Item>();
             _target.UpdateQuality();
         }
+
+        [Test]
+        public void UpdateQuality_SetItemKleinesEi_NothingHappens()
+        {
+            Item kleinesEi = new Item(){Name = "Kleines Ei", SellIn = 5, Quality = 25};
+
+            _target.PublicItems = new List<Item>{ kleinesEi };
+            _target.UpdateQuality();
+
+            Assert.That(kleinesEi.SellIn, Is.EqualTo(4));
+            Assert.That(kleinesEi.Quality, Is.EqualTo(24));
+        }
     }
 }
