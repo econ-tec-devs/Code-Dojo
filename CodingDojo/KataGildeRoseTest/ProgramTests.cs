@@ -89,5 +89,17 @@ namespace KataGildeRoseTest
             Assert.That(firstItem.SellIn, Is.EqualTo(-1));
             Assert.That(firstItem.Quality, Is.EqualTo(23));
         }
+
+        [Test]
+        public void UpdateQuality_QualityZero_QualityRemainsZero()
+        {
+            var firstItem = new Item { Name = "Kleines Ei", SellIn = 0, Quality = 0 };
+
+            _target.PublicItems = new List<Item> { firstItem };
+            _target.UpdateQuality();
+
+            Assert.That(firstItem.SellIn, Is.EqualTo(-1));
+            Assert.That(firstItem.Quality, Is.EqualTo(0));
+        }
     }
 }
