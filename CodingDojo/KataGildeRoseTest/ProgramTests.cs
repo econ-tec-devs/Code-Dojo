@@ -40,14 +40,26 @@ namespace KataGildeRoseTest
         }
 
         [Test]
-        public void UpdateQuality_SetItemKleinesEi_NothingHappens()
+        public void UpdateQuality_SetItemKleinesEi_ValuesDecreaseByOne()
         {
-            Item kleinesEi = new Item(){Name = "Kleines Ei", SellIn = 5, Quality = 25};
+            var kleinesEi = new Item { Name = "Kleines Ei", SellIn = 5, Quality = 25 };
 
-            _target.PublicItems = new List<Item>{ kleinesEi };
+            _target.PublicItems = new List<Item> { kleinesEi };
             _target.UpdateQuality();
 
             Assert.That(kleinesEi.SellIn, Is.EqualTo(4));
+            Assert.That(kleinesEi.Quality, Is.EqualTo(24));
+        }
+
+        [Test]
+        public void UpdateQuality_SetItemKleinesEiSellInOne_ValuesDecreaseByOne()
+        {
+            var kleinesEi = new Item { Name = "Kleines Ei", SellIn = 1, Quality = 25 };
+
+            _target.PublicItems = new List<Item> { kleinesEi };
+            _target.UpdateQuality();
+
+            Assert.That(kleinesEi.SellIn, Is.EqualTo(0));
             Assert.That(kleinesEi.Quality, Is.EqualTo(24));
         }
     }
