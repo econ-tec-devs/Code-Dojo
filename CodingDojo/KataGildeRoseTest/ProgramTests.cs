@@ -40,30 +40,6 @@ namespace KataGildeRoseTest
         }
 
         [Test]
-        public void UpdateQuality_SetItemKleinesEi_ValuesDecreaseByOne()
-        {
-            var kleinesEi = new Item { Name = "Kleines Ei", SellIn = 5, Quality = 25 };
-
-            _target.PublicItems = new List<Item> { kleinesEi };
-            _target.UpdateQuality();
-
-            Assert.That(kleinesEi.SellIn, Is.EqualTo(4));
-            Assert.That(kleinesEi.Quality, Is.EqualTo(24));
-        }
-
-        [Test]
-        public void UpdateQuality_SetItemKleinesEiSellInOne_ValuesDecreaseByOne()
-        {
-            var kleinesEi = new Item { Name = "Kleines Ei", SellIn = 1, Quality = 25 };
-
-            _target.PublicItems = new List<Item> { kleinesEi };
-            _target.UpdateQuality();
-
-            Assert.That(kleinesEi.SellIn, Is.EqualTo(0));
-            Assert.That(kleinesEi.Quality, Is.EqualTo(24));
-        }
-
-        [Test]
         public void UpdateQuality_SetTwoNormalItems_NoSideEffects()
         {
             var firstItem = new Item { Name = "Kleines Ei", SellIn = 1, Quality = 25 };
@@ -78,64 +54,22 @@ namespace KataGildeRoseTest
             Assert.That(secondItem.Quality, Is.EqualTo(29));
         }
 
-        [Test]
-        public void UpdateQuality_SetOneItemSellIn0_ValuesDecreaseByTwo()
+        [TestCase("Kleines Ei", 5, 25, 4, 24)]
+        [TestCase("Kleines Ei", 1, 25, 0, 24)]
+        [TestCase("Kleines Ei", 0, 25, -1, 23)]
+        [TestCase("Kleines Ei", 0, 0, -1, 0)]
+        [TestCase("Kleines Ei", -1, 0, -2, 0)]
+        [TestCase("Aged Brie", 15, 5, 14, 6)]
+        [TestCase("Aged Brie", 11, 5, 10, 6)]
+        public void UpdateQuality_InputArgs_ReturnsExpected(string item, int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
-            var firstItem = new Item { Name = "Kleines Ei", SellIn = 0, Quality = 25 };
+            var firstItem = new Item { Name = item, SellIn = sellIn, Quality = quality };
 
             _target.PublicItems = new List<Item> { firstItem };
             _target.UpdateQuality();
 
-            Assert.That(firstItem.SellIn, Is.EqualTo(-1));
-            Assert.That(firstItem.Quality, Is.EqualTo(23));
-        }
-
-        [Test]
-        public void UpdateQuality_QualityZero_QualityRemainsZero()
-        {
-            var firstItem = new Item { Name = "Kleines Ei", SellIn = 0, Quality = 0 };
-
-            _target.PublicItems = new List<Item> { firstItem };
-            _target.UpdateQuality();
-
-            Assert.That(firstItem.SellIn, Is.EqualTo(-1));
-            Assert.That(firstItem.Quality, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void UpdateQuality_SellInNegative_QualityRemainsZero()
-        {
-            var firstItem = new Item { Name = "Kleines Ei", SellIn = -1, Quality = 0 };
-
-            _target.PublicItems = new List<Item> { firstItem };
-            _target.UpdateQuality();
-
-            Assert.That(firstItem.SellIn, Is.EqualTo(-2));
-            Assert.That(firstItem.Quality, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void UpdateQuality_AgedBrie_QualityIncreases()
-        {
-            var firstItem = new Item { Name = "Aged Brie", SellIn = 15, Quality = 5 };
-
-            _target.PublicItems = new List<Item> { firstItem };
-            _target.UpdateQuality();
-
-            Assert.That(firstItem.SellIn, Is.EqualTo(14));
-            Assert.That(firstItem.Quality, Is.EqualTo(6));
-        }
-
-        [Test]
-        public void UpdateQuality_AgedBrieSellInEleven_QualityIncreasesStillNormal()
-        {
-            var firstItem = new Item { Name = "Aged Brie", SellIn = 11, Quality = 5 };
-
-            _target.PublicItems = new List<Item> { firstItem };
-            _target.UpdateQuality();
-
-            Assert.That(firstItem.SellIn, Is.EqualTo(10));
-            Assert.That(firstItem.Quality, Is.EqualTo(6));
+            Assert.That(firstItem.SellIn, Is.EqualTo(expectedSellIn));
+            Assert.That(firstItem.Quality, Is.EqualTo(expectedQuality));
         }
     }
 }
