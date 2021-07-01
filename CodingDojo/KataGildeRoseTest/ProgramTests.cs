@@ -61,8 +61,9 @@ namespace KataGildeRoseTest
         [TestCase("Kleines Ei", -1, 0, -2, 0)]
         [TestCase("Aged Brie", 15, 5, 14, 6)]
         [TestCase("Aged Brie", 11, 5, 10, 6)]
-        [TestCase("Aged Brie", 10, 5, 9, 6)] // Do not meet the conditions described - should be expectedQuality=7
-        [TestCase("Aged Brie", 9, 5, 8, 6)] // Do not meet the conditions described - should be expectedQuality=7
+        [TestCase("Aged Brie", 10, 5, 9, 6)] // Does not meet the conditions described - should be expectedQuality=7
+        [TestCase("Aged Brie", 9, 5, 8, 6)] // Does not meet the conditions described - should be expectedQuality=7
+        [TestCase("Aged Brie", 5, 5, 4, 6)] // Does not meet the conditions described - should be expectedQuality=8
         public void UpdateQuality_InputArgs_ReturnsExpected(string item, int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
             var firstItem = new Item { Name = item, SellIn = sellIn, Quality = quality };
