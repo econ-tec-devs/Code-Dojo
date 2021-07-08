@@ -66,6 +66,7 @@ namespace KataGildeRoseTest
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 5, 4, 8)]
         [TestCase("Aged Brie", 3, 49, 2, 50)]
         [TestCase("Aged Brie", 3, 50, 2, 50)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 0, 3, -1, 0)]
         public void UpdateQuality_InputArgs_ReturnsExpected(string item, int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
             var firstItem = new Item { Name = item, SellIn = sellIn, Quality = quality };
