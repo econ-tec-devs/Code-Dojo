@@ -28,7 +28,7 @@ namespace KataGildedRose
                     {
                         if (_items[i].Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            _items[i].Quality = _items[i].Quality - 1;
+                            _items[i].Quality -= 1;
                         }
                     }
                 }
@@ -36,7 +36,7 @@ namespace KataGildedRose
                 {
                     if (_items[i].Quality < 50)
                     {
-                        _items[i].Quality = _items[i].Quality + 1;
+                        _items[i].Quality += 1;
 
                         if (_items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
@@ -44,7 +44,7 @@ namespace KataGildedRose
                             {
                                 if (_items[i].Quality < 50)
                                 {
-                                    _items[i].Quality = _items[i].Quality + 1;
+                                    _items[i].Quality += 1;
                                 }
                             }
 
@@ -52,7 +52,7 @@ namespace KataGildedRose
                             {
                                 if (_items[i].Quality < 50)
                                 {
-                                    _items[i].Quality = _items[i].Quality + 1;
+                                    _items[i].Quality += 1;
                                 }
                             }
                         }
@@ -61,7 +61,7 @@ namespace KataGildedRose
 
                 if (_items[i].Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    _items[i].SellIn = _items[i].SellIn - 1;
+                    _items[i].SellIn -= 1;
                 }
 
                 if (_items[i].SellIn < 0)
@@ -74,20 +74,20 @@ namespace KataGildedRose
                             {
                                 if (_items[i].Name != "Sulfuras, Hand of Ragnaros")
                                 {
-                                    _items[i].Quality = _items[i].Quality - 1;
+                                    _items[i].Quality -= 1;
                                 }
                             }
                         }
                         else
                         {
-                            _items[i].Quality = _items[i].Quality - _items[i].Quality;
+                            _items[i].Quality -= _items[i].Quality;
                         }
                     }
                     else
                     {
                         if (_items[i].Quality < 50)
                         {
-                            _items[i].Quality = _items[i].Quality + 1;
+                            _items[i].Quality += 1;
                         }
                     }
                 }
