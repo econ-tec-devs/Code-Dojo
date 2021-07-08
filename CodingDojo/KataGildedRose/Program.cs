@@ -10,7 +10,10 @@ namespace KataGildedRose
 
     public class Program
     {
-        private readonly int _maxQuality = 50;
+        private static readonly int _MaxQuality = 50;
+        private static readonly string _AgedBrie = "Aged Brie";
+        private static readonly string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
+        private static readonly string _Sulfuras = "Sulfuras, Hand of Ragnaros";
         private IList<Item> _items;
 
         public IList<Item> PublicItems
@@ -23,11 +26,11 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name != _AgedBrie && item.Name != _BackstagePass)
                 {
                     if (item.Quality > 0)
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        if (item.Name != _Sulfuras)
                         {
                             item.Quality -= 1;
                         }
@@ -35,23 +38,23 @@ namespace KataGildedRose
                 }
                 else
                 {
-                    if (item.Quality < _maxQuality)
+                    if (item.Quality < _MaxQuality)
                     {
                         item.Quality += 1;
 
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Name == _BackstagePass)
                         {
-                            if (item.SellIn < 11)
+                            if (item.SellIn <= 10)
                             {
-                                if (item.Quality < _maxQuality)
+                                if (item.Quality < _MaxQuality)
                                 {
                                     item.Quality += 1;
                                 }
                             }
 
-                            if (item.SellIn < 6)
+                            if (item.SellIn <= 5)
                             {
-                                if (item.Quality < _maxQuality)
+                                if (item.Quality < _MaxQuality)
                                 {
                                     item.Quality += 1;
                                 }
@@ -60,20 +63,20 @@ namespace KataGildedRose
                     }
                 }
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (item.Name != _Sulfuras)
                 {
                     item.SellIn -= 1;
                 }
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (item.Name != _AgedBrie)
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Name != _BackstagePass)
                         {
                             if (item.Quality > 0)
                             {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                                if (item.Name != _Sulfuras)
                                 {
                                     item.Quality -= 1;
                                 }
@@ -86,7 +89,7 @@ namespace KataGildedRose
                     }
                     else
                     {
-                        if (item.Quality < _maxQuality)
+                        if (item.Quality < _MaxQuality)
                         {
                             item.Quality += 1;
                         }
@@ -104,12 +107,12 @@ namespace KataGildedRose
                 _items = new List<Item>
                 {
                     new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 },
-                    new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 },
+                    new Item { Name = _AgedBrie, SellIn = 2, Quality = 0 },
                     new Item { Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7 },
-                    new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 },
+                    new Item { Name = _Sulfuras, SellIn = 0, Quality = 80 },
                     new Item
                     {
-                        Name = "Backstage passes to a TAFKAL80ETC concert",
+                        Name = _BackstagePass,
                         SellIn = 15,
                         Quality = 20
                     },
