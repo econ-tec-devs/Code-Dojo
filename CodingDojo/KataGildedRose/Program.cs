@@ -10,6 +10,7 @@ namespace KataGildedRose
 
     public class Program
     {
+        private readonly int _maxQuality = 50;
         private IList<Item> _items;
 
         public IList<Item> PublicItems
@@ -34,7 +35,7 @@ namespace KataGildedRose
                 }
                 else
                 {
-                    if (item.Quality < 50)
+                    if (item.Quality < _maxQuality)
                     {
                         item.Quality += 1;
 
@@ -42,7 +43,7 @@ namespace KataGildedRose
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < _maxQuality)
                                 {
                                     item.Quality += 1;
                                 }
@@ -50,7 +51,7 @@ namespace KataGildedRose
 
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < _maxQuality)
                                 {
                                     item.Quality += 1;
                                 }
@@ -85,7 +86,7 @@ namespace KataGildedRose
                     }
                     else
                     {
-                        if (item.Quality < 50)
+                        if (item.Quality < _maxQuality)
                         {
                             item.Quality += 1;
                         }
