@@ -64,6 +64,7 @@ namespace KataGildeRoseTest
         [TestCase("Aged Brie", 3, 49, 2, 50)]
         [TestCase("Aged Brie", 3, 50, 2, 50)]
         [TestCase("Aged Brie", 0, 50, -1, 50)]
+        [TestCase("Sulfuras, Hand of Ragnaros", 0, 80, 0, 80)]
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 10, 5, 9, 7)]
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 9, 5, 8, 7)]
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 5, 4, 8)]
