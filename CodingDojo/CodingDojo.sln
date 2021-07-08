@@ -7,12 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Aufgabe und Ziele.txt = Aufgabe und Ziele.txt
 		Description.txt = Description.txt
-		Gilded Rose.pdf = Gilded Rose.pdf
+		Gilded Rose plus Sulfuras.pdf = Gilded Rose plus Sulfuras.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataGildedRose", "KataGildedRose\KataGildedRose.csproj", "{C044481F-4579-4916-80DD-DFC5F1E0AAA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataGildeRoseTest", "KataGildeRoseTest\KataGildeRoseTest.csproj", "{982AB66D-A294-4A41-A9E8-2A2D2765C5D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataGildeRoseTest", "KataGildeRoseTest\KataGildeRoseTest.csproj", "{982AB66D-A294-4A41-A9E8-2A2D2765C5D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
