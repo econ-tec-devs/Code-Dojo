@@ -21,12 +21,9 @@ Vorgehen:
 
 Was wird wie refaktorisiert:
 - Erst Tests schreiben wie oben beschrieben
-- Code in 2 Klassen auslagern
-	- Item
-	- InventorySystem (beinhaltet Methode UpdateQuality)
-	- InventorySystem aus Main aufrufen
 - R# Refaktorisierungen durchführen
 - Renamings
 - MagicNumbers auflösen => Konstanten einführen
 - DRY anwenden
 - Versuchen UpdateQuality in kleinere private Methoden aufzusplitten
+- Prüfen ob Code in einzelne Klassen mit eigenen Dateien unterteilbar ist

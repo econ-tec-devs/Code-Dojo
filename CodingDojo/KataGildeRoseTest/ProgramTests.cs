@@ -64,7 +64,7 @@ namespace KataGildeRoseTest
         [TestCase("Aged Brie", 3, 49, 2, 50)]
         [TestCase("Aged Brie", 3, 50, 2, 50)]
         [TestCase("Aged Brie", 0, 50, -1, 50)]
-        [TestCase("Aged Brie", -1, 49, -2, 50)]
+        [TestCase("Aged Brie", -1, 48, -2, 50)] // faulty behaviour
         [TestCase("Sulfuras, Hand of Ragnaros", 0, 80, 0, 80)]
         [TestCase("Sulfuras, Hand of Ragnaros", -1, 80, -1, 80)]
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 15, 8, 14, 9)]
