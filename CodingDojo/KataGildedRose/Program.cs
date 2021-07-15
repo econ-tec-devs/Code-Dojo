@@ -26,14 +26,7 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name != _AgedBrie && item.Name != _BackstagePass)
-                {
-                    if (IsQualityBiggerZero(item))
-                    {
-                        DecreaseQualityIfNotSulfuras(item);
-                    }
-                }
-                else
+                if (item.Name == _AgedBrie || item.Name == _BackstagePass)
                 {
                     IncreaseQualityIfLowerMaxQuality(item);
 
@@ -50,28 +43,35 @@ namespace KataGildedRose
                         }
                     }
                 }
+                else
+                {
+                    if (IsQualityBiggerZero(item))
+                    {
+                        DecreaseQualityIfNotSulfuras(item);
+                    }
+                }
 
                 DecreaseSellInIfNotSulfuras(item);
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != _AgedBrie)
+                    if (item.Name == _AgedBrie)
                     {
-                        if (item.Name != _BackstagePass)
+                        IncreaseQualityIfLowerMaxQuality(item);
+                    }
+                    else
+                    {
+                        if (item.Name == _BackstagePass)
+                        {
+                            item.Quality -= item.Quality;
+                        }
+                        else
                         {
                             if (IsQualityBiggerZero(item))
                             {
                                 DecreaseQualityIfNotSulfuras(item);
                             }
                         }
-                        else
-                        {
-                            item.Quality -= item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        IncreaseQualityIfLowerMaxQuality(item);
                     }
                 }
             }
