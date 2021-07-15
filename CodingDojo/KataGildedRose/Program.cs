@@ -38,27 +38,18 @@ namespace KataGildedRose
                 }
                 else
                 {
-                    if (item.Quality < _MaxQuality)
+                    IncreaseItemQuality(item);
+
+                    if (item.Name == _BackstagePass)
                     {
-                        item.Quality += 1;
-
-                        if (item.Name == _BackstagePass)
+                        if (item.SellIn <= 10)
                         {
-                            if (item.SellIn <= 10)
-                            {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
-                            }
+                            IncreaseItemQuality(item);
+                        }
 
-                            if (item.SellIn <= 5)
-                            {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
-                            }
+                        if (item.SellIn <= 5)
+                        {
+                            IncreaseItemQuality(item);
                         }
                     }
                 }
@@ -89,12 +80,17 @@ namespace KataGildedRose
                     }
                     else
                     {
-                        if (item.Quality < _MaxQuality)
-                        {
-                            item.Quality += 1;
-                        }
+                        IncreaseItemQuality(item);
                     }
                 }
+            }
+        }
+
+        private static void IncreaseItemQuality(Item item)
+        {
+            if (item.Quality < _MaxQuality)
+            {
+                item.Quality += 1;
             }
         }
 
