@@ -44,7 +44,7 @@ namespace KataGildedRose
 
                         if (item.Name == _BackstagePass)
                         {
-                            if (item.SellIn <= 10)
+                            if (ShouldIncreaseQualityASecondTime(item))
                             {
                                 if (item.Quality < _MaxQuality)
                                 {
@@ -96,6 +96,11 @@ namespace KataGildedRose
                     }
                 }
             }
+        }
+
+        private bool ShouldIncreaseQualityASecondTime(Item item)
+        {
+            return item.SellIn <= 10;
         }
 
         private static void Main(string[] args)
