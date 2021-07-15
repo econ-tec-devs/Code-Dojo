@@ -26,11 +26,11 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name == _AgedBrie || item.Name == _BackstagePass)
+                if (IsAgeBire(item) || IsBackstagePass(item))
                 {
                     IncreaseQualityIfLowerMaxQuality(item);
 
-                    if (item.Name == _BackstagePass)
+                    if (IsBackstagePass(item))
                     {
                         if (ShouldIncreaseQualityASecondTime(item))
                         {
@@ -55,13 +55,13 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name == _AgedBrie)
+                    if (IsAgeBire(item))
                     {
                         IncreaseQualityIfLowerMaxQuality(item);
                     }
                     else
                     {
-                        if (item.Name == _BackstagePass)
+                        if (IsBackstagePass(item))
                         {
                             item.Quality = 0;
                         }
@@ -76,6 +76,12 @@ namespace KataGildedRose
                 }
             }
         }
+
+        private bool IsAgeBire(Item item) 
+            => item.Name == _AgedBrie;
+
+        private bool IsBackstagePass(Item item) 
+            => item.Name == _BackstagePass;
 
         private void DecreaseSellInIfNotSulfuras(Item item)
         {
