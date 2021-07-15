@@ -63,7 +63,7 @@ namespace KataGildedRose
                     {
                         if (item.Name == _BackstagePass)
                         {
-                            item.Quality -= item.Quality;
+                            item.Quality = 0;
                         }
                         else
                         {
