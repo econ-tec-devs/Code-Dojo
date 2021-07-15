@@ -26,7 +26,7 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (IsAgeBire(item) || IsBackstagePass(item))
+                if (IsAgeBrie(item) || IsBackstagePass(item))
                 {
                     IncreaseQualityIfLowerMaxQuality(item);
 
@@ -55,7 +55,7 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (IsAgeBire(item))
+                    if (IsAgeBrie(item))
                     {
                         IncreaseQualityIfLowerMaxQuality(item);
                     }
@@ -77,7 +77,7 @@ namespace KataGildedRose
             }
         }
 
-        private bool IsAgeBire(Item item) 
+        private bool IsAgeBrie(Item item) 
             => item.Name == _AgedBrie;
 
         private bool IsBackstagePass(Item item) 
