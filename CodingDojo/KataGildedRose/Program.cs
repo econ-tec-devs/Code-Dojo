@@ -30,9 +30,9 @@ namespace KataGildedRose
                 {
                     if (item.Quality > 0)
                     {
-                        if (item.Name != _Sulfuras)
+                        if (IsNotSulfuras(item))
                         {
-                            item.Quality -= 1;
+                            DecreaseItemQuality(item);
                         }
                     }
                 }
@@ -54,7 +54,7 @@ namespace KataGildedRose
                     }
                 }
 
-                if (item.Name != _Sulfuras)
+                if (IsNotSulfuras(item))
                 {
                     item.SellIn -= 1;
                 }
@@ -67,9 +67,9 @@ namespace KataGildedRose
                         {
                             if (item.Quality > 0)
                             {
-                                if (item.Name != _Sulfuras)
+                                if (IsNotSulfuras(item))
                                 {
-                                    item.Quality -= 1;
+                                    DecreaseItemQuality(item);
                                 }
                             }
                         }
@@ -84,6 +84,16 @@ namespace KataGildedRose
                     }
                 }
             }
+        }
+
+        private static bool IsNotSulfuras(Item item)
+        {
+            return item.Name != _Sulfuras;
+        }
+
+        private static void DecreaseItemQuality(Item item)
+        {
+            item.Quality -= 1;
         }
 
         private static void IncreaseItemQuality(Item item)
