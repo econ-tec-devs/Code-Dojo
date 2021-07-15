@@ -28,37 +28,30 @@ namespace KataGildedRose
             {
                 if (item.Name != _AgedBrie && item.Name != _BackstagePass)
                 {
-                    if (item.Quality > 0)
+                    if (IsQualityBiggerZero(item))
                     {
-                        if (item.Name != _Sulfuras)
-                        {
-                            item.Quality -= 1;
-                        }
+                        DecreaseQualityIfNotSulfuras(item);
                     }
                 }
                 else
                 {
-                    IncreaseQualityIfLowerThanMaxQuality(item);
+                    IncreaseQualityIfLowerMaxQuality(item);
 
                     if (item.Name == _BackstagePass)
                     {
                         if (ShouldIncreaseQualityASecondTime(item))
                         {
-                            IncreaseQualityIfLowerThanMaxQuality(item);
+                            IncreaseQualityIfLowerMaxQuality(item);
                         }
 
                         if (ShouldIncreaseQualityAThirdTime(item))
                         {
-                            IncreaseQualityIfLowerThanMaxQuality(item);
+                            IncreaseQualityIfLowerMaxQuality(item);
                         }
                     }
                 }
 
-
-                if (item.Name != _Sulfuras)
-                {
-                    item.SellIn -= 1;
-                }
+                DecreaseSellInIfNotSulfuras(item);
 
                 if (item.SellIn < 0)
                 {
@@ -66,12 +59,9 @@ namespace KataGildedRose
                     {
                         if (item.Name != _BackstagePass)
                         {
-                            if (item.Quality > 0)
+                            if (IsQualityBiggerZero(item))
                             {
-                                if (item.Name != _Sulfuras)
-                                {
-                                    item.Quality -= 1;
-                                }
+                                DecreaseQualityIfNotSulfuras(item);
                             }
                         }
                         else
@@ -81,13 +71,35 @@ namespace KataGildedRose
                     }
                     else
                     {
-                        IncreaseQualityIfLowerThanMaxQuality(item);
+                        IncreaseQualityIfLowerMaxQuality(item);
                     }
                 }
             }
         }
 
-        private void IncreaseQualityIfLowerThanMaxQuality(Item item)
+        private void DecreaseSellInIfNotSulfuras(Item item)
+        {
+            if (IsNotSulfuras(item))
+            {
+                item.SellIn -= 1;
+            }
+        }
+
+        private bool IsQualityBiggerZero(Item item) 
+            => item.Quality > 0;
+
+        private void DecreaseQualityIfNotSulfuras(Item item)
+        {
+            if (IsNotSulfuras(item))
+            {
+                item.Quality -= 1;
+            }
+        }
+
+        private bool IsNotSulfuras(Item item) 
+            => item.Name != _Sulfuras;
+
+        private void IncreaseQualityIfLowerMaxQuality(Item item)
         {
             if (item.Quality < _MaxQuality)
             {
