@@ -10,10 +10,10 @@ namespace KataGildedRose
 
     public class Program
     {
-        private static readonly int _MaxQuality = 50;
-        private static readonly string _AgedBrie = "Aged Brie";
-        private static readonly string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
-        private static readonly string _Sulfuras = "Sulfuras, Hand of Ragnaros";
+        private const int _MaxQuality = 50;
+        private const string _AgedBrie = "Aged Brie";
+        private const string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
+        private const string _Sulfuras = "Sulfuras, Hand of Ragnaros";
         private IList<Item> _items;
 
         public IList<Item> PublicItems
@@ -26,75 +26,84 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name != _AgedBrie && item.Name != _BackstagePass)
+                switch (item.Name)
                 {
-                    if (item.Quality > 0)
-                    {
-                        if (item.Name != _Sulfuras)
+                    case _AgedBrie:
+                        IfQualityLowerMaxQualityIncreaseQuality(item);
+
+                        item.SellIn -= 1;
+
+                        if (item.SellIn < 0)
                         {
-                            item.Quality -= 1;
+                            IfQualityLowerMaxQualityIncreaseQuality(item);
                         }
+
+                        break;
+                    case _BackstagePass:
+                    {
+                        IfQualityLowerMaxQualityIncreaseQuality(item);
+                        IfSellInLowerEqual10IncreaseQuality(item);
+                        IfSellInLowerEqual5IncreaseQuality(item);
+
+                        item.SellIn -= 1;
+
+                        if (item.SellIn < 0)
+                        {
+                            item.Quality = 0;
+                        }
+
+                        break;
+                    }
+                    case _Sulfuras:
+                    {
+                        break;
+                    }
+                    default:
+                    {
+                        IfQualityGreater0DecreaseQuality(item);
+
+                        item.SellIn -= 1;
+
+                        if (item.SellIn < 0)
+                        {
+                            IfQualityGreater0DecreaseQuality(item);
+                        }
+
+                        break;
                     }
                 }
-                else
-                {
-                    if (item.Quality < _MaxQuality)
-                    {
-                        item.Quality += 1;
+            }
+        }
 
-                        if (item.Name == _BackstagePass)
-                        {
-                            if (item.SellIn <= 10)
-                            {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
-                            }
+        private static void IfQualityGreater0DecreaseQuality(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality -= 1;
+            }
+        }
 
-                            if (item.SellIn <= 5)
-                            {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
-                            }
-                        }
-                    }
-                }
+        private static void IfQualityLowerMaxQualityIncreaseQuality(Item item)
+        {
+            if (item.Quality < _MaxQuality)
+            {
+                item.Quality += 1;
+            }
+        }
 
-                if (item.Name != _Sulfuras)
-                {
-                    item.SellIn -= 1;
-                }
+        private static void IfSellInLowerEqual5IncreaseQuality(Item item)
+        {
+            if (item.SellIn <= 5)
+            {
+                IfQualityLowerMaxQualityIncreaseQuality(item);
+            }
+        }
 
-                if (item.SellIn < 0)
-                {
-                    if (item.Name != _AgedBrie)
-                    {
-                        if (item.Name != _BackstagePass)
-                        {
-                            if (item.Quality > 0)
-                            {
-                                if (item.Name != _Sulfuras)
-                                {
-                                    item.Quality -= 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            item.Quality -= item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (item.Quality < _MaxQuality)
-                        {
-                            item.Quality += 1;
-                        }
-                    }
-                }
+        private static void IfSellInLowerEqual10IncreaseQuality(Item item)
+        {
+            if (item.SellIn <= 10)
+            {
+                IfQualityLowerMaxQualityIncreaseQuality(item);
             }
         }
 
