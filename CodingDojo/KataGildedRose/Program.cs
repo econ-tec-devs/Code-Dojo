@@ -52,7 +52,7 @@ namespace KataGildedRose
                                 }
                             }
 
-                            if (item.SellIn <= 5)
+                            if (ShouldIncreaseQualityAThirdTime(item))
                             {
                                 if (item.Quality < _MaxQuality)
                                 {
@@ -98,10 +98,11 @@ namespace KataGildedRose
             }
         }
 
-        private bool ShouldIncreaseQualityASecondTime(Item item)
-        {
-            return item.SellIn <= 10;
-        }
+        private bool ShouldIncreaseQualityAThirdTime(Item item) 
+            => item.SellIn <= 5;
+
+        private bool ShouldIncreaseQualityASecondTime(Item item) 
+            => item.SellIn <= 10;
 
         private static void Main(string[] args)
         {
