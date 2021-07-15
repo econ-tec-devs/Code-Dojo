@@ -46,18 +46,12 @@ namespace KataGildedRose
                         {
                             if (ShouldIncreaseQualityASecondTime(item))
                             {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
+                                IncreaseQualityIfLowerThanMaxQuality(item);
                             }
 
                             if (ShouldIncreaseQualityAThirdTime(item))
                             {
-                                if (item.Quality < _MaxQuality)
-                                {
-                                    item.Quality += 1;
-                                }
+                                IncreaseQualityIfLowerThanMaxQuality(item);
                             }
                         }
                     }
@@ -89,12 +83,17 @@ namespace KataGildedRose
                     }
                     else
                     {
-                        if (item.Quality < _MaxQuality)
-                        {
-                            item.Quality += 1;
-                        }
+                        IncreaseQualityIfLowerThanMaxQuality(item);
                     }
                 }
+            }
+        }
+
+        private void IncreaseQualityIfLowerThanMaxQuality(Item item)
+        {
+            if (item.Quality < _MaxQuality)
+            {
+                item.Quality += 1;
             }
         }
 
