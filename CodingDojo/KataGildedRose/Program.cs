@@ -40,18 +40,7 @@ namespace KataGildedRose
                 {
                     IncreaseItemQuality(item);
 
-                    if (item.Name == _BackstagePass)
-                    {
-                        if (item.SellIn <= 10)
-                        {
-                            IncreaseItemQuality(item);
-                        }
-
-                        if (item.SellIn <= 5)
-                        {
-                            IncreaseItemQuality(item);
-                        }
-                    }
+                    IncreaseQualityIfBackstagePass(item);
                 }
 
                 if (IsNotSulfuras(item))
@@ -61,9 +50,17 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != _AgedBrie)
+                    if (item.Name == _AgedBrie)
                     {
-                        if (item.Name != _BackstagePass)
+                        IncreaseItemQuality(item);
+                    }
+                    else
+                    {
+                        if (item.Name == _BackstagePass)
+                        {
+                            item.Quality = 0;
+                        }
+                        else
                         {
                             if (item.Quality > 0)
                             {
@@ -73,16 +70,34 @@ namespace KataGildedRose
                                 }
                             }
                         }
-                        else
-                        {
-                            item.Quality -= item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        IncreaseItemQuality(item);
                     }
                 }
+            }
+        }
+
+        private static void IncreaseQualityIfBackstagePass(Item item)
+        {
+            if (item.Name == _BackstagePass)
+            {
+                IncreaseQualitySecond(item);
+
+                IncreaseQualityThird(item);
+            }
+        }
+
+        private static void IncreaseQualityThird(Item item)
+        {
+            if (item.SellIn <= 5)
+            {
+                IncreaseItemQuality(item);
+            }
+        }
+
+        private static void IncreaseQualitySecond(Item item)
+        {
+            if (item.SellIn <= 10)
+            {
+                IncreaseItemQuality(item);
             }
         }
 
