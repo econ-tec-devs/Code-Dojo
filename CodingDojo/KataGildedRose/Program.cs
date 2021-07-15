@@ -38,24 +38,22 @@ namespace KataGildedRose
                 }
                 else
                 {
-                    if (item.Quality < _MaxQuality)
+                    IncreaseQualityIfLowerThanMaxQuality(item);
+
+                    if (item.Name == _BackstagePass)
                     {
-                        item.Quality += 1;
-
-                        if (item.Name == _BackstagePass)
+                        if (ShouldIncreaseQualityASecondTime(item))
                         {
-                            if (ShouldIncreaseQualityASecondTime(item))
-                            {
-                                IncreaseQualityIfLowerThanMaxQuality(item);
-                            }
+                            IncreaseQualityIfLowerThanMaxQuality(item);
+                        }
 
-                            if (ShouldIncreaseQualityAThirdTime(item))
-                            {
-                                IncreaseQualityIfLowerThanMaxQuality(item);
-                            }
+                        if (ShouldIncreaseQualityAThirdTime(item))
+                        {
+                            IncreaseQualityIfLowerThanMaxQuality(item);
                         }
                     }
                 }
+
 
                 if (item.Name != _Sulfuras)
                 {
