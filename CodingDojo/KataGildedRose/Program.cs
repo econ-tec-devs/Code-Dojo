@@ -54,21 +54,12 @@ namespace KataGildedRose
                     default:
                         DecreaseQualityIfQualityGreaterZero(item);
                         DecreaseSellIn(item);
-                        break;
-                }
-
-                if (item.SellIn < 0)
-                {
-                    switch (item.Name)
-                    {
-                        case _AgedBrie:
-                            break;
-                        case _BackstagePass:
-                            break;
-                        default:
+                        if (item.SellIn < 0)
+                        {
                             DecreaseQualityIfQualityGreaterZero(item);
-                            break;
-                    }
+                        }
+
+                        break;
                 }
             }
         }
