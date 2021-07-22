@@ -84,18 +84,8 @@ namespace KataGildedRose
         private void DecreaseSellInByOne(Item item) 
             => item.SellIn -= 1;
 
-
-        private bool IsAgeBrie(Item item) 
-            => item.Name == _AgedBrie;
-
-        private bool IsBackstagePass(Item item) 
-            => item.Name == _BackstagePass;
-
         private bool IsQualityBiggerZero(Item item) 
             => item.Quality > 0;
-
-        private bool IsSulfuras(Item item) 
-            => item.Name == _Sulfuras;
 
         private void IncreaseQualityIfLowerMaxQuality(Item item)
         {
