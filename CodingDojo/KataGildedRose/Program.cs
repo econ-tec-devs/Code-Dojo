@@ -26,15 +26,15 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name != _AgedBrie && item.Name != _BackstagePass)
-                {
-                    DecreaseQualityIfQualityGreaterZero(item);
-                }
-                else
+                if (item.Name == _AgedBrie || item.Name == _BackstagePass)
                 {
                     IncreaseItemQuality(item);
 
                     IncreaseQualityIfBackstagePass(item);
+                }
+                else
+                {
+                    DecreaseQualityIfQualityGreaterZero(item);
                 }
 
                 if (IsNotSulfuras(item))
@@ -44,20 +44,20 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != _AgedBrie)
+                    if (item.Name == _AgedBrie)
                     {
-                        if (item.Name != _BackstagePass)
-                        {
-                            DecreaseQualityIfQualityGreaterZero(item);
-                        }
-                        else
-                        {
-                            item.Quality = 0;
-                        }
+                        IncreaseItemQuality(item);
                     }
                     else
                     {
-                        IncreaseItemQuality(item);
+                        if (item.Name == _BackstagePass)
+                        {
+                            item.Quality = 0;
+                        }
+                        else
+                        {
+                            DecreaseQualityIfQualityGreaterZero(item);
+                        }
                     }
                 }
             }
