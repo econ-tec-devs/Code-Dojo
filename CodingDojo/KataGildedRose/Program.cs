@@ -28,13 +28,7 @@ namespace KataGildedRose
             {
                 if (item.Name != _AgedBrie && item.Name != _BackstagePass)
                 {
-                    if (item.Quality > 0)
-                    {
-                        if (IsNotSulfuras(item))
-                        {
-                            DecreaseItemQuality(item);
-                        }
-                    }
+                    DecreaseQualityIfQualityGreaterZero(item);
                 }
                 else
                 {
@@ -50,27 +44,32 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name == _AgedBrie)
+                    if (item.Name != _AgedBrie)
                     {
-                        IncreaseItemQuality(item);
-                    }
-                    else
-                    {
-                        if (item.Name == _BackstagePass)
+                        if (item.Name != _BackstagePass)
                         {
-                            item.Quality = 0;
+                            DecreaseQualityIfQualityGreaterZero(item);
                         }
                         else
                         {
-                            if (item.Quality > 0)
-                            {
-                                if (IsNotSulfuras(item))
-                                {
-                                    DecreaseItemQuality(item);
-                                }
-                            }
+                            item.Quality = 0;
                         }
                     }
+                    else
+                    {
+                        IncreaseItemQuality(item);
+                    }
+                }
+            }
+        }
+
+        private static void DecreaseQualityIfQualityGreaterZero(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                if (IsNotSulfuras(item))
+                {
+                    DecreaseItemQuality(item);
                 }
             }
         }
