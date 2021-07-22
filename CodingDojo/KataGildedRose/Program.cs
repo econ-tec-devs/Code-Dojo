@@ -51,19 +51,23 @@ namespace KataGildedRose
                     return;
                 }
 
-                if (IsQualityBiggerZero(item))
+                if (!IsNotSulfuras(item))
                 {
-                    DecreaseQualityIfNotSulfuras(item);
+                    return;
                 }
 
+                if (IsQualityBiggerZero(item))
+                {
+                    item.Quality -= 1;
+                }
 
-                DecreaseSellInIfNotSulfuras(item);
+                item.SellIn -= 1;
 
                 if (item.SellIn < 0)
                 {
                     if (IsQualityBiggerZero(item))
                     {
-                        DecreaseQualityIfNotSulfuras(item);
+                        item.Quality -= 1;
                     }
 
                 }
