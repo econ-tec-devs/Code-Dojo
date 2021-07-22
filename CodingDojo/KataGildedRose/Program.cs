@@ -18,72 +18,81 @@ namespace KataGildedRose
 
         public IList<Item> PublicItems
         {
-            get => _items;
-            set => _items = value;
+            get => this._items;
+            set => this._items = value;
         }
 
         public void UpdateQuality()
         {
-            foreach (var item in _items)
+            foreach (Item item in _items)
             {
                 if (IsAgeBrie(item))
                 {
                     IncreaseQualityIfLowerMaxQuality(item);
                     item.SellIn -= 1;
                     if (item.SellIn < 0)
+                    {
                         IncreaseQualityIfLowerMaxQuality(item);
+                    }
+
                     return;
                 }
 
                 if (IsBackstagePass(item))
                 {
-                    IncreaseQualityIfLowerMaxQuality(item);
+                    IncreaseQualityBackstagepass(item);
 
-                    if (IsBackstagePass(item))
+                    item.SellIn -= 1;
+                    if (item.SellIn < 0)
                     {
-                        if (ShouldIncreaseQualityASecondTime(item))
-                        {
-                            IncreaseQualityIfLowerMaxQuality(item);
-                        }
-
-                        if (ShouldIncreaseQualityAThirdTime(item))
-                        {
-                            IncreaseQualityIfLowerMaxQuality(item);
-                        }
+                        item.Quality = 0;
                     }
+
+                    return;
                 }
-                else
+
+                if (IsQualityBiggerZero(item))
                 {
-                    if (IsQualityBiggerZero(item))
-                    {
-                        DecreaseQualityIfNotSulfuras(item);
-                    }
+                    DecreaseQualityIfNotSulfuras(item);
                 }
+
 
                 DecreaseSellInIfNotSulfuras(item);
 
                 if (item.SellIn < 0)
                 {
-                    if (IsBackstagePass(item))
+                    if (IsQualityBiggerZero(item))
                     {
-                        item.Quality = 0;
+                        DecreaseQualityIfNotSulfuras(item);
                     }
-                    else
-                    {
-                        if (IsQualityBiggerZero(item))
-                        {
-                            DecreaseQualityIfNotSulfuras(item);
-                        }
-                    }
+
                 }
             }
         }
 
+        private void IncreaseQualityBackstagepass(Item item)
+        {
+            IncreaseQualityIfLowerMaxQuality(item);
+            if (ShouldIncreaseQualityASecondTime(item))
+            {
+                IncreaseQualityIfLowerMaxQuality(item);
+            }
+
+            if (ShouldIncreaseQualityAThirdTime(item))
+            {
+                IncreaseQualityIfLowerMaxQuality(item);
+            }
+        }
+
         private bool IsAgeBrie(Item item)
-            => item.Name == _AgedBrie;
+        {
+            return item.Name == _AgedBrie;
+        }
 
         private bool IsBackstagePass(Item item)
-            => item.Name == _BackstagePass;
+        {
+            return item.Name == _BackstagePass;
+        }
 
         private void DecreaseSellInIfNotSulfuras(Item item)
         {
@@ -94,7 +103,9 @@ namespace KataGildedRose
         }
 
         private bool IsQualityBiggerZero(Item item)
-            => item.Quality > 0;
+        {
+            return item.Quality > 0;
+        }
 
         private void DecreaseQualityIfNotSulfuras(Item item)
         {
@@ -105,7 +116,9 @@ namespace KataGildedRose
         }
 
         private bool IsNotSulfuras(Item item)
-            => item.Name != _Sulfuras;
+        {
+            return item.Name != _Sulfuras;
+        }
 
         private void IncreaseQualityIfLowerMaxQuality(Item item)
         {
@@ -116,16 +129,20 @@ namespace KataGildedRose
         }
 
         private bool ShouldIncreaseQualityAThirdTime(Item item)
-            => item.SellIn <= 5;
+        {
+            return item.SellIn <= 5;
+        }
 
         private bool ShouldIncreaseQualityASecondTime(Item item)
-            => item.SellIn <= 10;
+        {
+            return item.SellIn <= 10;
+        }
 
         private static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
 
-            var app = new Program
+            Program app = new Program
             {
                 _items = new List<Item>
                 {
