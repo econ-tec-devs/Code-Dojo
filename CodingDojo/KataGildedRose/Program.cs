@@ -26,16 +26,22 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                switch (item.Name)
+                switch (item)
                 {
-                    case _Sulfuras:
+                    case { Name: _Sulfuras }:
                         break;
-                    case _AgedBrie:
+                    case { Name: _AgedBrie } itm when itm.SellIn >= 0:
                         IncreaseItemQuality(item);
                         IncreaseQualityIfBackstagePass(item);
                         DecreaseSellIn(item);
                         break;
-                    case _BackstagePass:
+                    case { Name: _AgedBrie } itm when itm.SellIn < 0:
+                        IncreaseItemQuality(item);
+                        IncreaseQualityIfBackstagePass(item);
+                        DecreaseSellIn(item);
+                        IncreaseItemQuality(item);
+                        break;
+                    case { Name: _BackstagePass }:
                         IncreaseItemQuality(item);
                         IncreaseQualityIfBackstagePass(item);
                         DecreaseSellIn(item);
@@ -46,23 +52,18 @@ namespace KataGildedRose
                         break;
                 }
 
-                
                 if (item.SellIn < 0)
                 {
-                    if (item.Name == _AgedBrie)
+                    switch (item.Name)
                     {
-                        IncreaseItemQuality(item);
-                    }
-                    else
-                    {
-                        if (item.Name == _BackstagePass)
-                        {
+                        case _AgedBrie:
+                            break;
+                        case _BackstagePass:
                             item.Quality = 0;
-                        }
-                        else
-                        {
+                            break;
+                        default:
                             DecreaseQualityIfQualityGreaterZero(item);
-                        }
+                            break;
                     }
                 }
             }
