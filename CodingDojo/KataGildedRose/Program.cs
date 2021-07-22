@@ -26,7 +26,16 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (IsAgeBrie(item) || IsBackstagePass(item))
+                if (IsAgeBrie(item))
+                {
+                    IncreaseQualityIfLowerMaxQuality(item);
+                    item.SellIn -= 1;
+                    if (item.SellIn < 0)
+                        IncreaseQualityIfLowerMaxQuality(item);
+                    return;
+                }
+
+                if (IsBackstagePass(item))
                 {
                     IncreaseQualityIfLowerMaxQuality(item);
 
@@ -55,32 +64,25 @@ namespace KataGildedRose
 
                 if (item.SellIn < 0)
                 {
-                    if (IsAgeBrie(item))
+                    if (IsBackstagePass(item))
                     {
-                        IncreaseQualityIfLowerMaxQuality(item);
+                        item.Quality = 0;
                     }
                     else
                     {
-                        if (IsBackstagePass(item))
+                        if (IsQualityBiggerZero(item))
                         {
-                            item.Quality = 0;
-                        }
-                        else
-                        {
-                            if (IsQualityBiggerZero(item))
-                            {
-                                DecreaseQualityIfNotSulfuras(item);
-                            }
+                            DecreaseQualityIfNotSulfuras(item);
                         }
                     }
                 }
             }
         }
 
-        private bool IsAgeBrie(Item item) 
+        private bool IsAgeBrie(Item item)
             => item.Name == _AgedBrie;
 
-        private bool IsBackstagePass(Item item) 
+        private bool IsBackstagePass(Item item)
             => item.Name == _BackstagePass;
 
         private void DecreaseSellInIfNotSulfuras(Item item)
@@ -91,7 +93,7 @@ namespace KataGildedRose
             }
         }
 
-        private bool IsQualityBiggerZero(Item item) 
+        private bool IsQualityBiggerZero(Item item)
             => item.Quality > 0;
 
         private void DecreaseQualityIfNotSulfuras(Item item)
@@ -102,7 +104,7 @@ namespace KataGildedRose
             }
         }
 
-        private bool IsNotSulfuras(Item item) 
+        private bool IsNotSulfuras(Item item)
             => item.Name != _Sulfuras;
 
         private void IncreaseQualityIfLowerMaxQuality(Item item)
@@ -113,10 +115,10 @@ namespace KataGildedRose
             }
         }
 
-        private bool ShouldIncreaseQualityAThirdTime(Item item) 
+        private bool ShouldIncreaseQualityAThirdTime(Item item)
             => item.SellIn <= 5;
 
-        private bool ShouldIncreaseQualityASecondTime(Item item) 
+        private bool ShouldIncreaseQualityASecondTime(Item item)
             => item.SellIn <= 10;
 
         private static void Main(string[] args)
