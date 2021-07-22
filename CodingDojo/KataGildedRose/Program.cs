@@ -10,10 +10,10 @@ namespace KataGildedRose
 
     public class Program
     {
-        private static readonly int _MaxQuality = 50;
-        private static readonly string _AgedBrie = "Aged Brie";
-        private static readonly string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
-        private static readonly string _Sulfuras = "Sulfuras, Hand of Ragnaros";
+        private readonly int _MaxQuality = 50;
+        private const string _AgedBrie = "Aged Brie";
+        private const string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
+        private const string _Sulfuras = "Sulfuras, Hand of Ragnaros";
         private IList<Item> _items;
 
         public IList<Item> PublicItems
@@ -26,55 +26,45 @@ namespace KataGildedRose
         {
             foreach (Item item in _items)
             {
-                if (IsAgeBrie(item))
+                switch (item.Name)
                 {
-                    IncreaseQualityIfLowerMaxQuality(item);
-                    item.SellIn -= 1;
-                    if (item.SellIn < 0)
-                    {
+                    case _AgedBrie:
                         IncreaseQualityIfLowerMaxQuality(item);
-                    }
-
-                    return;
-                }
-
-                if (IsBackstagePass(item))
-                {
-                    IncreaseQualityBackstagepass(item);
-
-                    item.SellIn -= 1;
-                    if (item.SellIn < 0)
-                    {
-                        item.Quality = 0;
-                    }
-
-                    return;
-                }
-
-                if (!IsNotSulfuras(item))
-                {
-                    return;
-                }
-
-                if (IsQualityBiggerZero(item))
-                {
-                    item.Quality -= 1;
-                }
-
-                item.SellIn -= 1;
-
-                if (item.SellIn < 0)
-                {
-                    if (IsQualityBiggerZero(item))
-                    {
-                        item.Quality -= 1;
-                    }
-
+                        DecreaseSellInByOne(item);
+                        if (item.SellIn < 0)
+                        {
+                            IncreaseQualityIfLowerMaxQuality(item);
+                        }
+                        break;
+                    case _BackstagePass:
+                        IncreaseQualityBackstagePass(item);
+                        DecreaseSellInByOne(item);
+                        if (item.SellIn < 0)
+                        {
+                            item.Quality = 0;
+                        } 
+                        break;
+                    case _Sulfuras:
+                       break;
+                    default:
+                        if (IsQualityBiggerZero(item))
+                        {
+                            DecreaseQualityByOne(item);
+                        }
+                        DecreaseSellInByOne(item);
+                        if (item.SellIn < 0)
+                        {
+                            if (IsQualityBiggerZero(item))
+                            {
+                                DecreaseQualityByOne(item);
+                            }
+                        }
+                        break;
                 }
             }
         }
 
-        private void IncreaseQualityBackstagepass(Item item)
+        private void IncreaseQualityBackstagePass(Item item)
         {
             IncreaseQualityIfLowerMaxQuality(item);
             if (ShouldIncreaseQualityASecondTime(item))
@@ -88,41 +78,24 @@ namespace KataGildedRose
             }
         }
 
-        private bool IsAgeBrie(Item item)
-        {
-            return item.Name == _AgedBrie;
-        }
+        private void DecreaseQualityByOne(Item item) 
+            => item.Quality -= 1;
 
-        private bool IsBackstagePass(Item item)
-        {
-            return item.Name == _BackstagePass;
-        }
+        private void DecreaseSellInByOne(Item item) 
+            => item.SellIn -= 1;
 
-        private void DecreaseSellInIfNotSulfuras(Item item)
-        {
-            if (IsNotSulfuras(item))
-            {
-                item.SellIn -= 1;
-            }
-        }
 
-        private bool IsQualityBiggerZero(Item item)
-        {
-            return item.Quality > 0;
-        }
+        private bool IsAgeBrie(Item item) 
+            => item.Name == _AgedBrie;
 
-        private void DecreaseQualityIfNotSulfuras(Item item)
-        {
-            if (IsNotSulfuras(item))
-            {
-                item.Quality -= 1;
-            }
-        }
+        private bool IsBackstagePass(Item item) 
+            => item.Name == _BackstagePass;
 
-        private bool IsNotSulfuras(Item item)
-        {
-            return item.Name != _Sulfuras;
-        }
+        private bool IsQualityBiggerZero(Item item) 
+            => item.Quality > 0;
+
+        private bool IsSulfuras(Item item) 
+            => item.Name == _Sulfuras;
 
         private void IncreaseQualityIfLowerMaxQuality(Item item)
         {
@@ -132,15 +105,11 @@ namespace KataGildedRose
             }
         }
 
-        private bool ShouldIncreaseQualityAThirdTime(Item item)
-        {
-            return item.SellIn <= 5;
-        }
+        private bool ShouldIncreaseQualityAThirdTime(Item item) 
+            => item.SellIn <= 5;
 
-        private bool ShouldIncreaseQualityASecondTime(Item item)
-        {
-            return item.SellIn <= 10;
-        }
+        private bool ShouldIncreaseQualityASecondTime(Item item) 
+            => item.SellIn <= 10;
 
         private static void Main(string[] args)
         {
