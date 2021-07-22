@@ -10,10 +10,10 @@ namespace KataGildedRose
 
     public class Program
     {
+        private const string _AgedBrie = "Aged Brie";
+        private const string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
+        private const string _Sulfuras = "Sulfuras, Hand of Ragnaros";
         private static readonly int _MaxQuality = 50;
-        private static readonly string _AgedBrie = "Aged Brie";
-        private static readonly string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
-        private static readonly string _Sulfuras = "Sulfuras, Hand of Ragnaros";
         private IList<Item> _items;
 
         public IList<Item> PublicItems
@@ -26,15 +26,16 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                if (item.Name == _AgedBrie || item.Name == _BackstagePass)
+                switch (item.Name)
                 {
-                    IncreaseItemQuality(item);
-
-                    IncreaseQualityIfBackstagePass(item);
-                }
-                else
-                {
-                    DecreaseQualityIfQualityGreaterZero(item);
+                    case _AgedBrie:
+                    case _BackstagePass:
+                        IncreaseItemQuality(item);
+                        IncreaseQualityIfBackstagePass(item);
+                        break;
+                    default:
+                        DecreaseQualityIfQualityGreaterZero(item);
+                        break;
                 }
 
                 if (IsNotSulfuras(item))
@@ -100,15 +101,9 @@ namespace KataGildedRose
             }
         }
 
-        private static bool IsNotSulfuras(Item item)
-        {
-            return item.Name != _Sulfuras;
-        }
+        private static bool IsNotSulfuras(Item item) => item.Name != _Sulfuras;
 
-        private static void DecreaseItemQuality(Item item)
-        {
-            item.Quality -= 1;
-        }
+        private static void DecreaseItemQuality(Item item) => item.Quality -= 1;
 
         private static void IncreaseItemQuality(Item item)
         {
