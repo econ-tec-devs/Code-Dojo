@@ -13,6 +13,7 @@ namespace KataGildedRose
         private const string _AgedBrie = "Aged Brie";
         private const string _BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
         private const string _Sulfuras = "Sulfuras, Hand of Ragnaros";
+        private const string _Conjured = "Conjured Mana Cake";
         private static readonly int _MaxQuality = 50;
         private IList<Item> _items;
 
@@ -28,12 +29,17 @@ namespace KataGildedRose
             {
                 switch (item.Name)
                 {
+                    
+                        
+
                     case _Sulfuras:
                         break;
-
+                    case _Conjured:
+                        DecreaseItemQualityTwice(item);
+                        DecreaseSellIn(item);
+                        break;
                     case _AgedBrie:
                         IncreaseItemQuality(item);
-                        IncreaseQualityIfBackstagePass(item);
                         DecreaseSellIn(item);
                         if (item.SellIn < 0)
                         {
@@ -52,6 +58,7 @@ namespace KataGildedRose
 
                         break;
                     default:
+                       
                         DecreaseQualityIfQualityGreaterZero(item);
                         DecreaseSellIn(item);
                         if (item.SellIn < 0)
@@ -62,6 +69,11 @@ namespace KataGildedRose
                         break;
                 }
             }
+        }
+
+        private void DecreaseItemQualityTwice(Item item)
+        {
+            item.Quality -= 2;
         }
 
         private static void SetQualityZero(Item item) => item.Quality = 0;

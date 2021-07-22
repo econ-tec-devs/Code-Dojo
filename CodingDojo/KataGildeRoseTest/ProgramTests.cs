@@ -54,29 +54,31 @@ namespace KataGildeRoseTest
             Assert.That(secondItem.Quality, Is.EqualTo(29));
         }
 
-        [TestCase("Kleines Ei", 5, 25, 4, 24)]
-        [TestCase("Kleines Ei", 1, 25, 0, 24)]
-        [TestCase("Kleines Ei", 0, 25, -1, 23)]
-        [TestCase("Kleines Ei", 0, 0, -1, 0)]
-        [TestCase("Kleines Ei", -1, 0, -2, 0)]
-        [TestCase("Aged Brie", 15, 5, 14, 6)]
-        [TestCase("Aged Brie", 11, 5, 10, 6)]
-        [TestCase("Aged Brie", 3, 49, 2, 50)]
-        [TestCase("Aged Brie", 3, 50, 2, 50)]
+        //[TestCase("Kleines Ei", 5, 25, 4, 24)]
+        //[TestCase("Kleines Ei", 1, 25, 0, 24)]
+        //[TestCase("Kleines Ei", 0, 25, -1, 23)]
+        //[TestCase("Kleines Ei", 0, 0, -1, 0)]
+        //[TestCase("Kleines Ei", -1, 0, -2, 0)]
+        //[TestCase("Aged Brie", 15, 5, 14, 6)]
+        //[TestCase("Aged Brie", 11, 5, 10, 6)]
+        //[TestCase("Aged Brie", 3, 49, 2, 50)]
+        //[TestCase("Aged Brie", 3, 50, 2, 50)]
 
-        [TestCase("Aged Brie", 0, 50, -1, 50)]
+        //[TestCase("Aged Brie", 0, 50, -1, 50)]
 
-        [TestCase("Aged Brie", -1, 48, -2, 50)] // faulty behaviour
+        //[TestCase("Aged Brie", -1, 48, -2, 50)] // faulty behaviour
 
-        [TestCase("Sulfuras, Hand of Ragnaros", 0, 80, 0, 80)]
-        [TestCase("Sulfuras, Hand of Ragnaros", -1, 80, -1, 80)]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert", 15, 8, 14, 9)]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert", 10, 5, 9, 7)]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert", 9, 5, 8, 7)]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 5, 4, 8)]
-        [TestCase("Backstage passes to a TAFKAL80ETC concert", 0, 3, -1, 0)]
+        //[TestCase("Sulfuras, Hand of Ragnaros", 0, 80, 0, 80)]
+        //[TestCase("Sulfuras, Hand of Ragnaros", -1, 80, -1, 80)]
+        //[TestCase("Backstage passes to a TAFKAL80ETC concert", 15, 8, 14, 9)]
+        //[TestCase("Backstage passes to a TAFKAL80ETC concert", 10, 5, 9, 7)]
+        //[TestCase("Backstage passes to a TAFKAL80ETC concert", 9, 5, 8, 7)]
+        //[TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 5, 4, 8)]
+        //[TestCase("Backstage passes to a TAFKAL80ETC concert", 0, 3, -1, 0)]
+        [TestCase("Conjured Mana Cake", 3, 6, 2, 4)]
         public void UpdateQuality_InputArgs_ReturnsExpected(string item, int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
+            
             var firstItem = new Item { Name = item, SellIn = sellIn, Quality = quality };
 
             _target.PublicItems = new List<Item> { firstItem };
