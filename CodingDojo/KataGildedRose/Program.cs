@@ -26,25 +26,30 @@ namespace KataGildedRose
         {
             foreach (var item in _items)
             {
-                switch (item)
+                switch (item.Name)
                 {
-                    case { Name: _Sulfuras }:
+                    case _Sulfuras:
                         break;
-                    case { Name: _AgedBrie } itm when itm.SellIn >= 0:
+
+                    case _AgedBrie:
                         IncreaseItemQuality(item);
                         IncreaseQualityIfBackstagePass(item);
                         DecreaseSellIn(item);
+                        if (item.SellIn < 0)
+                        {
+                            IncreaseItemQuality(item);
+                        }
+
                         break;
-                    case { Name: _AgedBrie } itm when itm.SellIn < 0:
+                    case _BackstagePass:
                         IncreaseItemQuality(item);
                         IncreaseQualityIfBackstagePass(item);
                         DecreaseSellIn(item);
-                        IncreaseItemQuality(item);
-                        break;
-                    case { Name: _BackstagePass }:
-                        IncreaseItemQuality(item);
-                        IncreaseQualityIfBackstagePass(item);
-                        DecreaseSellIn(item);
+                        if (item.SellIn < 0)
+                        {
+                            SetQualityZero(item);
+                        }
+
                         break;
                     default:
                         DecreaseQualityIfQualityGreaterZero(item);
@@ -59,7 +64,6 @@ namespace KataGildedRose
                         case _AgedBrie:
                             break;
                         case _BackstagePass:
-                            item.Quality = 0;
                             break;
                         default:
                             DecreaseQualityIfQualityGreaterZero(item);
@@ -69,10 +73,9 @@ namespace KataGildedRose
             }
         }
 
-        private static void DecreaseSellIn(Item item)
-        {
-            item.SellIn -= 1;
-        }
+        private static void SetQualityZero(Item item) => item.Quality = 0;
+
+        private static void DecreaseSellIn(Item item) => item.SellIn -= 1;
 
         private static void DecreaseQualityIfQualityGreaterZero(Item item)
         {
