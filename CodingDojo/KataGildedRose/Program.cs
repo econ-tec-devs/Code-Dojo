@@ -28,21 +28,25 @@ namespace KataGildedRose
             {
                 switch (item.Name)
                 {
+                    case _Sulfuras:
+                        break;
                     case _AgedBrie:
+                        IncreaseItemQuality(item);
+                        IncreaseQualityIfBackstagePass(item);
+                        DecreaseSellIn(item);
+                        break;
                     case _BackstagePass:
                         IncreaseItemQuality(item);
                         IncreaseQualityIfBackstagePass(item);
+                        DecreaseSellIn(item);
                         break;
                     default:
                         DecreaseQualityIfQualityGreaterZero(item);
+                        DecreaseSellIn(item);
                         break;
                 }
 
-                if (IsNotSulfuras(item))
-                {
-                    item.SellIn -= 1;
-                }
-
+                
                 if (item.SellIn < 0)
                 {
                     if (item.Name == _AgedBrie)
@@ -62,6 +66,11 @@ namespace KataGildedRose
                     }
                 }
             }
+        }
+
+        private static void DecreaseSellIn(Item item)
+        {
+            item.SellIn -= 1;
         }
 
         private static void DecreaseQualityIfQualityGreaterZero(Item item)
