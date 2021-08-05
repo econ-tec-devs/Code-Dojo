@@ -82,6 +82,25 @@ namespace KataTest
             ActAndAssert(input, expected);
         }
 
+        [Test]
+        public void ToDictionary_ThreeKeyValuePairs_ReturnsAsDictionary()
+        {
+            var input = "a=1;b=2;c=3";
+            var expected = new Dictionary<string, string> { { "a", "1" }, { "b", "2" }, {"c", "3"} };
+
+            ActAndAssert(input, expected);
+        }
+
+        [Test]
+        public void ToDictionary_DoubleKeyValuePairs_ReturnsAsDictionary()
+        {
+            var input = "a=1;a=2";
+            var expected = new Dictionary<string, string> { { "a", "1" }, { "a", "2" } };
+
+            ActAndAssert(input, expected);
+        }
+
+
         private void ActAndAssert(string input, Dictionary<string, string> expected)
         {
             var actual = _target.ToDictionary(input);

@@ -20,8 +20,12 @@ namespace KataDictonary
 
             if (input != string.Empty)
             {
-                var keyValue = input.Split('=');
-                dictionary.Add(keyValue[0], keyValue[1]);
+                var keyValuePairs = input.Split(';');
+                foreach (var keyValuePair in keyValuePairs)
+                {
+                    var keyValue = keyValuePair.Split('=');
+                    dictionary.Add(keyValue[0], keyValue[1]);
+                }
             }
 
             return dictionary;
