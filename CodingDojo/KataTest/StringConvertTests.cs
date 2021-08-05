@@ -84,7 +84,7 @@ namespace KataTest
         }
         
         [Test]
-        public void ToDictionary_TwoInputsAndEmptyInput_DictionaryWithTwoEntries()
+        public void ToDictionary_ThreeInputsAndOneIsEmpty_DictionaryWithTwoEntries()
         {
             var input = "a=1;;b=2";
             var expected = new Dictionary<string, string>
