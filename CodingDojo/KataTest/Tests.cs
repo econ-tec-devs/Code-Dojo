@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using KataDictonary;
 
 namespace KataTest
@@ -25,6 +26,18 @@ namespace KataTest
             string input = null;
 
             Assert.Throws<ArgumentNullException>(() => target.ToDictionary(input));
+        }
+
+        [Test]
+        public void ToDictionary_EmptyInput_ReturnsEmptyDictionary()
+        {
+            var target = new StringToDictionary();
+            var input = string.Empty;
+            var expected = new Dictionary<string, string>();
+
+            var actual = target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
