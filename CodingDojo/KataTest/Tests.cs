@@ -3,39 +3,49 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System.Collections.Generic;
-using KataDictonary;
-
 namespace KataTest
 {
     using System;
+    using System.Collections.Generic;
+    using KataDictonary;
     using NUnit.Framework;
 
     public class Tests
     {
+        private StringToDictionary _target;
+
         [SetUp]
         public void Setup()
         {
+            _target = new StringToDictionary();
         }
 
         [Test]
         public void ToDictionary_NullInput_ReturnsEmptyDictionary()
         {
-            var target = new StringToDictionary();
             string input = null;
 
-            Assert.Throws<ArgumentNullException>(() => target.ToDictionary(input));
+            Assert.Throws<ArgumentNullException>(() => _target.ToDictionary(input));
         }
 
         [Test]
         public void ToDictionary_EmptyInput_ReturnsEmptyDictionary()
         {
-            var target = new StringToDictionary();
             var input = string.Empty;
             var expected = new Dictionary<string, string>();
 
-            var actual = target.ToDictionary(input);
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void ToDictionary_OneKeyValuePair_ReturnsAsDictionary()
+        {
+            var input = "a=1";
+            var expected = new Dictionary<string, string> { { "a", "1" } };
+
+            var actual = _target.ToDictionary(input);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
