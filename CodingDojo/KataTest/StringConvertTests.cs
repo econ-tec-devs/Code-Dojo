@@ -5,7 +5,7 @@ namespace KataTest
 {
     using NUnit.Framework;
 
-    public class StringConverterTests
+    public class StringConvertTests
     {
         [SetUp]
         public void Setup()
