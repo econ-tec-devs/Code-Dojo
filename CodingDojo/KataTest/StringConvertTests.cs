@@ -55,9 +55,38 @@ namespace KataTest
         }
 
         [Test]
+
         public void ToDictionary_TwoInputs_DictionaryWithTwoEntries()
         {
             var input = "a=1;b=2";
+            var expected = new Dictionary<string, string>
+            {
+                { "a", "1" }, { "b", "2" }
+            };
+
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void ToDictionary_ThreeInputs_DictionaryWithThreeEntries()
+        {
+            var input = "a=1;b=2;c=3";
+            var expected = new Dictionary<string, string>
+            {
+                { "a", "1" }, { "b", "2" }, {"c", "3"}
+            };
+
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void ToDictionary_TwoInputsAndEmptyInput_DictionaryWithTwoEntries()
+        {
+            var input = "a=1;;b=2";
             var expected = new Dictionary<string, string>
             {
                 { "a", "1" }, { "b", "2" }
