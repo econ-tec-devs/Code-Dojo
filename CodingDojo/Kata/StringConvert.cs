@@ -12,12 +12,13 @@ namespace Kata
     {
         public Dictionary<string, string> ToDictionary(string input)
         {
+            var result = new Dictionary<string, string>();
             if (input.Any())
             {
-                return new Dictionary<string, string> { { "a", "1" } };
+                result.Add("a", "1");
             }
 
-            return new Dictionary<string, string>();
+            return result;
         }
     }
 }
