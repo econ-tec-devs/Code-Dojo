@@ -95,7 +95,7 @@ namespace KataTest
         public void ToDictionary_DoubleKeyValuePairs_ReturnsAsDictionary()
         {
             var input = "a=1;a=2";
-            var expected = new Dictionary<string, string> { { "a", "1" }, { "a", "2" } };
+            var expected = new Dictionary<string, string> { { "a", "2" } };
 
             ActAndAssert(input, expected);
         }
