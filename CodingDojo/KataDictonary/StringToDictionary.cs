@@ -13,7 +13,6 @@ namespace KataDictonary
         public IDictionary<string, string> ToDictionary(string input)
         {
             var dictionary = new Dictionary<string, string>();
-
             if (input == null)
             {
                 throw new ArgumentNullException(nameof(input));

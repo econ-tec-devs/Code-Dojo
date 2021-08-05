@@ -34,9 +34,7 @@ namespace KataTest
             var input = string.Empty;
             var expected = new Dictionary<string, string>();
 
-            var actual = _target.ToDictionary(input);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(input, expected);
         }
 
         [Test]
@@ -45,9 +43,7 @@ namespace KataTest
             var input = "a=1";
             var expected = new Dictionary<string, string> { { "a", "1" } };
 
-            var actual = _target.ToDictionary(input);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            ActAndAssert(input, expected);
         }
 
         [Test]
@@ -56,6 +52,38 @@ namespace KataTest
             var input = "b=1";
             var expected = new Dictionary<string, string> { { "b", "1" } };
 
+            ActAndAssert(input, expected);
+        }
+
+        [Test]
+        public void ToDictionary_ReversedKeyValuePair_ReturnsAsDictionary()
+        {
+            var input = "1=a";
+            var expected = new Dictionary<string, string> { { "1", "a" } };
+
+            ActAndAssert(input, expected);
+        }
+
+        [Test]
+        public void ToDictionary_KeyValuePair_ReturnsAsDictionary()
+        {
+            var input = "aaa=111";
+            var expected = new Dictionary<string, string> { { "aaa", "111" } };
+
+            ActAndAssert(input, expected);
+        }
+
+        [Test]
+        public void ToDictionary_TwoKeyValuePairs_ReturnsAsDictionary()
+        {
+            var input = "a=1;b=2";
+            var expected = new Dictionary<string, string> { { "a", "1" }, { "b", "2" } };
+
+            ActAndAssert(input, expected);
+        }
+
+        private void ActAndAssert(string input, Dictionary<string, string> expected)
+        {
             var actual = _target.ToDictionary(input);
 
             Assert.That(actual, Is.EqualTo(expected));
