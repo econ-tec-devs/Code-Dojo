@@ -18,9 +18,11 @@ namespace KataDictonary
             {
                 throw new ArgumentNullException(nameof(input));
             }
+
             if (input != string.Empty)
             {
-                dictionary.Add("a", "1");
+                var keyValue = input.Split('=');
+                dictionary.Add(keyValue[0], keyValue[1]);
             }
 
             return dictionary;
