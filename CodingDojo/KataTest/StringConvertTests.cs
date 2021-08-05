@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System;
+
 namespace KataTest
 {
     using System.Collections.Generic;
@@ -47,11 +50,11 @@ namespace KataTest
         }
         
         [TestCase("=1")]
+        [TestCase("=2")]
         public void ToDictionary_InvalidInput_ThrowsArgumentException(string input)
         {
-            var actual = _target.ToDictionary(input);
 
-            Assert.That(actual, Throws.ArgumentException);
+            Assert.Throws<ArgumentException>(() => _target.ToDictionary(input));
         }
     }
 }
