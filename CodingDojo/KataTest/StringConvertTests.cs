@@ -29,13 +29,13 @@ namespace KataTest
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-        [Test]
-        public void ToDictionary_OneInput_DictionaryWithOneEntry()
+        [TestCase("a=1", "a", "1")]
+        [TestCase("a=2", "a", "2")]
+        public void ToDictionary_OneInput_DictionaryWithOneEntry(string input, string expectedKey, string expectedValue)
         {
-            var input = "a=1";
             var expected = new Dictionary<string, string>
             {
-                { "a", "1" }
+                { expectedKey, expectedValue }
             };
 
             var actual = _target.ToDictionary(input);
