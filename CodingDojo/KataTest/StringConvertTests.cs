@@ -3,11 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace KataTest
 {
+    using System;
     using System.Collections.Generic;
     using Kata;
     using NUnit.Framework;
@@ -48,13 +46,26 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-        
+
         [TestCase("=1")]
         [TestCase("=2")]
         public void ToDictionary_InvalidInput_ThrowsArgumentException(string input)
         {
-
             Assert.Throws<ArgumentException>(() => _target.ToDictionary(input));
+        }
+
+        [Test]
+        public void ToDictionary_TwoInputs_DictionaryWithTwoEntries()
+        {
+            var input = "a=1;b=2";
+            var expected = new Dictionary<string, string>
+            {
+                { "a", "1" }, { "b", "2" }
+            };
+
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
