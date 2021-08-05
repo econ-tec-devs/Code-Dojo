@@ -14,15 +14,20 @@ namespace Kata
         public Dictionary<string, string> ToDictionary(string input)
         {
             var result = new Dictionary<string, string>();
-            var splittedInput = input.Split('=');
-            if (splittedInput.First() == "" && splittedInput.Last() != "")
-            {
-                throw new ArgumentException();
-            }
+            var keyValues = input.Split(';');
 
-            if (input.Any())
+            foreach (var keyValue in keyValues)
             {
-                result.Add(splittedInput.First(), splittedInput.Last());
+                var splittedKeyValue = keyValue.Split('=');
+                if (splittedKeyValue.First() == "" && splittedKeyValue.Last() != "")
+                {
+                    throw new ArgumentException();
+                }
+
+                if (input.Any())
+                {
+                    result.Add(splittedKeyValue.First(), splittedKeyValue.Last());
+                }
             }
 
             return result;
