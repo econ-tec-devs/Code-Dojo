@@ -1,12 +1,23 @@
-using System;
-
+// -----------------------------------------------------------------------
+// <copyright file="StringToDictionary.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataDictonary
 {
+    using System;
+    using System.Collections.Generic;
+
     public class StringToDictionary
     {
-        public string ToDictionary(string input)
+        public IDictionary<string, string> ToDictionary(string input)
         {
-            throw new ArgumentNullException();
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            return new Dictionary<string, string>();
         }
     }
 }
