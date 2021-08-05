@@ -8,7 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81D89121-A5D7-4591-850D-34F17A6D2BC8}"
 	ProjectSection(SolutionItems) = preProject
 		Aufgabe und Ziele.txt = Aufgabe und Ziele.txt
-		Function Kata ROT.pdf = Function Kata ROT.pdf
+		Function Kata ToDictionary.pdf = Function Kata ToDictionary.pdf
 	EndProjectSection
 EndProject
 Global

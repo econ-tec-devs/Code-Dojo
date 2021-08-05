@@ -1,12 +1,12 @@
-Coding Dojo 26.11.2020
+Coding Dojo 05.08.2021
 
-Kata Potter
+ToDictionary
 
 Aufgabe
 - 2 Teams bilden â 3 Personen
-- Jedes Teams erstellt ein Flow Design für die Aufgabe
+(- Jedes Teams erstellt ein Flow Design für die Aufgabe ????
 - Jedes Team Stellt eine Strategie auf die im Flow Design erkannten Methoden zu testen
-- Eigenen Brach für jedes Team erstellen "develop_KataRot13_Team#_Datum"
+- Eigenen Brach für jedes Team erstellen "develop_KataToDictionary_Team#_Datum"
 
 Ziele:
 
