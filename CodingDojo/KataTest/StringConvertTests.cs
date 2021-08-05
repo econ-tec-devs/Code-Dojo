@@ -31,6 +31,9 @@ namespace KataTest
 
         [TestCase("a=1", "a", "1")]
         [TestCase("a=2", "a", "2")]
+        [TestCase("a=5", "a", "5")]
+        [TestCase("b=5", "b", "5")]
+        [TestCase("a=", "a", "")]
         public void ToDictionary_OneInput_DictionaryWithOneEntry(string input, string expectedKey, string expectedValue)
         {
             var expected = new Dictionary<string, string>
@@ -41,6 +44,14 @@ namespace KataTest
             var actual = _target.ToDictionary(input);
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+        
+        [TestCase("=1")]
+        public void ToDictionary_InvalidInput_ThrowsArgumentException(string input)
+        {
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Throws.ArgumentException);
         }
     }
 }

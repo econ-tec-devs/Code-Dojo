@@ -13,9 +13,10 @@ namespace Kata
         public Dictionary<string, string> ToDictionary(string input)
         {
             var result = new Dictionary<string, string>();
+            var splittedInput = input.Split('='); 
             if (input.Any())
             {
-                result.Add("a", "1");
+                result.Add(splittedInput.First(), splittedInput.Last());
             }
 
             return result;
