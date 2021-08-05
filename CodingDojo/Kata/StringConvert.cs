@@ -3,11 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace Kata
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -15,12 +13,13 @@ namespace Kata
     {
         public Dictionary<string, string> ToDictionary(string input)
         {
-            if (input == "=1")
+            var result = new Dictionary<string, string>();
+            var splittedInput = input.Split('=');
+            if (splittedInput.First() == "" && splittedInput.Last() != "")
             {
                 throw new ArgumentException();
             }
-            var result = new Dictionary<string, string>();
-            var splittedInput = input.Split('='); 
+
             if (input.Any())
             {
                 result.Add(splittedInput.First(), splittedInput.Last());
