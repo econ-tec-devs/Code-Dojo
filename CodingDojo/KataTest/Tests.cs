@@ -3,6 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using KataDictonary;
+
 namespace KataTest
 {
     using System;
