@@ -12,6 +12,7 @@ namespace KataDictonary
     {
         public IDictionary<string, string> ToDictionary(string input)
         {
+            var dictionary = new Dictionary<string, string>();
 
             if (input == null)
             {
@@ -19,10 +20,10 @@ namespace KataDictonary
             }
             if (input != string.Empty)
             {
-                return new Dictionary<string, string> { { "a", "1" } };
+                dictionary.Add("a", "1");
             }
 
-            return new Dictionary<string, string>();
+            return dictionary;
         }
     }
 }
