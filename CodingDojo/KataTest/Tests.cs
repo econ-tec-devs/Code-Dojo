@@ -49,5 +49,16 @@ namespace KataTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void ToDictionary_AnotherKeyValuePair_ReturnsAsDictionary()
+        {
+            var input = "b=1";
+            var expected = new Dictionary<string, string> { { "b", "1" } };
+
+            var actual = _target.ToDictionary(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
