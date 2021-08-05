@@ -1,5 +1,11 @@
+// -----------------------------------------------------------------------
+// <copyright file="Tests.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataTest
 {
+    using System;
     using NUnit.Framework;
 
     public class Tests
@@ -10,13 +16,12 @@ namespace KataTest
         }
 
         [Test]
-        public void METHOD_SCENARIO_EXPECTEDRESULT()
+        public void ToDictionary_NullInput_ReturnsEmptyDictionary()
         {
-            // Arrange
-            
-            // Act
+            var target = new StringToDictionary();
+            string input = null;
 
-            // Assert
+            Assert.Throws<ArgumentNullException>(() => target.ToDictionary(input));
         }
     }
 }
