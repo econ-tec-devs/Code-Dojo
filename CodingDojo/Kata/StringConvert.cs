@@ -33,7 +33,10 @@ namespace Kata
             return result;
         }
 
-        private string[] SplitInput(string input) => input.Split(';');
+        private string[] SplitInput(string input) => input.Split(new[]
+        {
+            ';'
+        }, StringSplitOptions.RemoveEmptyEntries);
 
         private string[] SplitKeyValue(string keyValue) => keyValue.Split('=');
 
