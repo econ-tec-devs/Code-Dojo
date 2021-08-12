@@ -6,22 +6,36 @@
 namespace KataLOC
 {
     using System;
+    using System.Text.RegularExpressions;
 
     public class Loc
     {
-        private static readonly LinesCount _LineOfCode = new LinesCount { LineOfCodeCount = 0, CommentsWhitespaceLineCount = 0 };
+        private const string _CommentMatch = "(//.*)";
+        private readonly LinesCount _lineOfCode = new LinesCount { LineOfCodeCount = 0, CommentsWhitespaceLineCount = 0 };
 
-        public static LinesCount LineOfCode(string code)
+        public LinesCount LineOfCode(string code)
         {
             if (string.IsNullOrWhiteSpace(code))
             {
-                return _LineOfCode;
+                return _lineOfCode;
             }
 
             var lines = code.Split(Environment.NewLine);
-            _LineOfCode.LineOfCodeCount = lines.Length;
+            foreach (var line in lines)
+            {
+                var m = Regex.Matches(line, _CommentMatch);
+                if (!line.StartsWith("//") && !line.StartsWith("/*"))
+                {
+                    _lineOfCode.LineOfCodeCount += 1;
+                }
 
-            return _LineOfCode;
+                if (line.Contains("*/") && !line.EndsWith("*/"))
+                {
+                    _lineOfCode.LineOfCodeCount += 1;
+                }
+            }
+
+            return _lineOfCode;
         }
     }
 }

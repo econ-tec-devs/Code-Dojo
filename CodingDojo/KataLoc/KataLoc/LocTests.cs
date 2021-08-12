@@ -15,13 +15,16 @@ namespace KataLocTest
         [SetUp]
         public void Setup()
         {
+            _target = new Loc();
         }
+
+        private Loc _target;
 
         [Test]
         public void LineOfCode_EmptyCode_ReturnsZero()
         {
             var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 0 };
-            var actual = Loc.LineOfCode(string.Empty);
+            var actual = _target.LineOfCode(string.Empty);
 
             Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
             Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
@@ -33,7 +36,7 @@ namespace KataLocTest
             var text = "Console.WriteLine()";
             var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 1 };
 
-            var actual = Loc.LineOfCode(text);
+            var actual = _target.LineOfCode(text);
 
             Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
             Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
@@ -45,7 +48,48 @@ namespace KataLocTest
             var text = "Console.WriteLine()" + Environment.NewLine + "Bla";
             var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 2 };
 
-            var actual = Loc.LineOfCode(text);
+            var actual = _target.LineOfCode(text);
+
+            Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
+            Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
+        }
+
+        [Test]
+        public void LineOfCode_OneLineOfCodeAndOneLineComments_ReturnOneLineCount()
+        {
+            var text = "Console.WriteLine()" + Environment.NewLine + "//";
+            var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 1 };
+
+            var actual = _target.LineOfCode(text);
+
+            Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
+            Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
+        }
+
+        [Test]
+        public void LineOfCode_TwoLineOfCodeAndTwoLineComments_ReturnTwoLineCount()
+        {
+            var text = "Console.WriteLine()" + Environment.NewLine + "//" + Environment.NewLine + "Bla" + Environment.NewLine + "//";
+            var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 2 };
+
+            var actual = _target.LineOfCode(text);
+
+            Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
+            Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
+        }
+
+        [TestCase("Bla", "//", 1)]
+        [TestCase("Bla", "/* */", 1)]
+        [TestCase("Bla", "/* */ Bla", 2)]
+        [TestCase("Bla\r\n Bla", "/* */ Bla", 3)]
+        [TestCase("Bla\r\n Bla\r\n/* ddd */", "/* */ Bla", 3)]
+        [TestCase("Bla\r\n Bla\r\n/* ddd */ Bla", "/* */ Bla", 4)]
+        public void LineOfCode_InputCodeAndInputComment_ReturnCodeCount(string code, string comment, int codeCount)
+        {
+            var text = code + Environment.NewLine + comment;
+            var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = codeCount };
+
+            var actual = _target.LineOfCode(text);
 
             Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
             Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
