@@ -3,25 +3,25 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace KataLOC
 {
-    using System.Linq;
+    using System;
 
     public class Loc
     {
+        private static readonly LinesCount _LineOfCode = new LinesCount { LineOfCodeCount = 0, CommentsWhitespaceLineCount = 0 };
+
         public static LinesCount LineOfCode(string code)
         {
             if (string.IsNullOrWhiteSpace(code))
             {
-                return new LinesCount { LineOfCodeCount = 0, CommentsWhitespaceLineCount = 0 };
+                return _LineOfCode;
             }
 
-            string[] lines = code.Split(Environment.NewLine);
+            var lines = code.Split(Environment.NewLine);
+            _LineOfCode.LineOfCodeCount = lines.Length;
 
-            return new LinesCount() {LineOfCodeCount = lines.Count(), CommentsWhitespaceLineCount = 0};
+            return _LineOfCode;
         }
     }
 }
