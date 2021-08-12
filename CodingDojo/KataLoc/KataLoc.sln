@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataLocTest", "KataLoc\KataLocTest.csproj", "{B2AED826-DAEF-4737-92EC-D1541564E60D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataLocTest", "KataLoc\KataLocTest.csproj", "{B2AED826-DAEF-4737-92EC-D1541564E60D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataLOC", "Loc\KataLOC.csproj", "{D50E6E8F-8569-46B9-9BA7-E603F19BEB2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B2AED826-DAEF-4737-92EC-D1541564E60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2AED826-DAEF-4737-92EC-D1541564E60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2AED826-DAEF-4737-92EC-D1541564E60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D50E6E8F-8569-46B9-9BA7-E603F19BEB2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D50E6E8F-8569-46B9-9BA7-E603F19BEB2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D50E6E8F-8569-46B9-9BA7-E603F19BEB2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D50E6E8F-8569-46B9-9BA7-E603F19BEB2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
