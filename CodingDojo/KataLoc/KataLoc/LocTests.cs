@@ -79,11 +79,11 @@ namespace KataLocTest
         }
 
         [TestCase("Bla", "//", 1)]
-        [TestCase("Bla", "/* */", 1)]
-        [TestCase("Bla", "/* */ Bla", 2)]
-        [TestCase("Bla\r\n Bla", "/* */ Bla", 3)]
-        [TestCase("Bla\r\n Bla\r\n/* ddd */", "/* */ Bla", 3)]
-        [TestCase("Bla\r\n Bla\r\n/* ddd */ Bla", "/* */ Bla", 4)]
+        [TestCase("Bla", "/**/", 1)]
+        [TestCase("Bla", "/**/ Bla", 2)]
+        [TestCase("Bla\r\n Bla", "/**/ Bla", 3)]
+        [TestCase("Bla\r\n Bla\r\n/*ddd*/", "/**/ Bla", 3)]
+        [TestCase("Bla\r\n Bla\r\n/*ddd*/ Bla", "/**/ Bla", 4)]
         public void LineOfCode_InputCodeAndInputComment_ReturnCodeCount(string code, string comment, int codeCount)
         {
             var text = code + Environment.NewLine + comment;
