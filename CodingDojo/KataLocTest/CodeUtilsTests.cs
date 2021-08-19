@@ -22,6 +22,9 @@ namespace KataLocTest
         [TestCase("", 0)]
         [TestCase("line1", 1)]
         [TestCase("line1\nline2", 2)]
+        [TestCase("line1\nline2\nline3\nline4", 4)]
+        [TestCase("line with whitespace\nanother line", 2)]
+        [TestCase("line1\n\nline3", 2)]
         public void Loc_InputString_ReturnsExpected(string input, int expected)
         {
             var actual = _target.Loc(input);

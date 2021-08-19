@@ -5,16 +5,15 @@
 // -----------------------------------------------------------------------
 namespace KataLoc
 {
+    using System.Linq;
+
     public class CodeUtils
     {
-        public int Loc(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return 0;
-            }
+        public int Loc(string input) => string.IsNullOrWhiteSpace(input) ? 0 : CountLines(input);
 
-            return input.Split("\n").Length;
+        private static int CountLines(string input)
+        {
+            return input.Split("\n").Count(line => !string.IsNullOrWhiteSpace(line));
         }
     }
 }
