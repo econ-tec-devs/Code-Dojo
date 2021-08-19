@@ -9,11 +9,17 @@ namespace KataLoc
 
     public class CodeUtils
     {
-        public int Loc(string input) => string.IsNullOrWhiteSpace(input) ? 0 : CountLines(input);
+        public LineCount Loc(string input) => string.IsNullOrWhiteSpace(input) ? new LineCount() : CountLines(input);
 
-        private int CountLines(string input)
+        private LineCount CountLines(string input)
         {
-            return input.Split("\n").Count(IsLineOfCode);
+            var lines = input.Split("\n");
+            var loc = lines.Count(IsLineOfCode);
+            return new LineCount
+            {
+                Loc = loc,
+                Comments = lines.Length - loc
+            };
         }
 
         private bool IsLineOfCode(string line)
