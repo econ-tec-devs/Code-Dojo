@@ -27,4 +27,11 @@ namespace KataLocTest
             Assert.Pass();
         }
     }
+
+    public class CodeUtils
+    {
+        public void Loc(string input)
+        {
+        }
+    }
 }
