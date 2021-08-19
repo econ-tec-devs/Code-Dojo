@@ -38,5 +38,16 @@ namespace KataLocTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Loc_InputNull_ReturnsZero()
+        {
+            string input = null;
+            var expected = 0;
+
+            var actual = _target.Loc(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }

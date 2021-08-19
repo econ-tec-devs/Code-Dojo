@@ -9,6 +9,11 @@ namespace KataLoc
     {
         public int Loc(string input)
         {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return 0;
+            }
+
             return 0;
         }
     }
