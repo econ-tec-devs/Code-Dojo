@@ -11,9 +11,14 @@ namespace KataLoc
     {
         public int Loc(string input) => string.IsNullOrWhiteSpace(input) ? 0 : CountLines(input);
 
-        private static int CountLines(string input)
+        private int CountLines(string input)
         {
-            return input.Split("\n").Count(line => !string.IsNullOrWhiteSpace(line));
+            return input.Split("\n").Count(line => IsLineOfCode(line));
+        }
+
+        private bool IsLineOfCode(string line)
+        {
+            return !string.IsNullOrWhiteSpace(line) && !line.StartsWith("//");
         }
     }
 }
