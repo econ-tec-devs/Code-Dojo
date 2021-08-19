@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 namespace KataLocTest
 {
+    using KataLoc;
     using NUnit.Framework;
 
     public class CodeUtilsTests
@@ -25,13 +26,6 @@ namespace KataLocTest
             _target.Loc(input);
 
             Assert.Pass();
-        }
-    }
-
-    public class CodeUtils
-    {
-        public void Loc(string input)
-        {
         }
     }
 }
