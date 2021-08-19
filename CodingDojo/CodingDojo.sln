@@ -4,22 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Debug|x86.Build.0 = Debug|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|x86.ActiveCfg = Release|Any CPU
-		{BB392FD8-E429-4B71-B39A-FB254298CA26}.Release|x86.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
