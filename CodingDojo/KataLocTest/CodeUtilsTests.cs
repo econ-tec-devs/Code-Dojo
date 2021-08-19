@@ -60,5 +60,16 @@ namespace KataLocTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Loc_InputTwoLines_ReturnsTwo()
+        {
+            var input = "line1\nline2";
+            var expected = 2;
+
+            var actual = _target.Loc(input);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
