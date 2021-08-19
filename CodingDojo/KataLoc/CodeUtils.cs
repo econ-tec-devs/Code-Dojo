@@ -13,7 +13,7 @@ namespace KataLoc
 
         private int CountLines(string input)
         {
-            return input.Split("\n").Count(line => IsLineOfCode(line));
+            return input.Split("\n").Count(IsLineOfCode);
         }
 
         private bool IsLineOfCode(string line)
