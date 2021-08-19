@@ -34,7 +34,7 @@ namespace KataLocTest
             var input = string.Empty;
             var expected = 0;
 
-            int actual = _target.Loc(input);
+            var actual = _target.Loc(input);
 
             Assert.That(actual, Is.EqualTo(expected));
         }

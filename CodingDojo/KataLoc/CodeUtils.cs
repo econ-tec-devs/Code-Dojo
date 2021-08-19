@@ -7,8 +7,9 @@ namespace KataLoc
 {
     public class CodeUtils
     {
-        public void Loc(string input)
+        public int Loc(string input)
         {
+            return 0;
         }
     }
 }
