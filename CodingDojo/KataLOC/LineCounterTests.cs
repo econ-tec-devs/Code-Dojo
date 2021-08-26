@@ -8,7 +8,7 @@ namespace KataLOCTest
     using KataLoc;
     using NUnit.Framework;
 
-    public class LineCouhnterTests
+    public class LineCounterTests
     {
         [SetUp]
         public void Setup()
