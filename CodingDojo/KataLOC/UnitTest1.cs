@@ -25,5 +25,17 @@ namespace KataLOCTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void CountCodeLines_StringWithOneLine_1()
+        {
+            var expected = 1;
+            var lines = "Console.Write";
+            var target = new LineCounter();
+
+            var actual = target.CountCodeLines(lines);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
