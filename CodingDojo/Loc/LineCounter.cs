@@ -11,6 +11,10 @@ namespace KataLoc
     {
         public int CountCodeLines(string lines)
         {
+            if (lines.StartsWith("/*")&&lines.Contains("*/")&& !lines.EndsWith("*/"))
+            {
+                return 1;
+            }
             if (lines.StartsWith("/*"))
             {
                 return 0;
