@@ -1,11 +1,8 @@
 // -----------------------------------------------------------------------
-// <copyright file="UnitTest1.cs" company="econ-tec GmbH">
+// <copyright file="LineCounterTests.cs" company="econ-tec GmbH">
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-
 namespace KataLOCTest
 {
     using KataLoc;
@@ -18,10 +15,11 @@ namespace KataLOCTest
         {
         }
 
-        [TestCase(1,"Console.WriteLine")]
+        [TestCase(1, "Console.WriteLine")]
         [TestCase(0, "")]
         [TestCase(0, "//Console.WriteLine")]
         [TestCase(0, "/*Console.WriteLine*/")]
+        [TestCase(1, "/*Console.WriteLine*/ Kein Kommentar")]
         public void CountCodeLines_String_HowManyLines(int expected, string lines)
         {
             var target = new LineCounter();
