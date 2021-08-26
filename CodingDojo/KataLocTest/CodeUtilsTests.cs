@@ -27,7 +27,7 @@ namespace KataLocTest
         [TestCase("line1\n\nline3", 2, 1)]
         [TestCase("line1\n//\nline3", 2, 1)]
         [TestCase("line1\nline2//comment\nline3", 3, 0)]
-        [TestCase("line1\n/*comment\nline3", 2, 1)]
+        [TestCase("line1\n/*comment*/\nline3", 2, 1)]
         [TestCase("line1\n/*comment\ncomment*/", 1, 2)]
         public void Loc_InputString_ReturnsExpected(string input, int expectedLoc, int expectedComments)
         {

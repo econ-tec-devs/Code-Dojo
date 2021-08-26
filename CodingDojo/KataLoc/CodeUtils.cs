@@ -9,6 +9,8 @@ namespace KataLoc
 
     public class CodeUtils
     {
+        private bool _openMultiLineComment = false;
+        
         public LineCount Loc(string input) => string.IsNullOrWhiteSpace(input) ? new LineCount() : CountLines(input);
 
         private LineCount CountLines(string input)
@@ -26,7 +28,30 @@ namespace KataLoc
         {
             return string.IsNullOrWhiteSpace(line) == false 
                    && line.StartsWith("//") == false
-                   && line.StartsWith("/*") == false;
+                   && HandleMultiLineComment(line) == false
+                   && _openMultiLineComment == false;
+        }
+
+        private bool HandleMultiLineComment(string line)
+        {
+            if (line.StartsWith("/*") && line.EndsWith("*/"))
+            {
+                return true;
+            }
+            
+            if (line.StartsWith("/*"))
+            {
+                _openMultiLineComment = true;
+                return true;
+            }
+
+            if (line.EndsWith("*/"))
+            {
+                _openMultiLineComment = false;
+                return true;
+            }
+            
+            return false;
         }
     }
 }
