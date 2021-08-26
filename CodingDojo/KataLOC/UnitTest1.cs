@@ -3,9 +3,9 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace KataLOC
+namespace KataLOCTest
 {
-    using Loc;
+    using KataLoc;
     using NUnit.Framework;
 
     public class Tests

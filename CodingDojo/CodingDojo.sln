@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataLOC", "KataLOC\KataLOC.csproj", "{CD3206B6-014C-4C79-B841-BF0456223762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataLOCTest", "KataLOC\KataLOCTest.csproj", "{CD3206B6-014C-4C79-B841-BF0456223762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loc", "Loc\Loc.csproj", "{9C11F0D3-5027-47C2-88D2-9BFB1232D918}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataLoc", "Loc\KataLoc.csproj", "{9C11F0D3-5027-47C2-88D2-9BFB1232D918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

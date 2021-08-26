@@ -3,7 +3,7 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace Loc
+namespace KataLoc
 {
     public class LineCounter
     {
