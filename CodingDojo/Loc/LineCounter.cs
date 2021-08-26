@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Linq;
 
 namespace KataLoc
 {
@@ -12,10 +13,16 @@ namespace KataLoc
     {
         public int CountCodeLines(string lines)
         {
-            if (lines != string.Empty)
+            if (lines.StartsWith("//"))
+            {
+                return 0;
+            }
+
+            if (lines.Any())
             {
                 return 1;
             }
+
             return 0;
         }
     }

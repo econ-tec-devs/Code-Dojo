@@ -11,7 +11,7 @@ namespace KataLOCTest
     using KataLoc;
     using NUnit.Framework;
 
-    public class Tests
+    public class LineCouhnterTests
     {
         [SetUp]
         public void Setup()
@@ -21,6 +21,7 @@ namespace KataLOCTest
         [TestCase(1,"Console.WriteLine")]
         [TestCase(0, "")]
         [TestCase(0, "//Console.WriteLine")]
+        [TestCase(0, "/*Console.WriteLine*/")]
         public void CountCodeLines_String_HowManyLines(int expected, string lines)
         {
             var target = new LineCounter();
