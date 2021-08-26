@@ -1,5 +1,11 @@
+// -----------------------------------------------------------------------
+// <copyright file="UnitTest1.cs" company="econ-tec GmbH">
+//     Copyright (c) econ-tec GmbH. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 namespace KataLOC
 {
+    using Loc;
     using NUnit.Framework;
 
     public class Tests
@@ -16,7 +22,7 @@ namespace KataLOC
             var target = new LineCounter();
 
             var actual = target.CountCodeLines(string.Empty);
-            
+
             Assert.That(actual, Is.EqualTo(expected));
         }
     }
