@@ -4,7 +4,12 @@
     {
         public int Count(string input)
         {
-            return 0;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return 0;
+            }
+
+            return 1;
         }
 
     }
