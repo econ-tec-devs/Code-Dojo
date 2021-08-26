@@ -1,4 +1,4 @@
-﻿namespace KataLocTest
+﻿namespace KataLoc
 {
     public class LinesOfCode
     {

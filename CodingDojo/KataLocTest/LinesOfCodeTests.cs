@@ -1,10 +1,11 @@
 ﻿using System;
+using KataLoc;
 using NUnit.Framework;
 
 namespace KataLocTest
 {
     [TestFixture]
-    public class Tests
+    public class LinesOfCodeTests
     {
         [Test]
         public void Count_StringInput_ReturnsZero()
