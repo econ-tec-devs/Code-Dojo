@@ -106,5 +106,17 @@ namespace KataLocTest
             Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
             Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
         }
+
+        [Test]
+        public void LineOfCode_OneCodeLinesWithInlineComment_ReturnOneLineCount()
+        {
+            var text = "/*as*/ Console.WriteLine()";
+            var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 1 };
+
+            var actual = _target.LineOfCode(text);
+
+            Assert.That(actual.CommentsWhitespaceLineCount, Is.EqualTo(expected.CommentsWhitespaceLineCount));
+            Assert.That(actual.LineOfCodeCount, Is.EqualTo(expected.LineOfCodeCount));
+        }
     }
 }
