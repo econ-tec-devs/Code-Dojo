@@ -15,12 +15,8 @@ namespace KataLoc
             {
                 return 1;
             }
-            if (lines.StartsWith("/*"))
-            {
-                return 0;
-            }
 
-            if (lines.StartsWith("//"))
+            if (lines.StartsWith("//") || lines.StartsWith("/*"))
             {
                 return 0;
             }

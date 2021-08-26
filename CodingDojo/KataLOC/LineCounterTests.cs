@@ -20,6 +20,8 @@ namespace KataLOCTest
         [TestCase(0, "//Console.WriteLine")]
         [TestCase(0, "/*Console.WriteLine*/")]
         [TestCase(1, "/*Console.WriteLine*/ Kein Kommentar")]
+        [TestCase(1, "Console.WriteLine /*Kommentar*/")]
+        [TestCase(1, "/*Noch Etwas*/ Console.WriteLine /*Kommentar*/")]
         public void CountCodeLines_String_HowManyLines(int expected, string lines)
         {
             var target = new LineCounter();
