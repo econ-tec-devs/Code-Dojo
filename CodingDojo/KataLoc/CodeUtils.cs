@@ -34,21 +34,22 @@ namespace KataLoc
 
         private bool HandleMultiLineComment(string line)
         {
+            const bool lineIsComment = true;
             if (line.StartsWith("/*") && line.EndsWith("*/"))
             {
-                return true;
+                return lineIsComment;
             }
             
             if (line.StartsWith("/*"))
             {
                 _openMultiLineComment = true;
-                return true;
+                return lineIsComment;
             }
 
             if (line.EndsWith("*/"))
             {
                 _openMultiLineComment = false;
-                return true;
+                return lineIsComment;
             }
             
             return false;
