@@ -15,22 +15,10 @@ namespace KataLOCTest
         {
         }
 
-        [Test]
-        public void CountCodeLines_EmptyString_0()
+        [TestCase(1,"Console.WriteLine")]
+        [TestCase(0, "")]
+        public void CountCodeLines_String_HowManyLines(int expected, string lines)
         {
-            var expected = 0;
-            var target = new LineCounter();
-
-            var actual = target.CountCodeLines(string.Empty);
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void CountCodeLines_StringWithOneLine_1()
-        {
-            var expected = 1;
-            var lines = "Console.Write";
             var target = new LineCounter();
 
             var actual = target.CountCodeLines(lines);
