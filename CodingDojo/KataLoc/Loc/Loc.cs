@@ -6,11 +6,9 @@
 namespace KataLOC
 {
     using System;
-    using System.Text.RegularExpressions;
 
     public class Loc
     {
-        private const string _CommentMatch = "(//.*)";
         private readonly LinesCount _lineOfCode = new LinesCount { LineOfCodeCount = 0, CommentsWhitespaceLineCount = 0 };
 
         public LinesCount LineOfCode(string code)
@@ -23,7 +21,6 @@ namespace KataLOC
             var lines = code.Split(Environment.NewLine);
             foreach (var line in lines)
             {
-                var m = Regex.Matches(line, _CommentMatch);
                 if (!line.StartsWith("//") && !line.StartsWith("/*"))
                 {
                     _lineOfCode.LineOfCodeCount += 1;
