@@ -24,7 +24,9 @@ namespace KataLoc
 
         private bool IsLineOfCode(string line)
         {
-            return !string.IsNullOrWhiteSpace(line) && !line.StartsWith("//");
+            return !string.IsNullOrWhiteSpace(line) 
+                   && !line.StartsWith("//")
+                   && !line.StartsWith("/*");
         }
     }
 }
