@@ -110,7 +110,7 @@ namespace KataLocTest
         [Test]
         public void LineOfCode_OneCodeLinesWithInlineComment_ReturnOneLineCount()
         {
-            var text = "/*as*/ Console.WriteLine()";
+            var text = "/*as*/ Console.WriteLine() /*asas*/";
             var expected = new LinesCount { CommentsWhitespaceLineCount = 0, LineOfCodeCount = 1 };
 
             var actual = _target.LineOfCode(text);
