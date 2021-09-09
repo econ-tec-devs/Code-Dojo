@@ -21,7 +21,7 @@ namespace KataLOC
             }
 
             var lines = code.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-            return lines.Count(line => !line.StartsWith("//"));
+            return lines.Count(line => !line.StartsWith("//") && !line.StartsWith("/*"));
         }
     }
 }
