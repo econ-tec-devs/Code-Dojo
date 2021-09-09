@@ -9,14 +9,14 @@ namespace KataLOC
 
     public class LineCounter
     {
-        public int Count(string empty)
+        public int Count(string code)
         {
-            if (string.IsNullOrEmpty(empty))
+            if (string.IsNullOrEmpty(code))
             {
                 return 0;
             }
 
-            var lines = empty.Split(Environment.NewLine);
+            var lines = code.Split(Environment.NewLine);
 
             return lines.Length;
         }
