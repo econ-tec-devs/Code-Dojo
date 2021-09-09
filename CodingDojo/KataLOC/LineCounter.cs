@@ -1,4 +1,6 @@
-﻿namespace KataLOC
+﻿using System;
+
+namespace KataLOC
 {
     public class LineCounter
     {
@@ -8,7 +10,11 @@
 
         public int Count(string empty)
         {
-            return 0;
+            if (string.IsNullOrEmpty(empty))
+            {
+                return 0;
+            }
+            return 1;
         }
     }
 }
