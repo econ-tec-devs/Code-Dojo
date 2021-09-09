@@ -16,7 +16,7 @@ namespace KataLOC
                 return 0;
             }
 
-            var lines = code.Split(Environment.NewLine);
+            var lines = code.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
 
             return lines.Length;
         }
