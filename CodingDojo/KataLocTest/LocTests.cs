@@ -1,3 +1,4 @@
+using System;
 using KataLOC;
 
 namespace KataLOCTest
@@ -6,18 +7,20 @@ namespace KataLOCTest
 
     public class LocTests
     {
+        private LineCounter _target;
+
         [SetUp]
         public void Setup()
         {
+            _target = new LineCounter();
         }
 
         [Test]
         public void Count_EmptyString_0()
         {
-            var target = new LineCounter();
             var expected = 0;
             
-            int actual = target.Count(string.Empty);
+            int actual = _target.Count(string.Empty);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -25,11 +28,21 @@ namespace KataLOCTest
         [Test]
         public void Count_OneLineOfCode_1()
         {
-            var target = new LineCounter();
             var expected = 1;
             var text = "line1";
 
-            int actual = target.Count(text);
+            int actual = _target.Count(text);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void Count_TwoLineOfCode_2()
+        {
+            var expected = 2;
+            var text = "line1" + Environment.NewLine + "line2";
+
+            int actual = _target.Count(text);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
