@@ -98,12 +98,34 @@ namespace KataLOCTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-        
+
         [Test]
         public void Count_OneLineStartWithOneComment_1()
         {
             var expected = 1;
             var text = "/*line comment*/ line1";
+
+            var actual = _target.Count(text);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Count_OneLineEndWithOneComment_1()
+        {
+            var expected = 1;
+            var text = "line1 //comment";
+
+            var actual = _target.Count(text);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Count_OneLineStartWithSpaces_0()
+        {
+            var expected = 0;
+            var text = "   //comment";
 
             var actual = _target.Count(text);
 
