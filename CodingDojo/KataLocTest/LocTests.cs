@@ -72,5 +72,20 @@ namespace KataLOCTest
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
+        [Test]
+        public void Count_FiveLinesWithDifferentComments_3()
+        {
+            var expected = 3;
+            var text = "line1" + Environment.NewLine
+                               + "line2" +Environment.NewLine 
+                               + "line3" + Environment.NewLine 
+                               +"//line comment" + Environment.NewLine 
+                               + "/*line comment*/"; 
+
+            var actual = _target.Count(text);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }

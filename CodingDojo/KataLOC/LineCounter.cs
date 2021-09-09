@@ -3,12 +3,16 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System.Linq;
+
 namespace KataLOC
 {
     using System;
 
     public class LineCounter
     {
+
         public int Count(string code)
         {
             if (string.IsNullOrEmpty(code))
@@ -17,8 +21,7 @@ namespace KataLOC
             }
 
             var lines = code.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-
-            return lines.Length;
+            return lines.Count(line => !line.StartsWith("//"));
         }
     }
 }
