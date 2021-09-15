@@ -122,6 +122,7 @@ namespace KataLOCTest
         }
 
         [Test]
+        
         public void Count_OneLineStartWithSpaces_0()
         {
             var expected = 0;
