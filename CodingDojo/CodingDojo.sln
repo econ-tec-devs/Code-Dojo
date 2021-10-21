@@ -11,6 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataTicTacToeTest_20211021"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataTicTacToe_20211021", "KataTicTacToe_20211021\KataTicTacToe_20211021.csproj", "{6B52258D-05B4-4450-B5F6-EBBDC7449A32}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{1F3275A6-829C-4350-918D-3C4C102F8F41}"
+	ProjectSection(SolutionItems) = preProject
+		20211007 EconTec - TicTacToe - Flow Design.png = 20211007 EconTec - TicTacToe - Flow Design.png
+		20211007 EconTec - TicTacToe - Sammeln.png = 20211007 EconTec - TicTacToe - Sammeln.png
+		Application Kata Tic Tac Toe.pdf = Application Kata Tic Tac Toe.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
