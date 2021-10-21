@@ -10,9 +10,14 @@ namespace KataTicTacToeTest_20211021
         }
 
         [Test]
-        public void Test1()
+        public void Initialize_CreateNewBoard_ReturnEmptyBoard()
         {
-            Assert.Pass();
+            var target = new TicTacToe();
+            string expected = "         ";
+
+            string actual = target.Initialize();
+            
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }
