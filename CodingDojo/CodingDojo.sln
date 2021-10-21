@@ -9,14 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataTicTacToeConsoleTest_20
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataTicTacToeTest_20211021", "KataTicTacToeTest_20211021\KataTicTacToeTest_20211021.csproj", "{3529DEFE-5A9D-4F57-BCF1-27E2F7FAAD0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataTicTacToe_20211021", "KataTicTacToe_20211021\KataTicTacToe_20211021.csproj", "{6B52258D-05B4-4450-B5F6-EBBDC7449A32}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{1F3275A6-829C-4350-918D-3C4C102F8F41}"
 	ProjectSection(SolutionItems) = preProject
 		20211007 EconTec - TicTacToe - Flow Design.png = 20211007 EconTec - TicTacToe - Flow Design.png
 		20211007 EconTec - TicTacToe - Sammeln.png = 20211007 EconTec - TicTacToe - Sammeln.png
 		Application Kata Tic Tac Toe.pdf = Application Kata Tic Tac Toe.pdf
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTicTacToe_20211021", "KataTicTacToe_20211021\KataTicTacToe_20211021.csproj", "{E0C15956-07FF-414B-B7F9-712B7018F34A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +36,10 @@ Global
 		{3529DEFE-5A9D-4F57-BCF1-27E2F7FAAD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3529DEFE-5A9D-4F57-BCF1-27E2F7FAAD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3529DEFE-5A9D-4F57-BCF1-27E2F7FAAD0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B52258D-05B4-4450-B5F6-EBBDC7449A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B52258D-05B4-4450-B5F6-EBBDC7449A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B52258D-05B4-4450-B5F6-EBBDC7449A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B52258D-05B4-4450-B5F6-EBBDC7449A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C15956-07FF-414B-B7F9-712B7018F34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C15956-07FF-414B-B7F9-712B7018F34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C15956-07FF-414B-B7F9-712B7018F34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C15956-07FF-414B-B7F9-712B7018F34A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
