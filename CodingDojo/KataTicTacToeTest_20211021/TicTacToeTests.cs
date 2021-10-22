@@ -3,7 +3,7 @@ using KataTicTacToe_20211021;
 
 namespace KataTicTacToeTest_20211021
 {
-    public class Tests
+    public class TicTacToeTests
     {
         [SetUp]
         public void Setup()
@@ -13,7 +13,7 @@ namespace KataTicTacToeTest_20211021
         [Test]
         public void Initialize_CreateNewBoard_ReturnEmptyBoard()
         {
-            var target = new TicTacToe();
+            var target = new KataTicTacToe_20211021.TicTacToe();
             string expected = "         ";
 
             string actual = target.Initialize();
@@ -24,7 +24,7 @@ namespace KataTicTacToeTest_20211021
         [Test]
         public void Move_FirstMoveInputValidCoordinate_ReturnBoardWithOneX()
         {
-            var target = new TicTacToe();
+            var target = new KataTicTacToe_20211021.TicTacToe();
             var inputValidCoordinate = "A0";
             string expected = "X        ";
 

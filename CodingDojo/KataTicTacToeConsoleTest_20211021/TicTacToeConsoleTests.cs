@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace KataTicTacToeConsoleTest_20211021
 {
-    public class Tests
+    public class TicTacToeConsoleTests
     {
         [SetUp]
         public void Setup()
