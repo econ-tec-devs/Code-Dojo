@@ -3,7 +3,7 @@ using KataTicTacToe_20211021;
 
 namespace KataTicTacToeTest_20211021
 {
-    public class Tests
+    public class TicTacToeTests
     {
         [SetUp]
         public void Setup()

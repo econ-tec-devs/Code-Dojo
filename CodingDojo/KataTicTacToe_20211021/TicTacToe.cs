@@ -6,5 +6,10 @@ namespace KataTicTacToe_20211021
         {
             return "         ";
         }
+
+        public string Move(string inputValidCoordinate)
+        {
+            return "X        ";
+        }
     }
 }
