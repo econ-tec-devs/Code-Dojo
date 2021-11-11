@@ -13,6 +13,7 @@ namespace Paging7
             for (int i = 1; i <= pages; i++)
             {
                 paging += currentPage == i ? $" ({currentPage})" : $" {i}";
+
             }
             return paging.Trim();
         }
