@@ -23,7 +23,8 @@ namespace KataTicTacToeTest_20211021
 
         [TestCase("A0", "X        ")]
         [TestCase("B0", " X       ")]
-        [TestCase("C0", "  X      ")]
+        [TestCase("C0", "  X      ")] 
+        [TestCase("A1", "   X     ")]
         public void Move_FirstMoveInputValidCoordinate_ReturnBoardWithOneX(string coordinate, string expectedBoard)
         {
             var target = new TicTacToe();

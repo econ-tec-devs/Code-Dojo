@@ -1,3 +1,5 @@
+using System;
+
 namespace KataTicTacToe_20211021
 {
     public class TicTacToe
@@ -9,11 +11,17 @@ namespace KataTicTacToe_20211021
 
         public string Move(string inputValidCoordinate)
         {
-            if (inputValidCoordinate == "B0")
-            {
-                return " X       ";
-            }
-            return "X        ";
+            var grid = string.Empty;
+            int x = GetX(inputValidCoordinate);
+            string before = new string(' ',x);
+            string after = new string(' ',8-x);
+            return $"{before}X{after}";
+         
+        }
+
+        private int GetX(string inputValidCoordinate)
+        {
+            return "ABC".IndexOf(inputValidCoordinate[0]);
         }
     }
 }
