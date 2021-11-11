@@ -21,16 +21,15 @@ namespace KataTicTacToeTest_20211021
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-        [Test]
-        public void Move_FirstMoveInputValidCoordinate_ReturnBoardWithOneX()
+        [TestCase("A0", "X        ")]
+        [TestCase("B0", " X       ")]
+        public void Move_FirstMoveInputValidCoordinate_ReturnBoardWithOneX(string coordinate, string expectedBoard)
         {
             var target = new TicTacToe();
-            var inputValidCoordinate = "A0";
-            string expected = "X        ";
+            
+            string actual = target.Move(coordinate);
 
-            string actual = target.Move(inputValidCoordinate);
-
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expectedBoard));
         }
     }
 }
