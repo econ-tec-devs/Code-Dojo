@@ -7,7 +7,7 @@ namespace ClassLibraryTest
     {
         public Class1()
         {
-
+         Console.WriteLine("");
         }
     }
 }
