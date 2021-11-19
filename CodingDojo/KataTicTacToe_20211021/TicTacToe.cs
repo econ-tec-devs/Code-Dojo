@@ -13,8 +13,10 @@ namespace KataTicTacToe_20211021
         {
             var grid = string.Empty;
             int x = GetX(inputValidCoordinate);
-            string before = new string(' ',x);
-            string after = new string(' ',8-x);
+            int y = GetY(inputValidCoordinate);
+            var index = x + (y*3);
+            string before = new string(' ', index);
+            string after = new string(' ',8-index);
             return $"{before}X{after}";
          
         }
@@ -22,6 +24,10 @@ namespace KataTicTacToe_20211021
         private int GetX(string inputValidCoordinate)
         {
             return "ABC".IndexOf(inputValidCoordinate[0]);
+        }
+        private int GetY(string inputValidCoordinate)
+        {
+            return Convert.ToInt32(inputValidCoordinate[1].ToString());
         }
     }
 }
