@@ -57,5 +57,17 @@ namespace KataTicTacToeTest_20211021
 
             Assert.That(actual, Is.EqualTo(expectedBoard));
         }
+        
+        
+        [TestCase("B1", "X O X    ")]
+        public void Move_ThirdMoveInputCoordinate_ReturnBoardWithTwoXAndOneO(string coordinate, string expectedBoard)
+        {
+            _target.Move("A0");
+            _target.Move("C0");
+
+            string actual = _target.Move(coordinate);
+
+            Assert.That(actual, Is.EqualTo(expectedBoard));
+        }
     }
 }
