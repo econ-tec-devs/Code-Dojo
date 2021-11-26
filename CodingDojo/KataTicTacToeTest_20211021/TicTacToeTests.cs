@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using KataTicTacToe_20211021;
 
@@ -58,7 +59,6 @@ namespace KataTicTacToeTest_20211021
             Assert.That(actual, Is.EqualTo(expectedBoard));
         }
         
-        
         [TestCase("B1", "X O X    ")]
         public void Move_ThirdMoveInputCoordinate_ReturnBoardWithTwoXAndOneO(string coordinate, string expectedBoard)
         {
@@ -66,6 +66,21 @@ namespace KataTicTacToeTest_20211021
             _target.Move("C0");
 
             string actual = _target.Move(coordinate);
+
+            Assert.That(actual, Is.EqualTo(expectedBoard));
+        }
+        
+        [TestCase("A0|C0|B1", "X O X    ")]
+        [TestCase("A0|C0|B1|A1", "X OOX    ")]
+        public void Move_MultipleMoves_ReturnBoardWithMultipleMoves(string moves, string expectedBoard)
+        {
+            var coordinates = moves.Split('|');
+            var actual = string.Empty;
+            
+            foreach (var coordinate in coordinates)
+            {
+                actual = _target.Move(coordinate);
+            }
 
             Assert.That(actual, Is.EqualTo(expectedBoard));
         }

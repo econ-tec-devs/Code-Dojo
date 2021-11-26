@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace KataTicTacToe_20211021
 {
@@ -21,31 +22,32 @@ namespace KataTicTacToe_20211021
         public string Move(string coordinate)
         {
             var index = GetIndex(coordinate);
-            if (_board[index] != ' ')
-            {
-                return _board;
-            }
+            if (IsInvalidMove(index)) return _board;
             var before = _board.Substring(0, index);
             var after = _board.Substring(index,8-index);
-            if (_board.Contains('X'))
-            {
-               return _board = $"{before}O{after}";
-            }
-            return _board = $"{before}X{after}";
+            var player = GetCurrentPlayer();
+            
+            return _board = $"{before}{player}{after}";
         }
 
-        private int GetIndex(string coordinate)
+        private bool IsInvalidMove(int index)
+            => _board[index] != ' ';
+
+        private string GetCurrentPlayer()
         {
-            return GetX(coordinate) + (GetY(coordinate) * 3);
+            var countX = _board.Count(x => x.Equals('X'));
+            var countO = _board.Count(x => x.Equals('O'));
+
+            return countX == countO ? "X" : "O";
         }
 
-        private int GetX(string inputValidCoordinate)
-        {
-            return "ABC".IndexOf(inputValidCoordinate[0]);
-        }
-        private int GetY(string inputValidCoordinate)
-        {
-            return Convert.ToInt32(inputValidCoordinate[1].ToString());
-        }
+        private int GetIndex(string coordinate) 
+            => GetX(coordinate) + (GetY(coordinate) * 3);
+
+        private int GetX(string inputValidCoordinate) 
+            => "ABC".IndexOf(inputValidCoordinate[0]);
+
+        private int GetY(string inputValidCoordinate) 
+            => Convert.ToInt32(inputValidCoordinate[1].ToString());
     }
 }
