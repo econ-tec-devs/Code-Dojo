@@ -4,21 +4,32 @@ namespace KataTicTacToe_20211021
 {
     public class TicTacToe
     {
-        public string Initialize()
+        private string _board;
+
+        public string Board => _board;
+
+        public TicTacToe()
+        {
+            _board = Initialize();
+        }
+
+        private string Initialize()
         {
             return "         ";
         }
 
         public string Move(string inputValidCoordinate)
         {
-            var grid = string.Empty;
-            int x = GetX(inputValidCoordinate);
-            int y = GetY(inputValidCoordinate);
+            var x = GetX(inputValidCoordinate);
+            var y = GetY(inputValidCoordinate);
             var index = x + (y*3);
-            string before = new string(' ', index);
-            string after = new string(' ',8-index);
-            return $"{before}X{after}";
-         
+            var before = _board.Substring(0, index);
+            var after = _board.Substring(index,8-index);
+            if (_board.Contains('X'))
+            {
+               return _board = $"{before}O{after}";
+            }
+            return _board = $"{before}X{after}";
         }
 
         private int GetX(string inputValidCoordinate)
