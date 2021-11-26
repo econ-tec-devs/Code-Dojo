@@ -24,7 +24,7 @@ namespace KataTicTacToe_20211021
             var index = GetIndex(coordinate);
             if (IsInvalidMove(index)) return _board;
             var before = _board.Substring(0, index);
-            var after = _board.Substring(index,8-index);
+            var after = _board.Substring(index+1,8-index);
             var player = GetCurrentPlayer();
             
             return _board = $"{before}{player}{after}";
