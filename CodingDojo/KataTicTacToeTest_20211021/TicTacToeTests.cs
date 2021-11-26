@@ -72,9 +72,10 @@ namespace KataTicTacToeTest_20211021
         
         [TestCase("A0|C0|B1", "X O X    ")]
         [TestCase("A0|C0|B1|A1", "X OOX    ")]
+        [TestCase("A0|B0|C0|A1|B1|C1|A3|B3|C3", "XOXOXOXOX")]
         public void Move_MultipleMoves_ReturnBoardWithMultipleMoves(string moves, string expectedBoard)
         {
-            var coordinates = moves.Split('|');
+            var coordinates = moves.Trim().Split('|');
             var actual = string.Empty;
             
             foreach (var coordinate in coordinates)
