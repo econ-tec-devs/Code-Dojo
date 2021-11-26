@@ -38,10 +38,21 @@ namespace KataTicTacToeTest_20211021
         }
         
         [TestCase("C0", "X O      ")]
+        [TestCase("C1", "X    O   ")]
         public void Move_SecondMoveInputValidCoordinate_ReturnBoardWithOneXAndOneO(string coordinate, string expectedBoard)
         {
             _target.Move("A0");
             
+            string actual = _target.Move(coordinate);
+
+            Assert.That(actual, Is.EqualTo(expectedBoard));
+        }
+
+        [TestCase("A0", "X        ")]
+        public void Move_InputInvalidCoordinate_ReturnOriginalBoard(string coordinate, string expectedBoard)
+        {
+            _target.Move("A0");
+
             string actual = _target.Move(coordinate);
 
             Assert.That(actual, Is.EqualTo(expectedBoard));
