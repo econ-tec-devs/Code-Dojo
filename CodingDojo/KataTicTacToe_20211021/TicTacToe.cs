@@ -21,6 +21,7 @@ namespace KataTicTacToe_20211021
 
         public string Move(string coordinate)
         {
+            if (IsInvalidSyntax(coordinate)) return _board;
             var index = GetIndex(coordinate);
             if (IsInvalidMove(index)) return _board;
             var before = _board.Substring(0, index);
@@ -29,6 +30,9 @@ namespace KataTicTacToe_20211021
             
             return _board = $"{before}{player}{after}";
         }
+
+        private bool IsInvalidSyntax(string coordinate) 
+            => !"ABC".Contains(coordinate[0]) || !"012".Contains(coordinate[1]);
 
         private bool IsInvalidMove(int index)
             => _board[index] != ' ';
