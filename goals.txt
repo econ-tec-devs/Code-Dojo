@@ -1,0 +1,5 @@
+- Jeder hat einmal einen Red-Green-Refactor Zyklus geschafft
+- DRY Prinzip - Don't repeat yourself 
+- Erst tiefere Logik implementieren, sobald alle Aspekte der Anwendung eingebaut wurden
+- Fensteranordnung (Man sieht immer den Testexplorer, Produktivcode und Tests)
+- Das bisher gesehene verstehen und einprägen
