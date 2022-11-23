@@ -1,5 +1,6 @@
 - Jeder hat einmal einen Red-Green-Refactor Zyklus geschafft
-- DRY Prinzip - Don't repeat yourself 
-- Erst tiefere Logik implementieren, sobald alle Aspekte der Anwendung eingebaut wurden
 - Fensteranordnung (Man sieht immer den Testexplorer, Produktivcode und Tests)
-- Das bisher gesehene verstehen und einprägen
+- Baby-Steps
+- DRY Prinzip - Don't repeat yourself 
+- Erst tiefere Logik implementieren, sobald sich ein Muster aufdrängt. Bei FizzBuzz wäre das z. B. beim zweiten Fizz.
+- Das bisher gesehene verstehen und einprägen, so das man es ohne drüber nachzudenken wiederholen könnte.
