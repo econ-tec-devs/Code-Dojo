@@ -4,3 +4,4 @@
 - DRY Prinzip - Don't repeat yourself 
 - Erst tiefere Logik implementieren, sobald sich ein Muster aufdrängt. Bei FizzBuzz wäre das z. B. beim zweiten Fizz.
 - Das bisher gesehene verstehen und einprägen, so das man es ohne drüber nachzudenken wiederholen könnte.
+- FizzBuzz fertigstellen
