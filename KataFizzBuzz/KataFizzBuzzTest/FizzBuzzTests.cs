@@ -58,6 +58,21 @@ namespace KataFizzBuzzTest
             
             // Assert
             Assert.That(stringBulder.ToString(), Is.EqualTo(expected));
+        } [Test]
+        public void Print_Called_ReturnsFizz()
+        {
+            // Arrange 
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            var stringBulder = writer.GetStringBuilder();
+            var expected = "1\r\n2\r\nFizz";
+            var sut = new FizzBuzz();
+            
+            // Act
+            sut.Print();
+            
+            // Assert
+            Assert.That(stringBulder.ToString(), Is.EqualTo(expected));
         }
     }
 }
