@@ -26,6 +26,18 @@ namespace KataFizzBuzzTest
         [TestCase(2, "Fizz")]
         [TestCase(3, "4")]
         [TestCase(4, "Buzz")]
+        [TestCase(5, "Fizz")]
+        [TestCase(6, "7")]
+        [TestCase(7, "8")]
+        [TestCase(8, "Fizz")]
+        [TestCase(9, "Buzz")]
+        [TestCase(10, "11")]
+        [TestCase(11, "Fizz")]
+        [TestCase(12, "13")]
+        [TestCase(13, "14")]
+        [TestCase(14, "FizzBuzz")]
+        
+        
         public void Print_Called_TestPass(int index, string expected)
         {
             // Act

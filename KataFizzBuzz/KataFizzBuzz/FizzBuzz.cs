@@ -12,11 +12,31 @@ namespace KataFizzBuzz
     {
         public void Print()
         {
-            Console.WriteLine("1");
-            Console.WriteLine("2");
-            Console.WriteLine("Fizz");
-            Console.WriteLine("4");
-            Console.WriteLine("Buzz");
+            for (int i = 1; i < 100; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+           
+               
+                /* Console.WriteLine("1");
+                Console.WriteLine("2");
+                Console.WriteLine("Fizz");
+                Console.WriteLine("4");
+                Console.WriteLine("Buzz");
+                Console.WriteLine("Fizz");*/
+            }
+           
+            
         }
     }
 }
