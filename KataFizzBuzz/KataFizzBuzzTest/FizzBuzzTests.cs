@@ -4,75 +4,38 @@ namespace KataFizzBuzzTest
 {
     using System;
     using System.IO;
+    using System.Text;
     using KataFizzBuzz;
 
     public class FizzBuzzTests
     {
+        private StringBuilder _stringBulder;
+        private FizzBuzz _sut;
+
         [SetUp]
         public void Setup()
         {
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            _stringBulder = writer.GetStringBuilder();
+            _sut = new FizzBuzz();
         }
 
-        [Test]
-        public void Print_Called_TestPassed()
+        [TestCase(0, "1")]
+        [TestCase(1, "2")]
+        [TestCase(2, "Fizz")]
+        public void Print_Called_TestPass(int index, string expected)
         {
-            // Arrange
-            var sut = new FizzBuzz();
-            
             // Act
-            sut.Print();
+            _sut.Print();
             
             // Assert
-            Assert.Pass();
+            Assert.That(AtIndex(index), Is.EqualTo(expected));
         }
 
-        [Test]
-        public void Print_Called_Returns1()
+        private string AtIndex(int index)
         {
-            // Arrange 
-            var writer = new StringWriter();
-            Console.SetOut(writer);
-            var stringBulder = writer.GetStringBuilder();
-            var expected = "1";
-            var sut = new FizzBuzz();
-            
-            // Act
-            sut.Print();
-            
-            // Assert
-            Assert.That(stringBulder.ToString(), Is.EqualTo(expected));
-        }
-    
-        [Test]
-        public void Print_Called_Returns2()
-        {
-            // Arrange 
-            var writer = new StringWriter();
-            Console.SetOut(writer);
-            var stringBulder = writer.GetStringBuilder();
-            var expected = "1\r\n2";
-            var sut = new FizzBuzz();
-            
-            // Act
-            sut.Print();
-            
-            // Assert
-            Assert.That(stringBulder.ToString(), Is.EqualTo(expected));
-        } [Test]
-        public void Print_Called_ReturnsFizz()
-        {
-            // Arrange 
-            var writer = new StringWriter();
-            Console.SetOut(writer);
-            var stringBulder = writer.GetStringBuilder();
-            var expected = "1\r\n2\r\nFizz";
-            var sut = new FizzBuzz();
-            
-            // Act
-            sut.Print();
-            
-            // Assert
-            Assert.That(stringBulder.ToString(), Is.EqualTo(expected));
+            return _stringBulder.ToString().Split(Environment.NewLine)[index];
         }
     }
 }
