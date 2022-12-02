@@ -13,7 +13,8 @@ namespace KataFizzBuzz
         public void Print()
         {
             Console.WriteLine("1");
-            Console.Write("2");
+            Console.WriteLine("2");
+            Console.Write("Fizz");
         }
     }
 }
