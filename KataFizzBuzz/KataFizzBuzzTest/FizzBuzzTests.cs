@@ -50,7 +50,7 @@ namespace KataFizzBuzzTest
             var writer = new StringWriter();
             Console.SetOut(writer);
             var stringBulder = writer.GetStringBuilder();
-            var expected = "2";
+            var expected = "1\r\n2";
             var sut = new FizzBuzz();
             
             // Act

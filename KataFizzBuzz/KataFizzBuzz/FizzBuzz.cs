@@ -12,7 +12,8 @@ namespace KataFizzBuzz
     {
         public void Print()
         {
-            Console.Write("1");
+            Console.WriteLine("1");
+            Console.Write("2");
         }
     }
 }
