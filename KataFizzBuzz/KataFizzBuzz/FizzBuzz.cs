@@ -14,7 +14,9 @@ namespace KataFizzBuzz
         {
             Console.WriteLine("1");
             Console.WriteLine("2");
-            Console.Write("Fizz");
+            Console.WriteLine("Fizz");
+            Console.WriteLine("4");
+            Console.WriteLine("Buzz");
         }
     }
 }
