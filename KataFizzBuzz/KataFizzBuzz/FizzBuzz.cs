@@ -14,15 +14,20 @@ namespace KataFizzBuzz
         {
             for (int i = 1; i < 100; i++)
             {
-                if (i % 3 == 0)
+                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    Console.WriteLine("Fizz");
+                    Console.WriteLine("FizzBuzz");
                 }
                 else if (i % 5 == 0)
                 {
                     Console.WriteLine("Buzz");
                 }
-                else
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                
+                else  
                 {
                     Console.WriteLine(i);
                 }
