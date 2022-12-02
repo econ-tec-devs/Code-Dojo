@@ -3,12 +3,16 @@
 //     Copyright (c) econ-tec GmbH. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System;
+
 namespace KataFizzBuzz
 {
     public class FizzBuzz
     {
         public void Print()
         {
+            Console.Write("1");
         }
     }
 }
