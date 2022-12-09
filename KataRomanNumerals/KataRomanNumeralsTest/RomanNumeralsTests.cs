@@ -21,4 +21,18 @@ public class RomanNumeralsTests
         // Assert
         Assert.Pass();
     }
+    
+    [Test]
+    public void GetNumbers_Input1_ReturnI()
+    {
+        // Arrange
+        var sut = new RomanNumerals();
+        var expected = "I";
+       
+        // Act
+        var actual = sut.GetNumbers(1);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }
