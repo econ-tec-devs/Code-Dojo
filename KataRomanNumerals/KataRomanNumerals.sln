@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataRomanNumerals", "KataRomanNumerals\KataRomanNumerals.csproj", "{4D81B6EB-0024-420D-8003-88637433C702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataRomanNumeralsTest", "KataRomanNumeralsTest\KataRomanNumeralsTest.csproj", "{FF31733A-7685-48BF-B3AD-192A67D56633}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D81B6EB-0024-420D-8003-88637433C702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D81B6EB-0024-420D-8003-88637433C702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D81B6EB-0024-420D-8003-88637433C702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D81B6EB-0024-420D-8003-88637433C702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF31733A-7685-48BF-B3AD-192A67D56633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF31733A-7685-48BF-B3AD-192A67D56633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF31733A-7685-48BF-B3AD-192A67D56633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF31733A-7685-48BF-B3AD-192A67D56633}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
