@@ -16,7 +16,7 @@ public class RomanNumeralsTests
        
         // Act
 
-        sut.GetNumbers();
+        sut.GetNumbers(1);
         
         // Assert
         Assert.Pass();

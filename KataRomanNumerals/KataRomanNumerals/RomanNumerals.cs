@@ -2,8 +2,8 @@ namespace KataRomanNumerals;
 
 public class RomanNumerals
 {
-    public void GetNumbers()
+    public string GetNumbers(int v)
     {
-        
+        return "I";
     }
 }
