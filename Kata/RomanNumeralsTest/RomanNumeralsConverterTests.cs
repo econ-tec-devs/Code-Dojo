@@ -46,4 +46,17 @@ public class RomanNumeralsConverterTests
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    [Test]
+    public void ToRoman_Input3_ReturnsIII()
+    {
+        // Arange
+        
+        var expected = "III";
+        
+        // Act
+        string actual = sut.ToRoman(3);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }
