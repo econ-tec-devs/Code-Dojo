@@ -7,6 +7,7 @@ public class RomanNumeralsConverterTests
     [TestCase(1, "I")]
     [TestCase(2, "II")]
     [TestCase(3, "III")]
+    [TestCase(4, "IV")]
     public void ToRoman_Input3_ReturnsIII(int input, string expected)
     {
         // Arrange
