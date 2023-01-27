@@ -1,3 +1,5 @@
+using RomanNumerals;
+
 namespace RomanNumeralsTest;
 
 public class RomanNumeralsConverterTests
@@ -13,5 +15,19 @@ public class RomanNumeralsConverterTests
         new RomanNumeralsConverter();
         
         Assert.Pass();
+    }
+    
+    [Test]
+    public void ToRoman_Input1_ReturnsI()
+    {
+        // Arange
+        var sut = new RomanNumeralsConverter();
+        var expected = "I";
+        
+        // Act
+        string actual = sut.ToRoman(1);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }
