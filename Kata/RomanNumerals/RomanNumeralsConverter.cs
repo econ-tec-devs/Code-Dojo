@@ -5,12 +5,17 @@ public class RomanNumeralsConverter
     public string ToRoman(int number)
     {
         var output = string.Empty; 
-        for (var i = number; i > 0; i--)
+        
+        if (number == 4)
+        {
+            return "IV";
+        }
+        
+        for (var i = 1; i <= number; i++)
         {
             output += "I";
         }
         
         return output;
     }
-    
 }
