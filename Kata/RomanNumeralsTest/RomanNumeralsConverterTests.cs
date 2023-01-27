@@ -4,9 +4,11 @@ namespace RomanNumeralsTest;
 
 public class RomanNumeralsConverterTests
 {
+    private RomanNumeralsConverter sut;
     [SetUp]
     public void Setup()
     {
+        sut = new RomanNumeralsConverter(); 
     }
 
     [Test]
@@ -20,8 +22,9 @@ public class RomanNumeralsConverterTests
     [Test]
     public void ToRoman_Input1_ReturnsI()
     {
+        
         // Arange
-        var sut = new RomanNumeralsConverter();
+        
         var expected = "I";
         
         // Act
@@ -34,7 +37,7 @@ public class RomanNumeralsConverterTests
     public void ToRoman_Input2_ReturnsII()
     {
         // Arange
-        var sut = new RomanNumeralsConverter();
+        
         var expected = "II";
         
         // Act
