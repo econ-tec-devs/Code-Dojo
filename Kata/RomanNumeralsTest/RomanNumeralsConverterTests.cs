@@ -29,5 +29,18 @@ public class RomanNumeralsConverterTests
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
+    } 
+    [Test]
+    public void ToRoman_Input2_ReturnsII()
+    {
+        // Arange
+        var sut = new RomanNumeralsConverter();
+        var expected = "II";
+        
+        // Act
+        string actual = sut.ToRoman(2);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }
