@@ -4,19 +4,13 @@ public class RomanNumeralsConverter
 {
     public string ToRoman(int number)
     {
-        if (number == 3)
+        var output = string.Empty; 
+        for (var i = number; i > 0; i--)
         {
-            return "III";
+            output += "I";
         }
-
-        if (number == 2)
-        {
-            return "II";
-        }
-
-        return "I";
-
-
+        
+        return output;
     }
     
 }
