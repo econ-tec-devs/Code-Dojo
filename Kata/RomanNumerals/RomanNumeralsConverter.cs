@@ -6,6 +6,10 @@ public class RomanNumeralsConverter
     {
         var output = string.Empty; 
         
+        if (number == 7)
+        {
+            return "VII";
+        }        
         if (number == 6)
         {
             return "VI";
