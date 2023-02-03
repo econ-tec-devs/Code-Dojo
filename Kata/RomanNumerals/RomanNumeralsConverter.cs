@@ -5,10 +5,7 @@ public class RomanNumeralsConverter
     public string ToRoman(int number)
     {
         var output = string.Empty;
-        if (number == 20)
-        {
-            return "XX";
-        }
+        
         if (number == 19)
         {
             return "XIX";
@@ -42,13 +39,12 @@ public class RomanNumeralsConverter
     private string Number(ref int number, int divisor, string romanNumeral)
     {
         var output = string.Empty;
-        var modulo = number % divisor;
-        if (modulo >= 0 && modulo != number)
+        
+        for (var i = number / divisor; i > 0; i--)
         {
             output += romanNumeral;
             number -= divisor;
         }
-
         return output;
     }
 }
