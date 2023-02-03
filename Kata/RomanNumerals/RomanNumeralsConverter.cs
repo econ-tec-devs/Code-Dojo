@@ -5,11 +5,16 @@ public class RomanNumeralsConverter
     public string ToRoman(int number)
     {
         var output = string.Empty;
+        if (number == 10)
+        {
+            return "X";
+        }
         
         if (number == 9)
         {
             return "IX";
         }
+        
         if (number == 8)
         {
             return "VIII";
