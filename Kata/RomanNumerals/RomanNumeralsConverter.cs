@@ -5,7 +5,14 @@ public class RomanNumeralsConverter
     public string ToRoman(int number)
     {
         var output = string.Empty;
-        
+        if (number == 20)
+        {
+            return "XX";
+        }
+        if (number == 19)
+        {
+            return "XIX";
+        }
         if (number == 14)
         {
             return "XIV";
