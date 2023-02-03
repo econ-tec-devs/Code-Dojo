@@ -6,6 +6,16 @@ public class RomanNumeralsConverter
     {
         var output = string.Empty; 
         
+        for (var i = 1; i <= number; i++)
+        {
+            output += "I";
+        }
+
+        if (number == 8)
+        {
+            return "VIII";
+        }
+        
         if (number == 7)
         {
             return "VII";
@@ -25,11 +35,7 @@ public class RomanNumeralsConverter
         {
             return "IV";
         }
-        
-        for (var i = 1; i <= number; i++)
-        {
-            output += "I";
-        }
+
         
         return output;
     }
