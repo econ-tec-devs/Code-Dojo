@@ -14,6 +14,7 @@ public class RomanNumeralsConverterTests
     [TestCase(8, "VIII")]
     [TestCase(9, "IX")] 
     [TestCase(10, "X")]
+    [TestCase(11, "XI")]
     
     public void ToRoman_InputNumbers_ReturnsRomanNumerals(int input, string expected)
     {
