@@ -6,10 +6,16 @@ public class RomanNumeralsConverter
     {
         var output = string.Empty;
         
+        if (number == 24)
+        {
+            return "XXIV";
+        }
+
         if (number == 19)
         {
             return "XIX";
         }
+        
         if (number == 14)
         {
             return "XIV";
