@@ -2,6 +2,5 @@
 - Fensteranordnung (Man sieht immer den Testexplorer, Produktivcode und Tests)
 - Baby-Steps (sowohl im Test- als auch Prodcode)
 - DRY Prinzip - Don't repeat yourself (sowohl im Test- als auch Prodcode)
-- Erst tiefere Logik implementieren, sobald sich ein Muster aufdrängt. Bei FizzBuzz wäre das z. B. beim zweiten Fizz.
 - Das bisher gesehene verstehen und einprägen, so das man es ohne drüber nachzudenken wiederholen könnte.
-- FizzBuzz von vorne, diesmal aber möglichst bis 15 kommen (schön wäre natürlich fertig werden ;))
+
