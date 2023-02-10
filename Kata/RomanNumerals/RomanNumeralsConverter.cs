@@ -5,34 +5,10 @@ public class RomanNumeralsConverter
     public string ToRoman(int number)
     {
         var output = string.Empty;
-        
-        if (number == 24)
-        {
-            return "XXIV";
-        }
-
-        if (number == 19)
-        {
-            return "XIX";
-        }
-        
-        if (number == 14)
-        {
-            return "XIV";
-        }
-        
-        if (number == 9)
-        {
-            return "IX";
-        }
-        
-        if (number == 4)
-        {
-            return "IV";
-        }
-
         output += Number(ref number, 10, "X");
+        output += Number(ref number, 9, "IX");
         output += Number(ref number, 5, "V");
+        output += Number(ref number, 4, "IV");
 
         for (var i = 1; i <= number; i++)
         {
