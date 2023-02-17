@@ -3,8 +3,8 @@ namespace KataPotterTest;
 public class ShoppingCart
 {
     
-    public void Checkout(List<string> books)
+    public decimal Checkout(List<string> books)
     {
-        
+        return 0;
     }
 }
