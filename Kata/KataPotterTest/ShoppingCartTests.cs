@@ -19,14 +19,25 @@ public class ShoppingCartTests
     }
     
     [Test]
-    public void Checkout_InputStringArray_Passed()
+    public void Checkout_InputStringList_Passed()
     {
         //Arrange
         var sut = new ShoppingCart();
-        List<string> books = new List<string>();
+        var books = new List<string>();
         //Act
         sut.Checkout(books);
         //Assert
         Assert.Pass();
+        
+    }[Test]
+    public void Checkout_InputEmptyStringList_ReturnPriceDecimal()
+    {
+        //Arrange
+        var sut = new ShoppingCart();
+        var books = new List<string>();
+        //Act
+        decimal price = sut.Checkout(books);
+        //Assert
+        Assert.That(price, Is.EqualTo(0));
     }
 }
