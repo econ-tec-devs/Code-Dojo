@@ -13,7 +13,7 @@ public class ShoppingCartTests
         //Arrange
         var sut = new ShoppingCart(); 
         //Act
-        sut.Checkout();
+        sut.Checkout(null);
         //Assert
         Assert.Pass();
     }
