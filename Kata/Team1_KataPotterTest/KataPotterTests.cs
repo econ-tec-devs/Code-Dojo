@@ -44,4 +44,20 @@ public class KataPotterTests
         //Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void Checkout_InputTwoBook_FivePercentDiscount()
+    {
+        //Arrange
+        _books.Add("first book");
+        _books.Add("second book");
+        
+        var expected = 15.20m;
+        
+        //Act
+        var actual = _sut.Checkout(_books);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }
