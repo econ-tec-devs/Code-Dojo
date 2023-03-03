@@ -33,5 +33,19 @@ public class ShoppingCartTests
 
         //Assert
         Assert.Pass();
+    }    
+
+    [Test]
+    public void Checkout_InputBooks_Returns0()
+    {
+        //Arrange
+        var books = new List<string>();
+        var expected = 0;
+        
+        //Act
+        decimal result = _sut.Checkout(books);
+
+        //Assert
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
