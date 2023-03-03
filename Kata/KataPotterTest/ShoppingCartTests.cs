@@ -11,7 +11,7 @@ public class ShoppingCartTests
         var sut = new ShoppingCart();
        
         //Act
-        sut.Checkout();
+        sut.Checkout(null);
 
         //Assert
         Assert.Pass();
