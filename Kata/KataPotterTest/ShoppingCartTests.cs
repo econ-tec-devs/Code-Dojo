@@ -1,3 +1,5 @@
+using KataPotter;
+
 namespace KataPotterTest;
 
 public class ShoppingCartTests
