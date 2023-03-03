@@ -3,6 +3,9 @@ namespace Team1_KataPotterTest;
 
 public class KataPotterTests
 {
+    private Basket _sut = new Basket();
+    private List<string> _books = new List<string>();
+
     [SetUp]
     public void Setup()
     {
@@ -11,8 +14,7 @@ public class KataPotterTests
     [Test]
     public void Basket_Call_Pass()
     {
-        var sut = new Basket();
-        
+        _sut = new Basket();
         Assert.Pass();
     }
     
@@ -20,12 +22,10 @@ public class KataPotterTests
     public void Checkout_InputEmptyStringList_Zero()
     {
         //Arrange
-        var sut = new Basket();
-        var books = new List<string>();
         var expected = 0.00m;
         
         //Act
-        var actual = sut.Checkout(books);
+        var actual = _sut.Checkout(_books);
 
         //Assert
         Assert.That(actual, Is.EqualTo(expected));
@@ -35,12 +35,11 @@ public class KataPotterTests
     public void Checkout_InputOneBook_Eight()
     {
         //Arrange
-        var sut = new Basket();
-        var books = new List<string>() { "book1" };
+        _books.Add("first book");
         var expected = 8.00m;
         
         //Act
-        var actual = sut.Checkout(books);
+        var actual = _sut.Checkout(_books);
 
         //Assert
         Assert.That(actual, Is.EqualTo(expected));
