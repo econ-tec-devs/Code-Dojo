@@ -2,10 +2,10 @@
 
 public class ShoppingCart
 {
-    public decimal Checkout(List<string> books)
+    public decimal Checkout(List<string>? books)
     { 
-       
-        if (books.Any())
+      
+        if (books != null && books.Any())
         {
             return 8;
         }
