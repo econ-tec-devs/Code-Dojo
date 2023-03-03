@@ -11,21 +11,36 @@ public class KataPotterTests
     [Test]
     public void Basket_Call_Pass()
     {
-        Basket sut = new Basket();
+        var sut = new Basket();
         
         Assert.Pass();
     }
     
     [Test]
-    public void Basket_InputEmptyStringList_Passed()
+    public void Checkout_InputEmptyStringList_Zero()
     {
         //Arrange
-        Basket sut = new Basket();
-        List<string> books = new List<string>();
-        decimal expected = 0;
+        var sut = new Basket();
+        var books = new List<string>();
+        var expected = 0.00m;
         
         //Act
-        decimal actual = sut.Checkout(books);
+        var actual = sut.Checkout(books);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
+    
+    [Test]
+    public void Checkout_InputOneBook_Eight()
+    {
+        //Arrange
+        var sut = new Basket();
+        var books = new List<string>() { "book1" };
+        var expected = 8.00m;
+        
+        //Act
+        var actual = sut.Checkout(books);
 
         //Assert
         Assert.That(actual, Is.EqualTo(expected));
