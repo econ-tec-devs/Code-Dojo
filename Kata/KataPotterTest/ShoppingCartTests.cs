@@ -11,7 +11,7 @@ public class ShoppingCartTests
     {
         _sut = new ShoppingCart();
     }
-    
+
     [Test]
     public void Checkout_Called_Passed()
     {
@@ -21,19 +21,19 @@ public class ShoppingCartTests
         //Assert
         Assert.Pass();
     }
-    
+
     [Test]
     public void Checkout_InputBooks_Passed()
     {
         //Arrange
         var books = new List<string>();
-        
+
         //Act
         _sut.Checkout(books);
 
         //Assert
         Assert.Pass();
-    }    
+    }
 
     [Test]
     public void Checkout_InputBooks_Returns0()
@@ -41,7 +41,7 @@ public class ShoppingCartTests
         //Arrange
         var books = new List<string>();
         var expected = 0;
-        
+
         //Act
         decimal result = _sut.Checkout(books);
 
