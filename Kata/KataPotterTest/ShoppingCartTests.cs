@@ -47,5 +47,19 @@ public class ShoppingCartTests
 
         //Assert
         Assert.That(result, Is.EqualTo(expected));
+    } 
+    
+    [Test]
+    public void Checkout_InputBookOne_Returns8()
+    {
+        //Arrange
+        var books = new List<string>(){"Book1"};
+        var expected = 8;
+
+        //Act
+        decimal result = _sut.Checkout(books);
+
+        //Assert
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
