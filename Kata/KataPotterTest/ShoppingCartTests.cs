@@ -4,14 +4,19 @@ namespace KataPotterTest;
 
 public class ShoppingCartTests
 {
+    private ShoppingCart _sut;
+
+    [SetUp]
+    public void SetUp()
+    {
+        _sut = new ShoppingCart();
+    }
+    
     [Test]
     public void Checkout_Called_Passed()
     {
-        //Arrange
-        var sut = new ShoppingCart();
-       
         //Act
-        sut.Checkout(null);
+        _sut.Checkout(null);
 
         //Assert
         Assert.Pass();
@@ -21,10 +26,10 @@ public class ShoppingCartTests
     public void Checkout_InputBooks_Passed()
     {
         //Arrange
-        var sut = new ShoppingCart();
         var books = new List<string>();
+        
         //Act
-        sut.Checkout(books);
+        _sut.Checkout(books);
 
         //Assert
         Assert.Pass();
