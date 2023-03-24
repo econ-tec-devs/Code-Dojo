@@ -6,25 +6,16 @@ public class Basket
     public decimal Checkout(List<string> books)
     {
         var price = 0m;
+        decimal[] discount = { 0m, 1m, 0.95m, 0.9m, 0.8m };
+        var count = 0;
         
         foreach (var book in books)
         {
             price += 8.00m;
+            count++;
         }
-
-        if (books.Count == 2)
-        {
-            price -= price * 0.05m;
-        } 
-        if (books.Count == 3)
-        {
-            price -= price * 0.10m;
-        }
-        if (books.Count == 4)
-        {
-            price -= price * 0.20m;
-        }
-
-        return price;
+        
+        return price * discount[count];
+        
     }
 }
