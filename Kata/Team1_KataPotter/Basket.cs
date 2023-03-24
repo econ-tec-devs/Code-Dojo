@@ -15,6 +15,10 @@ public class Basket
         if (books.Count == 2)
         {
             price -= price * 0.05m;
+        } 
+        if (books.Count == 3)
+        {
+            price -= price * 0.10m;
         }
 
         return price;
