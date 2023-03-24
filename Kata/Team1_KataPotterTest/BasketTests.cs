@@ -115,4 +115,19 @@ public class BasketTests
         //Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void Checkout_InputTwoEqualBooks_Sixteen()
+    {
+        //Arrange
+        _books.Add("first book");
+        _books.Add("first book");
+        var expected = 16.00m;
+        
+        //Act
+        var actual = _sut.Checkout(_books);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }
