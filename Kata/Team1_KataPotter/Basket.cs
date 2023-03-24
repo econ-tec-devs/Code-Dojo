@@ -14,7 +14,6 @@ public class Basket
             count++;
         }
 
-        return price * discount[books.Distinct().Count()];
-        
+        return price * discount[books.Distinct().Count()];        
     }
 }
