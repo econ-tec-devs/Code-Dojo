@@ -1,7 +1,7 @@
 using Team1_KataPotter;
 namespace Team1_KataPotterTest;
 
-public class KataPotterTests
+public class BasketTests
 {
     private Basket _sut;
     private List<string> _books;
