@@ -20,6 +20,10 @@ public class Basket
         {
             price -= price * 0.10m;
         }
+        if (books.Count == 4)
+        {
+            price -= price * 0.20m;
+        }
 
         return price;
     }
