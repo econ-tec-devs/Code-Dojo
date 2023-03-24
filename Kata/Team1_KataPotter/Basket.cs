@@ -12,6 +12,11 @@ public class Basket
             price += 8.00m;
         }
 
+        if (books.Count == 2)
+        {
+            price -= price * 0.05m;
+        }
+
         return price;
     }
 }

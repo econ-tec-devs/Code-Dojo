@@ -3,12 +3,14 @@ namespace Team1_KataPotterTest;
 
 public class KataPotterTests
 {
-    private Basket _sut = new Basket();
-    private List<string> _books = new List<string>();
+    private Basket _sut;
+    private List<string> _books;
 
     [SetUp]
     public void Setup()
     {
+        _sut = new Basket();
+        _books = new List<string>();
     }
 
     [Test]
