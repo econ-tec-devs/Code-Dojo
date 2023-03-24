@@ -104,7 +104,8 @@ public class BasketTests
         _books.Add("first book");
         _books.Add("second book");
         _books.Add("third book");
-        _books.Add("Fourth book");
+        _books.Add("fourth book");
+        _books.Add("fifth book");
 
         var expected = 30m;
 
