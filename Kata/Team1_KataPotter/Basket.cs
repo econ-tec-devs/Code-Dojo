@@ -13,8 +13,8 @@ public class Basket
             price += 8.00m;
             count++;
         }
-        
-        return price * discount[count];
+
+        return price * discount[books.Distinct().Count()];
         
     }
 }
