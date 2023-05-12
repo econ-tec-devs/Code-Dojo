@@ -4,16 +4,20 @@ public class Game
 {
     public int[] RollDice()
     {
-        
-        Random rnd = new Random();
+        var rnd = new Random();
         var dice = new int[5];
-        
-        for (int i = 0; i < 5; i++)
+
+        for (var i = 0; i < 5; i++)
         {
-            int number = rnd.Next(1, 6);
+            var number = rnd.Next(1, 6);
             dice[i] = number;
         }
-        
+
         return dice;
+    }
+
+    public int PlaceRollToCategory()
+    {
+        return 123;
     }
 }

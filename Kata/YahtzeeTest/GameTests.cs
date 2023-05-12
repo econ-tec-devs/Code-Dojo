@@ -37,8 +37,8 @@ public class GameTests
 
         // Assert
         foreach (var i in actual) Assert.That(i, Is.GreaterThanOrEqualTo(1).And.LessThanOrEqualTo(6));
-    } 
-    
+    }
+
     [Test]
     public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScore()
     {
@@ -46,6 +46,6 @@ public class GameTests
         var actual = _sut.PlaceRollToCategory();
 
         // Assert
-        Assert.That(actual, Is.TypeOf<int[]>());
+        Assert.That(actual, Is.TypeOf<int>());
     }
 }
