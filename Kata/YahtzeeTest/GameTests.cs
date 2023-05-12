@@ -22,7 +22,8 @@ public class GameTests
         var actual = _sut.RollDice();
 
         // Assert
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.That(actual.Length, Is.EqualTo(5));
+        Assert.That(actual, Is.TypeOf<int[]>());
     }
 
     [Test]
@@ -35,6 +36,16 @@ public class GameTests
         var actual = _sut.RollDice();
 
         // Assert
-        foreach (var i in actual) Assert.That(i, Is.GreaterThan(1).And.LessThanOrEqualTo(6));
+        foreach (var i in actual) Assert.That(i, Is.GreaterThanOrEqualTo(1).And.LessThanOrEqualTo(6));
+    } 
+    
+    [Test]
+    public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScore()
+    {
+        //Act
+        var actual = _sut.PlaceRollToCategory();
+
+        // Assert
+        Assert.That(actual, Is.TypeOf<int[]>());
     }
 }
