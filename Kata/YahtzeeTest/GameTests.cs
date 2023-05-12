@@ -37,7 +37,7 @@ public class GameTests
     public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScore()
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new int[5]);
+        var actual = _sut.PlaceRollToCategory(new int[5], Category.LargeStraight);
 
         // Assert
         Assert.That(actual, Is.TypeOf<int>());
@@ -47,7 +47,7 @@ public class GameTests
     public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScoreGreaterThan0()
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new int[5]);
+        var actual = _sut.PlaceRollToCategory(new int[5], Category.LargeStraight);
 
         // Assert
         Assert.That(actual, Is.GreaterThan(0));
@@ -57,13 +57,14 @@ public class GameTests
     public void PlaceRollToCategory_InputRoll_ReturnsScoreGreaterThan0()
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 });
+        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
 
         // Assert
         Assert.That(actual, Is.GreaterThan(0));
     }
 
-    [Test] public void PlaceRollToCategory_InputRollAndCategory_ReturnsScoreGreaterThan0()
+    [Test]
+    public void PlaceRollToCategory_InputRollAndCategory_ReturnsScoreGreaterThan0()
     {
         // Arrange & Act
         var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
@@ -71,5 +72,14 @@ public class GameTests
         // Assert
         Assert.That(actual, Is.GreaterThan(0));
     }
-}
 
+    [Test]
+    public void PlaceRollToCategory_InputRollAndSmallStraight_Returns30()
+    {
+        // Arrange & Act
+        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
+
+        // Assert
+        Assert.That(actual, Is.EqualTo(30));
+    }
+}

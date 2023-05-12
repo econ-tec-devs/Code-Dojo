@@ -16,7 +16,7 @@ public class Game
         return dice;
     }
 
-    public int PlaceRollToCategory(int[] RollDice)
+    public int PlaceRollToCategory(int[] RollDice, Category category)
     {
         return 40;
     }
