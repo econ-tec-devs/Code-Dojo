@@ -18,6 +18,6 @@ public class Game
 
     public int PlaceRollToCategory()
     {
-        return 123;
+        return 0;
     }
 }

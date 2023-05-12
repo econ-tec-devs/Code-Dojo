@@ -15,10 +15,7 @@ public class GameTests
     [Test]
     public void RollDice_Called_ReturnFiveNumbers()
     {
-        // Arrange 
-        var expected = new int[5];
-
-        //Act
+        // Arrange & Act
         var actual = _sut.RollDice();
 
         // Assert
@@ -29,10 +26,7 @@ public class GameTests
     [Test]
     public void RollDice_Called_ReturnNumbersAreBetween1And6()
     {
-        // Arrange 
-        var expected = new int[5];
-
-        //Act
+        // Arrange & Act 
         var actual = _sut.RollDice();
 
         // Assert
@@ -42,10 +36,30 @@ public class GameTests
     [Test]
     public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScore()
     {
-        //Act
+        // Arrange & Act
         var actual = _sut.PlaceRollToCategory();
 
         // Assert
         Assert.That(actual, Is.TypeOf<int>());
+    }
+
+    [Test]
+    public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScoreGreaterThan0()
+    {
+        // Arrange & Act
+        var actual = _sut.PlaceRollToCategory();
+
+        // Assert
+        Assert.That(actual, Is.GreaterThan(0));
+    }
+
+    [Test]
+    public void PlaceRollToCategory_RollIsNotCompatibleWithCategory_Return0()
+    {
+        // Arrange & Act
+        var actual = _sut.PlaceRollToCategory();
+
+        // Assert
+        Assert.That(actual, Is.EqualTo(0));
     }
 }
