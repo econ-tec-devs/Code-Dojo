@@ -18,4 +18,19 @@ public class GameTests
         // Assert
         Assert.Pass();
     }
+
+    [Test]
+    public void RollDice_Called_ReturnFiveNumbers()
+    {
+        // Arrange 
+        var sut = new Game();
+        int[] expected = new int[5];
+
+        //Act
+        int[] actual = sut.RollDice();
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+
+    }
 }
