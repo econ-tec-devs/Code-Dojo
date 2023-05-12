@@ -1,3 +1,5 @@
+using Yahtzee;
+
 namespace YahtzeeTest;
 
 public class GameTests
