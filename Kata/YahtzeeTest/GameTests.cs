@@ -57,9 +57,9 @@ public class GameTests
     public void PlaceRollToCategory_InputRoll_ReturnsScoreGreaterThan0()
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new int[] { 1, 2, 3, 4, 5 });
+        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 });
 
         // Assert
-        Assert.That(actual, Is.EqualTo(0));
+        Assert.That(actual, Is.GreaterThan(0));
     }
 }
