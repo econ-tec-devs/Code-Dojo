@@ -32,54 +32,18 @@ public class GameTests
         // Assert
         foreach (var i in actual) Assert.That(i, Is.GreaterThanOrEqualTo(1).And.LessThanOrEqualTo(6));
     }
-
-    [Test]
-    public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScore()
+    
+    [TestCase(Category.LargeStraight, 40)]
+    [TestCase(Category.SmallStraight, 30)]
+    [TestCase(Category.FullHouse, 25)]
+    public void PlaceRollToCategory_InputRollAndSmallStraight_Returns30(Category category, int expected)
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new int[5], Category.LargeStraight);
-
+        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, category);
+        
         // Assert
-        Assert.That(actual, Is.TypeOf<int>());
+        Assert.That(actual, Is.EqualTo(expected));
     }
-
-    [Test]
-    public void PlaceRollToCategory_RollIsCompatibleWithCategory_ReturnScoreGreaterThan0()
-    {
-        // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new int[5], Category.LargeStraight);
-
-        // Assert
-        Assert.That(actual, Is.GreaterThan(0));
-    }
-
-    [Test]
-    public void PlaceRollToCategory_InputRoll_ReturnsScoreGreaterThan0()
-    {
-        // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
-
-        // Assert
-        Assert.That(actual, Is.GreaterThan(0));
-    }
-
-    [Test]
-    public void PlaceRollToCategory_InputRollAndCategory_ReturnsScoreGreaterThan0()
-    {
-        // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
-
-        // Assert
-        Assert.That(actual, Is.GreaterThan(0));
-    }
-
-    [Test]
-    public void PlaceRollToCategory_InputRollAndSmallStraight_Returns30()
-    {
-        // Arrange & Act
-        var actual = _sut.PlaceRollToCategory(new[] { 1, 2, 3, 4, 5 }, Category.LargeStraight);
-
-        // Assert
-        Assert.That(actual, Is.EqualTo(30));
-    }
+    
+    
 }

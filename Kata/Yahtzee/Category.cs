@@ -2,5 +2,6 @@
 
 public enum Category
 {
-    LargeStraight
+    LargeStraight,
+    SmallStraight
 }

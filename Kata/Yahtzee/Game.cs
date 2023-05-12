@@ -18,6 +18,15 @@ public class Game
 
     public int PlaceRollToCategory(int[] RollDice, Category category)
     {
-        return 40;
+        if (category == Category.LargeStraight)
+        {
+            return 40;
+        }
+        if (category == Category.SmallStraight)
+        {
+            return 30;
+        }
+
+        return 0;
     }
 }
