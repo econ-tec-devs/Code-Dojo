@@ -54,10 +54,10 @@ public class GameTests
     }
 
     [Test]
-    public void PlaceRollToCategory_RollIsNotCompatibleWithCategory_Return0()
+    public void PlaceRollToCategory_InputRoll_ReturnsScoreGreaterThan0()
     {
         // Arrange & Act
-        var actual = _sut.PlaceRollToCategory();
+        var actual = _sut.PlaceRollToCategory(new int[] { 1, 2, 3, 4, 5 });
 
         // Assert
         Assert.That(actual, Is.EqualTo(0));
