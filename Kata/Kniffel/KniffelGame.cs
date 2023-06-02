@@ -4,6 +4,10 @@ public class KniffelGame
 {
     public int[] Dice()
     {
-        return new[] { 1, 1, 1, 1, 1 };
+        var random = new Random();
+        var result = new int[5];
+        for (var i = 0; i < 5; i++) result[i] = random.Next(1, 6);
+
+        return result;
     }
 }
