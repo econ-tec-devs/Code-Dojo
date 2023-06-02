@@ -23,11 +23,10 @@ public class KniffelGameTests
     }
 
     [Test]
-    public void Dice_Called_ReturnFiveNumbers()
+    public void Dice_Called_ReturnsFiveNumbers()
     {
         // Arrange
         var sut = new KniffelGame();
-        int[] expected = { 1, 1, 1, 1, 1 };
 
         // Act
         var actual = sut.Dice();
@@ -38,7 +37,7 @@ public class KniffelGameTests
     }
 
     [Test]
-    public void Dice_Called_NumbersBiggerThan0()
+    public void Dice_Called_ReturnsNumbersBiggerThan0()
     {
         // Arrange
         var sut = new KniffelGame();
@@ -51,7 +50,7 @@ public class KniffelGameTests
     }
 
     [Test]
-    public void Dice_Called_NumbersLessThan7()
+    public void Dice_Called_ReturnsNumbersLessThan7()
     {
         // Arrange
         var sut = new KniffelGame();
@@ -74,7 +73,6 @@ public class KniffelGameTests
         var actual2 = sut.Dice();
 
         // Assert
-
         Assert.That(actual1, Is.Not.EqualTo(actual2));
     }
 }
