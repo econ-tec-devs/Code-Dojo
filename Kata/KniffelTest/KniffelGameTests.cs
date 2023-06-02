@@ -1,6 +1,7 @@
+using Kniffel;
 namespace KniffelTest;
 
-public class KniffelTests
+public class KniffelGameTests
 {
     [SetUp]
     public void Setup()
@@ -11,7 +12,7 @@ public class KniffelTests
     public void Dice_Called_Passed()
     {
         // Arrange
-        var sut = new Kniffel();
+        var sut = new KniffelGame();
 
         // Act
         sut.Dice();
