@@ -84,7 +84,7 @@ public class KniffelGameTests
 
         // Act
         var actual1 = sut.Dice();
-        var actual2 = sut.Dice([false, false, false, true, true]);
+        var actual2 = sut.Dice("false;false;false;true;true");
 
         // Assert
         Assert.That(actual1[0], Is.EqualTo(actual2[0]));
