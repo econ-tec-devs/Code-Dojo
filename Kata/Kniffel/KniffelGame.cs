@@ -4,5 +4,6 @@ public class KniffelGame
 {
     public void Dice()
     {
+        
     }
 }
