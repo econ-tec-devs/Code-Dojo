@@ -2,8 +2,8 @@ namespace Kniffel;
 
 public class KniffelGame
 {
-    public void Dice()
+    public int[] Dice()
     {
-        
+        return new[] { 0, 0, 0, 0, 0 };
     }
 }
