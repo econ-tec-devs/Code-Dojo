@@ -51,32 +51,15 @@ public class GameTests
         // Assert
         Assert.That(actual.Length, Is.EqualTo(3));
     }
-    
-    [Test]
-    public void PlaceRoll_Input11244OnFours_Return8()
+
+    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Ones, 2)]
+    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fours, 8)]
+    public void PlaceRoll_Input11244OnOnes_Return2(int[] dice, Categories category, int expected)
     {
-        //Arrange
-        var dice = new int[] { 1, 1, 2, 4, 4 };
-        Categories category = Categories.Fours; 
-        
         // Act
         int actual = _sut.PlaceRoll(dice, category);
         
         // Assert
-        Assert.That(actual, Is.EqualTo(8));
-    }
-    
-    [Test]
-    public void PlaceRoll_Input11244OnOnes_Return2()
-    {
-        //Arrange
-        var dice = new int[] { 1, 1, 2, 4, 4 };
-        Categories category = Categories.Ones; 
-        
-        // Act
-        int actual = _sut.PlaceRoll(dice, category);
-        
-        // Assert
-        Assert.That(actual, Is.EqualTo(2));
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }
