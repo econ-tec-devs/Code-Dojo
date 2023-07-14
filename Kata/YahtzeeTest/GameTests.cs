@@ -3,19 +3,19 @@ namespace YahtzeeTest;
 
 public class GameTests
 {
+    private Game _sut = new();
+
     [SetUp]
     public void Setup()
     {
+        _sut = new Game();
     }
 
     [Test]
     public void Dice_Called_Passes()
     {
-        // Arrange
-        var sut = new Game();
-        
         // Act
-        sut.Dice();
+        _sut.Dice();
         
         // Assert
         Assert.Pass();
@@ -24,11 +24,8 @@ public class GameTests
     [Test]
     public void Dice_Called_ReturnFiveNumbers()
     {
-        // Arrange
-        var sut = new Game();
-        
         // Act
-        int[] actual = sut.Dice();
+        var actual = _sut.Dice();
         
         // Assert
         Assert.That(actual, Is.TypeOf<int[]>());
@@ -38,13 +35,20 @@ public class GameTests
     [Test]
     public void Dice_Called_ReturnNumbersBetweenOneAndSix()
     {
-        // Arrange
-        var sut = new Game();
-        
         // Act
-        int[] actual = sut.Dice();
+        var actual = _sut.Dice();
         
         // Assert
         Assert.That(actual, Is.All.InRange(1,6));
+    }
+    
+    [Test]
+    public void Dice_InputThree_ReturnThreeNumbers()
+    {
+        // Act
+        var actual = _sut.Dice(3);
+        
+        // Assert
+        Assert.That(actual.Length, Is.EqualTo(3));
     }
 }
