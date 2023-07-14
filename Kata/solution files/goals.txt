@@ -1,6 +1,0 @@
-- Jeder hat einmal einen Red-Green-Refactor Zyklus geschafft
-- Fensteranordnung (Man sieht immer den Testexplorer, Produktivcode und Tests)
-- Baby-Steps (sowohl im Test- als auch Prodcode)
-- DRY Prinzip - Don't repeat yourself (sowohl im Test- als auch Prodcode)
-- Das bisher gesehene verstehen und einprägen, so das man es ohne drüber nachzudenken wiederholen könnte.
-
