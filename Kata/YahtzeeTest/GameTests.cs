@@ -34,4 +34,17 @@ public class GameTests
         Assert.That(actual, Is.TypeOf<int[]>());
         Assert.That(actual.Length, Is.EqualTo(5));
     }
+    
+    [Test]
+    public void Dice_Called_ReturnNumbersBetweenOneAndSix()
+    {
+        // Arrange
+        var sut = new Game();
+        
+        // Act
+        int[] actual = sut.Dice();
+        
+        // Assert
+        Assert.That(actual, Is.All.InRange(1,6));
+    }
 }
