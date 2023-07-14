@@ -53,10 +53,17 @@ public class GameTests
     }
 
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Ones, 2)]
+    [TestCase(new [] {2, 2, 2, 4, 4}, Categories.Ones, 0)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Twoes, 2)]
+    [TestCase(new [] {1, 1, 3, 4, 4}, Categories.Twoes, 0)]
+    [TestCase(new [] {3, 3, 2, 4, 4}, Categories.Threes, 6)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Threes, 0)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fours, 8)]
+    [TestCase(new [] {1, 1, 2, 3, 3}, Categories.Fours, 0)]
+    [TestCase(new [] {1, 1, 2, 5, 5}, Categories.Fives, 10)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fives, 0)]
+    [TestCase(new [] {1, 1, 2, 6, 6}, Categories.Sixes, 12)]
+    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Sixes, 0)]
     public void PlaceRoll_Input11244OnOnes_Return2(int[] dice, Categories category, int expected)
     {
         // Act

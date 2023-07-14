@@ -18,24 +18,30 @@ public class Game
     public int PlaceRoll(int[] dice, Categories category)
     {
         // var result = 0;
+        // foreach (var cube in dice)
+        // {
+        //     if (cube == 1)
+        //     {
+        //         result += 1;
+        //     }
+        // }
+        //
+        // return result;
+
         return category switch
         {
-            // foreach (var cube in dice)
-            // {
-            //     if (cube == 1)
-            //     {
-            //         result += 1;
-            //     }
-            // }
-            //
-            // return result;
-            
-            Categories.Ones => dice.Count(cube => cube == 1) * 1, // same but shorter
-            Categories.Twoes => dice.Count(cube => cube == 2) * 2, // same but shorter
-            Categories.Threes => dice.Count(cube => cube == 3) * 3, // same but shorter
-            Categories.Fours => dice.Count(cube => cube == 4) * 4, // same but shorter
-            
+            Categories.Ones => SumOnesTillSixes(dice, 1),
+            Categories.Twoes => SumOnesTillSixes(dice, 2),
+            Categories.Threes => SumOnesTillSixes(dice, 3),
+            Categories.Fours => SumOnesTillSixes(dice, 4),
+            Categories.Fives => SumOnesTillSixes(dice, 5),
+            Categories.Sixes => SumOnesTillSixes(dice, 6),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
+    }
+
+    private static int SumOnesTillSixes(int[] dice, int category)
+    {
+        return dice.Count(cube => cube == category) * category;
     }
 }
