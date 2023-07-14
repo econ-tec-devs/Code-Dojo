@@ -2,6 +2,7 @@
 
 public enum Categories
 {
+    Ones,
+    Twoes,
     Fours,
-    Ones
 }
