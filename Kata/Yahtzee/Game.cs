@@ -32,6 +32,7 @@ public class Game
             
             Categories.Ones => dice.Count(cube => cube == 1) * 1, // same but shorter
             Categories.Twoes => dice.Count(cube => cube == 2) * 2, // same but shorter
+            Categories.Threes => dice.Count(cube => cube == 3) * 3, // same but shorter
             Categories.Fours => dice.Count(cube => cube == 4) * 4, // same but shorter
             
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)

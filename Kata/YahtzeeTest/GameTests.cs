@@ -54,8 +54,9 @@ public class GameTests
 
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Ones, 2)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Twoes, 2)]
-    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Three, 0)]
+    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Threes, 0)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fours, 8)]
+    [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fives, 0)]
     public void PlaceRoll_Input11244OnOnes_Return2(int[] dice, Categories category, int expected)
     {
         // Act
