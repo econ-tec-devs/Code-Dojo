@@ -28,10 +28,10 @@ public class GameTests
         var sut = new Game();
         
         // Act
-        var actual = sut.Dice();
+        int[] actual = sut.Dice();
         
         // Assert
-        Assert.That(actual, Is.All.InstanceOf<int>());
+        Assert.That(actual, Is.TypeOf<int[]>());
         Assert.That(actual.Length, Is.EqualTo(5));
     }
 }
