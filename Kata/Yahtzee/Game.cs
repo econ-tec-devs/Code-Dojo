@@ -4,6 +4,13 @@ public class Game
 {
     public int[] Dice()
     {
-        return new int[] {0, 1, 2, 3, 4};
+        var result = new int[5];
+        for (var i = 0; i < 5; i++)
+        {
+            var random = new Random();
+            result[i] = random.Next(1, 6); 
+        }
+
+        return result;
     }
 }
