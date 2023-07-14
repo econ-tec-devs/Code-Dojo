@@ -51,4 +51,18 @@ public class GameTests
         // Assert
         Assert.That(actual.Length, Is.EqualTo(3));
     }
+    
+    [Test]
+    public void PlaceRoll_Input11244OnFours_Return8()
+    {
+        //Arrange
+        var dice = new int[] { 1, 1, 2, 4, 4 };
+        Categories category = Categories.Fours; 
+        
+        // Act
+        var actual = _sut.PlaceRoll(dice, category);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(8));
+    }
 }

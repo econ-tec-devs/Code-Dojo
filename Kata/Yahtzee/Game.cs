@@ -2,10 +2,11 @@ namespace Yahtzee;
 
 public class Game
 {
-    public int[] Dice()
+    public int[] Dice(int amount = 5)
     {
-        var result = new int[5];
-        for (var i = 0; i < 5; i++)
+        var result = new int[amount];
+        
+        for (var i = 0; i < amount; i++)
         {
             var random = new Random();
             result[i] = random.Next(1, 6); 
