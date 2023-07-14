@@ -14,4 +14,9 @@ public class Game
 
         return result;
     }
+
+    public int PlaceRoll(int[] dice, Categories category)
+    {
+        return 8;
+    }
 }
