@@ -64,7 +64,7 @@ public class GameTests
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fives, 0)]
     [TestCase(new [] {1, 1, 2, 6, 6}, Categories.Sixes, 12)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Sixes, 0)]
-    public void PlaceRoll_Input11244OnOnes_Return2(int[] dice, Categories category, int expected)
+    public void PlaceRoll_InputDiceAndCategory_ReturnPoints(int[] dice, Categories category, int expected)
     {
         // Act
         var actual = _sut.PlaceRoll(dice, category);
