@@ -27,8 +27,16 @@ public class Game
             Categories.Sixes => SumOnesTillSixes(dice, 6),
             Categories.Pair => SumHighestTwoPairs(dice, 1),
             Categories.TwoPairs => SumHighestTwoPairs(dice, 2),
+            Categories.ThreeOfAKind => ThreeOfAKind(dice),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
+    }
+
+    private int ThreeOfAKind(int[] dice)
+    {
+        return dice.GroupBy(number => number)
+            .Where(number => number.Count() == 3)
+            .Sum(number => number.Key * 3);
     }
 
     private int SumHighestTwoPairs(int[] dice, int pairs)
