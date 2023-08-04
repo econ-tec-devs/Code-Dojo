@@ -40,12 +40,19 @@ public class Game
             .Sum(number => number.Key * number.Count());
     }
 
-    private int SumOfTheHighestPair(int[] dice) 
-        => dice.GroupBy(number => number)
-            .Where(number => number.Count() > 1)
+    private int SumOfTheHighestPair(int[] dice)
+    {
+        var enumerable = dice.GroupBy(number => number)
+            .Where(number => number.Count() > 1).ToList();
+        if (!enumerable.Any() )
+        {
+            return 0;
+        }
+        return enumerable
             .OrderByDescending(number => number.First())
             .First()
             .Key * 2;
+    }
 
     private int SumOnesTillSixes(int[] dice, int category) 
         => dice.Count(cube => cube == category) * category;
