@@ -20,22 +20,32 @@ public class Game
         return category switch
         {
             Categories.Ones => SumOnesTillSixes(dice, 1),
-            Categories.Twoes => SumOnesTillSixes(dice, 2),
+            Categories.Twos => SumOnesTillSixes(dice, 2),
             Categories.Threes => SumOnesTillSixes(dice, 3),
             Categories.Fours => SumOnesTillSixes(dice, 4),
             Categories.Fives => SumOnesTillSixes(dice, 5),
             Categories.Sixes => SumOnesTillSixes(dice, 6),
             Categories.Pair => SumOfTheHighestPair(dice),
+            Categories.TwoPairs => SumHighestTwoPairs(dice),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
     }
 
-    private int SumOfTheHighestPair(int[] dice)
+    private int SumHighestTwoPairs(int[] dice)
     {
-        var groupNumbers = dice.GroupBy(number => number);
-        var test = groupNumbers.Where(number => number.Count()>1).OrderByDescending(number => number.First()).First().Key;
-        return test*2;
+        return dice.GroupBy(number => number)
+            .Where(number => number.Count() > 1)
+            .OrderByDescending(number => number.First())
+            .Take(2)
+            .Sum(number => number.Key * number.Count());
     }
+
+    private int SumOfTheHighestPair(int[] dice) 
+        => dice.GroupBy(number => number)
+            .Where(number => number.Count() > 1)
+            .OrderByDescending(number => number.First())
+            .First()
+            .Key * 2;
 
     private int SumOnesTillSixes(int[] dice, int category) 
         => dice.Count(cube => cube == category) * category;

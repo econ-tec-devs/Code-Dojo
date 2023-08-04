@@ -3,10 +3,11 @@
 public enum Categories
 {
     Ones,
-    Twoes,
+    Twos,
     Threes,
     Fours,
     Fives,
     Sixes,
-    Pair
+    Pair,
+    TwoPairs
 }
