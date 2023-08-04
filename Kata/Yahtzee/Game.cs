@@ -50,13 +50,16 @@ public class Game
 
     private int SumOfTheHighestPair(int[] dice)
     {
-        var enumerable = dice.GroupBy(number => number)
-            .Where(number => number.Count() > 1).ToList();
-        if (!enumerable.Any() )
+        var filteredDice = dice.GroupBy(number => number)
+            .Where(number => number.Count() > 1)
+            .ToList();
+        
+        if (filteredDice.Count == 0)
         {
             return 0;
         }
-        return enumerable
+        
+        return filteredDice
             .OrderByDescending(number => number.First())
             .First()
             .Key * 2;
