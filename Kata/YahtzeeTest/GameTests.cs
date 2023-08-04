@@ -64,6 +64,7 @@ public class GameTests
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Fives, 0)]
     [TestCase(new [] {1, 1, 2, 6, 6}, Categories.Sixes, 12)]
     [TestCase(new [] {1, 1, 2, 4, 4}, Categories.Sixes, 0)]
+    [TestCase(new [] {3, 3, 3, 4, 4}, Categories.Pair, 8)]
     public void PlaceRoll_InputDiceAndCategory_ReturnPoints(int[] dice, Categories category, int expected)
     {
         // Act

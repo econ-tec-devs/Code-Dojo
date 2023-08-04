@@ -17,17 +17,6 @@ public class Game
 
     public int PlaceRoll(int[] dice, Categories category)
     {
-        // var result = 0;
-        // foreach (var cube in dice)
-        // {
-        //     if (cube == 1)
-        //     {
-        //         result += 1;
-        //     }
-        // }
-        //
-        // return result;
-
         return category switch
         {
             Categories.Ones => SumOnesTillSixes(dice, 1),
@@ -40,8 +29,6 @@ public class Game
         };
     }
 
-    private static int SumOnesTillSixes(int[] dice, int category)
-    {
-        return dice.Count(cube => cube == category) * category;
-    }
+    private int SumOnesTillSixes(int[] dice, int category) 
+        => dice.Count(cube => cube == category) * category;
 }
