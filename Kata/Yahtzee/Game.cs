@@ -25,21 +25,23 @@ public class Game
             Categories.Fours => SumOnesTillSixes(dice, 4),
             Categories.Fives => SumOnesTillSixes(dice, 5),
             Categories.Sixes => SumOnesTillSixes(dice, 6),
-            Categories.Pair => SumHighestTwoPairs(dice, 1),
-            Categories.TwoPairs => SumHighestTwoPairs(dice, 2),
-            Categories.ThreeOfAKind => ThreeOfAKind(dice),
+            Categories.Pair => SumHighestPairs(dice, 1),
+            Categories.TwoPairs => SumHighestPairs(dice, 2),
+            Categories.ThreeOfAKind => CountOfAKind(dice, 3),
+            Categories.FourOfAKind => CountOfAKind(dice, 4),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
     }
 
-    private int ThreeOfAKind(int[] dice)
+    private int CountOfAKind(int[] dice, int countOfAKind)
     {
         return dice.GroupBy(number => number)
-            .Where(number => number.Count() >= 3)
-            .Sum(number => number.Key * 3);
+            .Where(number => number.Count() >= countOfAKind)
+            .Sum(number => number.Key * countOfAKind);
     }
+  
 
-    private int SumHighestTwoPairs(int[] dice, int pairs)
+    private int SumHighestPairs(int[] dice, int pairs)
     {
         var filteredDice  = dice.GroupBy(number => number)
             .Where(number => number.Count() > 1)
@@ -60,4 +62,3 @@ public class Game
         => dice.Count(cube => cube == category) * category;
     
 }
-

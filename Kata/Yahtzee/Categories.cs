@@ -10,5 +10,6 @@ public enum Categories
     Sixes,
     Pair,
     TwoPairs,
-    ThreeOfAKind
+    ThreeOfAKind,
+    FourOfAKind
 }
