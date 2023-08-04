@@ -25,44 +25,27 @@ public class Game
             Categories.Fours => SumOnesTillSixes(dice, 4),
             Categories.Fives => SumOnesTillSixes(dice, 5),
             Categories.Sixes => SumOnesTillSixes(dice, 6),
-            Categories.Pair => SumOfTheHighestPair(dice),
-            Categories.TwoPairs => SumHighestTwoPairs(dice),
+            Categories.Pair => SumHighestTwoPairs(dice, 1),
+            Categories.TwoPairs => SumHighestTwoPairs(dice, 2),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
     }
 
-    private int SumHighestTwoPairs(int[] dice)
+    private int SumHighestTwoPairs(int[] dice, int pairs)
     {
         var filteredDice  = dice.GroupBy(number => number)
             .Where(number => number.Count() > 1)
             .ToList();
 
-        if (filteredDice.Count < 2)
+        if (filteredDice.Count < pairs)
         {
             return 0;
         }
         
         return filteredDice
             .OrderByDescending(number => number.First())
-            .Take(2)
-            .Sum(number => number.Key * number.Count());
-    }
-
-    private int SumOfTheHighestPair(int[] dice)
-    {
-        var filteredDice = dice.GroupBy(number => number)
-            .Where(number => number.Count() > 1)
-            .ToList();
-        
-        if (filteredDice.Count == 0)
-        {
-            return 0;
-        }
-        
-        return filteredDice
-            .OrderByDescending(number => number.First())
-            .First()
-            .Key * 2;
+            .Take(pairs)
+            .Sum(number => number.Key * 2);
     }
 
     private int SumOnesTillSixes(int[] dice, int category) 
