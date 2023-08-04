@@ -7,5 +7,6 @@ public enum Categories
     Threes,
     Fours,
     Fives,
-    Sixes
+    Sixes,
+    Pair
 }

@@ -25,10 +25,20 @@ public class Game
             Categories.Fours => SumOnesTillSixes(dice, 4),
             Categories.Fives => SumOnesTillSixes(dice, 5),
             Categories.Sixes => SumOnesTillSixes(dice, 6),
+            Categories.Pair => SumOfTheHighestPair(dice),
             _ => throw new ArgumentOutOfRangeException(nameof(category), category, null)
         };
     }
 
+    private int SumOfTheHighestPair(int[] dice)
+    {
+        var groupNumbers = dice.GroupBy(number => number);
+        var test = groupNumbers.Where(number => number.Count()>1).OrderByDescending(number => number.First()).First().Key;
+        return test*2;
+    }
+
     private int SumOnesTillSixes(int[] dice, int category) 
         => dice.Count(cube => cube == category) * category;
+    
 }
+
