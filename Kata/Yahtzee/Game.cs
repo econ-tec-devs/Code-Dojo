@@ -35,7 +35,7 @@ public class Game
     private int ThreeOfAKind(int[] dice)
     {
         return dice.GroupBy(number => number)
-            .Where(number => number.Count() == 3)
+            .Where(number => number.Count() >= 3)
             .Sum(number => number.Key * 3);
     }
 
