@@ -33,8 +33,16 @@ public class Game
 
     private int SumHighestTwoPairs(int[] dice)
     {
-        return dice.GroupBy(number => number)
+        var filteredDice  = dice.GroupBy(number => number)
             .Where(number => number.Count() > 1)
+            .ToList();
+
+        if (filteredDice.Count < 2)
+        {
+            return 0;
+        }
+        
+        return filteredDice
             .OrderByDescending(number => number.First())
             .Take(2)
             .Sum(number => number.Key * number.Count());
