@@ -42,6 +42,7 @@
     "jest-mock-extended": "^3.0.5",
     "jest-preset-angular": "^13.1.1",
     "prettier": "^3.0.3",
+    "prettier-eslint": "^15.0.1",
     "typescript": "~5.1.3"
   }
 }
