@@ -10,4 +10,5 @@ export enum Category {
   ThreeOfAKind = 9,
   FourOfAKind = 10,
   SmallStraight = 11,
+  LargeStraight = 12,
 }
