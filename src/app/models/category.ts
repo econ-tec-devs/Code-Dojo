@@ -6,4 +6,5 @@ export enum Category {
   Fives,
   Sixes,
   Pair,
+  TwoPairs,
 }

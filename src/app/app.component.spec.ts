@@ -27,6 +27,7 @@ describe('AppComponent', () => {
     [[1, 2, 3, 4, 5], Category.Pair, 0],
     [[1, 3, 3, 4, 5], Category.Pair, 6],
     [[5, 5, 1, 3, 3], Category.Pair, 10],
+    [[5, 5, 1, 3, 2], Category.TwoPairs, 0],
     [[5, 5, 1, 3, 3], Category.TwoPairs, 16],
   ])(
     'placeRollOnCategory_testCase%#place%sOn%s_returns%s',

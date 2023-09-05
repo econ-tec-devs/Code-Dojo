@@ -17,6 +17,7 @@ export class AppComponent {
     switch (category) {
       case Category.Ones:
         return roll.filter((dice) => dice === 1).length;
+
       case Category.Twos:
         return roll.filter((dice) => dice === 2).length * 2;
 
@@ -41,6 +42,9 @@ export class AppComponent {
           });
         });
         return returnValue;
+
+      case Category.TwoPairs:
+        return 0;
     }
   }
 }
