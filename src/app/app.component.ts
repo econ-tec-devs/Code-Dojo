@@ -34,10 +34,10 @@ export class AppComponent {
         return this.getAmountOfAKind(roll, 4);
 
       case Category.SmallStraight:
-        return this.getStraight(roll, '[1,2,3,4,5]', 15);
+        return this.getStraight(roll, '[1,2,3,4,5]');
 
       case Category.LargeStraight:
-        return this.getStraight(roll, '[2,3,4,5,6]', 20);
+        return this.getStraight(roll, '[2,3,4,5,6]');
 
       case Category.FullHouse:
         return this.getFullHouse(roll);
@@ -106,12 +106,10 @@ export class AppComponent {
     return returnValue;
   }
 
-  private getStraight(
-    roll: number[],
-    straight: string,
-    result: number
-  ): number {
-    return JSON.stringify(roll.sort()) === straight ? result : 0;
+  private getStraight(roll: number[], straight: string): number {
+    return JSON.stringify(roll.sort()) === straight
+      ? this.getSumOfAllDice(roll)
+      : 0;
   }
 
   private getFullHouse(roll: number[]): number {
