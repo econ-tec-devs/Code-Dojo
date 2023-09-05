@@ -11,4 +11,7 @@ export enum Category {
   FourOfAKind = 10,
   SmallStraight = 11,
   LargeStraight = 12,
+  FullHouse = 13,
+  Yahtzee = 15,
+  Chance = 16,
 }

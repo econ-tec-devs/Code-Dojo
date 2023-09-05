@@ -12,8 +12,6 @@ export class AppComponent {
       return 0;
     }
 
-    let pairs: number[] = [];
-
     switch (category) {
       case Category.Ones:
       case Category.Twos:
@@ -22,13 +20,12 @@ export class AppComponent {
       case Category.Fives:
       case Category.Sixes:
         return roll.filter((dice) => dice === category).length * category;
+
       case Category.Pair:
-        pairs = this.getPairs(roll);
-        return pairs.length >= 1 ? pairs[pairs.length - 1] : 0;
+        return this.getSumOfHighestPair(roll);
 
       case Category.TwoPairs:
-        pairs = this.getPairs(roll);
-        return pairs.length === 2 ? pairs[0] + pairs[1] : 0;
+        return this.getSumOfAllPairs(roll);
 
       case Category.ThreeOfAKind:
         return this.getAmountOfAKind(roll, 3);
@@ -37,20 +34,70 @@ export class AppComponent {
         return this.getAmountOfAKind(roll, 4);
 
       case Category.SmallStraight:
-        return JSON.stringify(roll.sort()) === '[1,2,3,4,5]' ? 15 : 0;
+        return this.getStraight(roll, '[1,2,3,4,5]', 15);
 
       case Category.LargeStraight:
-        return JSON.stringify(roll.sort()) === '[2,3,4,5,6]' ? 20 : 0;
+        return this.getStraight(roll, '[2,3,4,5,6]', 20);
+
+      case Category.FullHouse:
+        if (
+          this.getPairs(roll).length === 2 &&
+          this.getAmountOfAKind(roll, 3)
+        ) {
+          return roll.reduce((acc, cur) => acc + cur);
+        }
+
+        return 0;
+
+      case Category.Yahtzee:
+        return this.getAmountOfAKind(roll, 5) === 0 ? 0 : 50;
+
+      case Category.Chance:
+        return roll.reduce((acc, cur) => acc + cur);
     }
   }
 
+  private getSumOfHighestPair(roll: number[]): number {
+    const pairs = this.getPairs(roll);
+
+    return pairs.length >= 1 ? pairs[pairs.length - 1] : 0;
+  }
+
+  private getSumOfAllPairs(roll: number[]): number {
+    const pairs = this.getPairs(roll);
+
+    return pairs.length === 2 ? pairs[0] + pairs[1] : 0;
+  }
+
   private getPairs(roll: number[]): number[] {
+    type GroupBy = {
+      1: number;
+      2: number;
+      3: number;
+      4: number;
+      5: number;
+      6: number;
+    };
+
+    const groupedNumbers: GroupBy = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+    };
+
+    for (const num of roll) {
+      groupedNumbers[num as keyof GroupBy]++;
+    }
+
     const pairs: number[] = [];
-    roll.sort().forEach((value, index, sorted) => {
-      if (value === sorted[index + 1]) {
-        pairs.push(value * 2);
+    for (let i = 1; i <= 6; i++) {
+      if (groupedNumbers[i as keyof GroupBy] > 1) {
+        pairs.push(i * 2);
       }
-    });
+    }
 
     return pairs;
   }
@@ -64,5 +111,13 @@ export class AppComponent {
     });
 
     return returnValue;
+  }
+
+  private getStraight(
+    roll: number[],
+    straight: string,
+    result: number
+  ): number {
+    return JSON.stringify(roll.sort()) === straight ? result : 0;
   }
 }
