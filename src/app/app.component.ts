@@ -40,20 +40,13 @@ export class AppComponent {
         return this.getStraight(roll, '[2,3,4,5,6]', 20);
 
       case Category.FullHouse:
-        if (
-          this.getPairs(roll).length === 2 &&
-          this.getAmountOfAKind(roll, 3)
-        ) {
-          return roll.reduce((acc, cur) => acc + cur);
-        }
-
-        return 0;
+        return this.getFullHouse(roll);
 
       case Category.Yahtzee:
         return this.getAmountOfAKind(roll, 5) === 0 ? 0 : 50;
 
       case Category.Chance:
-        return roll.reduce((acc, cur) => acc + cur);
+        return this.getSumOfAllDice(roll);
     }
   }
 
@@ -119,5 +112,17 @@ export class AppComponent {
     result: number
   ): number {
     return JSON.stringify(roll.sort()) === straight ? result : 0;
+  }
+
+  private getFullHouse(roll: number[]): number {
+    if (this.getPairs(roll).length === 2 && this.getAmountOfAKind(roll, 3)) {
+      return roll.reduce((acc, cur) => acc + cur);
+    }
+
+    return 0;
+  }
+
+  private getSumOfAllDice(roll: number[]): number {
+    return roll.reduce((acc, cur) => acc + cur);
   }
 }
