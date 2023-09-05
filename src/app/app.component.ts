@@ -28,10 +28,10 @@ export class AppComponent {
         return this.getSumOfAllPairs(roll);
 
       case Category.ThreeOfAKind:
-        return this.getAmountOfAKind(roll, 3);
+        return this.getSumOfAKind(roll, 3);
 
       case Category.FourOfAKind:
-        return this.getAmountOfAKind(roll, 4);
+        return this.getSumOfAKind(roll, 4);
 
       case Category.SmallStraight:
         return this.getStraight(roll, '[1,2,3,4,5]');
@@ -43,7 +43,7 @@ export class AppComponent {
         return this.getFullHouse(roll);
 
       case Category.Yahtzee:
-        return this.getAmountOfAKind(roll, 5) === 0 ? 0 : 50;
+        return this.getSumOfAKind(roll, 5) === 0 ? 0 : 50;
 
       case Category.Chance:
         return this.getSumOfAllDice(roll);
@@ -95,7 +95,7 @@ export class AppComponent {
     return pairs;
   }
 
-  private getAmountOfAKind(roll: number[], amount: number): number {
+  private getSumOfAKind(roll: number[], amount: number): number {
     let returnValue = 0;
     roll.forEach((value) => {
       if (roll.filter((value2) => value === value2).length >= amount) {
@@ -113,7 +113,7 @@ export class AppComponent {
   }
 
   private getFullHouse(roll: number[]): number {
-    if (this.getPairs(roll).length === 2 && this.getAmountOfAKind(roll, 3)) {
+    if (this.getPairs(roll).length === 2 && this.getSumOfAKind(roll, 3)) {
       return roll.reduce((acc, cur) => acc + cur);
     }
 
