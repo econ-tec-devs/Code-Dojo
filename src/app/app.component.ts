@@ -22,9 +22,11 @@ export class AppComponent {
       case Category.Fives:
       case Category.Sixes:
         return roll.filter((dice) => dice === category).length * category;
+
       case Category.Pair:
         pairs = this.getPairs(roll);
         return pairs.length >= 1 ? pairs[pairs.length - 1] : 0;
+
       case Category.TwoPairs:
         pairs = this.getPairs(roll);
         return pairs.length === 2 ? pairs[0] + pairs[1] : 0;
@@ -36,7 +38,7 @@ export class AppComponent {
         return this.getAmountOfAKind(roll, 4);
 
       case Category.SmallStraight:
-        return 0;
+        return JSON.stringify(roll.sort()) === '[1,2,3,4,5]' ? 15 : 0;
     }
   }
 
