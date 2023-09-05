@@ -21,20 +21,18 @@ export class AppComponent {
     console.log('loadByXMLHttpRequest');
   }
 
-  public loadByObservable(): void {
+  public loadByFetch(): void {
+    const response = fetch(this.url);
+    response.then((response) => console.log(response.text()));
+
+    console.log('loadByFetch');
+  }
+
+  public loadByHttpClient(): void {
     this.httpClient
       .get(this.url)
       .subscribe((response) => console.log(response));
 
     console.log('loadByObservable');
-  }
-
-  public loadByPromise(): void {
-    this.httpClient
-      .get(this.url)
-      .toPromise()
-      .then((value) => console.log(value));
-
-    console.log('loadByPromise');
   }
 }
