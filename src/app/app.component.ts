@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from './models/category';
+import { GroupBy } from './models/group-by';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
       case Category.Fours:
       case Category.Fives:
       case Category.Sixes:
-        return roll.filter((dice) => dice === category).length * category;
+        return this.getSumOfADigit(roll, category);
 
       case Category.Pair:
         return this.getSumOfHighestPair(roll);
@@ -43,11 +44,15 @@ export class AppComponent {
         return this.getFullHouse(roll);
 
       case Category.Yahtzee:
-        return this.getSumOfAKind(roll, 5) === 0 ? 0 : 50;
+        return this.getYahtzee(roll);
 
       case Category.Chance:
         return this.getSumOfAllDice(roll);
     }
+  }
+
+  private getSumOfADigit(roll: number[], category: Category): number {
+    return roll.filter((dice) => dice === category).length * category;
   }
 
   private getSumOfHighestPair(roll: number[]): number {
@@ -63,15 +68,19 @@ export class AppComponent {
   }
 
   private getPairs(roll: number[]): number[] {
-    type GroupBy = {
-      1: number;
-      2: number;
-      3: number;
-      4: number;
-      5: number;
-      6: number;
-    };
+    const groupedNumbers = this.getGroupedNumbers(roll);
 
+    const pairs: number[] = [];
+    for (let key = 1; key <= 6; key++) {
+      if (groupedNumbers[key as keyof GroupBy] > 1) {
+        pairs.push(key * 2);
+      }
+    }
+
+    return pairs;
+  }
+
+  private getGroupedNumbers(roll: number[]): GroupBy {
     const groupedNumbers: GroupBy = {
       1: 0,
       2: 0,
@@ -85,14 +94,7 @@ export class AppComponent {
       groupedNumbers[num as keyof GroupBy]++;
     }
 
-    const pairs: number[] = [];
-    for (let i = 1; i <= 6; i++) {
-      if (groupedNumbers[i as keyof GroupBy] > 1) {
-        pairs.push(i * 2);
-      }
-    }
-
-    return pairs;
+    return groupedNumbers;
   }
 
   private getSumOfAKind(roll: number[], amount: number): number {
@@ -114,10 +116,14 @@ export class AppComponent {
 
   private getFullHouse(roll: number[]): number {
     if (this.getPairs(roll).length === 2 && this.getSumOfAKind(roll, 3)) {
-      return roll.reduce((acc, cur) => acc + cur);
+      return this.getSumOfAllDice(roll);
     }
 
     return 0;
+  }
+
+  private getYahtzee(roll: number[]): number {
+    return this.getSumOfAKind(roll, 5) === 0 ? 0 : 50;
   }
 
   private getSumOfAllDice(roll: number[]): number {

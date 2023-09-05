@@ -15,6 +15,7 @@ describe('AppComponent', () => {
     [[1, 2, 6, 4, 5], Category.Threes, 0],
     [[1, 2, 3, 4, 5], Category.Threes, 3],
     [[1, 2, 3, 4, 3], Category.Threes, 6],
+    [[1, 3, 3, 3, 3], Category.Threes, 12],
     [[1, 2, 3, 6, 5], Category.Fours, 0],
     [[1, 2, 3, 4, 5], Category.Fours, 4],
     [[1, 2, 3, 4, 4], Category.Fours, 8],
