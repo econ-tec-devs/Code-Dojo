@@ -13,7 +13,7 @@ export class AppComponent {
     }
 
     let pairs: number[] = [];
-    let returnValue = 0;
+    const returnValue = 0;
 
     switch (category) {
       case Category.Ones:
@@ -23,7 +23,6 @@ export class AppComponent {
       case Category.Fives:
       case Category.Sixes:
         return roll.filter((dice) => dice === category).length * category;
-
       case Category.Pair:
         pairs = this.getPairs(roll);
         return pairs.length >= 1 ? pairs[pairs.length - 1] : 0;
@@ -33,13 +32,10 @@ export class AppComponent {
         return pairs.length === 2 ? pairs[0] + pairs[1] : 0;
 
       case Category.ThreeOfAKind:
-        roll.forEach((value) => {
-          if (roll.filter((value2) => value === value2).length >= 3) {
-            returnValue = value * 3;
-          }
-        });
+        return this.getAmountOfAKind(roll, 3);
 
-        return returnValue;
+      case Category.FourOfAKind:
+        return this.getAmountOfAKind(roll, 4);
     }
   }
 
@@ -52,5 +48,16 @@ export class AppComponent {
     });
 
     return pairs;
+  }
+
+  private getAmountOfAKind(roll: number[], amount: number): number {
+    let returnValue = 0;
+    roll.forEach((value) => {
+      if (roll.filter((value2) => value === value2).length >= amount) {
+        returnValue = value * amount;
+      }
+    });
+
+    return returnValue;
   }
 }
