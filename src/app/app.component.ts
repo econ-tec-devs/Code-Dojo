@@ -13,7 +13,6 @@ export class AppComponent {
     }
 
     let pairs: number[] = [];
-    const returnValue = 0;
 
     switch (category) {
       case Category.Ones:
@@ -26,7 +25,6 @@ export class AppComponent {
       case Category.Pair:
         pairs = this.getPairs(roll);
         return pairs.length >= 1 ? pairs[pairs.length - 1] : 0;
-
       case Category.TwoPairs:
         pairs = this.getPairs(roll);
         return pairs.length === 2 ? pairs[0] + pairs[1] : 0;
@@ -36,6 +34,9 @@ export class AppComponent {
 
       case Category.FourOfAKind:
         return this.getAmountOfAKind(roll, 4);
+
+      case Category.SmallStraight:
+        return 0;
     }
   }
 
