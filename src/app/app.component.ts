@@ -18,7 +18,6 @@ export class AppComponent {
     switch (category) {
       case Category.Ones:
         return roll.filter((dice) => dice === 1).length;
-
       case Category.Twos:
         return roll.filter((dice) => dice === 2).length * 2;
 
@@ -57,6 +56,9 @@ export class AppComponent {
           return pairs[0] + pairs[2];
         }
 
+        return 0;
+
+      case Category.ThreeOfAKind:
         return 0;
     }
   }

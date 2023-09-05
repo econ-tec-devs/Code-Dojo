@@ -7,4 +7,5 @@ export enum Category {
   Sixes,
   Pair,
   TwoPairs,
+  ThreeOfAKind,
 }
