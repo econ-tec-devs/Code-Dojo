@@ -13,6 +13,7 @@ export class AppComponent {
     }
 
     let returnValue = 0;
+    const pairs: number[] = [];
 
     switch (category) {
       case Category.Ones:
@@ -44,6 +45,18 @@ export class AppComponent {
         return returnValue;
 
       case Category.TwoPairs:
+        roll.sort().forEach((value, index) => {
+          roll?.forEach((value2, index2) => {
+            if (value === value2 && index !== index2) {
+              pairs.push(value * 2);
+            }
+          });
+        });
+
+        if (pairs.length === 4) {
+          return pairs[0] + pairs[2];
+        }
+
         return 0;
     }
   }
