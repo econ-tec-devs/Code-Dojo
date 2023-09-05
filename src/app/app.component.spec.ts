@@ -42,6 +42,8 @@ describe('AppComponent', () => {
     [[1, 2, 3, 4, 5], Category.SmallStraight, 15],
     [[1, 2, 3, 4, 5], Category.LargeStraight, 0],
     [[2, 3, 4, 5, 6], Category.LargeStraight, 20],
+    [[2, 3, 4, 5, 6], Category.FullHouse, 0],
+    [[1, 1, 4, 4, 4], Category.FullHouse, 14],
   ])(
     'placeRollOnCategory_testCase%#place%sOn%s_returns%s',
     (roll, category, expected) =>
