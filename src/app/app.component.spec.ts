@@ -26,12 +26,16 @@ describe('AppComponent', () => {
     [[1, 4, 1, 6, 6], Category.Sixes, 12],
     [[1, 2, 3, 4, 5], Category.Pair, 0],
     [[1, 3, 3, 4, 5], Category.Pair, 6],
+    [[1, 3, 3, 3, 5], Category.Pair, 6],
     [[5, 5, 1, 3, 3], Category.Pair, 10],
+    [[5, 3, 5, 3, 3], Category.Pair, 10],
     [[5, 5, 1, 3, 2], Category.TwoPairs, 0],
     [[5, 5, 1, 3, 3], Category.TwoPairs, 16],
     [[5, 1, 3, 5, 3], Category.TwoPairs, 16],
     [[5, 1, 3, 2, 3], Category.ThreeOfAKind, 0],
     [[5, 1, 3, 3, 3], Category.ThreeOfAKind, 9],
+    [[3, 3, 3, 3, 3], Category.ThreeOfAKind, 9],
+    [[1, 2, 3, 3, 3], Category.FourOfAKind, 0],
   ])(
     'placeRollOnCategory_testCase%#place%sOn%s_returns%s',
     (roll, category, expected) =>
