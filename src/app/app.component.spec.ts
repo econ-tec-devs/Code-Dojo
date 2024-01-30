@@ -33,4 +33,15 @@ describe('AppComponent', () => {
     // Assert
     expect(actual).toBe('II');
   });
+
+  test('toRoman_input3_returnIII', () => {
+    // Arrange
+    const sut = new AppComponent();
+
+    // Act
+    const actual: string = sut.toRoman(3);
+
+    // Assert
+    expect(actual).toBe('III');
+  });
 });
