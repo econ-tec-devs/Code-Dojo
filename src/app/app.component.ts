@@ -6,8 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public toRoman(number: number): string {
+  private literals: { [id: number]: ILiterals } = {
+    1: { arabic: 1, roman: 'I' },
+    5: { arabic: 5, roman: 'V' },
+    10: { arabic: 10, roman: 'X' },
+    50: { arabic: 50, roman: 'L' },
+    100: { arabic: 100, roman: 'C' },
+    500: { arabic: 500, roman: 'D' },
+    1000: { arabic: 1000, roman: 'M' },
+  };
 
+  private tempResult = '';
+
+  public toRoman(number: number): string {
     if (number == 9) {
       return 'IX';
     }
@@ -16,23 +27,27 @@ export class AppComponent {
       return 'IV';
     }
 
-    const tempX = number % 10;
-    let result = '';
-    if (tempX != number) {
-      result += 'X';
-      number = number - 10;
-    }
-
-    const tempV = number % 5;
-    if (tempV != number) {
-      result += 'V';
-      number = number - 5;
-    }
+    number = this.romanSplice(10, number);
+    number = this.romanSplice(5, number);
 
     for (let i = 0; i < number; i++) {
-      result += 'I';
+      this.tempResult += 'I';
     }
 
-    return result;
+    return this.tempResult;
   }
+
+  private romanSplice(base: number, input: number): number {
+    const tempX = input % this.literals[base].arabic;
+    if (tempX != input) {
+      this.tempResult += this.literals[base].roman;
+      return input - this.literals[base].arabic;
+    }
+    return input;
+  }
+}
+
+interface ILiterals {
+  arabic: number;
+  roman: string;
 }
