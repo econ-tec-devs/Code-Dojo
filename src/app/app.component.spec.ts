@@ -20,6 +20,9 @@ describe('AppComponent', () => {
     [9, 'IX'],
     [10, 'X'],
     [11, 'XI'],
+    [12, 'XII'],
+    [13, 'XIII'],
+    [14, 'XIV'],
   ])('toRoman_input(%s)_return(%s)', (input, result) => {
     // Act
     const actual: string = sut.toRoman(input);
