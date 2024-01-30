@@ -32,6 +32,12 @@ export class AppComponent {
     return this.tempResult;
   }
 
+  /**
+   * Handles upward splicing for roman literals like "V" as decimal 5 or "XI" as decimal 11.
+   * @param base decimal base which should be used for splicing while conversion to roman
+   * @param input integer value which should be converted to roman
+   * @returns returns updated (rest) integer value
+   */
   private romanSpliceUp(base: number, input: number): number {
     const tempX = input % this.literals[base].arabic;
     if (tempX != input) {
@@ -41,6 +47,12 @@ export class AppComponent {
     return input;
   }
 
+  /**
+   * Handles downward splicing for roman literals like "IV" as decimal 4 or "IX" as decimal 9.
+   * @param base decimal base which should be used for splicing while convertion to roman
+   * @param input integer value which should be converted to roman
+   * @returns returns updated (rest) integer value
+   */
   private romanSpliceDown(base: number, input: number): number {
     const temp = input % this.literals[base].arabic;
     if (temp == this.literals[base].arabic - 1) {
