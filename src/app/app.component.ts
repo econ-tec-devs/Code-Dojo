@@ -7,31 +7,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public toRoman(number: number): string {
+    let tempV = number % 5;
+    let result = "";
+
     if (number == 9) {
       return 'IX';
     }
 
-    if (number == 8) {
-      return 'VIII';
-    }
-
-    if (number == 7) {
-      return 'VII';
-    }
-
-    if (number == 6) {
-      return 'VI';
-    }
-
-    if (number == 5) {
-      return 'V';
+    if (tempV != number) {
+      result += "V";
+      number = number - 5;
     }
 
     if (number == 4) {
       return 'IV';
     }
 
-    let result = '';
     for (let i = 0; i < number; i++) {
       result += 'I';
     }
