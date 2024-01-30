@@ -22,4 +22,15 @@ describe('AppComponent', () => {
     // Assert
     expect(actual).toBe('I');
   });
+
+  test('toRoman_input2_returnII', () => {
+    // Arrange
+    const sut = new AppComponent();
+
+    // Act
+    const actual: string = sut.toRoman(2);
+
+    // Assert
+    expect(actual).toBe('II');
+  });
 });
