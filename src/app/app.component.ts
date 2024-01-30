@@ -19,27 +19,11 @@ export class AppComponent {
   private tempResult = '';
 
   public toRoman(number: number): string {
-    if (number == 14) {
-      return 'XIV';
-    }
+    number = this.romanSpliceUp(10, number);
+    number = this.romanSpliceDown(10, number);
 
-    if (number == 9) {
-      return 'IX';
-    }
-
-    if (number == 4) {
-      return 'IV';
-    }
-
-    number = this.romanSplice(10, number);
-
-    const temp = number % 10;
-    if (temp == 10 - 1) {
-      this.tempResult += `I${this.literals[10].roman}`;
-      number = number - temp;
-    }
-
-    number = this.romanSplice(5, number);
+    number = this.romanSpliceUp(5, number);
+    number = this.romanSpliceDown(5, number);
 
     for (let i = 0; i < number; i++) {
       this.tempResult += 'I';
@@ -48,11 +32,20 @@ export class AppComponent {
     return this.tempResult;
   }
 
-  private romanSplice(base: number, input: number): number {
+  private romanSpliceUp(base: number, input: number): number {
     const tempX = input % this.literals[base].arabic;
     if (tempX != input) {
       this.tempResult += this.literals[base].roman;
       return input - this.literals[base].arabic;
+    }
+    return input;
+  }
+
+  private romanSpliceDown(base: number, input: number): number {
+    const temp = input % this.literals[base].arabic;
+    if (temp == this.literals[base].arabic - 1) {
+      this.tempResult += `I${this.literals[base].roman}`;
+      input = input - temp;
     }
     return input;
   }
