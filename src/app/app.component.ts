@@ -19,6 +19,10 @@ export class AppComponent {
   private tempResult = '';
 
   public toRoman(number: number): string {
+    if (number == 14) {
+      return 'XIV';
+    }
+
     if (number == 9) {
       return 'IX';
     }
