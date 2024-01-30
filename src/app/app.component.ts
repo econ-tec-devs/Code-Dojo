@@ -19,18 +19,11 @@ export class AppComponent {
       return 'IV';
     }
 
-    if (number == 3) {
-      return 'III';
+    let result = '';
+    for (let i = 0; i < number; i++) {
+      result += 'I';
     }
 
-    if (number == 2) {
-      return 'II';
-    }
-
-    if (number == 1) {
-      return 'I';
-    }
-
-    return '';
+    return result;
   }
 }
