@@ -32,6 +32,13 @@ export class AppComponent {
     }
 
     number = this.romanSplice(10, number);
+
+    const temp = number % 10;
+    if (temp == 10 - 1) {
+      this.tempResult += `I${this.literals[10].roman}`;
+      number = number - temp;
+    }
+
     number = this.romanSplice(5, number);
 
     for (let i = 0; i < number; i++) {
