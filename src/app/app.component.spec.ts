@@ -1,10 +1,13 @@
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  test('toRoman_input0_returnEmptyString', () => {
-    // Arrange
-    const sut = new AppComponent();
+  let sut: AppComponent;
 
+  beforeEach(() => {
+    sut = new AppComponent();
+  });
+
+  test('toRoman_input0_returnEmptyString', () => {
     // Act
     const actual: string = sut.toRoman(0);
 
@@ -13,9 +16,6 @@ describe('AppComponent', () => {
   });
 
   test('toRoman_input1_returnI', () => {
-    // Arrange
-    const sut = new AppComponent();
-
     // Act
     const actual: string = sut.toRoman(1);
 
@@ -24,9 +24,6 @@ describe('AppComponent', () => {
   });
 
   test('toRoman_input2_returnII', () => {
-    // Arrange
-    const sut = new AppComponent();
-
     // Act
     const actual: string = sut.toRoman(2);
 
@@ -35,9 +32,6 @@ describe('AppComponent', () => {
   });
 
   test('toRoman_input3_returnIII', () => {
-    // Arrange
-    const sut = new AppComponent();
-
     // Act
     const actual: string = sut.toRoman(3);
 
