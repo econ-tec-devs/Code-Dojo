@@ -46,4 +46,12 @@ describe('AppComponent', () => {
     // Assert
     expect(actual).toBe('IV');
   });
+
+  test('toRoman_input5_returnV', () => {
+    // Act
+    const actual: string = sut.toRoman(5);
+
+    // Assert
+    expect(actual).toBe('V');
+  });
 });
