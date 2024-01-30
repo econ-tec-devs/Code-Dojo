@@ -38,4 +38,12 @@ describe('AppComponent', () => {
     // Assert
     expect(actual).toBe('III');
   });
+
+  test('toRoman_input4_returnIV', () => {
+    // Act
+    const actual: string = sut.toRoman(4);
+
+    // Assert
+    expect(actual).toBe('IV');
+  });
 });
