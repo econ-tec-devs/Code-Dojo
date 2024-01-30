@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public toRoman(number: number): string {
 
+    if (number == 2){
+      return 'II';
+    }
+
     if(number==1){
       return 'I';
     }
