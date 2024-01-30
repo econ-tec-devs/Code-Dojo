@@ -7,13 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public toRoman(number: number): string {
-    if (number == 11) {
-      return 'XI';
-    }
-
-    if (number == 10) {
-      return 'X';
-    }
 
     if (number == 9) {
       return 'IX';
@@ -23,8 +16,14 @@ export class AppComponent {
       return 'IV';
     }
 
-    const tempV = number % 5;
+    const tempX = number % 10;
     let result = '';
+    if (tempX != number) {
+      result += 'X';
+      number = number - 10;
+    }
+
+    const tempV = number % 5;
     if (tempV != number) {
       result += 'V';
       number = number - 5;
