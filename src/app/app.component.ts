@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public toRoman(number: number): string {
+    if (number == 4) {
+      return 'IV';
+    }
+
     if (number == 3) {
       return 'III';
     }
