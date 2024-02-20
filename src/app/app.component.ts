@@ -39,8 +39,8 @@ export class AppComponent {
    * @returns returns updated (rest) integer value
    */
   private romanSpliceUp(base: number, input: number): number {
-    const tempX = input % this.literals[base].arabic;
-    if (tempX != input) {
+    const temp = input % this.literals[base].arabic;
+    if (temp != input) {
       this.tempResult += this.literals[base].roman;
       return input - this.literals[base].arabic;
     }
